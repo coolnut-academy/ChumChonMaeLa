@@ -370,6 +370,7 @@
      * ระบบบริหารจัดการเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา (Single-Page Application)
      * รองรับทั้งการทำงานแบบ Local Storage (ทดสอบ/ออฟไลน์) และ Google Apps Script API
      * ============================================================================
+     */
     const DEFAULT_GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwHiT3_AYUEqyUevcCcRfG87AT9y_VWdwbrZJFVS2eyX6frtoi_3ucaFqeZc5eJ6UEZ/exec'; // URL ของ Google Apps Script (/exec)
     const DEFAULT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4/edit?gid=0#gid=0'; // ลิงก์ฐานข้อมูล Google Sheets
     const DEFAULT_DRIVE_FOLDER_ID = '1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc'; // รหัสโฟลเดอร์ Google Drive คลังโรงเรียน
@@ -622,7 +623,7 @@
         const res = await fetch(state.gasUrl + '?action=getPublicData&t=' + Date.now());
         const data = await res.json();
         if (data && data.ok) {
-          if (data.config) state.db.config = Object.assign({}, state.db.config, data.config);
+          if (data.config && Object.keys(data.config).length > 0) state.db.config = Object.assign({}, state.db.config, data.config);
           if (Array.isArray(data.banners) && data.banners.length) state.db.banners = data.banners;
           if (Array.isArray(data.news) && data.news.length) state.db.news = data.news;
           if (Array.isArray(data.personnel) && data.personnel.length) state.db.personnel = data.personnel;
