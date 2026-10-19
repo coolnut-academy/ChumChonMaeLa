@@ -1,5 +1,10 @@
 // Display-only AI illustrations. Never write placeholder URLs into CMS records.
 const PLACEHOLDER_ASSETS = {
+  'hero-entrance': { file: 'hero-school-entrance', alt: 'ภาพวาดป้ายและทางเข้าโรงเรียนสมมติ ไม่ใช่ป้ายโรงเรียนจริง' },
+  'hero-primary': { file: 'hero-primary-building', alt: 'ภาพวาดอาคารประถมศึกษาสมมติ' },
+  'hero-secondary': { file: 'hero-secondary-building', alt: 'ภาพวาดอาคารมัธยมศึกษาสมมติ' },
+  'hero-assembly': { file: 'hero-flagpole-assembly', alt: 'ภาพวาดกิจกรรมหน้าเสาธงของนักเรียนสมมติ ไม่ใช่ภาพเหตุการณ์จริง' },
+  'hero-classroom': { file: 'hero-classroom-learning', alt: 'ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน' },
   campus: { file: 'community-school-campus', alt: 'ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ' },
   kinder: { file: 'kindergarten-play-learning', alt: 'ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ' },
   primary: { file: 'primary-reading-discovery', alt: 'ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน' },

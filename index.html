@@ -9,6 +9,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script>
+    // Strawberry/coral accents; deep shades are reserved for readable text.
+    const schoolRed = {
+      50: '#FFF2F4',
+      100: '#FFE4E9',
+      200: '#FFCAD5',
+      300: '#FFA6B8',
+      400: '#F88199',
+      500: '#EB5B79',
+      600: '#D13B57',
+      700: '#C83B56',
+      800: '#AD304B',
+      900: '#8E2944',
+      950: '#73233C'
+    };
     tailwind.config = {
       theme: {
         extend: {
@@ -17,16 +31,9 @@
             body: ['Sarabun', 'Prompt', 'Inter', 'sans-serif']
           },
           colors: {
-            maela: {
-              50: '#FEF2F2',
-              100: '#FEE2E2',
-              200: '#FECACA',
-              500: '#EF4444',
-              600: '#DC2626',
-              700: '#B91C1C',
-              800: '#991B1B',
-              900: '#7F1D1D'
-            }
+            red: schoolRed,
+            maela: schoolRed,
+            pearl: { 50: '#F8FAFD', 100: '#F1F5FB' }
           }
         }
       }
@@ -57,11 +64,17 @@
     .school-image-label[hidden] { display: none; }
     .hero-art { position: absolute; inset: 0; }
     .hero-art-image { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
+    .school-hero { height: 560px; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s linear .6s; }
+    .hero-slide.is-active { opacity: 1; visibility: visible; transition: opacity .6s ease; }
+    .hero-dot { width: 24px; height: 28px; display: flex; align-items: center; justify-content: center; }
+    .hero-dot::before { content: ''; width: 8px; height: 8px; border-radius: 999px; background: #FFCAD5; transition: width .2s ease; }
+    .hero-dot.is-active::before { width: 22px; background: #C83B56; }
     .hero-shade {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(69, 10, 10, .94) 0%, rgba(69, 10, 10, .84) 38%, rgba(69, 10, 10, .35) 72%, rgba(69, 10, 10, .12) 100%);
+      background: linear-gradient(90deg, rgba(250, 252, 255, .98) 0%, rgba(250, 252, 255, .96) 38%, rgba(245, 249, 255, .58) 72%, rgba(245, 249, 255, .16) 100%);
     }
     .hero-art .school-image-label {
       z-index: 2;
@@ -69,30 +82,35 @@
       bottom: 36px;
     }
     @media (max-width: 767px) {
+      .school-hero { height: 640px; }
+      .hero-art-image { object-position: 70% center; }
       .hero-shade {
-        background: linear-gradient(180deg, rgba(69, 10, 10, .9) 0%, rgba(69, 10, 10, .82) 58%, rgba(69, 10, 10, .38) 100%);
+        background: linear-gradient(180deg, rgba(250, 252, 255, .98) 0%, rgba(250, 252, 255, .97) 42%, rgba(250, 252, 255, .82) 62%, rgba(245, 249, 255, .1) 100%);
       }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide, .hero-dot::before { transition: none; }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
+<body class="bg-pearl-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
 
   <!-- แถบประกาศด่วนด้านบนสุด (Top Ticker & Quick Utility Bar) -->
-  <div class="bg-red-900 text-white text-xs sm:text-sm border-b border-red-800">
+  <div class="bg-red-100 text-red-900 text-xs sm:text-sm border-b border-red-200">
     <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2 overflow-hidden flex-1 min-w-[240px]">
         <span class="bg-white text-red-800 font-bold px-2.5 py-0.5 rounded-full text-xs shrink-0 shadow-sm">ประกาศล่าสุด</span>
         <div class="overflow-hidden relative flex-1">
-          <div id="topTickerText" class="animate-ticker font-light text-red-50"></div>
+          <div id="topTickerText" class="animate-ticker font-medium text-red-900"></div>
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-2 sm:gap-3 max-w-full">
-        <span id="apiStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/70 text-red-100 border border-red-700/60 text-xs">
+        <span id="apiStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white text-red-800 border border-red-200 text-xs">
           <span id="apiStatusDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span id="apiStatusLabel">พร้อมใช้งาน (Local + Cloud Ready)</span>
         </span>
-        <button id="btnOpenPopup" type="button" class="text-xs underline hover:text-red-200 transition">ดูโปสเตอร์ประกาศ</button>
-        <a href="#/admin" class="inline-flex items-center gap-1 bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-md text-xs font-medium transition">
+        <button id="btnOpenPopup" type="button" class="text-xs underline hover:text-red-700 transition">ดูโปสเตอร์ประกาศ</button>
+        <a href="#/admin" class="inline-flex items-center gap-1 bg-white/80 hover:bg-white text-red-800 px-2.5 py-1 rounded-md text-xs font-medium transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           <span>สำหรับผู้ดูแล (Admin)</span>
         </a>
@@ -101,11 +119,11 @@
   </div>
 
   <!-- แถบเมนูหลัก (Sticky Main Navbar) -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-4 border-red-700 shadow-sm">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-4 border-red-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       <!-- โลโก้และชื่อโรงเรียน -->
       <a href="#/home" class="flex items-center gap-2 sm:gap-3 group min-w-0 flex-1 xl:flex-none">
-        <div class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 p-0.5 shadow-md group-hover:scale-105 transition">
+        <div class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-red-400 to-red-600 p-0.5 shadow-md group-hover:scale-105 transition">
           <div class="w-full h-full rounded-[14px] bg-white flex flex-col items-center justify-center relative overflow-hidden">
             <div class="w-full h-1.5 bg-red-700 absolute top-0"></div>
             <svg class="w-7 h-7 text-red-700 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
@@ -169,58 +187,58 @@
   <main id="appMainContainer" class="flex-1"></main>
 
   <!-- ส่วนท้ายเว็บไซต์ (Footer) -->
-  <footer class="bg-slate-900 text-slate-300 border-t-4 border-red-700 mt-12">
+  <footer class="bg-red-50 text-slate-600 border-t-4 border-red-200 mt-12">
     <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- ข้อมูลโรงเรียน -->
       <div>
         <div class="flex items-center gap-3 mb-3">
           <div class="w-10 h-10 rounded-xl bg-red-700 text-white flex items-center justify-center font-bold text-sm shadow">ม.ล.ศ.</div>
           <div>
-            <h3 id="footerSchoolName" class="font-bold text-white text-base">โรงเรียนชุมชนแม่ลาศึกษา</h3>
-            <p class="text-xs text-red-300">สีประจำโรงเรียน: แดง - ขาว</p>
+            <h3 id="footerSchoolName" class="font-bold text-red-900 text-base">โรงเรียนชุมชนแม่ลาศึกษา</h3>
+            <p class="text-xs text-red-700">สีประจำโรงเรียน: แดง - ขาว</p>
           </div>
         </div>
-        <p id="footerMotto" class="text-xs text-slate-400 leading-relaxed mb-3"></p>
-        <p id="footerAddress" class="text-xs text-slate-400 leading-relaxed"></p>
+        <p id="footerMotto" class="text-xs text-slate-600 leading-relaxed mb-3"></p>
+        <p id="footerAddress" class="text-xs text-slate-600 leading-relaxed"></p>
       </div>
 
       <!-- ระดับชั้นที่เปิดสอน -->
       <div>
-        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ระดับชั้นที่เปิดสอน (ขยายโอกาส)</h4>
-        <ul class="space-y-2 text-xs text-slate-300">
-          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับปฐมวัย (อนุบาลปีที่ 2 – 3)</a></li>
-          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับประถมศึกษา (ชั้น ป.1 – ป.6)</a></li>
-          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับมัธยมศึกษาตอนต้น (ชั้น ม.1 – ม.3)</a></li>
-          <li><a href="#/admissions" class="hover:text-red-400 transition">• โครงการเรียนฟรี 15 ปีอย่างมีคุณภาพ</a></li>
+        <h4 class="text-red-900 font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ระดับชั้นที่เปิดสอน (ขยายโอกาส)</h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href="#/academics" class="hover:text-red-700 transition">• ระดับปฐมวัย (อนุบาลปีที่ 2 – 3)</a></li>
+          <li><a href="#/academics" class="hover:text-red-700 transition">• ระดับประถมศึกษา (ชั้น ป.1 – ป.6)</a></li>
+          <li><a href="#/academics" class="hover:text-red-700 transition">• ระดับมัธยมศึกษาตอนต้น (ชั้น ม.1 – ม.3)</a></li>
+          <li><a href="#/admissions" class="hover:text-red-700 transition">• โครงการเรียนฟรี 15 ปีอย่างมีคุณภาพ</a></li>
         </ul>
       </div>
 
       <!-- เมนูลัดและธรรมาภิบาล -->
       <div>
-        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ข้อมูลสาธารณะ & บริการ</h4>
-        <ul class="space-y-2 text-xs text-slate-300">
-          <li><a href="#/ita" class="hover:text-red-400 transition">• ข้อมูลความโปร่งใส ITA (OIT O1–O43)</a></li>
-          <li><a href="#/news" class="hover:text-red-400 transition">• ประกาศจัดซื้อจัดจ้างและรับสมัครงาน</a></li>
-          <li><a href="#/services" class="hover:text-red-400 transition">• ระบบตรวจสอบผลการเรียนและตารางเรียน</a></li>
-          <li><a href="#/admin" class="hover:text-red-400 transition">• เข้าสู่ระบบผู้ดูแลเว็บไซต์ (Admin CMS)</a></li>
+        <h4 class="text-red-900 font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ข้อมูลสาธารณะ & บริการ</h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href="#/ita" class="hover:text-red-700 transition">• ข้อมูลความโปร่งใส ITA (OIT O1–O43)</a></li>
+          <li><a href="#/news" class="hover:text-red-700 transition">• ประกาศจัดซื้อจัดจ้างและรับสมัครงาน</a></li>
+          <li><a href="#/services" class="hover:text-red-700 transition">• ระบบตรวจสอบผลการเรียนและตารางเรียน</a></li>
+          <li><a href="#/admin" class="hover:text-red-700 transition">• เข้าสู่ระบบผู้ดูแลเว็บไซต์ (Admin CMS)</a></li>
         </ul>
       </div>
 
       <!-- ติดต่อสอบถาม -->
       <div>
-        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ติดต่อโรงเรียน</h4>
-        <div class="space-y-2 text-xs text-slate-300">
-          <p>โทรศัพท์: <span id="footerPhone" class="text-white font-medium"></span></p>
-          <p>อีเมล: <span id="footerEmail" class="text-white font-medium"></span></p>
+        <h4 class="text-red-900 font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ติดต่อโรงเรียน</h4>
+        <div class="space-y-2 text-xs text-slate-600">
+          <p>โทรศัพท์: <span id="footerPhone" class="text-slate-800 font-medium"></span></p>
+          <p>อีเมล: <span id="footerEmail" class="text-slate-800 font-medium"></span></p>
           <p>เวลาทำการ: จันทร์ – ศุกร์ (07:30 – 16:30 น.)</p>
           <div class="pt-2 flex flex-wrap gap-2">
             <a href="#/contact" class="bg-red-700 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition">ส่งข้อความติดต่อ</a>
-            <button id="btnOpenPdpaModal" type="button" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs border border-slate-700 transition">นโยบาย PDPA</button>
+            <button id="btnOpenPdpaModal" type="button" class="bg-white hover:bg-red-100 text-red-800 px-3 py-1.5 rounded-lg text-xs border border-red-200 transition">นโยบาย PDPA</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="bg-slate-950 py-4 text-center text-xs text-slate-500 px-4">
+    <div class="bg-red-100/60 py-4 text-center text-xs text-slate-600 px-4">
       <p>© <span id="footerYear">2569</span> โรงเรียนชุมชนแม่ลาศึกษา (Chumchon Maela Suksa School) • ขับเคลื่อนด้วยสถาปัตยกรรม GitHub Pages + Google Sheets Database + Google Drive Storage</p>
     </div>
   </footer>
@@ -239,9 +257,9 @@
   <!-- โมดอลกลางสำหรับอ่านข่าว / ดูโปสเตอร์ประกาศ / ดูเอกสาร PDF / ยืนยันการลบ -->
   <div id="globalModalBackdrop" class="hidden fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden my-auto">
-      <div class="bg-gradient-to-r from-red-800 to-red-700 text-white px-5 py-3.5 flex items-center justify-between">
+      <div class="bg-red-100 text-red-900 px-5 py-3.5 flex items-center justify-between">
         <h3 id="globalModalTitle" class="font-bold text-base sm:text-lg truncate pr-4">รายละเอียด</h3>
-        <button id="btnCloseGlobalModal" type="button" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="ปิดหน้าต่าง">
+        <button id="btnCloseGlobalModal" type="button" class="p-1.5 rounded-lg bg-white/80 hover:bg-white text-red-800 transition" aria-label="ปิดหน้าต่าง">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
@@ -256,6 +274,7 @@
   <div id="toastContainer" class="fixed top-20 right-4 z-50 space-y-2 max-w-sm w-full pointer-events-none"></div>
 
   <script src="./image-placeholders.js"></script>
+  <script src="./hero-slideshow.js"></script>
   <script>
     /**
      * ============================================================================
@@ -293,32 +312,7 @@
           uniqueness: 'โรงเรียนวิถีชุมชน พื้นที่ปลอดภัย แหล่งเรียนรู้เศรษฐกิจพอเพียงและเทคโนโลยี'
         },
         banners: [
-          {
-            id: 'BN-01',
-            type: 'hero',
-            title: 'ยินดีต้อนรับสู่ โรงเรียนชุมชนแม่ลาศึกษา',
-            subtitle: 'สถานศึกษาขยายโอกาสทางการศึกษาต้นแบบ จัดการเรียนรู้คุณภาพตั้งแต่ระดับชั้นอนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 มุ่งพัฒนาผู้เรียนให้มีความรู้คู่คุณธรรมและทักษะชีวิต',
-            badge: 'ปีการศึกษา 2569 • โทนสีแดง-ขาว',
-            cta_text: 'การรับสมัครนักเรียน (อ.2 - ม.3)',
-            cta_link: '#/admissions',
-            drive_image_id: '',
-            image_url: '',
-            sort_order: 1,
-            is_active: true
-          },
-          {
-            id: 'BN-02',
-            type: 'hero',
-            title: 'จัดการศึกษาไร้รอยต่อ 3 ระดับชั้น (อ.2 – ม.3)',
-            subtitle: 'ปฐมวัยเน้นพัฒนาการ 4 ด้านและ EF • ประถมศึกษาเน้นอ่านออกเขียนได้ คิดคำนวณคล่อง • มัธยมศึกษาตอนต้นเน้นวิชาการเข้มข้นควบคู่ทักษะอาชีพและคอมพิวเตอร์',
-            badge: 'หลักสูตรสถานศึกษา',
-            cta_text: 'ดูโครงสร้างหลักสูตรทั้ง 3 ระดับ',
-            cta_link: '#/academics',
-            drive_image_id: '',
-            image_url: '',
-            sort_order: 2,
-            is_active: true
-          },
+          ...getDefaultHeroBanners(),
           {
             id: 'BN-03',
             type: 'popup',
@@ -472,6 +466,8 @@
       gasUrl: DEFAULT_GAS_WEB_APP_URL,
       currentRoute: 'home',
       heroIndex: 0,
+      heroPaused: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      adminCloudAuth: null,
       homeNewsTab: 'all',
       newsFilterCat: 'all',
       newsFilterYear: 'all',
@@ -783,18 +779,6 @@
      */
     function renderHomeView(container) {
       const cfg = state.db.config || {};
-      const heroes = (state.db.banners || []).filter(function(b) {
-        return b.type === 'hero' && String(b.is_active) !== 'false';
-      });
-      if (state.heroIndex >= heroes.length) state.heroIndex = 0;
-      const activeHero = heroes[state.heroIndex] || {
-        title: 'โรงเรียนชุมชนแม่ลาศึกษา',
-        subtitle: 'สถานศึกษาขยายโอกาสทางการศึกษา (อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3)',
-        badge: 'สีแดง - สีขาว',
-        cta_text: 'ดูรายละเอียดการรับสมัคร',
-        cta_link: '#/admissions'
-      };
-
       const allPublishedNews = (state.db.news || []).filter(function(n) { return n.status !== 'draft'; });
       const awardsList = allPublishedNews.filter(function(n) { return n.category === 'award'; }).slice(0, 3);
       const filteredHomeNews = allPublishedNews.filter(function(n) {
@@ -806,39 +790,7 @@
       const director = (state.db.personnel || []).find(function(p) { return p.status !== 'inactive' && /ผู้อำนวยการ/.test(p.position || '') && !/รอง/.test(p.position || ''); });
 
       container.innerHTML = `
-        <!-- 1. Hero Banner Slider: full-width school illustration and readable crimson overlay -->
-        <section class="relative bg-red-950 text-white overflow-hidden">
-          ${renderSchoolImage(getRecordImage(activeHero, 'drive_image_id', 'image_url'), 'campus', activeHero.title, { eager: true, priority: true, wrapperClass: 'hero-art', imageClass: 'hero-art-image', sizes: '(max-width: 767px) 900px, 100vw' })}
-          <div class="hero-shade" aria-hidden="true"></div>
-          <div class="relative z-10 max-w-7xl mx-auto px-4 pt-14 pb-24 sm:pt-20 sm:pb-28 min-h-[520px] flex items-center">
-            <div class="max-w-2xl space-y-4">
-              <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-3.5 py-1 rounded-full text-xs font-semibold border border-white/25">
-                <span class="w-2 h-2 rounded-full bg-white"></span>
-                <span>${escapeHtml(activeHero.badge || 'โรงเรียนขยายโอกาสทางการศึกษา')}</span>
-              </div>
-              <h2 class="text-2xl sm:text-4xl font-bold leading-tight">${escapeHtml(activeHero.title)}</h2>
-              <p class="font-sarabun text-red-100 text-sm sm:text-base leading-relaxed max-w-2xl">${escapeHtml(activeHero.subtitle)}</p>
-              <div class="pt-2 flex flex-wrap items-center gap-3">
-                <a href="${escapeHtml(activeHero.cta_link || '#/admissions')}" class="bg-white text-red-800 hover:bg-red-50 px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg transition">
-                  ${escapeHtml(activeHero.cta_text || 'สมัครเรียนออนไลน์')}
-                </a>
-                <a href="#/academics" class="bg-red-950/50 hover:bg-red-950/80 text-white border border-white/30 px-5 py-2.5 rounded-xl font-medium text-sm transition">
-                  หลักสูตร อ.2 – ม.3
-                </a>
-              </div>
-              <!-- ปุ่มสลับสไลด์ -->
-              <div class="pt-3 flex items-center gap-2">
-                <button id="btnPrevHero" type="button" class="p-2 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="สไลด์ก่อนหน้า">◀</button>
-                <div class="flex items-center gap-1.5 px-2">
-                  ${heroes.map(function(_, idx) {
-                    return `<button type="button" data-hero-dot="${idx}" class="h-2.5 rounded-full transition ${idx === state.heroIndex ? 'w-7 bg-white' : 'w-2.5 bg-white/40 hover:bg-white/70'}" aria-label="สไลด์ที่ ${idx + 1}"></button>`;
-                  }).join('')}
-                </div>
-                <button id="btnNextHero" type="button" class="p-2 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="สไลด์ถัดไป">▶</button>
-              </div>
-            </div>
-          </div>
-        </section>
+        ${renderHomeHero()}
 
         <!-- 2. Quick Portal Bar (ทางด่วน 6 บริการหลัก) -->
         <section class="max-w-7xl mx-auto px-4 -mt-6 relative z-10">
@@ -847,42 +799,42 @@
               <span class="w-10 h-10 rounded-xl bg-red-700 text-white group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">รับสมัคร</span>
               <div class="text-xs">
                 <p class="font-bold">สมัครเรียน ${escapeHtml(cfg.academic_year)}</p>
-                <p class="text-slate-500 group-hover:text-red-100">อนุบาล 2 – ม.3</p>
+                <p class="text-slate-500 group-hover:text-white">อนุบาล 2 – ม.3</p>
               </div>
             </a>
             <a href="#/academics" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
               <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">หลักสูตร</span>
               <div class="text-xs">
                 <p class="font-bold">3 ระดับการศึกษา</p>
-                <p class="text-slate-500 group-hover:text-red-100">ปฐมวัย•ประถม•ม.ต้น</p>
+                <p class="text-slate-500 group-hover:text-white">ปฐมวัย•ประถม•ม.ต้น</p>
               </div>
             </a>
             <a href="#/services" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
               <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ตาราง</span>
               <div class="text-xs">
                 <p class="font-bold">ตารางเรียน/ผลสอบ</p>
-                <p class="text-slate-500 group-hover:text-red-100">ระบบบริการผู้เรียน</p>
+                <p class="text-slate-500 group-hover:text-white">ระบบบริการผู้เรียน</p>
               </div>
             </a>
             <a href="#/personnel" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
               <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ครู</span>
               <div class="text-xs">
                 <p class="font-bold">ทำเนียบบุคลากร</p>
-                <p class="text-slate-500 group-hover:text-red-100">ผู้บริหารและคณะครู</p>
+                <p class="text-slate-500 group-hover:text-white">ผู้บริหารและคณะครู</p>
               </div>
             </a>
             <a href="#/ita" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
               <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ITA</span>
               <div class="text-xs">
                 <p class="font-bold">ข้อมูลโปร่งใส OIT</p>
-                <p class="text-slate-500 group-hover:text-red-100">ดัชนี O1 – O43</p>
+                <p class="text-slate-500 group-hover:text-white">ดัชนี O1 – O43</p>
               </div>
             </a>
             <a href="#/admin" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
               <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">CMS</span>
               <div class="text-xs">
                 <p class="font-bold">จัดการเว็บไซต์</p>
-                <p class="text-slate-500 group-hover:text-red-100">เชื่อม Sheets & Drive</p>
+                <p class="text-slate-500 group-hover:text-white">เชื่อม Sheets & Drive</p>
               </div>
             </a>
           </div>
@@ -890,22 +842,22 @@
 
         <!-- 3. ข้อมูลสถิติและ 3 ระดับชั้นของโรงเรียนขยายโอกาส -->
         <section class="max-w-7xl mx-auto px-4 py-10 space-y-8">
-          <div class="bg-gradient-to-r from-red-800 to-red-700 rounded-2xl p-6 sm:p-8 text-white shadow-md grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div class="border-r border-white/20 last:border-none">
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-6 sm:p-8 text-red-800 shadow-sm grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div class="border-r border-red-200 last:border-none">
               <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_students)}</p>
-              <p class="text-xs sm:text-sm text-red-100 mt-1">นักเรียนทั้งหมด (อ.2 – ม.3)</p>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">นักเรียนทั้งหมด (อ.2 – ม.3)</p>
             </div>
-            <div class="lg:border-r border-white/20">
+            <div class="lg:border-r border-red-200">
               <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_teachers)}</p>
-              <p class="text-xs sm:text-sm text-red-100 mt-1">ข้าราชการครูและบุคลากร</p>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">ข้าราชการครูและบุคลากร</p>
             </div>
-            <div class="border-r border-white/20">
+            <div class="border-r border-red-200">
               <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_classrooms)}</p>
-              <p class="text-xs sm:text-sm text-red-100 mt-1">ห้องเรียนคุณภาพ (11 ชั้นปี)</p>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">ห้องเรียนคุณภาพ (11 ชั้นปี)</p>
             </div>
             <div>
               <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_awards)}+</p>
-              <p class="text-xs sm:text-sm text-red-100 mt-1">รางวัลผลงานวิชาการและทักษะอาชีพ</p>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">รางวัลผลงานวิชาการและทักษะอาชีพ</p>
             </div>
           </div>
 
@@ -1072,37 +1024,17 @@
             </div>
 
             <!-- ป้ายลัดข้อมูลความโปร่งใส ITA -->
-            <div class="bg-gradient-to-br from-red-800 to-red-950 text-white rounded-2xl p-5 shadow-sm space-y-2.5">
+            <div class="bg-red-50 border border-red-200 text-red-900 rounded-2xl p-5 shadow-sm space-y-2.5">
               <span class="bg-white text-red-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">ITA School Online</span>
               <h4 class="font-bold text-base">การเปิดเผยข้อมูลสาธารณะ (OIT)</h4>
-              <p class="font-sarabun text-xs text-red-100 leading-relaxed">ตรวจสอบแผนปฏิบัติการ งบประมาณ การจัดซื้อจัดจ้าง และประกาศนโยบาย No Gift Policy ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+              <p class="font-sarabun text-xs text-slate-600 leading-relaxed">ตรวจสอบแผนปฏิบัติการ งบประมาณ การจัดซื้อจัดจ้าง และประกาศนโยบาย No Gift Policy ของโรงเรียนชุมชนแม่ลาศึกษา</p>
               <a href="#/ita" class="inline-block bg-white text-red-800 hover:bg-red-50 text-xs font-bold px-4 py-2 rounded-xl shadow transition">เข้าสู่หน้าข้อมูล ITA (O1–O43) →</a>
             </div>
           </div>
         </section>
       `;
 
-      // ผูก Event สลับสไลด์และแท็บข่าว
-      const btnPrev = document.getElementById('btnPrevHero');
-      const btnNext = document.getElementById('btnNextHero');
-      if (btnPrev && heroes.length > 1) {
-        btnPrev.addEventListener('click', function() {
-          state.heroIndex = (state.heroIndex - 1 + heroes.length) % heroes.length;
-          renderHomeView(container);
-        });
-      }
-      if (btnNext && heroes.length > 1) {
-        btnNext.addEventListener('click', function() {
-          state.heroIndex = (state.heroIndex + 1) % heroes.length;
-          renderHomeView(container);
-        });
-      }
-      container.querySelectorAll('[data-hero-dot]').forEach(function(dot) {
-        dot.addEventListener('click', function() {
-          state.heroIndex = parseInt(dot.getAttribute('data-hero-dot'), 10) || 0;
-          renderHomeView(container);
-        });
-      });
+      mountHomeHero();
 
       container.querySelectorAll('[data-home-news-tab]').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -1126,11 +1058,11 @@
     function renderAboutView(container) {
       const cfg = state.db.config || {};
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4 border-b border-red-900">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4 border-b border-red-100">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">ข้อมูลพื้นฐานสถานศึกษา (OIT O1–O6)</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">ข้อมูลพื้นฐานสถานศึกษา (OIT O1–O6)</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">เกี่ยวกับโรงเรียนชุมชนแม่ลาศึกษา</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">${escapeHtml(cfg.school_type)} • ${escapeHtml(cfg.affiliation)}</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">${escapeHtml(cfg.school_type)} • ${escapeHtml(cfg.affiliation)}</p>
           </div>
         </div>
 
@@ -1274,11 +1206,11 @@
       const cur = levelDetails[state.academicLevelTab] || levelDetails.kinder;
 
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">กลุ่มบริหารงานวิชาการ</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">กลุ่มบริหารงานวิชาการ</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">หลักสูตรและการจัดการศึกษา (อนุบาล 2 – มัธยมศึกษาปีที่ 3)</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">หลักสูตรสถานศึกษาโรงเรียนชุมชนแม่ลาศึกษา ตามหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พุทธศักราช 2551 (ฉบับปรับปรุง)</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">หลักสูตรสถานศึกษาโรงเรียนชุมชนแม่ลาศึกษา ตามหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พุทธศักราช 2551 (ฉบับปรับปรุง)</p>
           </div>
         </div>
 
@@ -1363,11 +1295,11 @@
       });
 
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">กลุ่มบริหารงานบุคคล</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">กลุ่มบริหารงานบุคคล</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">ทำเนียบผู้บริหาร ครู และบุคลากรทางการศึกษา</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">คณะผู้บริหารและครูผู้สอนประจำสายชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 โรงเรียนชุมชนแม่ลาศึกษา</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">คณะผู้บริหารและครูผู้สอนประจำสายชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 โรงเรียนชุมชนแม่ลาศึกษา</p>
           </div>
         </div>
 
@@ -1451,11 +1383,11 @@
       });
 
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">งานประชาสัมพันธ์และสารสนเทศ</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">งานประชาสัมพันธ์และสารสนเทศ</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">คลังข่าวสาร ประกาศวิชาการ และจัดซื้อจัดจ้าง</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">รองรับการค้นหาและกรองข้อมูลย้อนหลังตามปีการศึกษา เพื่อการใช้งานเว็บไซต์ระยะยาว</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">รองรับการค้นหาและกรองข้อมูลย้อนหลังตามปีการศึกษา เพื่อการใช้งานเว็บไซต์ระยะยาว</p>
           </div>
         </div>
 
@@ -1553,11 +1485,11 @@
     function renderAdmissionsView(container) {
       const cfg = state.db.config || {};
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">การรับนักเรียน ปีการศึกษา ${escapeHtml(cfg.academic_year)}</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">การรับนักเรียน ปีการศึกษา ${escapeHtml(cfg.academic_year)}</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">การรับสมัครนักเรียนใหม่ (ระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3)</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">โรงเรียนขยายโอกาสทางการศึกษา • เรียนฟรี 15 ปีอย่างมีคุณภาพ พร้อมอาหารกลางวันและนมโรงเรียน</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">โรงเรียนขยายโอกาสทางการศึกษา • เรียนฟรี 15 ปีอย่างมีคุณภาพ พร้อมอาหารกลางวันและนมโรงเรียน</p>
           </div>
         </div>
 
@@ -1660,11 +1592,11 @@
       const isSecondary = state.selectedGradeSchedule.startsWith('ม.');
 
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">E-Services สำหรับนักเรียน ผู้ปกครอง และครู</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">E-Services สำหรับนักเรียน ผู้ปกครอง และครู</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">ระบบบริการออนไลน์และตารางเรียน (อ.2 – ม.3)</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">ศูนย์รวมระบบสารสนเทศและเอกสารดาวน์โหลดจาก Google Drive ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">ศูนย์รวมระบบสารสนเทศและเอกสารดาวน์โหลดจาก Google Drive ของโรงเรียนชุมชนแม่ลาศึกษา</p>
           </div>
         </div>
 
@@ -1687,7 +1619,7 @@
             <div class="overflow-x-auto">
               <table class="w-full text-xs sm:text-sm border-collapse">
                 <thead>
-                  <tr class="bg-red-800 text-white">
+                  <tr class="bg-red-100 text-red-900">
                     <th class="p-3 text-left rounded-tl-xl">วัน / คาบเวลา</th>
                     <th class="p-3 text-left">08:30 - 09:30</th>
                     <th class="p-3 text-left">09:30 - 10:30</th>
@@ -1762,11 +1694,11 @@
       });
 
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">Integrity and Transparency Assessment (ITA)</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">Integrity and Transparency Assessment (ITA)</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">การเปิดเผยข้อมูลสาธารณะ (OIT O1–O43) โรงเรียนชุมชนแม่ลาศึกษา</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">ตามเกณฑ์การประเมินคุณธรรมและความโปร่งใสในการดำเนินงานของสถานศึกษา สังกัด สพฐ.</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">ตามเกณฑ์การประเมินคุณธรรมและความโปร่งใสในการดำเนินงานของสถานศึกษา สังกัด สพฐ.</p>
           </div>
         </div>
 
@@ -1794,7 +1726,7 @@
             <div class="overflow-x-auto">
               <table class="w-full text-xs sm:text-sm">
                 <thead>
-                  <tr class="bg-red-800 text-white text-left">
+                  <tr class="bg-red-100 text-red-900 text-left">
                     <th class="p-3.5">รหัสตัวชี้วัด</th>
                     <th class="p-3.5">หมวดหมู่ข้อมูล</th>
                     <th class="p-3.5">รายการเอกสารสาธารณะ (OIT)</th>
@@ -1905,11 +1837,11 @@
     function renderContactView(container) {
       const cfg = state.db.config || {};
       container.innerHTML = `
-        <div class="bg-red-800 text-white py-8 px-4">
+        <div class="page-heading bg-red-50 text-red-900 py-8 px-4">
           <div class="max-w-7xl mx-auto">
-            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">ช่องทางการติดต่อสื่อสาร</span>
+            <span class="text-xs uppercase tracking-wider text-red-700 font-semibold">ช่องทางการติดต่อสื่อสาร</span>
             <h2 class="text-2xl sm:text-3xl font-bold mt-1">ติดต่อโรงเรียนชุมชนแม่ลาศึกษา</h2>
-            <p class="font-sarabun text-sm text-red-100 mt-1">สอบถามข้อมูลการรับสมัครเรียน งานทะเบียนวัดผล และติดต่อครูประจำชั้น อ.2 – ม.3</p>
+            <p class="font-sarabun text-sm text-slate-600 mt-1">สอบถามข้อมูลการรับสมัครเรียน งานทะเบียนวัดผล และติดต่อครูประจำชั้น อ.2 – ม.3</p>
           </div>
         </div>
 
@@ -2024,10 +1956,10 @@
         container.innerHTML = `
           <div class="max-w-md mx-auto px-4 py-12">
             <div class="bg-white rounded-2xl border-2 border-red-700 shadow-xl overflow-hidden">
-              <div class="bg-gradient-to-r from-red-800 to-red-700 text-white p-6 text-center">
+              <div class="bg-red-100 text-red-900 p-6 text-center">
                 <div class="w-12 h-12 rounded-2xl bg-white text-red-800 font-extrabold flex items-center justify-center mx-auto mb-2 shadow">CMS</div>
                 <h2 class="text-xl font-bold">ระบบผู้ดูแลเว็บไซต์ (Admin)</h2>
-                <p class="text-xs text-red-100 mt-0.5">โรงเรียนชุมชนแม่ลาศึกษา • เชื่อมต่อ Google Sheets & Drive</p>
+                <p class="text-xs text-slate-600 mt-0.5">โรงเรียนชุมชนแม่ลาศึกษา • เชื่อมต่อ Google Sheets & Drive</p>
               </div>
               <form id="formAdminLogin" class="p-6 space-y-4">
                 <div>
@@ -2055,6 +1987,7 @@
             const pw = document.getElementById('adminPassInput').value.trim();
             if ((em === 'admin@maela.ac.th' && pw === 'maela2569') || (em === 'pr@maela.ac.th' && pw === 'pr2569')) {
               state.adminLoggedIn = true;
+              state.adminCloudAuth = { email: em, password: pw };
               showToast('เข้าสู่ระบบผู้ดูแลเว็บไซต์เรียบร้อยแล้ว', 'success');
               renderAdminView(container);
             } else {
@@ -2067,10 +2000,10 @@
 
       // เมื่อเข้าสู่ระบบ Admin แล้ว
       container.innerHTML = `
-        <div class="bg-slate-900 text-white py-6 px-4 border-b-4 border-red-700">
+        <div class="bg-red-50 text-red-900 py-6 px-4 border-b-4 border-red-200">
           <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
             <div>
-              <span class="text-xs font-bold text-red-400 uppercase">แผงควบคุมระบบหลังบ้าน (Google Sheets + Drive CMS)</span>
+              <span class="text-xs font-bold text-red-700 uppercase">แผงควบคุมระบบหลังบ้าน (Google Sheets + Drive CMS)</span>
               <h2 class="text-xl sm:text-2xl font-bold">จัดการข้อมูลเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา</h2>
             </div>
             <div class="flex flex-wrap items-center gap-2">
@@ -2118,6 +2051,7 @@
 
       document.getElementById('btnAdminLogout').addEventListener('click', function() {
         state.adminLoggedIn = false;
+        state.adminCloudAuth = null;
         showToast('ออกจากระบบผู้ดูแลแล้ว', 'success');
         renderAdminView(container);
       });
@@ -2488,6 +2422,7 @@
       // แท็บ 3: จัดการแบนเนอร์ & Popup
       else if (state.adminTab === 'banners') {
         sub.innerHTML = `
+          <section id="heroAdminSlots" class="mb-8"></section>
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <form id="formAdminBanner" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
               <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่มแบนเนอร์สไลด์ / Popup ประกาศ</h3>
@@ -2543,6 +2478,8 @@
             </div>
           </div>
         `;
+
+        mountHeroAdminSlots(document.getElementById('heroAdminSlots'));
 
         function refreshBannerImagePreview() {
           const item = { title: document.getElementById('bnTitle').value };

@@ -223,6 +223,121 @@
           "sha256": "2a299d583d21fde89cf174e1eca10870e91bbb758337a398c9c4fd5aa572d68a"
         }
       ]
+    },
+    {
+      "key": "hero-entrance",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-064abb6e-236c-4ded-bad1-48cb8b809ddd.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/hero-school-entrance.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 165670,
+          "sha256": "a90c4301b939072c3339e81fe58afcf09d5c0cd9a323471623af9bc5fd361731"
+        },
+        {
+          "path": "public/images/placeholders/hero-school-entrance-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 32616,
+          "sha256": "272b80f6ed78ee89a2c5665d167b0831711746cd28fefd93c92f8be91ae15fc4"
+        }
+      ]
+    },
+    {
+      "key": "hero-primary",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-6923dc49-47fa-42be-887c-d86b31f65afc.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/hero-primary-building.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 166470,
+          "sha256": "1d7a4377a38f35760fcf3cd9d3928d64c262125a0ce0dcac6851ffef979fca63"
+        },
+        {
+          "path": "public/images/placeholders/hero-primary-building-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 36430,
+          "sha256": "804390be00a84e0714b0e179c95aba660fbfd3833c99d87ef69c00339ab2b56d"
+        }
+      ]
+    },
+    {
+      "key": "hero-secondary",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-5055d309-d60b-4889-8782-7987f9c52b3e.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/hero-secondary-building.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 186970,
+          "sha256": "8325564ed933fb73c95a83bcf3babe5ecabd8bbda5204329aead62e6abc74cc9"
+        },
+        {
+          "path": "public/images/placeholders/hero-secondary-building-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 33872,
+          "sha256": "7f1e33a09ba8c7bd6590990df11306a81241a676146c89050e00fe0f800e9556"
+        }
+      ]
+    },
+    {
+      "key": "hero-assembly",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-30e905c7-ab3c-4712-a6ea-bb19eda5e0c8.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/hero-flagpole-assembly.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 184222,
+          "sha256": "bd7958afdca34f1c1e921c7a19345d8bf2b4fed4f05873d46de16113c2215f20"
+        },
+        {
+          "path": "public/images/placeholders/hero-flagpole-assembly-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 35872,
+          "sha256": "4b57fb917831b58a9304942d9a226f3016004e3201fa44c59a7ed55865edcb0d"
+        }
+      ]
+    },
+    {
+      "key": "hero-classroom",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-55269406-b2f3-486d-8f93-e6047cbfd2e7.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/hero-classroom-learning.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 108198,
+          "sha256": "66a5ed27be6d49190c03e439abcede7f69b730469e05011a1a5fd37141262a5d"
+        },
+        {
+          "path": "public/images/placeholders/hero-classroom-learning-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 28420,
+          "sha256": "06baf5db5282d5222706978464813e41b41e9b718af12f119e7e231413796b6b"
+        }
+      ]
     }
   ]
 }

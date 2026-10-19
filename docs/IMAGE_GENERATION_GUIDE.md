@@ -2,10 +2,11 @@
 
 ## เครื่องมือและผลงาน
 
-ใช้ ImageGen Skill ที่ `C:/Users/Admin/.codex/skills/.system/imagegen/SKILL.md` และ built-in `image_gen.imagegen` จริงทั้งหมด 10 ครั้ง (หนึ่ง prompt ต่อภาพ) วันที่ 19 ตุลาคม 2026 ไม่ใช้ CLI/API fallback, ภาพ stock, SVG หรือ gradient เป็นภาพ AI แทน
+ใช้ ImageGen Skill ที่ `C:/Users/Admin/.codex/skills/.system/imagegen/SKILL.md` และ built-in `image_gen.imagegen` จริงทั้งหมด 15 ครั้ง (หนึ่ง prompt ต่อภาพ) วันที่ 19 ตุลาคม 2026 ไม่ใช้ CLI/API fallback, ภาพ stock, SVG หรือ gradient เป็นภาพ AI แทน
 
-- ภาพที่เลือกทั้งหมด 10 แบบ; WebP หลัก 10 ไฟล์ และ thumbnail 9 ไฟล์ อยู่ใน `public/images/placeholders/`
+- ภาพที่เลือกทั้งหมด 15 แบบ; WebP หลัก 15 ไฟล์ และ thumbnail 14 ไฟล์ อยู่ใน `public/images/placeholders/`
 - [Contact sheet](placeholder-contact-sheet.webp) เรียงซ้ายไปขวา: campus, kindergarten, primary, secondary, admissions, achievement, academic planning, lunch procurement, teacher preparation, staff avatar
+- [ภาพสไลด์ใหม่ 5 หัวข้อ](hero-slides-contact-sheet.webp) ใช้แสง neutral daylight และอาคารขาวไข่มุก ไม่ใช้ sepia/beige/tan cast
 - [Prompt set ฉบับเต็ม](image-generation-prompts.json) เก็บข้อความจริงที่ส่งให้ image_gen แต่ละภาพ รวม style direction และข้อห้าม
 - ภาพต้นฉบับ PNG ถูกเก็บใน Codex generated_images ตามค่าเริ่มต้นของ built-in tool; ไฟล์ WebP ที่เว็บไซต์ใช้ถูกบันทึกภายใน repository แล้ว ไม่ต้องพึ่งเครื่องมือหรือโฟลเดอร์ Codex เมื่อ deploy
 
@@ -47,17 +48,19 @@ String ว่าง/ช่องว่าง/null/undefined ถือว่า�
 
 รูปที่อัปโหลดสำเร็จไม่มีป้าย AI และไม่มี placeholder srcset มาทับ ส่วนภาพสำรองมี responsive srcset 480w/1200w, sizes, width/height, alt อธิบายว่าเป็นภาพวาด/สมมติ, decoding async และ lazy loading ยกเว้น Hero และภาพที่เพิ่งเปิดใน Popup/Detail/Preview เป็น eager; Hero มี fetchpriority high
 
-Hero ใช้ภาพ campus เต็มพื้นหลัง พร้อมชั้นสีแดงโปร่งเพื่อให้อ่านข้อความชัด แทนลายตารางและกรอบภาพด้านข้างเดิม ภาพที่อัปโหลดในแต่ละสไลด์ยังมีลำดับความสำคัญก่อนภาพ campus และบนมือถือเลือกไฟล์ใหญ่พอสำหรับการครอปภาพแนวตั้ง
+Hero ใช้ภาพเฉพาะ 5 หัวข้อเต็มพื้นหลัง สลับทุก 3 วินาที พร้อมชั้นสีขาวไข่มุกโปร่งและข้อความแดงเข้ม ภาพที่อัปโหลดในแต่ละสไลด์มีลำดับความสำคัญก่อนภาพ AI ตามหัวข้อนั้น บนมือถือเลือกไฟล์ใหญ่พอสำหรับการครอปภาพแนวตั้ง ดู [คู่มือสไลด์และ Admin](HERO_SLIDESHOW_GUIDE.md)
+
+ธีม UI ปรับตามคำขอผู้ใช้ให้เหมาะกับเด็กเล็ก: `schoolRed` ใน `index.html` เป็น palette กลางที่ใช้ร่วมกันทั้ง Tailwind `red` และ `maela` สีหลัก `#C83B56`, พื้นชมพู `#FFF2F4` / `#FFE4E9`, พื้นขาวไข่มุก `#F8FAFD` / `#F1F5FB` ใช้กับทุก route รวม modal, footer และ CMS โดยคงภาพต้นฉบับและ prompt ที่ใช้สร้างภาพไว้ตามเดิม
 
 News ยังคง FileReader, Canvas compression เป็น WebP กว้างไม่เกิน 960px, เพิ่ม/แก้/ลบ record และ storage/sync เดิมไว้ การแก้ข้อความโดยไม่เปลี่ยนภาพคง cover เดิม และเลือกไฟล์ใหม่แล้วจะล้าง Drive ID เก่าเพื่อให้ภาพใหม่แสดงก่อน Preview ไม่เขียน placeholder ลง record สามารถล้างช่องรูปในฟอร์มแก้ข่าวเพื่อกลับไปใช้ภาพสำรอง
 
-Banner และ Personnel ยังคงรับ Drive ID/URL และเพิ่ม/ลบรายการตามระบบเดิม ไม่มีการเปลี่ยน schema หรือเพิ่ม workflow upload ไป Drive ใหม่ Backend `Code.gs` รวม `uploadDriveFile`, permissions และ Database Schema ไม่ได้แก้ไข
+Banner และ Personnel ยังคงรับ Drive ID/URL และเพิ่ม/ลบรายการตามระบบเดิม ส่วน Hero มี editor แยก 5 ช่อง พร้อมไฟล์อัปโหลดผ่าน endpoint `uploadDriveFile` เดิมเมื่อเชื่อมต่อ API Backend เปลี่ยนเฉพาะ seed ของแบนเนอร์สำหรับ Sheet ว่าง ไม่เปลี่ยน API, permissions หรือ Database Schema
 
 About, curriculum cards/detail และ Admissions ไม่มีฟิลด์ upload เดิม จึงเป็นภาพประกอบ static ที่ชั้นแสดงผลเท่านั้น Services, ITA และ Contact คงตาราง เอกสาร แบบฟอร์มและข้อมูลติดต่อ ไม่มีการสร้างภาพปลอมแทนหลักฐานหรือแผนที่
 
 ## Deploy และตรวจสอบซ้ำ
 
-Repository นี้เป็น static SPA ไม่มี Next.js และไม่มี build step ให้ส่ง `index.html`, `image-placeholders.js` และ `public/images/placeholders/` ขึ้น GitHub Pages พร้อมกัน ใช้ relative URL จึงรองรับ repository subdirectory และการเปิด HTML โดยตรง ไม่ควรอัปโหลดเพียง index.html ตามคู่มือรุ่นเก่า
+Repository นี้เป็น static SPA ไม่มี Next.js และไม่มี build step ให้ส่ง `index.html`, `image-placeholders.js`, `hero-slideshow.js` และ `public/images/placeholders/` ขึ้น GitHub Pages พร้อมกัน ใช้ relative URL จึงรองรับ repository subdirectory และการเปิด HTML โดยตรง ไม่ควรอัปโหลดเพียง index.html ตามคู่มือรุ่นเก่า
 
 เครื่องมือตรวจสอบเป็น dev dependencies เท่านั้น เว็บไซต์ที่ deploy ไม่โหลด Node.js, Playwright หรือ Sharp:
 

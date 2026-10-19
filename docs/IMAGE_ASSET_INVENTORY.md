@@ -7,12 +7,14 @@
 - เว็บไซต์เป็น static hash-routed SPA ใน `index.html`; API และ Google Drive upload อยู่ใน `Code.gs` ไม่มี Next.js, `next/image`, package manifest หรือ build pipeline เดิม
 - สำรวจ routes ทั้ง 10: `#/home`, `#/about`, `#/academics`, `#/personnel`, `#/news`, `#/admissions`, `#/services`, `#/ita`, `#/contact`, `#/admin` รวม news detail / announcement modals และแท็บ CMS
 - ของเดิม: Hero 2 สไลด์, Popup, news covers ใช้ SVG data URL ที่สร้างด้วยโค้ด; personnel ใช้อักษรย่อเมื่อไม่มีภาพ ไม่มีไฟล์ภาพจริงใน repository ตอนเริ่มงาน
-- สีประจำโรงเรียนและ SVG icons คงเดิม ส่วน Hero ปรับตามที่ผู้ใช้เลือกเป็นภาพวาดโรงเรียนเต็มพื้นหลัง ลบลายตารางเดิม และใช้สีแดงโปร่งรองข้อความ
+- SVG icons คงเดิม ส่วน UI ปรับตามคำขอผู้ใช้เป็นแดงสตรอว์เบอร์รี–คอรัลกับชมพูอ่อนและขาวไข่มุก Hero ใช้ภาพวาดโรงเรียนเต็มพื้นหลัง ลบลายตารางเดิม และใช้ชั้นสีขาวไข่มุกโทนเย็นรองข้อความ
 - ตรวจพบ ImageGen Skill และ built-in `image_gen.imagegen` และทดลองเรียกสร้างภาพ campus สำเร็จ ใช้ built-in mode เท่านั้น
 
 ## ทิศทางภาพ
 
-ภาพวาดดิจิทัลบรรยากาศโรงเรียนชุมชนไทย อบอุ่น เป็นมิตร เนื้อกระดาษบาง ๆ สี crimson / ivory / sage / slate เข้ากับแดง `#B91C1C` และขาวของเว็บไซต์ ภาพบุคคลและสถานที่เป็นจินตนาการทั้งหมด ไม่จำลองใบหน้าบุคลากรจริง ไม่อ้างว่าเป็นภาพข่าวหรือสถานที่จริง ไม่มีตัวอักษร โลโก้ ตราราชการ หรือ watermark ภายในภาพ UI แสดงคำอธิบายภาพ AI แยกจากภาพและ alt ที่เหมาะสม
+ภาพวาดดิจิทัลบรรยากาศโรงเรียนชุมชนไทย อบอุ่น เป็นมิตร เนื้อกระดาษบาง ๆ สี crimson / ivory / sage / slate เดิม ภาพบุคคลและสถานที่เป็นจินตนาการทั้งหมด ไม่จำลองใบหน้าบุคลากรจริง ไม่อ้างว่าเป็นภาพข่าวหรือสถานที่จริง ไม่มีตัวอักษร โลโก้ ตราราชการ หรือ watermark ภายในภาพ UI แสดงคำอธิบายภาพ AI แยกจากภาพและ alt ที่เหมาะสม
+
+ธีม UI ล่าสุดใช้แดงสตรอว์เบอร์รี `#C83B56`, ชมพูอ่อน `#FFF2F4` / `#FFE4E9` และขาวไข่มุก `#F8FAFD` / `#F1F5FB` ให้เหมาะกับเด็กเล็ก ใช้พื้นอ่อนกับแถบหัวข้อ สถิติ Footer และ CMS แทนแผงแดงเข้ม ส่วนแดงเข้มสงวนสำหรับข้อความที่ต้องอ่านชัด ภาพ AI เดิมไม่ถูกแก้สีหรือสร้างใหม่
 
 ## รายการไฟล์และการใช้งาน
 
@@ -20,7 +22,12 @@
 
 | Key / ชื่อไฟล์หลัก | ประเภท | เนื้อหา | ตำแหน่ง |
 | --- | --- | --- | --- |
-| campus / `community-school-campus.webp` | Hero background / illustration | อาคารเรียนสมมติ หลังคาแดง สวนและลานโรงเรียน | Home พื้นหลังเต็มพื้นที่ทุกสไลด์เมื่อยังไม่มีภาพอัปโหลด, About, ข่าว PR ทั่วไปที่ไม่มีภาพ |
+| hero-entrance / `hero-school-entrance.webp` | Hero background | ป้ายทางเข้าโรงเรียนสมมติ เว้นช่องข้อความในป้ายว่าง | สไลด์ 1 |
+| hero-primary / `hero-primary-building.webp` | Hero background | อาคารประถมสีขาวไข่มุก 2 ชั้น | สไลด์ 2 |
+| hero-secondary / `hero-secondary-building.webp` | Hero background | อาคารมัธยมสีขาวไข่มุก 3 ชั้น | สไลด์ 3 |
+| hero-assembly / `hero-flagpole-assembly.webp` | Hero background | กิจกรรมหน้าเสาธงสมมติ ไม่ใช่เหตุการณ์จริง | สไลด์ 4 |
+| hero-classroom / `hero-classroom-learning.webp` | Hero background | ครูและนักเรียนสมมติอ่านหนังสือและทดลองสื่อการเรียน | สไลด์ 5 |
+| campus / `community-school-campus.webp` | Hero background / illustration | อาคารเรียนสมมติ หลังคาแดง สวนและลานโรงเรียน | Hero custom เพิ่มเติมที่ไม่มีประเภทเฉพาะ, About, ข่าว PR ทั่วไปที่ไม่มีภาพ |
 | kinder / `kindergarten-play-learning.webp` | Card / Banner | เด็กปฐมวัยสมมติกับกิจกรรมบล็อกและศิลปะ | Home การ์ดอนุบาล, Academics ปฐมวัย, ข่าวกิจกรรมอนุบาล |
 | primary / `primary-reading-discovery.webp` | Card / Banner | เด็กประถมอ่านหนังสือและเรียนรู้การคำนวณร่วมกัน | Home การ์ดประถม, Academics ประถม |
 | secondary / `secondary-science-careers.webp` | Card / Banner | เด็กมัธยมทำโครงงานวิทยาศาสตร์ เทคโนโลยีและเกษตร | Home การ์ดมัธยม, Academics มัธยม |
@@ -50,3 +57,5 @@
 คง News file input, Canvas WebP compression, การแก้ไขและลบ record, Banner/Personnel Drive ID และ backend `uploadDriveFile` เดิมทั้งหมด ภาพสำรองใช้เฉพาะชั้นแสดงผล เมื่อเก็บข่าวที่แก้ไขโดยไม่เปลี่ยนภาพต้องคง cover เดิม เมื่อเลือกไฟล์ใหม่ preview และภาพจริงที่บันทึกต้องใช้ไฟล์ใหม่ก่อน Drive ID เก่า
 
 เส้นทางไฟล์เป็น `./public/images/placeholders/...` เพื่อรองรับ GitHub Pages ใน subdirectory และการเปิด index.html โดยตรง; `public/` ไม่ใช่ Next.js public root ในโปรเจกต์นี้ ต้อง deploy โฟลเดอร์นี้พร้อม index.html
+
+Hero ล่าสุดใช้ `hero-slideshow.js` สลับภาพทุก 3 วินาที และมี editor แยก 5 ช่องใน Admin > แบนเนอร์ & Popup ดู [คู่มือ](HERO_SLIDESHOW_GUIDE.md) ภาพหลักทั้งหมด 15 แบบ / WebP 29 ไฟล์ รวม thumbnail

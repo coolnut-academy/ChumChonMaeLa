@@ -15,6 +15,8 @@ const check = (name, actual) => { assert(actual, name); report.checks.push(name)
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 for (const match of html.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
 new vm.Script(fs.readFileSync(path.join(root, 'image-placeholders.js'), 'utf8'));
+new vm.Script(fs.readFileSync(path.join(root, 'hero-slideshow.js'), 'utf8'));
+new vm.Script(fs.readFileSync(path.join(root, 'Code.gs'), 'utf8'));
 check('All inline and external JavaScript parses', true);
 
 const server = http.createServer((req, res) => {
@@ -37,7 +39,7 @@ const server = http.createServer((req, res) => {
   const browser = await chromium.launch({ headless: true, ...(fs.existsSync(chrome) ? { executablePath: chrome } : {}) });
   try {
     const assets = fs.readdirSync(path.join(root, 'public/images/placeholders')).filter(f => f.endsWith('.webp'));
-    check('19 actual WebP image files exist', assets.length === 19);
+    check('29 actual WebP image files exist', assets.length === 29);
     report.assets = [];
     for (const file of assets) {
       const full = path.join(root, 'public/images/placeholders', file);
@@ -65,6 +67,7 @@ const server = http.createServer((req, res) => {
         await page.evaluate(() => document.fonts.ready);
       }
       async function inspect(label, screenshot = true) {
+        if (await page.locator('#homeHero').count()) await page.waitForTimeout(650);
         const images = page.locator('img[data-school-image]:visible');
         for (const image of await images.all()) {
           await image.scrollIntoViewIfNeeded();
@@ -76,7 +79,7 @@ const server = http.createServer((req, res) => {
         const facts = await page.evaluate(() => ({
           width: innerWidth,
           scrollWidth: document.documentElement.scrollWidth,
-          images: [...document.querySelectorAll('img[data-school-image]')].filter(img => img.getClientRects().length > 0).map(img => ({
+          images: [...document.querySelectorAll('img[data-school-image]')].filter(img => img.getClientRects().length > 0 && getComputedStyle(img).visibility !== 'hidden').map(img => ({
             src: img.currentSrc, alt: img.alt, loaded: img.complete && img.naturalWidth > 0,
             fit: getComputedStyle(img).objectFit, loading: img.loading,
             hasDimensions: img.hasAttribute('width') && img.hasAttribute('height'),
@@ -97,9 +100,12 @@ const server = http.createServer((req, res) => {
         await go(route);
         await inspect(route);
         if (route === 'home') {
+          check(`${viewport.width}: five distinct hero slides exist`, await page.locator('[data-hero-slide]').count() === 5);
           check(`${viewport.width}: Hero is eager and high priority`, await page.locator('img[fetchpriority="high"]').getAttribute('loading') === 'eager');
-          await page.locator('#btnNextHero').click();
-          await inspect('home-slide-2', false);
+          for (let slide = 1; slide < 5; slide++) {
+            await page.locator(`[data-hero-dot="${slide}"]`).click();
+            await inspect(`home-slide-${slide + 1}`, slide === 4);
+          }
           await page.locator('#btnOpenPopup').click();
           await inspect('announcement-popup');
           await page.locator('#btnPopupClose').click();
@@ -218,6 +224,78 @@ const server = http.createServer((req, res) => {
       const personCard = page.locator('#appMainContainer div.bg-white').filter({ has: page.locator('h3', { hasText: 'Director image verification' }) }).last();
       check(`${viewport.width}: personnel URL beats placeholder even with whitespace Drive ID`, await personCard.locator('img').getAttribute('src') === uploaded);
       check(`${viewport.width}: placeholder URLs were never persisted`, await page.evaluate(() => !JSON.stringify(state.db).includes('./public/images/placeholders/')));
+
+      // Exercise real three-second autoplay without remounting the rest of Home.
+      await go('home');
+      await page.mouse.move(0, 0);
+      await page.evaluate(() => { state.heroIndex = 0; state.heroPaused = false; renderHomeView(document.getElementById('appMainContainer')); window.heroVerificationNewsNode = document.querySelector('[data-read-news]'); window.heroVerificationStarted = performance.now(); });
+      await page.waitForFunction(() => state.heroIndex === 1, undefined, { timeout: 4500 });
+      const elapsed = await page.evaluate(() => performance.now() - window.heroVerificationStarted);
+      check(`${viewport.width}: carousel advances automatically every 3000ms`, elapsed >= 2800 && elapsed < 4400);
+      check(`${viewport.width}: autoplay preserves the news DOM`, await page.evaluate(() => window.heroVerificationNewsNode === document.querySelector('[data-read-news]')));
+      await page.locator('#btnPauseHero').click();
+      const pausedAt = await page.evaluate(() => state.heroIndex);
+      await page.waitForTimeout(3200);
+      check(`${viewport.width}: pause stops automatic movement`, await page.evaluate(index => state.heroIndex === index && state.heroPaused, pausedAt));
+      await page.locator('[data-hero-dot="4"]').click();
+      await page.locator('#btnNextHero').click();
+      check(`${viewport.width}: navigation wraps from slide five to one`, await page.evaluate(() => state.heroIndex === 0));
+      await go('news');
+      check(`${viewport.width}: carousel interval is cleaned up on route change`, await page.evaluate(() => heroSliderTimer === null));
+
+      await go('admin');
+      await page.locator('[data-admin-tab="banners"]').click();
+      check(`${viewport.width}: admin has five separate image editors`, await page.locator('[data-hero-editor]').count() === 5);
+      let editor = page.locator('[data-hero-editor="0"]');
+      await editor.locator('[data-hero-title]').fill('Editable entrance slide');
+      await editor.locator('[type="submit"]').click();
+      check(`${viewport.width}: text-only hero edit preserves existing image`, await page.evaluate(uploaded => { const record = state.db.banners.find(b => b.id === 'HERO-ENTRANCE'); return record.title === 'Editable entrance slide' && record.image_url === uploaded; }, uploaded));
+      editor = page.locator('[data-hero-editor="1"]');
+      await editor.locator('[data-hero-file]').setInputFiles(path.join(root, 'public/images/placeholders/secondary-science-careers.webp'));
+      await page.waitForFunction(() => document.querySelector('[data-hero-editor="1"] [data-hero-preview] img').getAttribute('src').startsWith('data:image/webp'));
+      await editor.locator('[type="submit"]').click();
+      check(`${viewport.width}: admin can upload and save a replacement for a specific slide`, await page.evaluate(() => state.db.banners.find(b => b.id === 'HERO-PRIMARY').image_url.startsWith('data:image/webp')));
+      await page.reload();
+      await page.locator('#formAdminLogin button[type="submit"]').click();
+      await page.locator('[data-admin-tab="banners"]').click();
+      check(`${viewport.width}: hero replacement survives page reload`, (await page.locator('[data-hero-editor="1"] [data-hero-preview] img').getAttribute('src')).startsWith('data:image/webp'));
+      editor = page.locator('[data-hero-editor="1"]');
+      await editor.locator('[data-hero-reset]').click();
+      await editor.locator('[type="submit"]').click();
+      check(`${viewport.width}: reset returns only the selected slide to its own AI image`, (await editor.locator('[data-hero-preview] img').getAttribute('src')).endsWith('hero-primary-building.webp'));
+      await page.locator('[data-hero-editor="2"] [data-hero-url]').fill('https://drive.google.com/file/d/slideImageDriveFile123456789/view');
+      await page.locator('[data-hero-editor="2"] [type="submit"]').click();
+      check(`${viewport.width}: admin can replace an individual slide using a Drive URL`, (await page.locator('[data-hero-editor="2"] [data-hero-preview] img').getAttribute('src')).includes('thumbnail?id=slideImageDriveFile123456789'));
+
+      let uploadCalls = 0;
+      await page.route(origin + '/mock-upload-api', route => {
+        const request = route.request().postDataJSON();
+        assert.equal(request.action, 'uploadDriveFile');
+        assert.equal(request.folderType, 'banner');
+        assert(request.base64Data.length > 0);
+        uploadCalls++;
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(uploadCalls === 1 ? { ok: false, error: 'Simulated upload rejection' } : { ok: true, fileId: 'cloudHeroImage123456789', viewUrl: 'https://drive.google.com/thumbnail?id=cloudHeroImage123456789&sz=w1200' }) });
+      });
+      await page.evaluate(origin => { state.gasUrl = origin + '/mock-upload-api'; }, origin);
+      editor = page.locator('[data-hero-editor="4"]');
+      await editor.locator('[data-hero-file]').setInputFiles(path.join(root, 'public/images/placeholders/primary-reading-discovery.webp'));
+      await page.waitForFunction(() => document.querySelector('[data-hero-editor="4"] [data-hero-preview] img').getAttribute('src').startsWith('data:image/webp'));
+      const originalCover = await page.evaluate(() => JSON.stringify(state.db.banners.find(b => b.id === 'HERO-CLASSROOM')));
+      await editor.locator('[type="submit"]').click();
+      await page.waitForFunction(() => document.querySelector('[data-hero-editor="4"] [data-hero-message]').textContent.includes('Simulated'));
+      check(`${viewport.width}: a rejected Drive upload does not overwrite the previous slide`, await page.evaluate(original => JSON.stringify(state.db.banners.find(b => b.id === 'HERO-CLASSROOM')) === original, originalCover));
+      await editor.locator('[type="submit"]').click();
+      await page.waitForFunction(() => state.db.banners.find(b => b.id === 'HERO-CLASSROOM').drive_image_id === 'cloudHeroImage123456789');
+      check(`${viewport.width}: successful Drive upload stores the returned file ID`, uploadCalls === 2);
+      await page.evaluate(() => { state.gasUrl = ''; });
+      check(`${viewport.width}: slide metadata and placeholders are never written into CMS records`, await page.evaluate(() => !JSON.stringify(state.db.banners).includes('imageType') && !JSON.stringify(state.db.banners).includes('./public/images/placeholders/')));
+      check(`${viewport.width}: legacy uploaded banners are preserved while filling five slots`, await page.evaluate(() => {
+        const previous = state.db.banners;
+        state.db.banners = [{ id: 'BN-01', type: 'hero', image_url: 'data:image/webp;base64,TEST', title: 'Existing image', sort_order: 1 }, { id: 'BN-02', type: 'hero', title: 'Existing second banner', sort_order: 2 }];
+        const slides = getHeroSlides();
+        state.db.banners = previous;
+        return slides.length === 5 && slides[0].id === 'BN-01' && slides[0].image_url === 'data:image/webp;base64,TEST' && slides[1].title === 'Existing second banner';
+      }));
       await context.close();
     }
     check('No uncaught browser JavaScript errors', report.pageErrors.length === 0);
