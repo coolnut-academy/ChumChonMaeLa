@@ -343,7 +343,11 @@ function doPost(e) {
       const bytes = Utilities.base64Decode(body.base64Data);
       const blob = Utilities.newBlob(bytes, body.mimeType || 'image/webp', body.fileName || ('maela_' + new Date().getTime() + '.webp'));
       const file = folder.createFile(blob);
-      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      try {
+        file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      } catch (shareErr) {
+        Logger.log('Notice: Folder is already shared, setSharing skipped: ' + shareErr.message);
+      }
       const fileId = file.getId();
       const isPdf = (body.mimeType || '').indexOf('pdf') !== -1;
 
