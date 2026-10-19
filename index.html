@@ -51,6 +51,10 @@
     .animate-ticker:hover {
       animation-play-state: paused;
     }
+    .school-image { position: relative; margin: 0; min-width: 0; }
+    .school-image img { display: block; max-width: 100%; }
+    .school-image-label { position: absolute; right: 6px; bottom: 6px; left: 6px; width: fit-content; max-width: calc(100% - 12px); border-radius: 6px; padding: 3px 6px; background: rgba(255,255,255,.95); color: #475569; font-size: 10px; line-height: 1.5; }
+    .school-image-label[hidden] { display: none; }
     .red-white-pattern {
       background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
       background-size: 20px 20px;
@@ -68,7 +72,7 @@
           <div id="topTickerText" class="animate-ticker font-light text-red-50"></div>
         </div>
       </div>
-      <div class="flex items-center gap-3 shrink-0">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3 max-w-full">
         <span id="apiStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/70 text-red-100 border border-red-700/60 text-xs">
           <span id="apiStatusDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span id="apiStatusLabel">พร้อมใช้งาน (Local + Cloud Ready)</span>
@@ -86,8 +90,8 @@
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-4 border-red-700 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       <!-- โลโก้และชื่อโรงเรียน -->
-      <a href="#/home" class="flex items-center gap-3 group shrink-0">
-        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 p-0.5 shadow-md group-hover:scale-105 transition">
+      <a href="#/home" class="flex items-center gap-2 sm:gap-3 group min-w-0 flex-1 xl:flex-none">
+        <div class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 p-0.5 shadow-md group-hover:scale-105 transition">
           <div class="w-full h-full rounded-[14px] bg-white flex flex-col items-center justify-center relative overflow-hidden">
             <div class="w-full h-1.5 bg-red-700 absolute top-0"></div>
             <svg class="w-7 h-7 text-red-700 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
@@ -96,12 +100,12 @@
             <span class="text-[8px] font-bold text-red-800 tracking-tighter leading-none">ม.ล.ศ.</span>
           </div>
         </div>
-        <div>
+        <div class="min-w-0">
           <div class="flex items-center gap-2">
-            <h1 id="headerSchoolName" class="text-lg sm:text-xl font-bold text-red-800 leading-tight">โรงเรียนชุมชนแม่ลาศึกษา</h1>
+            <h1 id="headerSchoolName" class="text-sm sm:text-xl font-bold text-red-800 leading-tight">โรงเรียนชุมชนแม่ลาศึกษา</h1>
             <span class="hidden md:inline-block bg-red-50 text-red-700 border border-red-200 text-[11px] font-semibold px-2 py-0.5 rounded-full">อ.2 – ม.3</span>
           </div>
-          <p class="text-xs text-slate-500">Chumchon Maela Suksa School • โรงเรียนขยายโอกาสทางการศึกษา</p>
+          <p class="hidden sm:block text-xs text-slate-500">Chumchon Maela Suksa School • โรงเรียนขยายโอกาสทางการศึกษา</p>
         </div>
       </a>
 
@@ -122,7 +126,7 @@
       </nav>
 
       <!-- ปุ่มเปิดเมนูบนมือถือ/แท็บเล็ต -->
-      <div class="flex items-center gap-2 xl:hidden">
+      <div class="flex items-center gap-2 xl:hidden shrink-0">
         <a href="#/admissions" class="bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm px-3 py-2 rounded-lg font-semibold shadow-sm">สมัครเรียน</a>
         <button id="btnMobileMenu" type="button" class="p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-red-50 hover:text-red-700" aria-label="เปิดเมนู">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -237,6 +241,7 @@
   <!-- ระบบแจ้งเตือน Toast มุมขวาล่าง -->
   <div id="toastContainer" class="fixed top-20 right-4 z-50 space-y-2 max-w-sm w-full pointer-events-none"></div>
 
+  <script src="./image-placeholders.js"></script>
   <script>
     /**
      * ============================================================================
@@ -248,84 +253,6 @@
     const STORAGE_KEY_DB = 'MAELA_SCHOOL_CMS_DB_V1';
     const STORAGE_KEY_API = 'MAELA_SCHOOL_GAS_URL_V1';
     const STORAGE_KEY_PDPA = 'MAELA_SCHOOL_PDPA_ACCEPTED';
-
-    // ฟังก์ชันสร้างภาพประกอบ SVG คุณภาพสูงโทนสีแดง-ขาว สำหรับโรงเรียนชุมชนแม่ลาศึกษา (ไม่ต้องพึ่งพาเว็บฝากรูปภายนอก)
-    function createSchoolSvgIllustration(type, titleText, subtitleText) {
-      const safeTitle = (titleText || 'โรงเรียนชุมชนแม่ลาศึกษา').replace(/[<>&"']/g, '');
-      const safeSub = (subtitleText || 'อนุบาล 2 - มัธยมศึกษาปีที่ 3').replace(/[<>&"']/g, '');
-      let bgGrad = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7F1D1D"/><stop offset="55%" stop-color="#B91C1C"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>';
-      let graphic = '';
-
-      if (type === 'campus' || type === 'hero1') {
-        graphic = `
-          <rect x="110" y="150" width="580" height="170" rx="8" fill="#FFFFFF" opacity="0.95"/>
-          <polygon points="80,155 400,65 720,155" fill="#FEF2F2"/>
-          <rect x="330" y="110" width="140" height="210" fill="#FEE2E2"/>
-          <polygon points="310,115 400,55 490,115" fill="#991B1B"/>
-          <circle cx="400" cy="92" r="14" fill="#FFFFFF"/>
-          <rect x="380" y="255" width="40" height="65" rx="4" fill="#991B1B"/>
-          <g fill="#B91C1C" opacity="0.85">
-            <rect x="145" y="180" width="45" height="35" rx="3"/><rect x="210" y="180" width="45" height="35" rx="3"/><rect x="270" y="180" width="35" height="35" rx="3"/>
-            <rect x="145" y="235" width="45" height="35" rx="3"/><rect x="210" y="235" width="45" height="35" rx="3"/><rect x="270" y="235" width="35" height="35" rx="3"/>
-            <rect x="495" y="180" width="35" height="35" rx="3"/><rect x="545" y="180" width="45" height="35" rx="3"/><rect x="610" y="180" width="45" height="35" rx="3"/>
-            <rect x="495" y="235" width="35" height="35" rx="3"/><rect x="545" y="235" width="45" height="35" rx="3"/><rect x="610" y="235" width="45" height="35" rx="3"/>
-          </g>
-          <line x1="400" y1="15" x2="400" y2="55" stroke="#FFFFFF" stroke-width="4"/>
-          <rect x="402" y="16" width="36" height="22" fill="#EF4444" stroke="#FFFFFF" stroke-width="2"/>
-        `;
-      } else if (type === 'kinder') {
-        bgGrad = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#991B1B"/><stop offset="100%" stop-color="#F87171"/></linearGradient>';
-        graphic = `
-          <circle cx="230" cy="210" r="65" fill="#FFFFFF" opacity="0.92"/>
-          <circle cx="400" cy="195" r="75" fill="#FEF2F2" opacity="0.95"/>
-          <circle cx="570" cy="210" r="65" fill="#FFFFFF" opacity="0.92"/>
-          <text x="230" y="222" text-anchor="middle" font-size="38" font-weight="bold" fill="#B91C1C">อ.2</text>
-          <text x="400" y="208" text-anchor="middle" font-size="42" font-weight="bold" fill="#991B1B">EF</text>
-          <text x="570" y="222" text-anchor="middle" font-size="38" font-weight="bold" fill="#B91C1C">อ.3</text>
-        `;
-      } else if (type === 'award') {
-        graphic = `
-          <circle cx="400" cy="195" r="88" fill="#FEF2F2" stroke="#FFFFFF" stroke-width="6"/>
-          <polygon points="400,128 420,172 468,177 432,209 442,256 400,232 358,256 368,209 332,177 380,172" fill="#B91C1C"/>
-        `;
-      } else {
-        graphic = `
-          <rect x="160" y="130" width="480" height="175" rx="16" fill="#FFFFFF" opacity="0.15" stroke="#FFFFFF" stroke-width="2"/>
-          <circle cx="400" cy="215" r="52" fill="#FFFFFF" opacity="0.9"/>
-          <path d="M380 215 L395 230 L425 200" stroke="#B91C1C" stroke-width="8" fill="none" stroke-linecap="round"/>
-        `;
-      }
-
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
-        <defs>${bgGrad}</defs>
-        <rect width="800" height="420" fill="url(#g)"/>
-        <circle cx="720" cy="60" r="140" fill="#FFFFFF" opacity="0.06"/>
-        <circle cx="80" cy="360" r="180" fill="#FFFFFF" opacity="0.06"/>
-        ${graphic}
-        <rect x="0" y="335" width="800" height="85" fill="#450A0A" opacity="0.72"/>
-        <text x="400" y="370" text-anchor="middle" font-family="Prompt, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF">${safeTitle}</text>
-        <text x="400" y="398" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="15" fill="#FECACA">${safeSub}</text>
-      </svg>`;
-      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-    }
-
-    // ฟังก์ชันแปลง Google Drive File ID หรือ URL ให้เป็นลิงก์แสดงผลรูปภาพที่ไม่ติดบล็อกคุกกี้
-    function resolveDriveImageUrl(driveIdOrUrl, fallbackType, titleText, subtitleText) {
-      if (driveIdOrUrl && String(driveIdOrUrl).trim() !== '') {
-        const val = String(driveIdOrUrl).trim();
-        if (val.startsWith('data:image/') || val.startsWith('http://') || val.startsWith('https://')) {
-          // หากเป็นลิงก์ Google Drive ปกติ ให้สกัด File ID มาแปลงเป็น Thumbnail CDN
-          const match = val.match(/\/d\/([a-zA-Z0-9_-]{15,})/) || val.match(/[?&]id=([a-zA-Z0-9_-]{15,})/);
-          if (match && match[1]) {
-            return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=w1200';
-          }
-          return val;
-        }
-        // กรณีใส่เฉพาะรหัส Google Drive File ID
-        return 'https://drive.google.com/thumbnail?id=' + val + '&sz=w1200';
-      }
-      return createSchoolSvgIllustration(fallbackType || 'campus', titleText, subtitleText);
-    }
 
     // ข้อมูลตั้งต้นของโรงเรียนชุมชนแม่ลาศึกษา (Default Seed Database)
     function getInitialSeedDatabase() {
@@ -706,12 +633,11 @@
         cta_link: '#/admissions',
         drive_image_id: ''
       };
-      const imgSrc = resolveDriveImageUrl(item.drive_image_id || item.image_url, 'campus', item.title, 'อนุบาล 2 - มัธยมศึกษาปีที่ 3 • เรียนฟรี 15 ปี');
       openGlobalModal(
         item.title,
         `<div class="space-y-4">
           <div class="rounded-xl overflow-hidden border border-red-100 shadow-sm bg-red-950">
-            <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full max-h-72 object-cover" />
+            ${renderSchoolImage(getRecordImage(item, 'drive_image_id', 'image_url'), bannerImageType(item), item.title, { eager: true, imageClass: 'w-full aspect-[3/2] max-h-72 object-cover', sizes: '(max-width: 767px) 100vw, 640px' })}
           </div>
           <div class="flex items-center gap-2">
             <span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-full">${escapeHtml(item.badge || 'ประกาศสำคัญ')}</span>
@@ -735,7 +661,6 @@
       const item = (state.db.news || []).find(function(n) { return n.id === newsId; });
       if (!item) return;
       const catMeta = getCategoryMeta(item.category);
-      const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา • ปีการศึกษา ' + item.academic_year);
       const pdfBlock = (item.pdf_drive_id || item.pdf_url)
         ? `<div class="p-3.5 rounded-xl bg-red-50 border border-red-200 flex items-center justify-between gap-3">
              <div class="text-xs sm:text-sm">
@@ -749,7 +674,7 @@
       openGlobalModal(
         item.title,
         `<div class="space-y-4">
-          <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-56 sm:h-64 object-cover rounded-xl border border-slate-200" />
+          ${renderSchoolImage(getRecordImage(item, 'cover_drive_id', 'cover_url'), newsImageType(item), item.title, { eager: true, imageClass: 'w-full h-56 sm:h-64 object-cover rounded-xl border border-slate-200', sizes: '(max-width: 767px) 100vw, 640px' })}
           <div class="flex flex-wrap items-center gap-2 text-xs">
             <span class="px-2.5 py-0.5 rounded-full border font-semibold ${catMeta.cls}">${catMeta.label}</span>
             <span class="text-slate-500">วันที่เผยแพร่: ${escapeHtml(item.published_at)}</span>
@@ -855,7 +780,6 @@
         cta_text: 'ดูรายละเอียดการรับสมัคร',
         cta_link: '#/admissions'
       };
-      const heroImg = resolveDriveImageUrl(activeHero.drive_image_id || activeHero.image_url, state.heroIndex % 2 === 0 ? 'campus' : 'kinder', activeHero.title, 'โรงเรียนชุมชนแม่ลาศึกษา • โทนสีแดง-ขาว');
 
       const allPublishedNews = (state.db.news || []).filter(function(n) { return n.status !== 'draft'; });
       const awardsList = allPublishedNews.filter(function(n) { return n.category === 'award'; }).slice(0, 3);
@@ -865,6 +789,7 @@
       }).slice(0, 6);
 
       const upcomingEvents = (state.db.calendar || []).slice(0, 4);
+      const director = (state.db.personnel || []).find(function(p) { return p.status !== 'inactive' && /ผู้อำนวยการ/.test(p.position || '') && !/รอง/.test(p.position || ''); });
 
       container.innerHTML = `
         <!-- 1. Hero Banner Slider (โทนสีแดง-ขาว) -->
@@ -898,7 +823,7 @@
             </div>
             <div class="lg:col-span-5">
               <div class="bg-white p-2 rounded-2xl shadow-2xl border-2 border-white/40">
-                <img src="${heroImg}" alt="${escapeHtml(activeHero.title)}" class="w-full h-60 sm:h-72 object-cover rounded-xl" />
+                ${renderSchoolImage(getRecordImage(activeHero, 'drive_image_id', 'image_url'), bannerImageType(activeHero), activeHero.title, { eager: true, priority: true, imageClass: 'w-full h-60 sm:h-72 object-cover rounded-xl', sizes: '(max-width: 1023px) 100vw, 500px' })}
               </div>
             </div>
           </div>
@@ -986,6 +911,7 @@
               <!-- ปฐมวัย -->
               <div class="bg-white rounded-2xl border-t-4 border-red-600 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
                 <div class="space-y-3">
+                  ${renderSchoolImage(undefined, 'kinder', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
                     <span class="bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับปฐมวัย</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 4 – 5 ปี</span>
@@ -1002,6 +928,7 @@
               <!-- ประถมศึกษา -->
               <div class="bg-white rounded-2xl border-t-4 border-red-700 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
                 <div class="space-y-3">
+                  ${renderSchoolImage(undefined, 'primary', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
                     <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับประถมศึกษา</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 6 – 11 ปี</span>
@@ -1018,6 +945,7 @@
               <!-- มัธยมศึกษาตอนต้น (ขยายโอกาส) -->
               <div class="bg-white rounded-2xl border-t-4 border-red-900 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
                 <div class="space-y-3">
+                  ${renderSchoolImage(undefined, 'secondary', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
                     <span class="bg-red-900 text-white text-xs font-bold px-3 py-1 rounded-full">ระดับมัธยมศึกษาตอนต้น (ขยายโอกาส)</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 12 – 14 ปี</span>
@@ -1061,11 +989,10 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               ${filteredHomeNews.map(function(item) {
                 const cat = getCategoryMeta(item.category);
-                const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา');
                 return `
                   <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
                     <div class="relative h-44 bg-slate-100">
-                      <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover" />
+                      ${renderSchoolImage(getRecordImage(item, 'cover_drive_id', 'cover_url'), newsImageType(item), item.title, { wrapperClass: 'h-full', imageClass: 'w-full h-full object-cover', sizes: '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px' })}
                       <span class="absolute top-3 left-3 text-[11px] font-bold px-2.5 py-0.5 rounded-full border shadow-sm ${cat.cls}">${cat.label}</span>
                       ${String(item.is_pinned) === 'true' ? '<span class="absolute top-3 right-3 bg-red-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ปักหมุด</span>' : ''}
                     </div>
@@ -1095,11 +1022,11 @@
             <!-- การ์ดผู้บริหารสถานศึกษา -->
             <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
               <div class="flex items-center gap-3.5">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow">ผอ.</div>
+                ${renderSchoolImage(getRecordImage(director, 'photo_drive_id', 'photo_url'), 'staff', director ? director.full_name : 'ผู้บริหารสถานศึกษา', { wrapperClass: 'w-16 h-16 shrink-0', imageClass: 'w-16 h-16 rounded-2xl object-cover border-2 border-red-700' })}
                 <div>
                   <span class="text-[11px] font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">ผู้บริหารสถานศึกษา</span>
-                  <h4 class="font-bold text-slate-900 text-base mt-0.5">นายเกียรติศักดิ์ แม่ลาพัฒนา</h4>
-                  <p class="text-xs text-slate-500">ผู้อำนวยการโรงเรียนชุมชนแม่ลาศึกษา</p>
+                  <h4 class="font-bold text-slate-900 text-base mt-0.5">${escapeHtml(director ? director.full_name : 'นายเกียรติศักดิ์ แม่ลาพัฒนา')}</h4>
+                  <p class="text-xs text-slate-500">${escapeHtml(director ? director.position : 'ผู้อำนวยการโรงเรียนชุมชนแม่ลาศึกษา')}</p>
                 </div>
               </div>
               <blockquote class="mt-3.5 font-sarabun text-xs sm:text-sm text-slate-600 bg-red-50/60 border-l-4 border-red-700 p-3 rounded-r-xl">
@@ -1201,6 +1128,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
               <h3 class="text-lg font-bold text-red-800 border-l-4 border-red-700 pl-3">ประวัติและความเป็นมาของสถานศึกษา</h3>
+              ${renderSchoolImage(undefined, 'campus', '', { imageClass: 'w-full aspect-[3/2] max-h-80 object-cover rounded-xl' })}
               <p class="font-sarabun text-sm sm:text-base text-slate-700 leading-relaxed">
                 <strong>โรงเรียนชุมชนแม่ลาศึกษา</strong> ก่อตั้งขึ้นจากความร่วมมือของประชาชนในชุมชนแม่ลาและกระทรวงศึกษาธิการ เพื่อเป็นศูนย์กลางการเรียนรู้ของบุตรหลานในท้องถิ่น ต่อมาได้รับการคัดเลือกให้เป็น <strong>โรงเรียนขยายโอกาสทางการศึกษา</strong> ที่เปิดทำการเรียนการสอนครอบคลุม 3 ระดับการศึกษา ตั้งแต่ <strong>ระดับชั้นอนุบาลปีที่ 2 ถึงระดับชั้นมัธยมศึกษาปีที่ 3</strong> รวม 11 ชั้นปี
               </p>
@@ -1361,6 +1289,7 @@
           </div>
 
           <!-- รายละเอียดหลักสูตรที่เลือก -->
+          ${renderSchoolImage(undefined, state.academicLevelTab, '', { imageClass: 'w-full aspect-[3/2] max-h-80 object-cover rounded-2xl', sizes: '(max-width: 767px) 100vw, 1200px' })}
           <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
             <div>
               <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">${escapeHtml(cur.badge)}</span>
@@ -1455,15 +1384,9 @@
           <!-- การ์ดรายชื่อบุคลากร -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             ${list.map(function(person) {
-              const initials = String(person.full_name || 'ครู').replace(/^(นาย|นางสาว|นาง|ว่าที่ร้อยตรี)\s*/, '').slice(0, 2);
-              const hasPhoto = person.photo_drive_id || person.photo_url;
-              const photoUrl = hasPhoto ? resolveDriveImageUrl(person.photo_drive_id || person.photo_url, 'campus', person.full_name, person.position) : '';
               return `
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition flex items-start gap-4">
-                  ${hasPhoto
-                    ? `<img src="${photoUrl}" alt="${escapeHtml(person.full_name)}" class="w-16 h-16 rounded-2xl object-cover border-2 border-red-700 shrink-0" />`
-                    : `<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">${escapeHtml(initials)}</div>`
-                  }
+                  ${renderSchoolImage(getRecordImage(person, 'photo_drive_id', 'photo_url'), 'staff', person.full_name, { wrapperClass: 'w-16 h-16 shrink-0', imageClass: 'w-16 h-16 rounded-2xl object-cover border-2 border-red-700' })}
                   <div class="space-y-1 text-xs flex-1 min-w-0">
                     <span class="inline-block bg-red-50 text-red-700 border border-red-200 px-2 py-0.5 rounded font-semibold text-[11px]">${escapeHtml(person.department)}</span>
                     <h3 class="font-bold text-slate-900 text-sm sm:text-base truncate">${escapeHtml(person.full_name)}</h3>
@@ -1555,10 +1478,9 @@
               ? `<div class="col-span-full bg-white p-8 rounded-2xl border border-slate-200 text-center text-slate-500 text-sm">ไม่พบรายการข่าวที่ตรงกับเงื่อนไขการค้นหา</div>`
               : list.map(function(item) {
                   const cat = getCategoryMeta(item.category);
-                  const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา');
                   return `
                     <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
-                      <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-44 object-cover" />
+                      ${renderSchoolImage(getRecordImage(item, 'cover_drive_id', 'cover_url'), newsImageType(item), item.title, { imageClass: 'w-full h-44 object-cover', sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 400px' })}
                       <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
                         <div>
                           <div class="flex items-center justify-between gap-2 text-[11px] mb-1.5">
@@ -1630,6 +1552,7 @@
 
         <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div class="lg:col-span-7 space-y-6">
+            ${renderSchoolImage(undefined, 'admissions', '', { imageClass: 'w-full aspect-[3/2] max-h-80 object-cover rounded-2xl' })}
             <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
               <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">ระดับชั้นที่เปิดรับสมัครและคุณสมบัติ</h3>
               <div class="space-y-3 text-xs sm:text-sm">
@@ -2342,6 +2265,8 @@
 
       // แท็บ 2: จัดการข่าวสารและประกาศ + ย่อรูปอัตโนมัติ (News CRUD + WebP Image Compressor)
       else if (state.adminTab === 'news') {
+        state.pendingCompressedDataUrl = '';
+        let newsImageRequest = 0;
         sub.innerHTML = `
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <form id="formAdminNews" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3.5">
@@ -2380,6 +2305,7 @@
                 <input id="newsFileInput" type="file" accept="image/*" class="block w-full text-xs text-slate-600" />
                 <p id="compressInfoText" class="text-[11px] text-emerald-700 font-medium hidden"></p>
                 <input id="newsDriveId" type="text" placeholder="หรือวาง Google Drive File ID / ลิงก์รูปภาพ" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white" />
+                <div id="newsImagePreview"></div>
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ไฟล์แนบ PDF (Google Drive URL ถ้ามี)</label>
@@ -2422,17 +2348,35 @@
           </div>
         `;
 
+        function refreshNewsImagePreview() {
+          const existing = state.db.news.find(function(n) { return n.id === document.getElementById('newsEditId').value; });
+          const fields = newsCoverFields(state.pendingCompressedDataUrl, document.getElementById('newsDriveId').value.trim(), existing);
+          const type = newsImageType({ category: document.getElementById('newsCat').value, title: document.getElementById('newsTitle').value });
+          document.getElementById('newsImagePreview').innerHTML = renderSchoolImage(getRecordImage(fields, 'cover_drive_id', 'cover_url'), type, 'ภาพตัวอย่างปกข่าว', { eager: true, imageClass: 'w-full aspect-[3/2] max-h-48 object-cover rounded-lg' });
+        }
+        ['newsCat', 'newsTitle'].forEach(function(id) { document.getElementById(id).addEventListener('input', refreshNewsImagePreview); });
+        document.getElementById('newsDriveId').addEventListener('input', function() {
+          newsImageRequest++;
+          state.pendingCompressedDataUrl = '';
+          document.getElementById('newsFileInput').value = '';
+          document.getElementById('compressInfoText').classList.add('hidden');
+          refreshNewsImagePreview();
+        });
+        refreshNewsImagePreview();
+
         // ระบบย่อรูปด้วย HTML5 Canvas ก่อนบันทึกหรือส่งขึ้น Google Drive
         const fileInp = document.getElementById('newsFileInput');
         if (fileInp) {
           fileInp.addEventListener('change', function(e) {
             const file = e.target.files && e.target.files[0];
             if (!file) return;
+            const request = ++newsImageRequest;
             const origKb = Math.round(file.size / 1024);
             const reader = new FileReader();
             reader.onload = function(ev) {
               const img = new Image();
               img.onload = function() {
+                if (!fileInp.isConnected || request !== newsImageRequest) return;
                 const canvas = document.createElement('canvas');
                 const maxW = 960;
                 const scale = img.width > maxW ? (maxW / img.width) : 1;
@@ -2442,6 +2386,7 @@
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                 const compressedUrl = canvas.toDataURL('image/webp', 0.78);
                 state.pendingCompressedDataUrl = compressedUrl;
+                refreshNewsImagePreview();
                 const newKb = Math.round((compressedUrl.length * 3) / 4 / 1024);
                 const info = document.getElementById('compressInfoText');
                 if (info) {
@@ -2459,7 +2404,8 @@
           e.preventDefault();
           const editId = document.getElementById('newsEditId').value;
           const driveInput = document.getElementById('newsDriveId').value.trim();
-          const coverUrl = state.pendingCompressedDataUrl || driveInput;
+          const existing = state.db.news.find(function(n) { return n.id === editId; });
+          const coverFields = newsCoverFields(state.pendingCompressedDataUrl, driveInput, existing);
 
           const record = {
             id: editId || ('NW-' + Date.now()),
@@ -2468,8 +2414,8 @@
             title: document.getElementById('newsTitle').value.trim(),
             summary: document.getElementById('newsSummary').value.trim(),
             content_html: document.getElementById('newsContent').value.trim() || document.getElementById('newsSummary').value.trim(),
-            cover_drive_id: driveInput,
-            cover_url: coverUrl,
+            cover_drive_id: coverFields.cover_drive_id,
+            cover_url: coverFields.cover_url,
             pdf_drive_id: '',
             pdf_url: document.getElementById('newsPdfUrl').value.trim(),
             is_pinned: document.getElementById('newsPinned').checked,
@@ -2505,7 +2451,12 @@
             document.getElementById('newsTitle').value = item.title;
             document.getElementById('newsSummary').value = item.summary;
             document.getElementById('newsContent').value = item.content_html;
-            document.getElementById('newsDriveId').value = item.cover_drive_id || '';
+            newsImageRequest++;
+            state.pendingCompressedDataUrl = '';
+            document.getElementById('newsFileInput').value = '';
+            document.getElementById('compressInfoText').classList.add('hidden');
+            document.getElementById('newsDriveId').value = getRecordImage(item, 'cover_drive_id', 'cover_url') || '';
+            refreshNewsImagePreview();
             document.getElementById('newsPdfUrl').value = item.pdf_url || '';
             document.getElementById('newsPinned').checked = String(item.is_pinned) === 'true';
             showToast('ดึงข้อมูลข่าวขึ้นมาแก้ไขในฟอร์มด้านซ้ายแล้ว', 'success');
@@ -2556,7 +2507,8 @@
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพ Google Drive (ถ้ามี)</label>
-                <input id="bnDriveId" type="text" placeholder="ปล่อยว่างเพื่อใช้ภาพกราฟิกโรงเรียนอัตโนมัติ" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                <input id="bnDriveId" type="text" placeholder="ปล่อยว่างเพื่อใช้ภาพประกอบ AI" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                <div id="bannerImagePreview"></div>
               </div>
               <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">เพิ่มแบนเนอร์</button>
             </form>
@@ -2581,6 +2533,12 @@
           </div>
         `;
 
+        function refreshBannerImagePreview() {
+          const item = { title: document.getElementById('bnTitle').value };
+          document.getElementById('bannerImagePreview').innerHTML = renderSchoolImage(document.getElementById('bnDriveId').value, bannerImageType(item), item.title || 'ภาพตัวอย่างแบนเนอร์', { eager: true, imageClass: 'w-full aspect-[3/2] max-h-48 object-cover rounded-lg' });
+        }
+        ['bnDriveId', 'bnTitle', 'bnType'].forEach(function(id) { document.getElementById(id).addEventListener('input', refreshBannerImagePreview); });
+        refreshBannerImagePreview();
         document.getElementById('formAdminBanner').addEventListener('submit', function(e) {
           e.preventDefault();
           state.db.banners.push({
@@ -2649,6 +2607,7 @@
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพถ่ายครูบน Google Drive (ถ้ามี)</label>
                 <input id="psPhotoId" type="text" placeholder="ระบุ Google Drive File ID" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                <div id="personImagePreview"></div>
               </div>
               <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">บันทึกข้อมูลบุคลากร</button>
             </form>
@@ -2673,6 +2632,11 @@
           </div>
         `;
 
+        function refreshPersonImagePreview() {
+          document.getElementById('personImagePreview').innerHTML = renderSchoolImage(document.getElementById('psPhotoId').value, 'staff', document.getElementById('psName').value || 'ภาพตัวอย่างบุคลากร', { eager: true, wrapperClass: 'w-16 h-16', imageClass: 'w-16 h-16 object-cover rounded-xl' });
+        }
+        ['psPhotoId', 'psName'].forEach(function(id) { document.getElementById(id).addEventListener('input', refreshPersonImagePreview); });
+        refreshPersonImagePreview();
         document.getElementById('formAdminPerson').addEventListener('submit', function(e) {
           e.preventDefault();
           const grp = document.getElementById('psGroup').value;

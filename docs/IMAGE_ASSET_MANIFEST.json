@@ -1,0 +1,228 @@
+{
+  "generatedOn": "2026-10-19",
+  "assets": [
+    {
+      "key": "campus",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-181e09aa-1827-4697-8510-7c978bf24c41.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/community-school-campus.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 240728,
+          "sha256": "38be8ff9d1b556010179ada85f1b135a69c9977417b04ecdd04c163ec892f2f6"
+        },
+        {
+          "path": "public/images/placeholders/community-school-campus-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 45828,
+          "sha256": "133ea2df3a96c01495459c4c7aacebfe079191cc399f105a18cbd5d9bfb37358"
+        }
+      ]
+    },
+    {
+      "key": "kinder",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-b7da1539-0a71-4ff0-9035-f2086e3847b3.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/kindergarten-play-learning.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 112490,
+          "sha256": "f08d7c905398c7e606fcbb0dc3be8d7306617ffa8c842f6edacb812bc684b714"
+        },
+        {
+          "path": "public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 29852,
+          "sha256": "943d644802e34411bb2cdbcbbec21960358a7069630ff5c3772e5048be49db9c"
+        }
+      ]
+    },
+    {
+      "key": "primary",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-a7d398e2-6bf2-47d2-826c-a74e1dba12fd.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/primary-reading-discovery.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 140072,
+          "sha256": "9f0653a76cac058881a083ecf8b2e58a07fb901bc2844f4790494a149ae82d28"
+        },
+        {
+          "path": "public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 34848,
+          "sha256": "340feb20b872c25d3facf88cdd6074d03e9f343a1c72a86d77b37d84e5a261fc"
+        }
+      ]
+    },
+    {
+      "key": "secondary",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-25e12bd0-8e1d-44b3-bb93-726974d01524.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/secondary-science-careers.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 121846,
+          "sha256": "c61021555fd8342ef541cf82a7aef7da5d8ddf10667a699a916c3f6181afb79d"
+        },
+        {
+          "path": "public/images/placeholders/secondary-science-careers-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 29946,
+          "sha256": "ea7f3ba89f6fa8c892bd22143990edb890587a218f2901ca37fe7c7b611c5b39"
+        }
+      ]
+    },
+    {
+      "key": "admissions",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-00213f2a-b96a-47f4-8393-003ab1c1618e.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/school-admissions-welcome.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 115260,
+          "sha256": "3f15c2cef62f1ce87b4279ce9b35380c66227998bea6dffa88d2c3cfee7cfb69"
+        },
+        {
+          "path": "public/images/placeholders/school-admissions-welcome-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 29476,
+          "sha256": "8547563df0f4e7a129e09e8d801bf95a45da71b2e2e77334f8fe809309fcb83a"
+        }
+      ]
+    },
+    {
+      "key": "award",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-753dcccb-bccf-4ed3-89ae-6b800886f2fa.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/academic-achievement.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 106378,
+          "sha256": "332ac5ae12f30dbad3a306e90edc9ea49bb7bc3bee2ac7f9db7dca39250490a8"
+        },
+        {
+          "path": "public/images/placeholders/academic-achievement-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 25002,
+          "sha256": "6dd3e6743225d8bb460a3188b297ddc4e8e2d54b985bdc45a746fda1500ca346"
+        }
+      ]
+    },
+    {
+      "key": "academic",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-88921876-0bb5-4792-9821-b5da780ec84e.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/academic-term-planning.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 97808,
+          "sha256": "304d43fa7199a82524ff75e399c50d3ad578924e9053de8c84c2f8becc1775ad"
+        },
+        {
+          "path": "public/images/placeholders/academic-term-planning-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23666,
+          "sha256": "1da9eb3306ad204cea0854205507a988fe78d65a0ff3c2f69260a7d45f1c3e5e"
+        }
+      ]
+    },
+    {
+      "key": "procurement",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-86be6c87-f6c2-46a4-9d47-d9eaa3e9fa87.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/school-lunch-supplies.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 160992,
+          "sha256": "ffd3dd21799977eaa18cbc5aab79446161992e62548bf97f30b656c7752b32f6"
+        },
+        {
+          "path": "public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 32804,
+          "sha256": "f2031a6a05f33f6bac71fe33e5b7bdad7f5ea9414372d62cd629c4e87fd0d819"
+        }
+      ]
+    },
+    {
+      "key": "job",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-799ba893-0bf3-40e6-bf2f-f63e4df9a8e7.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "variants": [
+        {
+          "path": "public/images/placeholders/teacher-preparation.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 77762,
+          "sha256": "ff69b7adb06c2004b7924a9010a769390533ea42d7766b40077c9a378fedd9e4"
+        },
+        {
+          "path": "public/images/placeholders/teacher-preparation-thumb.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 16014,
+          "sha256": "f884ed21f4b3628bc8d6de33190edbba5675b1ffe5c2f6905009645ec291ba98"
+        }
+      ]
+    },
+    {
+      "key": "staff",
+      "generator": "built-in image_gen.imagegen",
+      "generatedSourceFilename": "exec-ad74cd63-9666-48c9-be28-2f83ab685dd1.png",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "variants": [
+        {
+          "path": "public/images/placeholders/staff-neutral-avatar.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 3178,
+          "sha256": "2a299d583d21fde89cf174e1eca10870e91bbb758337a398c9c4fd5aa572d68a"
+        }
+      ]
+    }
+  ]
+}

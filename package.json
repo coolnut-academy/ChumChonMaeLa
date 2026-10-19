@@ -1,0 +1,12 @@
+{
+  "name": "maela-school-static-site",
+  "private": true,
+  "description": "Optional local verification tools; the site remains a static HTML SPA.",
+  "scripts": {
+    "verify:images": "node scripts/verify-images.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1",
+    "sharp": "0.35.5"
+  }
+}
