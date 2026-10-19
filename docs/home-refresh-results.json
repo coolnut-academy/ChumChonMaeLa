@@ -1,0 +1,2342 @@
+{
+  "checks": [
+    "320: no page overflow",
+    "320: six readable icon shortcuts with one primary action",
+    "320: three course cards fit viewport",
+    "320: balanced course columns",
+    "320: all news photos decode with alt and nonzero dimensions",
+    "320: one featured article preserves first published record",
+    "320: hero image remains unobstructed",
+    "320: new sections remain below hero",
+    "375: no page overflow",
+    "375: six readable icon shortcuts with one primary action",
+    "375: three course cards fit viewport",
+    "375: balanced course columns",
+    "375: all news photos decode with alt and nonzero dimensions",
+    "375: one featured article preserves first published record",
+    "375: hero image remains unobstructed",
+    "375: new sections remain below hero",
+    "375: pr filter preserves order and pressed state",
+    "375: award filter preserves order and pressed state",
+    "375: academic filter preserves order and pressed state",
+    "375: procurement filter preserves order and pressed state",
+    "375: job filter preserves order and pressed state",
+    "375: all filter preserves order and pressed state",
+    "375: featured article opens original news detail",
+    "375: empty news category has meaningful status",
+    "375: drafts remain hidden",
+    "375: uploaded news image has priority and no AI caption",
+    "375: single-item news layout remains within viewport",
+    "390: no page overflow",
+    "390: six readable icon shortcuts with one primary action",
+    "390: three course cards fit viewport",
+    "390: balanced course columns",
+    "390: all news photos decode with alt and nonzero dimensions",
+    "390: one featured article preserves first published record",
+    "390: hero image remains unobstructed",
+    "390: new sections remain below hero",
+    "640: no page overflow",
+    "640: six readable icon shortcuts with one primary action",
+    "640: three course cards fit viewport",
+    "640: balanced course columns",
+    "640: all news photos decode with alt and nonzero dimensions",
+    "640: one featured article preserves first published record",
+    "640: hero image remains unobstructed",
+    "640: new sections remain below hero",
+    "768: no page overflow",
+    "768: six readable icon shortcuts with one primary action",
+    "768: three course cards fit viewport",
+    "768: balanced course columns",
+    "768: all news photos decode with alt and nonzero dimensions",
+    "768: one featured article preserves first published record",
+    "768: hero image remains unobstructed",
+    "768: new sections remain below hero",
+    "820: no page overflow",
+    "820: six readable icon shortcuts with one primary action",
+    "820: three course cards fit viewport",
+    "820: balanced course columns",
+    "820: all news photos decode with alt and nonzero dimensions",
+    "820: one featured article preserves first published record",
+    "820: hero image remains unobstructed",
+    "820: new sections remain below hero",
+    "1024: no page overflow",
+    "1024: six readable icon shortcuts with one primary action",
+    "1024: three course cards fit viewport",
+    "1024: balanced course columns",
+    "1024: all news photos decode with alt and nonzero dimensions",
+    "1024: one featured article preserves first published record",
+    "1024: hero image remains unobstructed",
+    "1024: new sections remain below hero",
+    "1199: no page overflow",
+    "1199: six readable icon shortcuts with one primary action",
+    "1199: three course cards fit viewport",
+    "1199: balanced course columns",
+    "1199: all news photos decode with alt and nonzero dimensions",
+    "1199: one featured article preserves first published record",
+    "1199: hero image remains unobstructed",
+    "1199: new sections remain below hero",
+    "1200: no page overflow",
+    "1200: six readable icon shortcuts with one primary action",
+    "1200: three course cards fit viewport",
+    "1200: balanced course columns",
+    "1200: all news photos decode with alt and nonzero dimensions",
+    "1200: one featured article preserves first published record",
+    "1200: hero image remains unobstructed",
+    "1200: new sections remain below hero",
+    "1200: featured photo is larger than secondary photos",
+    "1440: no page overflow",
+    "1440: six readable icon shortcuts with one primary action",
+    "1440: three course cards fit viewport",
+    "1440: balanced course columns",
+    "1440: all news photos decode with alt and nonzero dimensions",
+    "1440: one featured article preserves first published record",
+    "1440: hero image remains unobstructed",
+    "1440: new sections remain below hero",
+    "1440: featured photo is larger than secondary photos",
+    "1440: pr filter preserves order and pressed state",
+    "1440: award filter preserves order and pressed state",
+    "1440: academic filter preserves order and pressed state",
+    "1440: procurement filter preserves order and pressed state",
+    "1440: job filter preserves order and pressed state",
+    "1440: all filter preserves order and pressed state",
+    "1440: featured article opens original news detail",
+    "1440: empty news category has meaningful status",
+    "1440: drafts remain hidden",
+    "1440: uploaded news image has priority and no AI caption",
+    "1440: single-item news layout remains within viewport",
+    "No uncaught JavaScript errors"
+  ],
+  "views": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "courses": [
+        {
+          "top": 1710.328125,
+          "left": 16,
+          "width": 288,
+          "height": 461.75,
+          "bottom": 2172.078125
+        },
+        {
+          "top": 2192.078125,
+          "left": 16,
+          "width": 288,
+          "height": 461.75,
+          "bottom": 2653.828125
+        },
+        {
+          "top": 2673.828125,
+          "left": 16,
+          "width": 288,
+          "height": 482.5,
+          "bottom": 3156.328125
+        }
+      ],
+      "news": [
+        {
+          "top": 3638.203125,
+          "left": 16,
+          "width": 288,
+          "height": 539.4375,
+          "bottom": 4177.640625
+        },
+        {
+          "top": 4193.640625,
+          "left": 16,
+          "width": 288,
+          "height": 415.46875,
+          "bottom": 4609.109375
+        },
+        {
+          "top": 4625.109375,
+          "left": 16,
+          "width": 288,
+          "height": 415.46875,
+          "bottom": 5040.578125
+        },
+        {
+          "top": 5056.578125,
+          "left": 16,
+          "width": 288,
+          "height": 415.46875,
+          "bottom": 5472.046875
+        },
+        {
+          "top": 5488.046875,
+          "left": 16,
+          "width": 288,
+          "height": 415.46875,
+          "bottom": 5903.515625
+        },
+        {
+          "top": 5919.515625,
+          "left": 16,
+          "width": 288,
+          "height": 415.46875,
+          "bottom": 6334.984375
+        }
+      ],
+      "photos": [
+        {
+          "top": 3639.203125,
+          "left": 17,
+          "width": 286,
+          "height": 224,
+          "bottom": 3863.203125
+        },
+        {
+          "top": 4194.640625,
+          "left": 17,
+          "width": 286,
+          "height": 176,
+          "bottom": 4370.640625
+        },
+        {
+          "top": 4626.109375,
+          "left": 17,
+          "width": 286,
+          "height": 176,
+          "bottom": 4802.109375
+        },
+        {
+          "top": 5057.578125,
+          "left": 17,
+          "width": 286,
+          "height": 176,
+          "bottom": 5233.578125
+        },
+        {
+          "top": 5489.046875,
+          "left": 17,
+          "width": 286,
+          "height": 176,
+          "bottom": 5665.046875
+        },
+        {
+          "top": 5920.515625,
+          "left": 17,
+          "width": 286,
+          "height": 176,
+          "bottom": 6096.515625
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 286,
+          "height": 224
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 286,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 286,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 286,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 286,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 286,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 516.828125,
+          "left": 0,
+          "width": 320,
+          "height": 636.875,
+          "bottom": 1153.703125
+        },
+        {
+          "class": "home-learning",
+          "top": 1153.703125,
+          "left": 0,
+          "width": 320,
+          "height": 2047.625,
+          "bottom": 3201.328125
+        },
+        {
+          "class": "home-news-section",
+          "top": 3201.328125,
+          "left": 0,
+          "width": 320,
+          "height": 4449.15625,
+          "bottom": 7650.484375
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "courses": [
+        {
+          "top": 1693,
+          "left": 16,
+          "width": 343,
+          "height": 475.65625,
+          "bottom": 2168.65625
+        },
+        {
+          "top": 2188.65625,
+          "left": 16,
+          "width": 343,
+          "height": 475.65625,
+          "bottom": 2664.3125
+        },
+        {
+          "top": 2684.3125,
+          "left": 16,
+          "width": 343,
+          "height": 496.40625,
+          "bottom": 3180.71875
+        }
+      ],
+      "news": [
+        {
+          "top": 3610.59375,
+          "left": 16,
+          "width": 343,
+          "height": 539.4375,
+          "bottom": 4150.03125
+        },
+        {
+          "top": 4166.03125,
+          "left": 16,
+          "width": 343,
+          "height": 415.46875,
+          "bottom": 4581.5
+        },
+        {
+          "top": 4597.5,
+          "left": 16,
+          "width": 343,
+          "height": 415.46875,
+          "bottom": 5012.96875
+        },
+        {
+          "top": 5028.96875,
+          "left": 16,
+          "width": 343,
+          "height": 415.46875,
+          "bottom": 5444.4375
+        },
+        {
+          "top": 5460.4375,
+          "left": 16,
+          "width": 343,
+          "height": 415.46875,
+          "bottom": 5875.90625
+        },
+        {
+          "top": 5891.90625,
+          "left": 16,
+          "width": 343,
+          "height": 415.46875,
+          "bottom": 6307.375
+        }
+      ],
+      "photos": [
+        {
+          "top": 3611.59375,
+          "left": 17,
+          "width": 341,
+          "height": 224,
+          "bottom": 3835.59375
+        },
+        {
+          "top": 4167.03125,
+          "left": 17,
+          "width": 341,
+          "height": 176,
+          "bottom": 4343.03125
+        },
+        {
+          "top": 4598.5,
+          "left": 17,
+          "width": 341,
+          "height": 176,
+          "bottom": 4774.5
+        },
+        {
+          "top": 5029.96875,
+          "left": 17,
+          "width": 341,
+          "height": 176,
+          "bottom": 5205.96875
+        },
+        {
+          "top": 5461.4375,
+          "left": 17,
+          "width": 341,
+          "height": 176,
+          "bottom": 5637.4375
+        },
+        {
+          "top": 5892.90625,
+          "left": 17,
+          "width": 341,
+          "height": 176,
+          "bottom": 6068.90625
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 341,
+          "height": 224
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 341,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 341,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 341,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 341,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 341,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 499.5,
+          "left": 0,
+          "width": 375,
+          "height": 636.875,
+          "bottom": 1136.375
+        },
+        {
+          "class": "home-learning",
+          "top": 1136.375,
+          "left": 0,
+          "width": 375,
+          "height": 2089.34375,
+          "bottom": 3225.71875
+        },
+        {
+          "class": "home-news-section",
+          "top": 3225.71875,
+          "left": 0,
+          "width": 375,
+          "height": 4289.65625,
+          "bottom": 7515.375
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "courses": [
+        {
+          "top": 1682.609375,
+          "left": 16,
+          "width": 358,
+          "height": 485.65625,
+          "bottom": 2168.265625
+        },
+        {
+          "top": 2188.265625,
+          "left": 16,
+          "width": 358,
+          "height": 485.65625,
+          "bottom": 2673.921875
+        },
+        {
+          "top": 2693.921875,
+          "left": 16,
+          "width": 358,
+          "height": 483.65625,
+          "bottom": 3177.578125
+        }
+      ],
+      "news": [
+        {
+          "top": 3607.453125,
+          "left": 16,
+          "width": 358,
+          "height": 539.4375,
+          "bottom": 4146.890625
+        },
+        {
+          "top": 4162.890625,
+          "left": 16,
+          "width": 358,
+          "height": 415.46875,
+          "bottom": 4578.359375
+        },
+        {
+          "top": 4594.359375,
+          "left": 16,
+          "width": 358,
+          "height": 415.46875,
+          "bottom": 5009.828125
+        },
+        {
+          "top": 5025.828125,
+          "left": 16,
+          "width": 358,
+          "height": 415.46875,
+          "bottom": 5441.296875
+        },
+        {
+          "top": 5457.296875,
+          "left": 16,
+          "width": 358,
+          "height": 415.46875,
+          "bottom": 5872.765625
+        },
+        {
+          "top": 5888.765625,
+          "left": 16,
+          "width": 358,
+          "height": 415.46875,
+          "bottom": 6304.234375
+        }
+      ],
+      "photos": [
+        {
+          "top": 3608.453125,
+          "left": 17,
+          "width": 356,
+          "height": 224,
+          "bottom": 3832.453125
+        },
+        {
+          "top": 4163.890625,
+          "left": 17,
+          "width": 356,
+          "height": 176,
+          "bottom": 4339.890625
+        },
+        {
+          "top": 4595.359375,
+          "left": 17,
+          "width": 356,
+          "height": 176,
+          "bottom": 4771.359375
+        },
+        {
+          "top": 5026.828125,
+          "left": 17,
+          "width": 356,
+          "height": 176,
+          "bottom": 5202.828125
+        },
+        {
+          "top": 5458.296875,
+          "left": 17,
+          "width": 356,
+          "height": 176,
+          "bottom": 5634.296875
+        },
+        {
+          "top": 5889.765625,
+          "left": 17,
+          "width": 356,
+          "height": 176,
+          "bottom": 6065.765625
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 356,
+          "height": 224
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 356,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 356,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 356,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 356,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 356,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 509.5,
+          "left": 0,
+          "width": 390,
+          "height": 636.875,
+          "bottom": 1146.375
+        },
+        {
+          "class": "home-learning",
+          "top": 1146.375,
+          "left": 0,
+          "width": 390,
+          "height": 2076.203125,
+          "bottom": 3222.578125
+        },
+        {
+          "class": "home-news-section",
+          "top": 3222.578125,
+          "left": 0,
+          "width": 390,
+          "height": 4289.65625,
+          "bottom": 7512.234375
+        }
+      ]
+    },
+    {
+      "width": 640,
+      "scrollWidth": 640,
+      "courses": [
+        {
+          "top": 1504.84375,
+          "left": 16,
+          "width": 608,
+          "height": 632.25,
+          "bottom": 2137.09375
+        },
+        {
+          "top": 2157.09375,
+          "left": 16,
+          "width": 608,
+          "height": 632.25,
+          "bottom": 2789.34375
+        },
+        {
+          "top": 2809.34375,
+          "left": 16,
+          "width": 608,
+          "height": 630.25,
+          "bottom": 3439.59375
+        }
+      ],
+      "news": [
+        {
+          "top": 3730.28125,
+          "left": 16,
+          "width": 608,
+          "height": 315.4375,
+          "bottom": 4045.71875
+        },
+        {
+          "top": 4061.71875,
+          "left": 16,
+          "width": 296,
+          "height": 415.46875,
+          "bottom": 4477.1875
+        },
+        {
+          "top": 4061.71875,
+          "left": 328,
+          "width": 296,
+          "height": 415.46875,
+          "bottom": 4477.1875
+        },
+        {
+          "top": 4493.1875,
+          "left": 16,
+          "width": 296,
+          "height": 415.46875,
+          "bottom": 4908.65625
+        },
+        {
+          "top": 4493.1875,
+          "left": 328,
+          "width": 296,
+          "height": 415.46875,
+          "bottom": 4908.65625
+        },
+        {
+          "top": 4924.65625,
+          "left": 16,
+          "width": 296,
+          "height": 415.46875,
+          "bottom": 5340.125
+        }
+      ],
+      "photos": [
+        {
+          "top": 3731.28125,
+          "left": 17,
+          "width": 303,
+          "height": 313.4375,
+          "bottom": 4044.71875
+        },
+        {
+          "top": 4062.71875,
+          "left": 17,
+          "width": 294,
+          "height": 176,
+          "bottom": 4238.71875
+        },
+        {
+          "top": 4062.71875,
+          "left": 329,
+          "width": 294,
+          "height": 176,
+          "bottom": 4238.71875
+        },
+        {
+          "top": 4494.1875,
+          "left": 17,
+          "width": 294,
+          "height": 176,
+          "bottom": 4670.1875
+        },
+        {
+          "top": 4494.1875,
+          "left": 329,
+          "width": 294,
+          "height": 176,
+          "bottom": 4670.1875
+        },
+        {
+          "top": 4925.65625,
+          "left": 17,
+          "width": 294,
+          "height": 176,
+          "bottom": 5101.65625
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 303,
+          "height": 313
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 294,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 294,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 294,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 294,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 294,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 590.5,
+          "left": 0,
+          "width": 640,
+          "height": 425.6875,
+          "bottom": 1016.1875
+        },
+        {
+          "class": "home-learning",
+          "top": 1016.1875,
+          "left": 0,
+          "width": 640,
+          "height": 2468.40625,
+          "bottom": 3484.59375
+        },
+        {
+          "class": "home-news-section",
+          "top": 3484.59375,
+          "left": 0,
+          "width": 640,
+          "height": 2943.53125,
+          "bottom": 6428.125
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "courses": [
+        {
+          "top": 1348.515625,
+          "left": 16,
+          "width": 232,
+          "height": 548.578125,
+          "bottom": 1897.09375
+        },
+        {
+          "top": 1348.515625,
+          "left": 268,
+          "width": 232,
+          "height": 548.578125,
+          "bottom": 1897.09375
+        },
+        {
+          "top": 1348.515625,
+          "left": 520,
+          "width": 232,
+          "height": 548.578125,
+          "bottom": 1897.09375
+        }
+      ],
+      "news": [
+        {
+          "top": 2187.78125,
+          "left": 16,
+          "width": 736,
+          "height": 315.4375,
+          "bottom": 2503.21875
+        },
+        {
+          "top": 2519.21875,
+          "left": 16,
+          "width": 360,
+          "height": 415.46875,
+          "bottom": 2934.6875
+        },
+        {
+          "top": 2519.21875,
+          "left": 392,
+          "width": 360,
+          "height": 415.46875,
+          "bottom": 2934.6875
+        },
+        {
+          "top": 2950.6875,
+          "left": 16,
+          "width": 360,
+          "height": 415.46875,
+          "bottom": 3366.15625
+        },
+        {
+          "top": 2950.6875,
+          "left": 392,
+          "width": 360,
+          "height": 415.46875,
+          "bottom": 3366.15625
+        },
+        {
+          "top": 3382.15625,
+          "left": 16,
+          "width": 360,
+          "height": 415.46875,
+          "bottom": 3797.625
+        }
+      ],
+      "photos": [
+        {
+          "top": 2188.78125,
+          "left": 17,
+          "width": 367,
+          "height": 313.4375,
+          "bottom": 2502.21875
+        },
+        {
+          "top": 2520.21875,
+          "left": 17,
+          "width": 358,
+          "height": 176,
+          "bottom": 2696.21875
+        },
+        {
+          "top": 2520.21875,
+          "left": 393,
+          "width": 358,
+          "height": 176,
+          "bottom": 2696.21875
+        },
+        {
+          "top": 2951.6875,
+          "left": 17,
+          "width": 358,
+          "height": 176,
+          "bottom": 3127.6875
+        },
+        {
+          "top": 2951.6875,
+          "left": 393,
+          "width": 358,
+          "height": 176,
+          "bottom": 3127.6875
+        },
+        {
+          "top": 3383.15625,
+          "left": 17,
+          "width": 358,
+          "height": 176,
+          "bottom": 3559.15625
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 367,
+          "height": 313
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 358,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 358,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 358,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 358,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 358,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 590.5,
+          "left": 0,
+          "width": 768,
+          "height": 425.6875,
+          "bottom": 1016.1875
+        },
+        {
+          "class": "home-learning",
+          "top": 1016.1875,
+          "left": 0,
+          "width": 768,
+          "height": 925.90625,
+          "bottom": 1942.09375
+        },
+        {
+          "class": "home-news-section",
+          "top": 1942.09375,
+          "left": 0,
+          "width": 768,
+          "height": 2924.03125,
+          "bottom": 4866.125
+        }
+      ]
+    },
+    {
+      "width": 820,
+      "scrollWidth": 820,
+      "courses": [
+        {
+          "top": 1369.03125,
+          "left": 16,
+          "width": 249.328125,
+          "height": 536.125,
+          "bottom": 1905.15625
+        },
+        {
+          "top": 1369.03125,
+          "left": 285.328125,
+          "width": 249.328125,
+          "height": 536.125,
+          "bottom": 1905.15625
+        },
+        {
+          "top": 1369.03125,
+          "left": 554.65625,
+          "width": 249.328125,
+          "height": 536.125,
+          "bottom": 1905.15625
+        }
+      ],
+      "news": [
+        {
+          "top": 2196.734375,
+          "left": 16,
+          "width": 788,
+          "height": 315.4375,
+          "bottom": 2512.171875
+        },
+        {
+          "top": 2528.171875,
+          "left": 16,
+          "width": 386,
+          "height": 415.46875,
+          "bottom": 2943.640625
+        },
+        {
+          "top": 2528.171875,
+          "left": 418,
+          "width": 386,
+          "height": 415.46875,
+          "bottom": 2943.640625
+        },
+        {
+          "top": 2959.640625,
+          "left": 16,
+          "width": 386,
+          "height": 415.46875,
+          "bottom": 3375.109375
+        },
+        {
+          "top": 2959.640625,
+          "left": 418,
+          "width": 386,
+          "height": 415.46875,
+          "bottom": 3375.109375
+        },
+        {
+          "top": 3391.109375,
+          "left": 16,
+          "width": 386,
+          "height": 415.46875,
+          "bottom": 3806.578125
+        }
+      ],
+      "photos": [
+        {
+          "top": 2197.734375,
+          "left": 17,
+          "width": 393,
+          "height": 313.4375,
+          "bottom": 2511.171875
+        },
+        {
+          "top": 2529.171875,
+          "left": 17,
+          "width": 384,
+          "height": 176,
+          "bottom": 2705.171875
+        },
+        {
+          "top": 2529.171875,
+          "left": 419,
+          "width": 384,
+          "height": 176,
+          "bottom": 2705.171875
+        },
+        {
+          "top": 2960.640625,
+          "left": 17,
+          "width": 384,
+          "height": 176,
+          "bottom": 3136.640625
+        },
+        {
+          "top": 2960.640625,
+          "left": 419,
+          "width": 384,
+          "height": 176,
+          "bottom": 3136.640625
+        },
+        {
+          "top": 3392.109375,
+          "left": 17,
+          "width": 384,
+          "height": 176,
+          "bottom": 3568.109375
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 393,
+          "height": 313
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 384,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 384,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 384,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 384,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 384,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 606.75,
+          "left": 0,
+          "width": 820,
+          "height": 426.578125,
+          "bottom": 1033.328125
+        },
+        {
+          "class": "home-learning",
+          "top": 1033.328125,
+          "left": 0,
+          "width": 820,
+          "height": 916.828125,
+          "bottom": 1950.15625
+        },
+        {
+          "class": "home-news-section",
+          "top": 1950.15625,
+          "left": 0,
+          "width": 820,
+          "height": 2924.921875,
+          "bottom": 4875.078125
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "courses": [
+        {
+          "top": 1385.015625,
+          "left": 16,
+          "width": 317.328125,
+          "height": 483.96875,
+          "bottom": 1868.984375
+        },
+        {
+          "top": 1385.015625,
+          "left": 353.328125,
+          "width": 317.328125,
+          "height": 483.96875,
+          "bottom": 1868.984375
+        },
+        {
+          "top": 1385.015625,
+          "left": 690.65625,
+          "width": 317.34375,
+          "height": 483.96875,
+          "bottom": 1868.984375
+        }
+      ],
+      "news": [
+        {
+          "top": 2169.75,
+          "left": 16,
+          "width": 642.65625,
+          "height": 315.4375,
+          "bottom": 2485.1875
+        },
+        {
+          "top": 2501.1875,
+          "left": 16,
+          "width": 313.328125,
+          "height": 415.46875,
+          "bottom": 2916.65625
+        },
+        {
+          "top": 2501.1875,
+          "left": 345.328125,
+          "width": 313.328125,
+          "height": 415.46875,
+          "bottom": 2916.65625
+        },
+        {
+          "top": 2932.65625,
+          "left": 16,
+          "width": 313.328125,
+          "height": 415.46875,
+          "bottom": 3348.125
+        },
+        {
+          "top": 2932.65625,
+          "left": 345.328125,
+          "width": 313.328125,
+          "height": 415.46875,
+          "bottom": 3348.125
+        },
+        {
+          "top": 3364.125,
+          "left": 16,
+          "width": 313.328125,
+          "height": 415.46875,
+          "bottom": 3779.59375
+        }
+      ],
+      "photos": [
+        {
+          "top": 2170.75,
+          "left": 17,
+          "width": 320.328125,
+          "height": 313.4375,
+          "bottom": 2484.1875
+        },
+        {
+          "top": 2502.1875,
+          "left": 17,
+          "width": 311.328125,
+          "height": 176,
+          "bottom": 2678.1875
+        },
+        {
+          "top": 2502.1875,
+          "left": 346.328125,
+          "width": 311.328125,
+          "height": 176,
+          "bottom": 2678.1875
+        },
+        {
+          "top": 2933.65625,
+          "left": 17,
+          "width": 311.328125,
+          "height": 176,
+          "bottom": 3109.65625
+        },
+        {
+          "top": 2933.65625,
+          "left": 346.328125,
+          "width": 311.328125,
+          "height": 176,
+          "bottom": 3109.65625
+        },
+        {
+          "top": 3365.125,
+          "left": 17,
+          "width": 311.328125,
+          "height": 176,
+          "bottom": 3541.125
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 320,
+          "height": 313
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 311,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 311,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 311,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 311,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 311,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 618.5,
+          "left": 0,
+          "width": 1024,
+          "height": 435.765625,
+          "bottom": 1054.265625
+        },
+        {
+          "class": "home-learning",
+          "top": 1054.265625,
+          "left": 0,
+          "width": 1024,
+          "height": 859.71875,
+          "bottom": 1913.984375
+        },
+        {
+          "class": "home-news-section",
+          "top": 1913.984375,
+          "left": 0,
+          "width": 1024,
+          "height": 1957.609375,
+          "bottom": 3871.59375
+        }
+      ]
+    },
+    {
+      "width": 1199,
+      "scrollWidth": 1199,
+      "courses": [
+        {
+          "top": 1325.546875,
+          "left": 16,
+          "width": 375.65625,
+          "height": 500.109375,
+          "bottom": 1825.65625
+        },
+        {
+          "top": 1325.546875,
+          "left": 411.65625,
+          "width": 375.671875,
+          "height": 500.109375,
+          "bottom": 1825.65625
+        },
+        {
+          "top": 1325.546875,
+          "left": 807.328125,
+          "width": 375.65625,
+          "height": 500.109375,
+          "bottom": 1825.65625
+        }
+      ],
+      "news": [
+        {
+          "top": 2131.34375,
+          "left": 16,
+          "width": 759.328125,
+          "height": 315.4375,
+          "bottom": 2446.78125
+        },
+        {
+          "top": 2462.78125,
+          "left": 16,
+          "width": 371.65625,
+          "height": 415.46875,
+          "bottom": 2878.25
+        },
+        {
+          "top": 2462.78125,
+          "left": 403.65625,
+          "width": 371.671875,
+          "height": 415.46875,
+          "bottom": 2878.25
+        },
+        {
+          "top": 2894.25,
+          "left": 16,
+          "width": 371.65625,
+          "height": 415.46875,
+          "bottom": 3309.71875
+        },
+        {
+          "top": 2894.25,
+          "left": 403.65625,
+          "width": 371.671875,
+          "height": 415.46875,
+          "bottom": 3309.71875
+        },
+        {
+          "top": 3325.71875,
+          "left": 16,
+          "width": 371.65625,
+          "height": 415.46875,
+          "bottom": 3741.1875
+        }
+      ],
+      "photos": [
+        {
+          "top": 2132.34375,
+          "left": 17,
+          "width": 378.65625,
+          "height": 313.4375,
+          "bottom": 2445.78125
+        },
+        {
+          "top": 2463.78125,
+          "left": 17,
+          "width": 369.65625,
+          "height": 176,
+          "bottom": 2639.78125
+        },
+        {
+          "top": 2463.78125,
+          "left": 404.65625,
+          "width": 369.671875,
+          "height": 176,
+          "bottom": 2639.78125
+        },
+        {
+          "top": 2895.25,
+          "left": 17,
+          "width": 369.65625,
+          "height": 176,
+          "bottom": 3071.25
+        },
+        {
+          "top": 2895.25,
+          "left": 404.65625,
+          "width": 369.671875,
+          "height": 176,
+          "bottom": 3071.25
+        },
+        {
+          "top": 3326.71875,
+          "left": 17,
+          "width": 369.65625,
+          "height": 176,
+          "bottom": 3502.71875
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 379,
+          "height": 313
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 370,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 370,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 370,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 370,
+          "height": 176
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 370,
+          "height": 176
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 673.1875,
+          "left": 0,
+          "width": 1199,
+          "height": 316.6875,
+          "bottom": 989.875
+        },
+        {
+          "class": "home-learning",
+          "top": 989.875,
+          "left": 0,
+          "width": 1199,
+          "height": 880.78125,
+          "bottom": 1870.65625
+        },
+        {
+          "class": "home-news-section",
+          "top": 1870.65625,
+          "left": 0,
+          "width": 1199,
+          "height": 1962.53125,
+          "bottom": 3833.1875
+        }
+      ]
+    },
+    {
+      "width": 1200,
+      "scrollWidth": 1200,
+      "courses": [
+        {
+          "top": 1325.859375,
+          "left": 16,
+          "width": 376,
+          "height": 500.328125,
+          "bottom": 1826.1875
+        },
+        {
+          "top": 1325.859375,
+          "left": 412,
+          "width": 376,
+          "height": 500.328125,
+          "bottom": 1826.1875
+        },
+        {
+          "top": 1325.859375,
+          "left": 808,
+          "width": 376,
+          "height": 500.328125,
+          "bottom": 1826.1875
+        }
+      ],
+      "news": [
+        {
+          "top": 2131.875,
+          "left": 16,
+          "width": 501.328125,
+          "height": 831.9375,
+          "bottom": 2963.8125
+        },
+        {
+          "top": 2131.875,
+          "left": 533.328125,
+          "width": 242.671875,
+          "height": 407.96875,
+          "bottom": 2539.84375
+        },
+        {
+          "top": 2555.84375,
+          "left": 533.328125,
+          "width": 242.671875,
+          "height": 407.96875,
+          "bottom": 2963.8125
+        },
+        {
+          "top": 2979.8125,
+          "left": 16,
+          "width": 242.65625,
+          "height": 407.96875,
+          "bottom": 3387.78125
+        },
+        {
+          "top": 2979.8125,
+          "left": 274.65625,
+          "width": 242.671875,
+          "height": 407.96875,
+          "bottom": 3387.78125
+        },
+        {
+          "top": 2979.8125,
+          "left": 533.328125,
+          "width": 242.671875,
+          "height": 407.96875,
+          "bottom": 3387.78125
+        }
+      ],
+      "photos": [
+        {
+          "top": 2132.875,
+          "left": 17,
+          "width": 499.328125,
+          "height": 504.5,
+          "bottom": 2637.375
+        },
+        {
+          "top": 2132.875,
+          "left": 534.328125,
+          "width": 240.671875,
+          "height": 148,
+          "bottom": 2280.875
+        },
+        {
+          "top": 2556.84375,
+          "left": 534.328125,
+          "width": 240.671875,
+          "height": 148,
+          "bottom": 2704.84375
+        },
+        {
+          "top": 2980.8125,
+          "left": 17,
+          "width": 240.65625,
+          "height": 148,
+          "bottom": 3128.8125
+        },
+        {
+          "top": 2980.8125,
+          "left": 275.65625,
+          "width": 240.671875,
+          "height": 148,
+          "bottom": 3128.8125
+        },
+        {
+          "top": 2980.8125,
+          "left": 534.328125,
+          "width": 240.671875,
+          "height": 148,
+          "bottom": 3128.8125
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 499,
+          "height": 505
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 241,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 241,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 241,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 241,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 241,
+          "height": 148
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 673.5,
+          "left": 0,
+          "width": 1200,
+          "height": 316.6875,
+          "bottom": 990.1875
+        },
+        {
+          "class": "home-learning",
+          "top": 990.1875,
+          "left": 0,
+          "width": 1200,
+          "height": 881,
+          "bottom": 1871.1875
+        },
+        {
+          "class": "home-news-section",
+          "top": 1871.1875,
+          "left": 0,
+          "width": 1200,
+          "height": 1608.59375,
+          "bottom": 3479.78125
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "courses": [
+        {
+          "top": 1370.859375,
+          "left": 96,
+          "width": 402.65625,
+          "height": 518.109375,
+          "bottom": 1888.96875
+        },
+        {
+          "top": 1370.859375,
+          "left": 518.65625,
+          "width": 402.671875,
+          "height": 518.109375,
+          "bottom": 1888.96875
+        },
+        {
+          "top": 1370.859375,
+          "left": 941.328125,
+          "width": 402.65625,
+          "height": 518.109375,
+          "bottom": 1888.96875
+        }
+      ],
+      "news": [
+        {
+          "top": 2194.65625,
+          "left": 96,
+          "width": 536.875,
+          "height": 790.9375,
+          "bottom": 2985.59375
+        },
+        {
+          "top": 2194.65625,
+          "left": 648.875,
+          "width": 260.453125,
+          "height": 387.46875,
+          "bottom": 2582.125
+        },
+        {
+          "top": 2598.125,
+          "left": 648.875,
+          "width": 260.453125,
+          "height": 387.46875,
+          "bottom": 2985.59375
+        },
+        {
+          "top": 3001.59375,
+          "left": 96,
+          "width": 260.4375,
+          "height": 407.96875,
+          "bottom": 3409.5625
+        },
+        {
+          "top": 3001.59375,
+          "left": 372.4375,
+          "width": 260.4375,
+          "height": 407.96875,
+          "bottom": 3409.5625
+        },
+        {
+          "top": 3001.59375,
+          "left": 648.875,
+          "width": 260.453125,
+          "height": 407.96875,
+          "bottom": 3409.5625
+        }
+      ],
+      "photos": [
+        {
+          "top": 2195.65625,
+          "left": 97,
+          "width": 534.875,
+          "height": 463.5,
+          "bottom": 2659.15625
+        },
+        {
+          "top": 2195.65625,
+          "left": 649.875,
+          "width": 258.453125,
+          "height": 148,
+          "bottom": 2343.65625
+        },
+        {
+          "top": 2599.125,
+          "left": 649.875,
+          "width": 258.453125,
+          "height": 148,
+          "bottom": 2747.125
+        },
+        {
+          "top": 3002.59375,
+          "left": 97,
+          "width": 258.4375,
+          "height": 148,
+          "bottom": 3150.59375
+        },
+        {
+          "top": 3002.59375,
+          "left": 373.4375,
+          "width": 258.4375,
+          "height": 148,
+          "bottom": 3150.59375
+        },
+        {
+          "top": 3002.59375,
+          "left": 649.875,
+          "width": 258.453125,
+          "height": 148,
+          "bottom": 3150.59375
+        }
+      ],
+      "quickLinks": [
+        {
+          "href": "#/admissions",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/academics",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/services",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/personnel",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/ita",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        },
+        {
+          "href": "#/admin",
+          "nowrap": "nowrap",
+          "fit": true,
+          "icon": true,
+          "height": 110
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 535,
+          "height": 464
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "width": 258,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
+          "width": 258,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
+          "width": 258,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
+          "width": 258,
+          "height": 148
+        },
+        {
+          "loaded": true,
+          "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
+          "width": 258,
+          "height": 148
+        }
+      ],
+      "sections": [
+        {
+          "class": "home-welcome max-w-7xl mx-auto px-4",
+          "top": 718.5,
+          "left": 80,
+          "width": 1280,
+          "height": 316.6875,
+          "bottom": 1035.1875
+        },
+        {
+          "class": "home-learning",
+          "top": 1035.1875,
+          "left": 0,
+          "width": 1440,
+          "height": 898.78125,
+          "bottom": 1933.96875
+        },
+        {
+          "class": "home-news-section",
+          "top": 1933.96875,
+          "left": 0,
+          "width": 1440,
+          "height": 1567.59375,
+          "bottom": 3501.5625
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

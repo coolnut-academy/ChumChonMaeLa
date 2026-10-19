@@ -91,9 +91,79 @@
     .header-nav-button:focus-visible, .utility-button:focus-visible, .hero-control-button:focus-visible, .hero-dot:focus-visible, .quick-link:focus-visible { outline: 3px solid #F88199; outline-offset: 3px; }
     .mobile-navigation { display: flex; flex-wrap: wrap; gap: 8px; }
     .mobile-drawer { max-height: min(55vh, 360px); overflow-y: auto; }
-    .quick-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 14px; border: 1px solid #E2E8F0; border-radius: 18px; background: #fff; box-shadow: 0 4px 16px rgba(15, 23, 42, .04); }
-    .quick-link { min-width: 0; min-height: 48px; padding-inline: 10px; border-color: #FFCAD5; color: #AD304B; }
-    .quick-link-primary { color: white; }
+    .quick-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .quick-link { min-width: 0; min-height: 112px; flex-direction: column; gap: 10px; padding: 16px 10px; border-color: #FFCAD5; border-radius: 18px; color: #AD304B; font-weight: 600; box-shadow: 0 4px 12px rgba(142, 41, 68, .04); transition: background-color .2s, border-color .2s, box-shadow .2s; }
+    .quick-link:hover { border-color: #F88199; box-shadow: 0 6px 18px rgba(142, 41, 68, .1); }
+    .quick-link-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 13px; color: #C83B56; background: #FFF2F4; }
+    .quick-link-icon svg { width: 24px; height: 24px; }
+    .quick-link-primary, .quick-link-primary:hover { color: white; }
+    .quick-link-primary .quick-link-icon { background: rgba(255,255,255,.18); color: white; }
+    .home-welcome { padding-top: 30px; padding-bottom: 36px; }
+    .home-section-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+    .home-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; color: #AD304B; font-size: 12px; font-weight: 600; }
+    .home-eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #EB5B79; flex-shrink: 0; }
+    .home-title { color: #0F172A; font-size: clamp(24px, 3vw, 34px); font-weight: 700; line-height: 1.5; letter-spacing: -.025em; }
+    .home-title-accent { color: #C83B56; }
+    .home-section-description { margin-top: 6px; color: #64748B; font-family: 'Sarabun', 'Prompt', sans-serif; font-size: 16px; line-height: 1.7; }
+    .home-section-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #AD304B; font-size: 13px; font-weight: 600; }
+    .home-section-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .home-section-link:focus-visible, .home-news-tabs button:focus-visible, .home-news-read:focus-visible { outline: 3px solid #F88199; outline-offset: 3px; }
+    .home-learning { padding-top: 36px; padding-bottom: 44px; background: #FFF2F4; border-block: 1px solid #FFE4E9; }
+    .home-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 40px; }
+    .home-stat { min-width: 0; padding: 22px 14px; border: 1px solid #FFCAD5; border-radius: 18px; background: #fff; }
+    .home-stat-number { color: #C83B56; font-size: clamp(28px, 4vw, 38px); font-weight: 700; line-height: 1.2; }
+    .home-stat-label { margin-top: 8px; color: #475569; font-size: 12px; line-height: 1.7; }
+    .home-stat:first-child { background: #C83B56; border-color: #C83B56; }
+    .home-stat:first-child .home-stat-number, .home-stat:first-child .home-stat-label { color: white; }
+    .home-course-card { border: 1px solid #FFCAD5; border-top-width: 4px; border-top-color: #F88199; }
+    .home-course-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .home-course-card:nth-child(2) { border-top-color: #EB5B79; }
+    .home-course-card:nth-child(3) { border-top-color: #C83B56; }
+    .home-news-section { padding-top: 44px; padding-bottom: 48px; background: #fff; }
+    .home-news-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
+    .home-news-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 6px; border: 1px solid #FFE4E9; border-radius: 16px; background: #FFF2F4; }
+    .home-news-tabs button { min-height: 44px; padding: 10px 14px; border: 1px solid transparent; border-radius: 11px; color: #475569; background: transparent; font-size: 12px; white-space: nowrap; }
+    .home-news-tabs button:hover { background: #fff; color: #AD304B; }
+    .home-news-tabs button[aria-pressed="true"] { color: #fff; background: #C83B56; font-weight: 600; box-shadow: 0 3px 8px rgba(200, 59, 86, .15); }
+    .home-news-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .home-news-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid #E2E8F0; border-radius: 20px; background: #fff; box-shadow: 0 4px 16px rgba(15, 23, 42, .04); }
+    .home-news-photo { position: relative; height: 176px; flex-shrink: 0; background: #F1F5FB; }
+    .home-news-photo > .school-image { position: absolute; inset: 0; }
+    .home-news-body { display: flex; flex: 1; flex-direction: column; gap: 16px; padding: 18px; }
+    .home-news-title { color: #0F172A; font-size: 16px; font-weight: 600; line-height: 1.7; }
+    .home-news-summary { margin-top: 8px; color: #475569; font-family: 'Sarabun', 'Prompt', sans-serif; font-size: 14px; line-height: 1.7; }
+    .home-news-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; margin-top: auto; padding-top: 10px; border-top: 1px solid #F1F5F9; }
+    .home-news-read { min-height: 44px; color: #AD304B; font-size: 12px; font-weight: 600; text-align: left; }
+    .home-news-read:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .home-news-card-featured { border-color: #FFCAD5; background: #FFF8FA; }
+    .home-news-card-featured .home-news-photo { height: 224px; }
+    .home-news-card-featured .home-news-title { font-size: 22px; font-weight: 700; line-height: 1.6; }
+    .home-news-card-featured .home-news-summary { font-size: 16px; }
+    .home-news-feature-label { display: block; margin-bottom: 8px; color: #AD304B; font-size: 12px; font-weight: 600; }
+    .home-news-empty { grid-column: 1 / -1; padding: 36px 20px; border: 1px solid #FFCAD5; border-radius: 20px; background: #FFF2F4; color: #475569; text-align: center; }
+    .home-sidebar-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: #0F172A; font-size: 18px; font-weight: 600; }
+    .home-sidebar-heading::before { content: ''; width: 5px; height: 22px; border-radius: 3px; background: #EB5B79; }
+    @media (min-width: 640px) {
+      .home-news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .home-news-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .home-news-card-featured .home-news-photo { height: 100%; min-height: 280px; }
+    }
+    @media (min-width: 768px) {
+      .home-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .home-course-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .home-course-card { padding: 16px; }
+      .home-course-card .flex.items-center.justify-between { flex-wrap: wrap; gap: 8px; }
+    }
+    @media (min-width: 1024px) { .home-news-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
+    @media (min-width: 1200px) {
+      .home-news-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .home-news-card-featured { grid-column: span 2; grid-row: span 2; display: flex; }
+      .home-news-card-featured .home-news-photo { flex: 1; height: auto; min-height: 280px; }
+      .home-news-card-featured .home-news-body { flex: none; padding: 24px; }
+      .home-news-card:not(.home-news-card-featured) .home-news-photo { height: 148px; }
+    }
     .school-hero { border-bottom: 1px solid #E2E8F0; }
     .hero-viewport { position: relative; height: clamp(240px, 31.25vw, 420px); overflow: hidden; }
     .hero-art { position: absolute; inset: 0; }
@@ -801,61 +871,76 @@
 
       const upcomingEvents = (state.db.calendar || []).slice(0, 4);
       const director = (state.db.personnel || []).find(function(p) { return p.status !== 'inactive' && /ผู้อำนวยการ/.test(p.position || '') && !/รอง/.test(p.position || ''); });
+      const quickLinks = [
+        { href: 'admissions', label: 'สมัครเรียน ' + (cfg.academic_year || ''), primary: true, icon: '<path d="M12 3v18M3 12h18"/><path d="m5 5 2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>' },
+        { href: 'academics', label: 'หลักสูตร อ.2–ม.3', icon: '<path d="M12 6v15M12 6C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 2Z"/>' },
+        { href: 'services', label: 'ตารางเรียน', icon: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1m-8 3h1"/>' },
+        { href: 'personnel', label: 'ทำเนียบบุคลากร', icon: '<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m2-16a3 3 0 0 1 0 6m2 10v-2a6 6 0 0 0-2-4"/>' },
+        { href: 'ita', label: 'ข้อมูล ITA', icon: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>' },
+        { href: 'admin', label: 'ผู้ดูแลระบบ', icon: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>' }
+      ];
 
       container.innerHTML = `
         ${renderHomeHero()}
 
-        <section class="max-w-7xl mx-auto px-4 mt-5" aria-label="บริการและเมนูลัด">
+        <section class="home-welcome max-w-7xl mx-auto px-4" aria-labelledby="homeWelcomeTitle">
+          <div class="home-section-heading">
+            <div>
+              <span class="home-eyebrow">ยินดีต้อนรับสู่ชุมชนแม่ลาศึกษา</span>
+              <h2 id="homeWelcomeTitle" class="home-title">ทุกวันเรียนรู้ <span class="home-title-accent">ทุกก้าวเติบโต</span></h2>
+              <p class="home-section-description">พื้นที่แห่งการเรียนรู้และรอยยิ้ม ตั้งแต่อนุบาล 2 ถึงมัธยมศึกษาปีที่ 3</p>
+            </div>
+            <a href="#/about" class="home-section-link">รู้จักโรงเรียนของเรา <span aria-hidden="true">→</span></a>
+          </div>
           <div class="quick-links">
-            <a href="#/admissions" class="quick-link quick-link-primary">สมัครเรียน ${escapeHtml(cfg.academic_year)}</a>
-            <a href="#/academics" class="quick-link">หลักสูตร อ.2–ม.3</a>
-            <a href="#/services" class="quick-link">ตารางเรียน</a>
-            <a href="#/personnel" class="quick-link">ทำเนียบบุคลากร</a>
-            <a href="#/ita" class="quick-link">ข้อมูล ITA</a>
-            <a href="#/admin" class="quick-link">ผู้ดูแลระบบ</a>
+            ${quickLinks.map(function(link) {
+              return `<a href="#/${link.href}" class="quick-link ${link.primary ? 'quick-link-primary' : ''}"><span class="quick-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${link.icon}</svg></span><span>${escapeHtml(link.label)}</span></a>`;
+            }).join('')}
           </div>
         </section>
 
         <!-- 3. ข้อมูลสถิติและ 3 ระดับชั้นของโรงเรียนขยายโอกาส -->
-        <section class="max-w-7xl mx-auto px-4 py-10 space-y-8">
-          <div class="bg-red-50 border border-red-200 rounded-2xl p-6 sm:p-8 text-red-800 shadow-sm grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-            <div class="border-r border-red-200 last:border-none">
-              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_students)}</p>
-              <p class="text-xs sm:text-sm text-slate-600 mt-1">นักเรียนทั้งหมด (อ.2 – ม.3)</p>
+        <section class="home-learning" aria-labelledby="homeLearningTitle">
+          <div class="max-w-7xl mx-auto px-4">
+          <div class="home-stats" aria-label="โรงเรียนของเราในภาพรวม">
+            <div class="home-stat">
+              <p class="home-stat-number">${escapeHtml(cfg.stat_students)}</p>
+              <p class="home-stat-label">นักเรียนทั้งหมด (อ.2 – ม.3)</p>
             </div>
-            <div class="md:border-r border-red-200">
-              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_teachers)}</p>
-              <p class="text-xs sm:text-sm text-slate-600 mt-1">ข้าราชการครูและบุคลากร</p>
+            <div class="home-stat">
+              <p class="home-stat-number">${escapeHtml(cfg.stat_teachers)}</p>
+              <p class="home-stat-label">ข้าราชการครูและบุคลากร</p>
             </div>
-            <div class="border-r border-red-200">
-              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_classrooms)}</p>
-              <p class="text-xs sm:text-sm text-slate-600 mt-1">ห้องเรียนคุณภาพ (11 ชั้นปี)</p>
+            <div class="home-stat">
+              <p class="home-stat-number">${escapeHtml(cfg.stat_classrooms)}</p>
+              <p class="home-stat-label">ห้องเรียนคุณภาพ (11 ชั้นปี)</p>
             </div>
-            <div>
-              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_awards)}+</p>
-              <p class="text-xs sm:text-sm text-slate-600 mt-1">รางวัลผลงานวิชาการและทักษะอาชีพ</p>
+            <div class="home-stat">
+              <p class="home-stat-number">${escapeHtml(cfg.stat_awards)}+</p>
+              <p class="home-stat-label">รางวัลผลงานวิชาการและทักษะอาชีพ</p>
             </div>
           </div>
 
           <!-- การ์ด 3 ระดับการศึกษา (อนุบาล 2 ถึง ม.3) -->
           <div>
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+            <div class="home-section-heading">
               <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-red-700">โครงสร้างการจัดการศึกษา</span>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900">ระดับชั้นที่เปิดสอน: อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 (โรงเรียนขยายโอกาส)</h3>
+                <span class="home-eyebrow">เส้นทางการเรียนรู้ของเด็ก ๆ</span>
+                <h2 id="homeLearningTitle" class="home-title">ทุกช่วงวัย <span class="home-title-accent">มีพื้นที่ให้เติบโต</span></h2>
+                <p class="home-section-description">ดูแลตั้งแต่อนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 ในโรงเรียนขยายโอกาสของชุมชน</p>
               </div>
-              <a href="#/academics" class="text-xs sm:text-sm font-semibold text-red-700 hover:text-red-800">ดูรายละเอียดหลักสูตรทั้งหมด →</a>
+              <a href="#/academics" class="home-section-link">สำรวจหลักสูตรทั้งหมด <span aria-hidden="true">→</span></a>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="home-course-grid">
               <!-- ปฐมวัย -->
-              <div class="bg-white rounded-2xl border-t-4 border-red-600 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+              <div class="home-course-card bg-white rounded-2xl shadow-sm hover:shadow-md transition p-5 sm:p-6 flex flex-col justify-between">
                 <div class="space-y-3">
                   ${renderSchoolImage(undefined, 'kinder', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
                     <span class="bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับปฐมวัย</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 4 – 5 ปี</span>
                   </div>
-                  <h4 class="text-lg font-bold text-slate-900">ชั้นอนุบาลปีที่ 2 – อนุบาลปีที่ 3</h4>
+                  <h3 class="text-lg font-bold text-slate-900">ชั้นอนุบาลปีที่ 2 – อนุบาลปีที่ 3</h3>
                   <p class="font-sarabun text-sm text-slate-600 leading-relaxed">มุ่งเน้นพัฒนาการทั้ง 4 ด้าน (ร่างกาย อารมณ์-จิตใจ สังคม สติปัญญา) ผ่านการจัดประสบการณ์การเรียนรู้แบบ Play-Based Learning และฝึกทักษะสมอง EF พร้อมโภชนาการอาหารกลางวันและนมโรงเรียน</p>
                 </div>
                 <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -865,14 +950,14 @@
               </div>
 
               <!-- ประถมศึกษา -->
-              <div class="bg-white rounded-2xl border-t-4 border-red-700 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+              <div class="home-course-card bg-white rounded-2xl shadow-sm hover:shadow-md transition p-5 sm:p-6 flex flex-col justify-between">
                 <div class="space-y-3">
                   ${renderSchoolImage(undefined, 'primary', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
                     <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับประถมศึกษา</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 6 – 11 ปี</span>
                   </div>
-                  <h4 class="text-lg font-bold text-slate-900">ชั้นประถมศึกษาปีที่ 1 – 6</h4>
+                  <h3 class="text-lg font-bold text-slate-900">ชั้นประถมศึกษาปีที่ 1 – 6</h3>
                   <p class="font-sarabun text-sm text-slate-600 leading-relaxed">ปูพื้นฐานอ่านออกเขียนได้ คิดคำนวณคล่องแคล่ว ครบ 8 กลุ่มสาระการเรียนรู้ เสริมทักษะภาษาอังกฤษเพื่อการสื่อสาร วิทยาการคำนวณ และยกระดับผลสัมฤทธิ์ RT (ป.1), NT (ป.3) และ O-NET (ป.6)</p>
                 </div>
                 <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -882,14 +967,14 @@
               </div>
 
               <!-- มัธยมศึกษาตอนต้น (ขยายโอกาส) -->
-              <div class="bg-white rounded-2xl border-t-4 border-red-900 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+              <div class="home-course-card bg-white rounded-2xl shadow-sm hover:shadow-md transition p-5 sm:p-6 flex flex-col justify-between">
                 <div class="space-y-3">
                   ${renderSchoolImage(undefined, 'secondary', '', { imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' })}
                   <div class="flex items-center justify-between">
-                    <span class="bg-red-900 text-white text-xs font-bold px-3 py-1 rounded-full">ระดับมัธยมศึกษาตอนต้น (ขยายโอกาส)</span>
+                    <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">ระดับมัธยมศึกษาตอนต้น</span>
                     <span class="text-xs font-semibold text-slate-400">อายุ 12 – 14 ปี</span>
                   </div>
-                  <h4 class="text-lg font-bold text-slate-900">ชั้นมัธยมศึกษาปีที่ 1 – 3</h4>
+                  <h3 class="text-lg font-bold text-slate-900">ชั้นมัธยมศึกษาปีที่ 1 – 3</h3>
                   <p class="font-sarabun text-sm text-slate-600 leading-relaxed">ขยายโอกาสทางการศึกษาให้เยาวชนในชุมชนแม่ลา เข้มข้นด้วยวิชาการหลักควบคู่รายวิชาทักษะอาชีพ (คอมพิวเตอร์ดิจิทัล เกษตรทฤษฎีใหม่ คหกรรม และงานช่าง) พร้อมแนะแนวศึกษาต่อ ม.4 และ ปวช. 100%</p>
                 </div>
                 <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -899,18 +984,24 @@
               </div>
             </div>
           </div>
+          </div>
         </section>
 
         <!-- 4. ข่าวสารและประกาศ (Tabbed News) + ปฏิทินกิจกรรม -->
-        <section class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <!-- คอลัมน์ซ้าย: ข่าวสารและประกาศ (8 คอลัมน์) -->
-          <div class="lg:col-span-8 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <section class="home-news-section" aria-labelledby="homeNewsTitle">
+          <div class="max-w-7xl mx-auto px-4">
+            <div class="home-section-heading">
               <div>
-                <span class="text-xs font-bold text-red-700 uppercase">คลังข่าวสารออนไลน์ (ดึงจาก Google Sheets)</span>
-                <h3 class="text-xl font-bold text-slate-900">ข่าวประชาสัมพันธ์และประกาศโรงเรียน</h3>
+                <span class="home-eyebrow">เรื่องราวจากรั้วโรงเรียน</span>
+                <h2 id="homeNewsTitle" class="home-title">ข่าวสาร <span class="home-title-accent">และความเคลื่อนไหว</span></h2>
+                <p class="home-section-description">ติดตามกิจกรรม ความภาคภูมิใจ และประกาศสำหรับครอบครัวแม่ลาศึกษา</p>
               </div>
-              <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+              <a href="#/news" class="home-section-link">ดูข่าวสารทั้งหมด <span aria-hidden="true">→</span></a>
+            </div>
+          <div class="home-news-layout">
+          <!-- คอลัมน์ซ้าย: ข่าวสารและประกาศ (8 คอลัมน์) -->
+          <div class="min-w-0 space-y-5">
+              <div class="home-news-tabs" role="group" aria-label="กรองประเภทข่าวสาร">
                 ${[
                   { id: 'all', label: 'ทั้งหมด' },
                   { id: 'pr', label: 'กิจกรรม' },
@@ -920,35 +1011,36 @@
                   { id: 'job', label: 'สมัครงาน' }
                 ].map(function(t) {
                   const active = state.homeNewsTab === t.id;
-                  return `<button type="button" data-home-news-tab="${t.id}" class="px-3 py-1.5 rounded-lg border transition ${active ? 'bg-red-700 text-white border-red-700 font-semibold' : 'bg-white text-slate-600 border-slate-200 hover:border-red-300'}">${t.label}</button>`;
+                  return `<button type="button" data-home-news-tab="${t.id}" aria-pressed="${active}">${t.label}</button>`;
                 }).join('')}
               </div>
-            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              ${filteredHomeNews.map(function(item) {
+            <div class="home-news-grid">
+              ${filteredHomeNews.length ? filteredHomeNews.map(function(item, index) {
                 const cat = getCategoryMeta(item.category);
+                const featured = index === 0;
                 return `
-                  <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
-                    <div class="relative h-44 bg-slate-100">
-                      ${renderSchoolImage(getRecordImage(item, 'cover_drive_id', 'cover_url'), newsImageType(item), item.title, { wrapperClass: 'h-full', imageClass: 'w-full h-full object-cover', sizes: '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px' })}
+                  <article class="home-news-card ${featured ? 'home-news-card-featured' : ''}">
+                    <div class="home-news-photo">
+                      ${renderSchoolImage(getRecordImage(item, 'cover_drive_id', 'cover_url'), newsImageType(item), item.title, { wrapperClass: 'h-full', imageClass: 'w-full h-full object-cover', sizes: featured ? '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1199px) 33vw, 560px' : '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1199px) 33vw, 280px' })}
                       <span class="absolute top-3 left-3 text-[11px] font-bold px-2.5 py-0.5 rounded-full border shadow-sm ${cat.cls}">${cat.label}</span>
                       ${String(item.is_pinned) === 'true' ? '<span class="absolute top-3 right-3 bg-red-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ปักหมุด</span>' : ''}
                     </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                    <div class="home-news-body">
                       <div>
-                        <p class="text-[11px] text-slate-400 mb-1">${escapeHtml(item.published_at)} • ปีการศึกษา ${escapeHtml(item.academic_year)}</p>
-                        <h4 class="font-bold text-slate-900 text-sm sm:text-base line-clamp-2">${escapeHtml(item.title)}</h4>
-                        <p class="font-sarabun text-xs text-slate-600 mt-1.5 line-clamp-2">${escapeHtml(item.summary)}</p>
+                        ${featured ? '<span class="home-news-feature-label">เรื่องเด่นจากโรงเรียน</span>' : ''}
+                        <p class="text-[11px] text-slate-500 mb-1">${escapeHtml(item.published_at)} • ปีการศึกษา ${escapeHtml(item.academic_year)}</p>
+                        <h3 class="home-news-title line-clamp-2">${escapeHtml(item.title)}</h3>
+                        <p class="home-news-summary ${featured ? 'line-clamp-3' : 'line-clamp-2'}">${escapeHtml(item.summary)}</p>
                       </div>
-                      <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                      <div class="home-news-footer">
                         <span class="text-[11px] text-slate-500">${escapeHtml(item.author_name || 'งานประชาสัมพันธ์')}</span>
-                        <button type="button" data-read-news="${escapeHtml(item.id)}" class="text-xs font-semibold text-red-700 hover:text-red-900">อ่านรายละเอียด →</button>
+                        <button type="button" data-read-news="${escapeHtml(item.id)}" class="home-news-read" aria-label="${escapeHtml('อ่านข่าว ' + item.title)}">อ่านรายละเอียด <span aria-hidden="true">→</span></button>
                       </div>
                     </div>
                   </article>
                 `;
-              }).join('')}
+              }).join('') : '<p class="home-news-empty" role="status">ยังไม่มีข่าวสารในหมวดนี้ ติดตามเรื่องราวใหม่ ๆ ได้เร็ว ๆ นี้</p>'}
             </div>
 
             <div class="text-right">
@@ -957,9 +1049,10 @@
           </div>
 
           <!-- คอลัมน์ขวา: สารจากผู้อำนวยการ & ปฏิทินกิจกรรม (4 คอลัมน์) -->
-          <div class="lg:col-span-4 space-y-6">
+          <aside class="min-w-0 space-y-6" aria-label="ผู้บริหารและกิจกรรมโรงเรียน">
             <!-- การ์ดผู้บริหารสถานศึกษา -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <div class="bg-white rounded-2xl border border-red-200 p-5 shadow-sm">
+              <h3 class="home-sidebar-heading">จากใจคุณครู</h3>
               <div class="flex items-center gap-3.5">
                 ${renderSchoolImage(getRecordImage(director, 'photo_drive_id', 'photo_url'), 'staff', director ? director.full_name : 'ผู้บริหารสถานศึกษา', { wrapperClass: 'w-16 h-16 shrink-0', imageClass: 'w-16 h-16 rounded-2xl object-cover border-2 border-red-700' })}
                 <div>
@@ -978,9 +1071,9 @@
             </div>
 
             <!-- ปฏิทินกิจกรรมโรงเรียน -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+            <div class="bg-red-50 rounded-2xl border border-red-200 p-5 shadow-sm space-y-4">
               <div class="flex items-center justify-between">
-                <h4 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">ปฏิทินกิจกรรมโรงเรียน</h4>
+                <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">ปฏิทินกิจกรรมโรงเรียน</h3>
                 <a href="#/academics" class="text-xs text-red-700 font-semibold hover:underline">ดูทั้งหมด</a>
               </div>
               <div class="space-y-3">
@@ -1006,6 +1099,8 @@
               <p class="font-sarabun text-xs text-slate-600 leading-relaxed">ตรวจสอบแผนปฏิบัติการ งบประมาณ การจัดซื้อจัดจ้าง และประกาศนโยบาย No Gift Policy ของโรงเรียนชุมชนแม่ลาศึกษา</p>
               <a href="#/ita" class="inline-block bg-white text-red-800 hover:bg-red-50 text-xs font-bold px-4 py-2 rounded-xl shadow transition">เข้าสู่หน้าข้อมูล ITA (O1–O43) →</a>
             </div>
+          </aside>
+          </div>
           </div>
         </section>
       `;
