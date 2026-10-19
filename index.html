@@ -593,7 +593,7 @@
           }
         }
         const savedUrl = localStorage.getItem(STORAGE_KEY_API);
-        if (savedUrl && savedUrl.trim()) {
+        if (savedUrl !== null) {
           state.gasUrl = savedUrl.trim();
         } else {
           state.gasUrl = DEFAULT_GAS_WEB_APP_URL;

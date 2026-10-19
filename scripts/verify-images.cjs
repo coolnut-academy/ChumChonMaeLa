@@ -52,7 +52,10 @@ const server = http.createServer((req, res) => {
 
     for (const viewport of [{ width: 1440, height: 1000 }, { width: 375, height: 812 }]) {
       const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
-      await context.addInitScript(() => { localStorage.setItem('MAELA_SCHOOL_PDPA_ACCEPTED', '1'); });
+      await context.addInitScript(() => {
+        localStorage.setItem('MAELA_SCHOOL_PDPA_ACCEPTED', '1');
+        localStorage.setItem('MAELA_SCHOOL_GAS_URL_V1', '');
+      });
       const page = await context.newPage();
       page.on('pageerror', error => report.pageErrors.push(error.message));
       page.on('response', response => {

@@ -28,7 +28,10 @@ const server = http.createServer((req, res) => {
     const viewports = [{ width: 320, height: 740 }, { width: 375, height: 812 }, { width: 390, height: 844 }, { width: 768, height: 1024 }, { width: 820, height: 1180 }, { width: 1024, height: 1366 }, { width: 1440, height: 1000 }];
     for (const viewport of viewports) {
       const context = await browser.newContext({ viewport, deviceScaleFactor: 1, hasTouch: viewport.width < 1100 });
-      await context.addInitScript(() => localStorage.setItem('MAELA_SCHOOL_PDPA_ACCEPTED', '1'));
+      await context.addInitScript(() => {
+        localStorage.setItem('MAELA_SCHOOL_PDPA_ACCEPTED', '1');
+        localStorage.setItem('MAELA_SCHOOL_GAS_URL_V1', '');
+      });
       const page = await context.newPage();
       page.on('pageerror', e => report.errors.push(e.message));
       await page.goto(origin + '/#/home');
