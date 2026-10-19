@@ -74,8 +74,10 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(250, 252, 255, .98) 0%, rgba(250, 252, 255, .96) 38%, rgba(245, 249, 255, .58) 72%, rgba(245, 249, 255, .16) 100%);
+      /* Keep the white wash within the first 30% so the remaining image stays clear. */
+      background: linear-gradient(90deg, rgba(250, 252, 255, .84) 0%, rgba(250, 252, 255, .45) 18%, rgba(250, 252, 255, 0) 30%);
     }
+    .hero-slide h2, .hero-slide p { text-shadow: 0 1px 3px #fff, 0 0 8px rgba(255, 255, 255, .85); }
     .hero-art .school-image-label {
       z-index: 2;
       left: max(16px, calc((100% - 1280px) / 2 + 16px));
@@ -85,7 +87,7 @@
       .school-hero { height: 640px; }
       .hero-art-image { object-position: 70% center; }
       .hero-shade {
-        background: linear-gradient(180deg, rgba(250, 252, 255, .98) 0%, rgba(250, 252, 255, .97) 42%, rgba(250, 252, 255, .82) 62%, rgba(245, 249, 255, .1) 100%);
+        background: linear-gradient(180deg, rgba(250, 252, 255, .84) 0%, rgba(250, 252, 255, .32) 20%, rgba(250, 252, 255, 0) 30%);
       }
     }
     @media (prefers-reduced-motion: reduce) {
