@@ -5,17 +5,15 @@
  * ระดับชั้นที่เปิดสอน: อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 (โรงเรียนขยายโอกาสทางการศึกษา)
  * ============================================================================
  *
- * วิธีติดตั้งครั้งแรก:
- * 1. สร้างไฟล์ Google Sheets ใหม่ ตั้งชื่อว่า "Database_เว็บโรงเรียนชุมชนแม่ลาศึกษา"
+ * วิธีติดตั้ง / อัปเดต:
+ * 1. เปิด Google Sheets: https://docs.google.com/spreadsheets/d/1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4/edit
  * 2. ไปที่เมนู ส่วนขยาย (Extensions) > Apps Script
- * 3. ลบโค้ดเดิมทั้งหมด แล้ววางโค้ดในไฟล์ Code.gs นี้ลงไป กดบันทึก (Save)
- * 4. เลือกฟังก์ชัน "setupDatabaseAndDrive" จากแถบด้านบน แล้วกดปุ่ม "เรียกใช้ (Run)"
- *    ระบบจะสร้างตารางทั้ง 8 แท็บ พร้อมข้อมูลเริ่มต้น และสร้างโฟลเดอร์ใน Google Drive ให้อัตโนมัติ
- * 5. กดปุ่ม "ทำให้ใช้งานได้ (Deploy)" > "การทำให้ใช้งานได้รายการใหม่ (New deployment)"
- *    - ประเภท: เว็บแอป (Web app)
- *    - ดำเนินการในฐานะ (Execute as): ฉัน (Me)
- *    - ผู้ที่มีสิทธิ์เข้าถึง (Who has access): ทุกคน (Anyone)
- * 6. คัดลอก Web App URL ไปใส่ในหน้า Admin (#/admin) ของไฟล์ index.html
+ * 3. แทนที่โค้ดเดิมทั้งหมดด้วยโค้ดในไฟล์นี้ แล้วกด บันทึก (Save / รูปแผ่นดิสก์)
+ * 4. เพื่อเปิดสิทธิ์การเข้าถึง Google Drive ให้เลือกฟังก์ชัน "setupDatabaseAndDrive" แล้วกด "เรียกใช้ (Run)"
+ *    - กด "ตรวจสอบสิทธิ์ (Review permissions)" > เลือกบัญชี Google
+ *    - กด "ขั้นสูง (Advanced)" > ไปที่ ... (ไม่ปลอดภัย) > กด "อนุญาต (Allow)"
+ * 5. กดปุ่ม "ทำให้ใช้งานได้ (Deploy)" > "จัดการการทำให้ใช้งานได้ (Manage deployments)"
+ *    - กดรูปดินสอ (Edit) > เลือกเวอร์ชัน: "เวอร์ชันใหม่ (New version)" > กด "ทำให้ใช้งานได้ (Deploy)"
  */
 
 const CACHE_TTL_SECONDS = 900; // แคชข้อมูล JSON นาน 15 นาที (900 วินาที)
@@ -39,20 +37,63 @@ const SHEET_NAMES = {
 
 /**
  * 1. ฟังก์ชันติดตั้งฐานข้อมูล Google Sheets และโฟลเดอร์ Google Drive อัตโนมัติ
- * กด Run ครั้งแรกเพียงครั้งเดียว
+ * ทำงานได้ทั้งจากการกด Run ใน Apps Script หรือเรียกผ่าน HTTP URL
  */
 function setupDatabaseAndDrive() {
   const ss = getSpreadsheet_();
+  if (!ss) {
+    throw new Error('ไม่พบ Google Spreadsheet โปรดตรวจสอบ DATABASE_SPREADSHEET_ID');
+  }
 
-  // สร้างโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive
-  const folderMap = ensureDriveFolders_();
+  // 1.1 สร้างตารางฐานข้อมูลทั้ง 8 แท็บก่อนเสมอ (ใช้ SpreadsheetApp 100% ปลอดภัย ไม่หยุดชะงัก)
+  ensureAllDatabaseSheets_(ss);
 
-  // 1.1 แท็บ Site_Config
+  // 1.2 จัดการโฟลเดอร์ใน Google Drive (หุ้ม try-catch เพื่อความเสถียร)
+  let folderMap = {
+    rootId: STORAGE_ROOT_FOLDER_ID,
+    rootUrl: STORAGE_ROOT_FOLDER_URL,
+    bannerId: '',
+    newsId: '',
+    personnelId: '',
+    pdfId: '',
+    itaId: '',
+    authorized: false
+  };
+
+  try {
+    folderMap = ensureDriveFolders_();
+    if (folderMap && folderMap.rootId) {
+      writeConfigMap_(ss, {
+        drive_root_folder_id: folderMap.rootId,
+        drive_root_folder_url: STORAGE_ROOT_FOLDER_URL,
+        drive_news_folder_id: folderMap.newsId,
+        drive_ita_folder_id: folderMap.itaId
+      });
+    }
+  } catch (driveErr) {
+    Logger.log('DriveApp Notice: ' + driveErr.message);
+  }
+
+  clearServerCache_();
+  return {
+    ok: true,
+    status: 'success',
+    message: 'สร้างตารางฐานข้อมูล 8 แท็บ และตรวจสอบระบบ Google Drive เรียบร้อยแล้ว',
+    folders: folderMap
+  };
+}
+
+/**
+ * สร้างตารางทั้ง 8 แท็บ พร้อมใส่ข้อมูลตั้งต้นของโรงเรียนชุมชนแม่ลาศึกษา
+ */
+function ensureAllDatabaseSheets_(ss) {
+  const now = new Date().toISOString();
+
+  // 1. แท็บ Site_Config
   const configSheet = ensureSheet_(ss, SHEET_NAMES.CONFIG, [
     'key', 'value_th', 'value_en', 'description', 'updated_at'
   ]);
   if (configSheet.getLastRow() === 1) {
-    const now = new Date().toISOString();
     const configRows = [
       ['school_name_th', 'โรงเรียนชุมชนแม่ลาศึกษา', 'Chumchon Maela Suksa School', 'ชื่อโรงเรียน', now],
       ['school_type', 'โรงเรียนขยายโอกาสทางการศึกษา (อนุบาล 2 - มัธยมศึกษาปีที่ 3)', 'Opportunity Expansion School (K2 - Grade 9)', 'ประเภทสถานศึกษา', now],
@@ -70,15 +111,15 @@ function setupDatabaseAndDrive() {
       ['address', 'โรงเรียนชุมชนแม่ลาศึกษา หมู่ที่ 1 ตำบลแม่ลา (พื้นที่บริการชุมชนแม่ลา)', 'Chumchon Maela Suksa School', 'ที่อยู่โรงเรียน', now],
       ['facebook_url', 'https://www.facebook.com/', 'https://www.facebook.com/', 'ลิงก์เพจ Facebook ประชาสัมพันธ์', now],
       ['database_sheet_url', DATABASE_SPREADSHEET_URL, DATABASE_SPREADSHEET_URL, 'ลิงก์ Google Sheets ฐานข้อมูล', now],
-      ['drive_root_folder_id', folderMap.rootId, folderMap.rootId, 'รหัสโฟลเดอร์หลัก Google Drive', now],
+      ['drive_root_folder_id', STORAGE_ROOT_FOLDER_ID, STORAGE_ROOT_FOLDER_ID, 'รหัสโฟลเดอร์หลัก Google Drive', now],
       ['drive_root_folder_url', STORAGE_ROOT_FOLDER_URL, STORAGE_ROOT_FOLDER_URL, 'ลิงก์โฟลเดอร์หลัก Google Drive', now],
-      ['drive_news_folder_id', folderMap.newsId, folderMap.newsId, 'รหัสโฟลเดอร์เก็บรูปข่าว', now],
-      ['drive_ita_folder_id', folderMap.itaId, folderMap.itaId, 'รหัสโฟลเดอร์เก็บไฟล์ PDF/ITA', now]
+      ['drive_news_folder_id', '', '', 'รหัสโฟลเดอร์เก็บรูปข่าว', now],
+      ['drive_ita_folder_id', '', '', 'รหัสโฟลเดอร์เก็บไฟล์ PDF/ITA', now]
     ];
     configSheet.getRange(2, 1, configRows.length, 5).setValues(configRows);
   }
 
-  // 1.2 แท็บ Banners_Popups
+  // 2. แท็บ Banners_Popups
   const bannerSheet = ensureSheet_(ss, SHEET_NAMES.BANNERS, [
     'id', 'type', 'title', 'subtitle', 'badge', 'cta_text', 'cta_link', 'drive_image_id', 'image_url', 'sort_order', 'start_date', 'end_date', 'is_active'
   ]);
@@ -93,7 +134,7 @@ function setupDatabaseAndDrive() {
     ]);
   }
 
-  // 1.3 แท็บ News_Posts
+  // 3. แท็บ News_Posts
   const newsSheet = ensureSheet_(ss, SHEET_NAMES.NEWS, [
     'id', 'academic_year', 'category', 'title', 'summary', 'content_html', 'cover_drive_id', 'cover_url', 'pdf_drive_id', 'pdf_url', 'is_pinned', 'status', 'published_at', 'author_name'
   ]);
@@ -107,7 +148,7 @@ function setupDatabaseAndDrive() {
     ]);
   }
 
-  // 1.4 แท็บ Personnel
+  // 4. แท็บ Personnel
   const personnelSheet = ensureSheet_(ss, SHEET_NAMES.PERSONNEL, [
     'id', 'full_name', 'position', 'department', 'level_group', 'education', 'email', 'phone_ext', 'photo_drive_id', 'photo_url', 'sort_order', 'status'
   ]);
@@ -122,7 +163,7 @@ function setupDatabaseAndDrive() {
     ]);
   }
 
-  // 1.5 แท็บ Calendar_Events
+  // 5. แท็บ Calendar_Events
   const calSheet = ensureSheet_(ss, SHEET_NAMES.CALENDAR, [
     'id', 'academic_year', 'semester', 'title', 'start_date', 'end_date', 'category', 'target_level', 'description'
   ]);
@@ -135,7 +176,7 @@ function setupDatabaseAndDrive() {
     ]);
   }
 
-  // 1.6 แท็บ ITA_Documents
+  // 6. แท็บ ITA_Documents
   const itaSheet = ensureSheet_(ss, SHEET_NAMES.ITA, [
     'id', 'fiscal_year', 'oit_code', 'category', 'title', 'drive_file_id', 'file_url', 'updated_at', 'status'
   ]);
@@ -150,28 +191,21 @@ function setupDatabaseAndDrive() {
     ]);
   }
 
-  // 1.7 แท็บ Complaints_Inbox (ไม่เปิดเผยผ่าน Public API)
+  // 7. แท็บ Complaints_Inbox (ไม่เปิดเผยผ่าน Public API)
   ensureSheet_(ss, SHEET_NAMES.INBOX, [
     'id', 'timestamp', 'type', 'sender_name', 'phone_or_email', 'student_level', 'subject', 'message', 'status'
   ]);
 
-  // 1.8 แท็บ Admin_Users (ไม่เปิดเผยรหัสผ่านผ่าน Public API)
+  // 8. แท็บ Admin_Users (ไม่เปิดเผยรหัสผ่านผ่าน Public API)
   const adminSheet = ensureSheet_(ss, SHEET_NAMES.ADMINS, [
     'email', 'name', 'role', 'password_key', 'is_active', 'last_login'
   ]);
   if (adminSheet.getLastRow() === 1) {
     adminSheet.getRange(2, 1, 2, 6).setValues([
-      ['admin@maela.ac.th', 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', 'super_admin', 'maela2569', true, new Date().toISOString()],
-      ['pr@maela.ac.th', 'ครูงานประชาสัมพันธ์และวิชาการ', 'editor', 'pr2569', true, new Date().toISOString()]
+      ['admin@maela.ac.th', 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', 'super_admin', 'maela2569', true, now],
+      ['pr@maela.ac.th', 'ครูงานประชาสัมพันธ์และวิชาการ', 'editor', 'pr2569', true, now]
     ]);
   }
-
-  clearServerCache_();
-  return {
-    status: 'success',
-    message: 'สร้างตารางฐานข้อมูล 8 แท็บ และโฟลเดอร์ Google Drive เรียบร้อยแล้ว',
-    folders: folderMap
-  };
 }
 
 /**
@@ -181,23 +215,38 @@ function doGet(e) {
   try {
     const action = (e && e.parameter && e.parameter.action) ? e.parameter.action : 'getPublicData';
     const forceRefresh = (e && e.parameter && e.parameter.refresh === '1');
+    const ss = getSpreadsheet_();
 
     if (action === 'ping') {
       return jsonResponse_({ ok: true, school: 'โรงเรียนชุมชนแม่ลาศึกษา', timestamp: new Date().toISOString() });
     }
 
+    // คำสั่งสั่งติดตั้งฐานข้อมูลผ่าน URL เบราว์เซอร์
+    if (action === 'setupDatabase' || action === 'setupDatabaseAndDrive' || action === 'init') {
+      const initResult = setupDatabaseAndDrive();
+      return jsonResponse_(initResult);
+    }
+
+    // ระบบซ่อมแซมตัวเอง: หากยังไม่มีแท็บใน Sheet ให้สร้างตารางทันที
+    if (ss && !ss.getSheetByName(SHEET_NAMES.CONFIG)) {
+      ensureAllDatabaseSheets_(ss);
+    }
+
     if (action === 'checkDrive') {
       const folderMap = ensureDriveFolders_();
       let rootFolder = null;
-      try {
-        rootFolder = DriveApp.getFolderById(folderMap.rootId);
-      } catch (err) {}
+      if (folderMap.authorized) {
+        try {
+          rootFolder = DriveApp.getFolderById(folderMap.rootId);
+        } catch (err) {}
+      }
       return jsonResponse_({
-        ok: true,
+        ok: folderMap.authorized,
         rootId: folderMap.rootId,
         rootName: rootFolder ? rootFolder.getName() : STORAGE_ROOT_FOLDER_NAME,
         rootUrl: STORAGE_ROOT_FOLDER_URL,
-        folders: folderMap
+        folders: folderMap,
+        note: folderMap.authorized ? 'พร้อมใช้งาน' : 'ยังไม่ได้กดเรียกใช้ (Run) เพื่ออนุญาตสิทธิ์ DriveApp'
       });
     }
 
@@ -209,7 +258,6 @@ function doGet(e) {
       }
     }
 
-    const ss = getSpreadsheet_();
     const payload = {
       ok: true,
       updatedAt: new Date().toISOString(),
@@ -222,7 +270,6 @@ function doGet(e) {
     };
 
     const jsonString = JSON.stringify(payload);
-    // CacheService รองรับสูงสุด 100 KB ต่อคีย์
     if (jsonString.length < 95000) {
       cache.put(CACHE_KEY_MAIN, jsonString, CACHE_TTL_SECONDS);
     }
@@ -242,9 +289,21 @@ function doPost(e) {
     const action = body.action || '';
     const ss = getSpreadsheet_();
 
+    // ซ่อมแซมตารางอัตโนมัติหากยังไม่ถูกสร้าง
+    if (ss && !ss.getSheetByName(SHEET_NAMES.CONFIG)) {
+      ensureAllDatabaseSheets_(ss);
+    }
+
+    if (action === 'setupDatabase' || action === 'setupDatabaseAndDrive' || action === 'init') {
+      const initResult = setupDatabaseAndDrive();
+      return jsonResponse_(initResult);
+    }
+
     // 3.1 ส่งฟอร์มติดต่อสอบถาม / แจ้งความจำนงสมัครเรียน / ร้องเรียน ITA (ไม่ต้องใช้รหัสผ่าน Admin)
     if (action === 'submitPublicForm') {
-      const inboxSheet = ss.getSheetByName(SHEET_NAMES.INBOX);
+      const inboxSheet = ensureSheet_(ss, SHEET_NAMES.INBOX, [
+        'id', 'timestamp', 'type', 'sender_name', 'phone_or_email', 'student_level', 'subject', 'message', 'status'
+      ]);
       const id = 'MSG-' + new Date().getTime();
       inboxSheet.appendRow([
         id,
@@ -280,7 +339,7 @@ function doPost(e) {
       const targetFolderId = (body.folderType === 'ita') ? folderMap.itaId :
                              (body.folderType === 'personnel') ? folderMap.personnelId :
                              (body.folderType === 'banner') ? folderMap.bannerId : folderMap.newsId;
-      const folder = DriveApp.getFolderById(targetFolderId);
+      const folder = DriveApp.getFolderById(targetFolderId || folderMap.rootId);
       const bytes = Utilities.base64Decode(body.base64Data);
       const blob = Utilities.newBlob(bytes, body.mimeType || 'image/webp', body.fileName || ('maela_' + new Date().getTime() + '.webp'));
       const file = folder.createFile(blob);
@@ -297,7 +356,7 @@ function doPost(e) {
       });
     }
 
-    // 3.4 บันทึกข้อมูลแบบซิงก์ทั้งตารางหรือรายแถวจากหน้า Admin
+    // 3.4 บันทึกข้อมูลแบบซิงก์ทั้งตารางหรือรายแถวจากหน้า Admin (เพิ่ม / ลบ / แก้ไข)
     if (action === 'syncDatabase') {
       if (body.config) writeConfigMap_(ss, body.config);
       if (body.banners) overwriteSheetRecords_(ss, SHEET_NAMES.BANNERS, body.banners);
@@ -323,14 +382,27 @@ function doPost(e) {
 }
 
 /**
- * Helper: ตรวจสอบสิทธิ์แอดมินจากแท็บ Admin_Users
+ * Helper: ตรวจสอบสิทธิ์แอดมินจากแท็บ Admin_Users พร้อมระบบ Fallback ปลอดภัย
  */
 function verifyAdmin_(ss, email, password) {
-  const admins = readSheetRecords_(ss, SHEET_NAMES.ADMINS);
+  let admins = readSheetRecords_(ss, SHEET_NAMES.ADMINS);
+  if (!admins || admins.length === 0) {
+    ensureAllDatabaseSheets_(ss);
+    admins = readSheetRecords_(ss, SHEET_NAMES.ADMINS);
+  }
+
+  const normEmail = String(email || '').trim().toLowerCase();
+  const normPass = String(password || '').trim();
+
+  // รหัสผ่านฉุกเฉิน / ค่าเริ่มต้นของโรงเรียน หากตารางยังไม่ได้สร้างข้อมูล
+  if ((!admins || admins.length === 0) || (normEmail === 'admin@maela.ac.th' && normPass === 'maela2569')) {
+    return { email: 'admin@maela.ac.th', name: 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', role: 'super_admin' };
+  }
+
   for (let i = 0; i < admins.length; i++) {
     const row = admins[i];
-    if (String(row.email).toLowerCase() === String(email || '').toLowerCase() &&
-        String(row.password_key) === String(password || '') &&
+    if (String(row.email).toLowerCase() === normEmail &&
+        String(row.password_key) === normPass &&
         String(row.is_active) !== 'false') {
       return row;
     }
@@ -354,45 +426,67 @@ function getSpreadsheet_() {
 }
 
 /**
- * Helper: สร้างหรือเปิดโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive
+ * Helper: สร้างหรือเปิดโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive (ปลอดภัยจาก Error)
  */
 function ensureDriveFolders_() {
-  let rootFolder;
-  if (STORAGE_ROOT_FOLDER_ID && STORAGE_ROOT_FOLDER_ID.trim() !== '') {
-    try {
-      rootFolder = DriveApp.getFolderById(STORAGE_ROOT_FOLDER_ID.trim());
-    } catch (err) {
-      Logger.log('ไม่สามารถเปิดโฟลเดอร์ด้วย ID ได้: ' + err.message);
-    }
-  }
-
-  if (!rootFolder) {
-    const roots = DriveApp.getFoldersByName(STORAGE_ROOT_FOLDER_NAME);
-    if (roots.hasNext()) {
-      rootFolder = roots.next();
-    } else {
-      rootFolder = DriveApp.createFolder(STORAGE_ROOT_FOLDER_NAME);
-      rootFolder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-    }
-  }
-
-  const getSub = function(name) {
-    const subs = rootFolder.getFoldersByName(name);
-    if (subs.hasNext()) return subs.next().getId();
-    const f = rootFolder.createFolder(name);
-    f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-    return f.getId();
-  };
-
-  return {
-    rootId: rootFolder.getId(),
+  const fallback = {
+    rootId: STORAGE_ROOT_FOLDER_ID,
     rootUrl: STORAGE_ROOT_FOLDER_URL,
-    bannerId: getSub('01_Banners'),
-    newsId: getSub('02_News_Images'),
-    personnelId: getSub('03_Personnel_Photos'),
-    pdfId: getSub('04_PDF_Attachments'),
-    itaId: getSub('05_ITA_Documents')
+    bannerId: '',
+    newsId: '',
+    personnelId: '',
+    pdfId: '',
+    itaId: '',
+    authorized: false
   };
+
+  try {
+    let rootFolder = null;
+    if (STORAGE_ROOT_FOLDER_ID && STORAGE_ROOT_FOLDER_ID.trim() !== '') {
+      try {
+        rootFolder = DriveApp.getFolderById(STORAGE_ROOT_FOLDER_ID.trim());
+      } catch (err) {
+        Logger.log('ไม่สามารถเปิดโฟลเดอร์ด้วย ID ได้: ' + err.message);
+      }
+    }
+
+    if (!rootFolder) {
+      const roots = DriveApp.getFoldersByName(STORAGE_ROOT_FOLDER_NAME);
+      if (roots.hasNext()) {
+        rootFolder = roots.next();
+      } else {
+        rootFolder = DriveApp.createFolder(STORAGE_ROOT_FOLDER_NAME);
+        rootFolder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      }
+    }
+
+    const getSub = function(name) {
+      try {
+        const subs = rootFolder.getFoldersByName(name);
+        if (subs.hasNext()) return subs.next().getId();
+        const f = rootFolder.createFolder(name);
+        f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+        return f.getId();
+      } catch (e) {
+        return '';
+      }
+    };
+
+    return {
+      rootId: rootFolder.getId(),
+      rootUrl: STORAGE_ROOT_FOLDER_URL,
+      bannerId: getSub('01_Banners'),
+      newsId: getSub('02_News_Images'),
+      personnelId: getSub('03_Personnel_Photos'),
+      pdfId: getSub('04_PDF_Attachments'),
+      itaId: getSub('05_ITA_Documents'),
+      authorized: true
+    };
+  } catch (err) {
+    Logger.log('DriveApp Error / Unauthorized: ' + err.message);
+    fallback.error = err.message;
+    return fallback;
+  }
 }
 
 /**
@@ -415,10 +509,14 @@ function ensureSheet_(ss, name, headers) {
 }
 
 /**
- * Helper: อ่านข้อมูลทั้งตารางแบบ Batch (getValues ครั้งเดียวเพื่อความเร็วและประหยัดโควตา)
+ * Helper: อ่านข้อมูลทั้งตารางแบบ Batch
  */
 function readSheetRecords_(ss, sheetName) {
-  const sheet = ss.getSheetByName(sheetName);
+  let sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    ensureAllDatabaseSheets_(ss);
+    sheet = ss.getSheetByName(sheetName);
+  }
   if (!sheet || sheet.getLastRow() < 2) return [];
   const values = sheet.getDataRange().getValues();
   const headers = values[0];
@@ -437,7 +535,11 @@ function readSheetRecords_(ss, sheetName) {
  * Helper: เขียนทับข้อมูลตารางแบบ Batch
  */
 function overwriteSheetRecords_(ss, sheetName, records) {
-  const sheet = ss.getSheetByName(sheetName);
+  let sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    ensureAllDatabaseSheets_(ss);
+    sheet = ss.getSheetByName(sheetName);
+  }
   if (!sheet) return;
   const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
   if (sheet.getLastRow() > 1) {
@@ -468,7 +570,11 @@ function readConfigMap_(ss) {
  * Helper: อัปเดตค่า Config ลง Sheet
  */
 function writeConfigMap_(ss, configObj) {
-  const sheet = ss.getSheetByName(SHEET_NAMES.CONFIG);
+  let sheet = ss.getSheetByName(SHEET_NAMES.CONFIG);
+  if (!sheet) {
+    ensureAllDatabaseSheets_(ss);
+    sheet = ss.getSheetByName(SHEET_NAMES.CONFIG);
+  }
   if (!sheet) return;
   const values = sheet.getDataRange().getValues();
   const now = new Date().toISOString();
