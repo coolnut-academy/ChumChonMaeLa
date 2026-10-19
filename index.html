@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โรงเรียนชุมชนแม่ลาศึกษา | Chumchon Maela Suksa School (อ.2 - ม.3)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Sarabun', 'Inter', 'sans-serif'],
+            body: ['Sarabun', 'Prompt', 'Inter', 'sans-serif']
+          },
+          colors: {
+            maela: {
+              50: '#FEF2F2',
+              100: '#FEE2E2',
+              200: '#FECACA',
+              500: '#EF4444',
+              600: '#DC2626',
+              700: '#B91C1C',
+              800: '#991B1B',
+              900: '#7F1D1D'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', 'Sarabun', 'Inter', sans-serif;
+    }
+    .font-sarabun {
+      font-family: 'Sarabun', 'Prompt', sans-serif;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-ticker {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 32s linear infinite;
+    }
+    .animate-ticker:hover {
+      animation-play-state: paused;
+    }
+    .red-white-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
+
+  <!-- แถบประกาศด่วนด้านบนสุด (Top Ticker & Quick Utility Bar) -->
+  <div class="bg-red-900 text-white text-xs sm:text-sm border-b border-red-800">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 overflow-hidden flex-1 min-w-[240px]">
+        <span class="bg-white text-red-800 font-bold px-2.5 py-0.5 rounded-full text-xs shrink-0 shadow-sm">ประกาศล่าสุด</span>
+        <div class="overflow-hidden relative flex-1">
+          <div id="topTickerText" class="animate-ticker font-light text-red-50"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <span id="apiStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/70 text-red-100 border border-red-700/60 text-xs">
+          <span id="apiStatusDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="apiStatusLabel">พร้อมใช้งาน (Local + Cloud Ready)</span>
+        </span>
+        <button id="btnOpenPopup" type="button" class="text-xs underline hover:text-red-200 transition">ดูโปสเตอร์ประกาศ</button>
+        <a href="#/admin" class="inline-flex items-center gap-1 bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-md text-xs font-medium transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span>สำหรับผู้ดูแล (Admin)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- แถบเมนูหลัก (Sticky Main Navbar) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-4 border-red-700 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <!-- โลโก้และชื่อโรงเรียน -->
+      <a href="#/home" class="flex items-center gap-3 group shrink-0">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 p-0.5 shadow-md group-hover:scale-105 transition">
+          <div class="w-full h-full rounded-[14px] bg-white flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="w-full h-1.5 bg-red-700 absolute top-0"></div>
+            <svg class="w-7 h-7 text-red-700 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 3.18l5 1.88v4.7c0 3.56-2.31 6.99-5 7.93-2.69-.94-5-4.37-5-7.93v-4.7l5-1.88zm-1 2.82v6h2V8h-2zm0 8v2h2v-2h-2z"/>
+            </svg>
+            <span class="text-[8px] font-bold text-red-800 tracking-tighter leading-none">ม.ล.ศ.</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 id="headerSchoolName" class="text-lg sm:text-xl font-bold text-red-800 leading-tight">โรงเรียนชุมชนแม่ลาศึกษา</h1>
+            <span class="hidden md:inline-block bg-red-50 text-red-700 border border-red-200 text-[11px] font-semibold px-2 py-0.5 rounded-full">อ.2 – ม.3</span>
+          </div>
+          <p class="text-xs text-slate-500">Chumchon Maela Suksa School • โรงเรียนขยายโอกาสทางการศึกษา</p>
+        </div>
+      </a>
+
+      <!-- เมนูสำหรับหน้าจอใหญ่ -->
+      <nav class="hidden xl:flex items-center gap-1 text-sm font-medium">
+        <a href="#/home" data-nav="home" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">หน้าหลัก</a>
+        <a href="#/about" data-nav="about" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">เกี่ยวกับโรงเรียน</a>
+        <a href="#/academics" data-nav="academics" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">หลักสูตร อ.2-ม.3</a>
+        <a href="#/personnel" data-nav="personnel" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">ทำเนียบบุคลากร</a>
+        <a href="#/news" data-nav="news" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">ข่าวสาร/ประกาศ</a>
+        <a href="#/services" data-nav="services" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">บริการออนไลน์</a>
+        <a href="#/ita" data-nav="ita" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">ITA (OIT)</a>
+        <a href="#/contact" data-nav="contact" class="nav-link px-3 py-2 rounded-lg transition hover:bg-red-50 hover:text-red-700">ติดต่อเรา</a>
+        <a href="#/admissions" class="ml-1 bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-xl font-semibold shadow-sm transition flex items-center gap-1.5">
+          <span>สมัครเรียน</span>
+          <span id="navAcademicYearBadge" class="bg-white text-red-800 text-xs px-1.5 py-0.2 rounded font-bold">2569</span>
+        </a>
+      </nav>
+
+      <!-- ปุ่มเปิดเมนูบนมือถือ/แท็บเล็ต -->
+      <div class="flex items-center gap-2 xl:hidden">
+        <a href="#/admissions" class="bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm px-3 py-2 rounded-lg font-semibold shadow-sm">สมัครเรียน</a>
+        <button id="btnMobileMenu" type="button" class="p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-red-50 hover:text-red-700" aria-label="เปิดเมนู">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- เมนูแบบพับสำหรับมือถือ -->
+    <div id="mobileMenuDrawer" class="hidden xl:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 shadow-lg">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm font-medium">
+        <a href="#/home" data-nav="home" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">หน้าหลัก</a>
+        <a href="#/about" data-nav="about" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">เกี่ยวกับโรงเรียน</a>
+        <a href="#/academics" data-nav="academics" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">หลักสูตร อ.2-ม.3</a>
+        <a href="#/personnel" data-nav="personnel" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">ทำเนียบบุคลากร</a>
+        <a href="#/news" data-nav="news" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">ข่าวสาร/ประกาศ</a>
+        <a href="#/admissions" data-nav="admissions" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">รับสมัครนักเรียน</a>
+        <a href="#/services" data-nav="services" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">บริการออนไลน์</a>
+        <a href="#/ita" data-nav="ita" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">ข้อมูลโปร่งใส ITA</a>
+        <a href="#/contact" data-nav="contact" class="mobile-nav-link px-3 py-2.5 rounded-lg bg-slate-50 hover:bg-red-50 hover:text-red-700">ติดต่อโรงเรียน</a>
+        <a href="#/admin" data-nav="admin" class="mobile-nav-link col-span-2 sm:col-span-3 px-3 py-2.5 rounded-lg bg-red-700 text-white text-center font-semibold">ระบบผู้ดูแลเว็บไซต์ (Admin CMS)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- พื้นที่แสดงผลหลักของแต่ละหน้า (SPA View Container) -->
+  <main id="appMainContainer" class="flex-1"></main>
+
+  <!-- ส่วนท้ายเว็บไซต์ (Footer) -->
+  <footer class="bg-slate-900 text-slate-300 border-t-4 border-red-700 mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- ข้อมูลโรงเรียน -->
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-red-700 text-white flex items-center justify-center font-bold text-sm shadow">ม.ล.ศ.</div>
+          <div>
+            <h3 id="footerSchoolName" class="font-bold text-white text-base">โรงเรียนชุมชนแม่ลาศึกษา</h3>
+            <p class="text-xs text-red-300">สีประจำโรงเรียน: แดง - ขาว</p>
+          </div>
+        </div>
+        <p id="footerMotto" class="text-xs text-slate-400 leading-relaxed mb-3"></p>
+        <p id="footerAddress" class="text-xs text-slate-400 leading-relaxed"></p>
+      </div>
+
+      <!-- ระดับชั้นที่เปิดสอน -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ระดับชั้นที่เปิดสอน (ขยายโอกาส)</h4>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับปฐมวัย (อนุบาลปีที่ 2 – 3)</a></li>
+          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับประถมศึกษา (ชั้น ป.1 – ป.6)</a></li>
+          <li><a href="#/academics" class="hover:text-red-400 transition">• ระดับมัธยมศึกษาตอนต้น (ชั้น ม.1 – ม.3)</a></li>
+          <li><a href="#/admissions" class="hover:text-red-400 transition">• โครงการเรียนฟรี 15 ปีอย่างมีคุณภาพ</a></li>
+        </ul>
+      </div>
+
+      <!-- เมนูลัดและธรรมาภิบาล -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ข้อมูลสาธารณะ & บริการ</h4>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a href="#/ita" class="hover:text-red-400 transition">• ข้อมูลความโปร่งใส ITA (OIT O1–O43)</a></li>
+          <li><a href="#/news" class="hover:text-red-400 transition">• ประกาศจัดซื้อจัดจ้างและรับสมัครงาน</a></li>
+          <li><a href="#/services" class="hover:text-red-400 transition">• ระบบตรวจสอบผลการเรียนและตารางเรียน</a></li>
+          <li><a href="#/admin" class="hover:text-red-400 transition">• เข้าสู่ระบบผู้ดูแลเว็บไซต์ (Admin CMS)</a></li>
+        </ul>
+      </div>
+
+      <!-- ติดต่อสอบถาม -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-3 border-l-4 border-red-600 pl-2.5">ติดต่อโรงเรียน</h4>
+        <div class="space-y-2 text-xs text-slate-300">
+          <p>โทรศัพท์: <span id="footerPhone" class="text-white font-medium"></span></p>
+          <p>อีเมล: <span id="footerEmail" class="text-white font-medium"></span></p>
+          <p>เวลาทำการ: จันทร์ – ศุกร์ (07:30 – 16:30 น.)</p>
+          <div class="pt-2 flex flex-wrap gap-2">
+            <a href="#/contact" class="bg-red-700 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition">ส่งข้อความติดต่อ</a>
+            <button id="btnOpenPdpaModal" type="button" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs border border-slate-700 transition">นโยบาย PDPA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-950 py-4 text-center text-xs text-slate-500 px-4">
+      <p>© <span id="footerYear">2569</span> โรงเรียนชุมชนแม่ลาศึกษา (Chumchon Maela Suksa School) • ขับเคลื่อนด้วยสถาปัตยกรรม GitHub Pages + Google Sheets Database + Google Drive Storage</p>
+    </div>
+  </footer>
+
+  <!-- แถบแจ้งเตือนคุกกี้และ PDPA (PDPA Consent Banner) -->
+  <div id="pdpaBanner" class="hidden fixed bottom-4 inset-x-4 max-w-4xl mx-auto z-40 bg-white border-2 border-red-700 rounded-2xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="text-xs sm:text-sm text-slate-700">
+      <p class="font-bold text-red-800 mb-0.5">การคุ้มครองข้อมูลส่วนบุคคล (PDPA) โรงเรียนชุมชนแม่ลาศึกษา</p>
+      <p class="font-sarabun">เว็บไซต์นี้ใช้คุกกี้ที่จำเป็นต่อการทำงานของระบบ และเผยแพร่ภาพกิจกรรมเพื่อการศึกษาโดยคำนึงถึงสิทธิส่วนบุคคลของนักเรียนและบุคลากรตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล</p>
+    </div>
+    <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+      <button id="btnAcceptPdpa" type="button" class="bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow transition">รับทราบและยินยอม</button>
+    </div>
+  </div>
+
+  <!-- โมดอลกลางสำหรับอ่านข่าว / ดูโปสเตอร์ประกาศ / ดูเอกสาร PDF / ยืนยันการลบ -->
+  <div id="globalModalBackdrop" class="hidden fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden my-auto">
+      <div class="bg-gradient-to-r from-red-800 to-red-700 text-white px-5 py-3.5 flex items-center justify-between">
+        <h3 id="globalModalTitle" class="font-bold text-base sm:text-lg truncate pr-4">รายละเอียด</h3>
+        <button id="btnCloseGlobalModal" type="button" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="ปิดหน้าต่าง">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="globalModalBody" class="p-5 sm:p-6 overflow-y-auto space-y-4 text-sm text-slate-700"></div>
+      <div id="globalModalFooter" class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex items-center justify-end gap-2">
+        <button id="btnCloseGlobalModalBottom" type="button" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-medium transition">ปิดหน้าต่าง</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ระบบแจ้งเตือน Toast มุมขวาล่าง -->
+  <div id="toastContainer" class="fixed top-20 right-4 z-50 space-y-2 max-w-sm w-full pointer-events-none"></div>
+
+  <script>
+    /**
+     * ============================================================================
+     * ระบบบริหารจัดการเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา (Single-Page Application)
+     * รองรับทั้งการทำงานแบบ Local Storage (ทดสอบ/ออฟไลน์) และ Google Apps Script API
+     * ============================================================================
+     */
+    const DEFAULT_GAS_WEB_APP_URL = ''; // วาง URL ของ Google Apps Script (/exec) ที่นี่เมื่อ Deploy จริง
+    const STORAGE_KEY_DB = 'MAELA_SCHOOL_CMS_DB_V1';
+    const STORAGE_KEY_API = 'MAELA_SCHOOL_GAS_URL_V1';
+    const STORAGE_KEY_PDPA = 'MAELA_SCHOOL_PDPA_ACCEPTED';
+
+    // ฟังก์ชันสร้างภาพประกอบ SVG คุณภาพสูงโทนสีแดง-ขาว สำหรับโรงเรียนชุมชนแม่ลาศึกษา (ไม่ต้องพึ่งพาเว็บฝากรูปภายนอก)
+    function createSchoolSvgIllustration(type, titleText, subtitleText) {
+      const safeTitle = (titleText || 'โรงเรียนชุมชนแม่ลาศึกษา').replace(/[<>&"']/g, '');
+      const safeSub = (subtitleText || 'อนุบาล 2 - มัธยมศึกษาปีที่ 3').replace(/[<>&"']/g, '');
+      let bgGrad = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7F1D1D"/><stop offset="55%" stop-color="#B91C1C"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>';
+      let graphic = '';
+
+      if (type === 'campus' || type === 'hero1') {
+        graphic = `
+          <rect x="110" y="150" width="580" height="170" rx="8" fill="#FFFFFF" opacity="0.95"/>
+          <polygon points="80,155 400,65 720,155" fill="#FEF2F2"/>
+          <rect x="330" y="110" width="140" height="210" fill="#FEE2E2"/>
+          <polygon points="310,115 400,55 490,115" fill="#991B1B"/>
+          <circle cx="400" cy="92" r="14" fill="#FFFFFF"/>
+          <rect x="380" y="255" width="40" height="65" rx="4" fill="#991B1B"/>
+          <g fill="#B91C1C" opacity="0.85">
+            <rect x="145" y="180" width="45" height="35" rx="3"/><rect x="210" y="180" width="45" height="35" rx="3"/><rect x="270" y="180" width="35" height="35" rx="3"/>
+            <rect x="145" y="235" width="45" height="35" rx="3"/><rect x="210" y="235" width="45" height="35" rx="3"/><rect x="270" y="235" width="35" height="35" rx="3"/>
+            <rect x="495" y="180" width="35" height="35" rx="3"/><rect x="545" y="180" width="45" height="35" rx="3"/><rect x="610" y="180" width="45" height="35" rx="3"/>
+            <rect x="495" y="235" width="35" height="35" rx="3"/><rect x="545" y="235" width="45" height="35" rx="3"/><rect x="610" y="235" width="45" height="35" rx="3"/>
+          </g>
+          <line x1="400" y1="15" x2="400" y2="55" stroke="#FFFFFF" stroke-width="4"/>
+          <rect x="402" y="16" width="36" height="22" fill="#EF4444" stroke="#FFFFFF" stroke-width="2"/>
+        `;
+      } else if (type === 'kinder') {
+        bgGrad = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#991B1B"/><stop offset="100%" stop-color="#F87171"/></linearGradient>';
+        graphic = `
+          <circle cx="230" cy="210" r="65" fill="#FFFFFF" opacity="0.92"/>
+          <circle cx="400" cy="195" r="75" fill="#FEF2F2" opacity="0.95"/>
+          <circle cx="570" cy="210" r="65" fill="#FFFFFF" opacity="0.92"/>
+          <text x="230" y="222" text-anchor="middle" font-size="38" font-weight="bold" fill="#B91C1C">อ.2</text>
+          <text x="400" y="208" text-anchor="middle" font-size="42" font-weight="bold" fill="#991B1B">EF</text>
+          <text x="570" y="222" text-anchor="middle" font-size="38" font-weight="bold" fill="#B91C1C">อ.3</text>
+        `;
+      } else if (type === 'award') {
+        graphic = `
+          <circle cx="400" cy="195" r="88" fill="#FEF2F2" stroke="#FFFFFF" stroke-width="6"/>
+          <polygon points="400,128 420,172 468,177 432,209 442,256 400,232 358,256 368,209 332,177 380,172" fill="#B91C1C"/>
+        `;
+      } else {
+        graphic = `
+          <rect x="160" y="130" width="480" height="175" rx="16" fill="#FFFFFF" opacity="0.15" stroke="#FFFFFF" stroke-width="2"/>
+          <circle cx="400" cy="215" r="52" fill="#FFFFFF" opacity="0.9"/>
+          <path d="M380 215 L395 230 L425 200" stroke="#B91C1C" stroke-width="8" fill="none" stroke-linecap="round"/>
+        `;
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+        <defs>${bgGrad}</defs>
+        <rect width="800" height="420" fill="url(#g)"/>
+        <circle cx="720" cy="60" r="140" fill="#FFFFFF" opacity="0.06"/>
+        <circle cx="80" cy="360" r="180" fill="#FFFFFF" opacity="0.06"/>
+        ${graphic}
+        <rect x="0" y="335" width="800" height="85" fill="#450A0A" opacity="0.72"/>
+        <text x="400" y="370" text-anchor="middle" font-family="Prompt, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF">${safeTitle}</text>
+        <text x="400" y="398" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="15" fill="#FECACA">${safeSub}</text>
+      </svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
+    // ฟังก์ชันแปลง Google Drive File ID หรือ URL ให้เป็นลิงก์แสดงผลรูปภาพที่ไม่ติดบล็อกคุกกี้
+    function resolveDriveImageUrl(driveIdOrUrl, fallbackType, titleText, subtitleText) {
+      if (driveIdOrUrl && String(driveIdOrUrl).trim() !== '') {
+        const val = String(driveIdOrUrl).trim();
+        if (val.startsWith('data:image/') || val.startsWith('http://') || val.startsWith('https://')) {
+          // หากเป็นลิงก์ Google Drive ปกติ ให้สกัด File ID มาแปลงเป็น Thumbnail CDN
+          const match = val.match(/\/d\/([a-zA-Z0-9_-]{15,})/) || val.match(/[?&]id=([a-zA-Z0-9_-]{15,})/);
+          if (match && match[1]) {
+            return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=w1200';
+          }
+          return val;
+        }
+        // กรณีใส่เฉพาะรหัส Google Drive File ID
+        return 'https://drive.google.com/thumbnail?id=' + val + '&sz=w1200';
+      }
+      return createSchoolSvgIllustration(fallbackType || 'campus', titleText, subtitleText);
+    }
+
+    // ข้อมูลตั้งต้นของโรงเรียนชุมชนแม่ลาศึกษา (Default Seed Database)
+    function getInitialSeedDatabase() {
+      return {
+        config: {
+          school_name_th: 'โรงเรียนชุมชนแม่ลาศึกษา',
+          school_name_en: 'Chumchon Maela Suksa School',
+          school_type: 'โรงเรียนขยายโอกาสทางการศึกษา (อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3)',
+          affiliation: 'สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ.) กระทรวงศึกษาธิการ',
+          motto: 'ความรู้คู่คุณธรรม นำชุมชนพัฒนา ก้าวหน้าด้วยเทคโนโลยี',
+          colors: 'สีแดง - สีขาว (แดง: ความมุ่งมั่น พลังสร้างสรรค์ และความสามัคคี / ขาว: ความบริสุทธิ์ คุณธรรม และความสุจริตโปร่งใส)',
+          academic_year: '2569',
+          ticker_text: 'ประกาศ: เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569 ระดับชั้นอนุบาล 2, ประถมศึกษาปีที่ 1 และมัธยมศึกษาปีที่ 1 (เรียนฟรี 15 ปี พร้อมสวัสดิการอาหารกลางวัน นมโรงเรียน และอุปกรณ์การเรียน)',
+          stat_students: '485',
+          stat_teachers: '34',
+          stat_classrooms: '17',
+          stat_awards: '42',
+          phone: '053-000-XXX, 089-XXX-XXXX',
+          email: 'saraban@maela.ac.th',
+          address: 'โรงเรียนชุมชนแม่ลาศึกษา หมู่ที่ 1 ตำบลแม่ลา (สถานศึกษาขยายโอกาสทางการศึกษาประจำชุมชน)',
+          facebook_url: 'https://www.facebook.com/',
+          vision: 'ภายในปีการศึกษา 2570 โรงเรียนชุมชนแม่ลาศึกษาเป็นสถานศึกษาขยายโอกาสทางการศึกษาคุณภาพชั้นนำ พัฒนาผู้เรียนระดับอนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 ให้มีทักษะวิชาการ ทักษะอาชีพ ทักษะดิจิทัล และคุณธรรมจริยธรรม ตามหลักปรัชญาของเศรษฐกิจพอเพียง',
+          identity: 'ยิ้มง่าย ไหว้สวย จิตอาสา พัฒนาทักษะอาชีพ',
+          uniqueness: 'โรงเรียนวิถีชุมชน พื้นที่ปลอดภัย แหล่งเรียนรู้เศรษฐกิจพอเพียงและเทคโนโลยี'
+        },
+        banners: [
+          {
+            id: 'BN-01',
+            type: 'hero',
+            title: 'ยินดีต้อนรับสู่ โรงเรียนชุมชนแม่ลาศึกษา',
+            subtitle: 'สถานศึกษาขยายโอกาสทางการศึกษาต้นแบบ จัดการเรียนรู้คุณภาพตั้งแต่ระดับชั้นอนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 มุ่งพัฒนาผู้เรียนให้มีความรู้คู่คุณธรรมและทักษะชีวิต',
+            badge: 'ปีการศึกษา 2569 • โทนสีแดง-ขาว',
+            cta_text: 'การรับสมัครนักเรียน (อ.2 - ม.3)',
+            cta_link: '#/admissions',
+            drive_image_id: '',
+            image_url: '',
+            sort_order: 1,
+            is_active: true
+          },
+          {
+            id: 'BN-02',
+            type: 'hero',
+            title: 'จัดการศึกษาไร้รอยต่อ 3 ระดับชั้น (อ.2 – ม.3)',
+            subtitle: 'ปฐมวัยเน้นพัฒนาการ 4 ด้านและ EF • ประถมศึกษาเน้นอ่านออกเขียนได้ คิดคำนวณคล่อง • มัธยมศึกษาตอนต้นเน้นวิชาการเข้มข้นควบคู่ทักษะอาชีพและคอมพิวเตอร์',
+            badge: 'หลักสูตรสถานศึกษา',
+            cta_text: 'ดูโครงสร้างหลักสูตรทั้ง 3 ระดับ',
+            cta_link: '#/academics',
+            drive_image_id: '',
+            image_url: '',
+            sort_order: 2,
+            is_active: true
+          },
+          {
+            id: 'BN-03',
+            type: 'popup',
+            title: 'ประกาศเปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569',
+            subtitle: 'เปิดรับสมัครนักเรียนระดับชั้นอนุบาล 2 (อายุย่างเข้าปีที่ 4), ชั้นประถมศึกษาปีที่ 1 และชั้นมัธยมศึกษาปีที่ 1 พร้อมสวัสดิการเรียนฟรี 15 ปี อาหารกลางวัน นมโรงเรียน และชุดนักเรียนครบครัน',
+            badge: 'ข่าวด่วนการรับนักเรียน',
+            cta_text: 'กรอกแบบฟอร์มแจ้งความจำนงออนไลน์',
+            cta_link: '#/admissions',
+            drive_image_id: '',
+            image_url: '',
+            sort_order: 1,
+            is_active: true
+          }
+        ],
+        news: [
+          {
+            id: 'NW-2569-01',
+            academic_year: '2569',
+            category: 'award',
+            title: 'นักเรียนชั้น ม.1–ม.3 คว้า 5 เหรียญทอง การแข่งขันทักษะวิชาการและงานอาชีพ งานศิลปหัตถกรรมนักเรียน',
+            summary: 'ตัวแทนนักเรียนระดับมัธยมศึกษาตอนต้น โรงเรียนชุมชนแม่ลาศึกษา สร้างชื่อเสียงคว้าเหรียญทองโครงงานวิทยาศาสตร์ คอมพิวเตอร์ และทักษะงานอาชีพระดับเขตพื้นที่การศึกษา',
+            content_html: 'โรงเรียนชุมชนแม่ลาศึกษา ขอแสดงความยินดีกับนักเรียนระดับชั้นมัธยมศึกษาปีที่ 1–3 และคณะครูผู้ฝึกสอน ที่ได้รับรางวัลชนะเลิศเหรียญทอง รวม 5 รายการ จากการแข่งขันทักษะวิชาการงานศิลปหัตถกรรมนักเรียน ประจำปีการศึกษา 2569 ได้แก่ โครงงานวิทยาศาสตร์ประเภทสิ่งประดิษฐ์, การสร้างเว็บเพจและการเขียนโปรแกรมคอมพิวเตอร์, และการแปรรูปผลผลิตทางการเกษตรตามแนวทางโรงเรียนขยายโอกาสทางการศึกษา',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '',
+            is_pinned: true,
+            status: 'published',
+            published_at: '2026-10-15',
+            author_name: 'งานประชาสัมพันธ์'
+          },
+          {
+            id: 'NW-2569-02',
+            academic_year: '2569',
+            category: 'pr',
+            title: 'กิจกรรมส่งเสริมพัฒนาการ 4 ด้าน และทักษะสมอง EF ของนักเรียนชั้นอนุบาล 2 – อนุบาล 3',
+            summary: 'สายชั้นปฐมวัยจัดกิจกรรมเรียนรู้ผ่านการเล่น (Play-Based Learning) กิจกรรมศิลปะสร้างสรรค์ และโภชนาการอาหารกลางวันสำหรับเด็กปฐมวัย',
+            content_html: 'สายชั้นปฐมวัย โรงเรียนชุมชนแม่ลาศึกษา จัดกิจกรรมพัฒนาผู้เรียนระดับชั้นอนุบาลปีที่ 2 และอนุบาลปีที่ 3 โดยเน้นการจัดประสบการณ์การเรียนรู้ผ่านการเล่น (Play-Based Learning) ฝึกทักษะสมองเพื่อชีวิตที่สำเร็จ (EF) การช่วยเหลือตนเองในชีวิตประจำวัน และการดูแลโภชนาการอาหารกลางวันและนมโรงเรียนอย่างใกล้ชิด',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '',
+            is_pinned: true,
+            status: 'published',
+            published_at: '2026-10-12',
+            author_name: 'สายชั้นปฐมวัย (อ.2-อ.3)'
+          },
+          {
+            id: 'NW-2569-03',
+            academic_year: '2569',
+            category: 'academic',
+            title: 'ประกาศกำหนดการเปิดภาคเรียนที่ 2/2569 และตารางติวเข้ม RT (ป.1), NT (ป.3) และ O-NET (ป.6, ม.3)',
+            summary: 'ฝ่ายวิชาการแจ้งปฏิทินการจัดการเรียนการสอนภาคเรียนที่ 2 ปีการศึกษา 2569 และตารางยกระดับผลสัมฤทธิ์ทางการเรียนระดับชาติ',
+            content_html: 'กลุ่มบริหารงานวิชาการ โรงเรียนชุมชนแม่ลาศึกษา แจ้งกำหนดการเปิดภาคเรียนที่ 2 ปีการศึกษา 2569 พร้อมดำเนินโครงการยกระดับผลสัมฤทธิ์ทางการเรียน สำหรับการประเมินความสามารถด้านการอ่าน (RT ชั้น ป.1), การทดสอบความสามารถพื้นฐานของผู้เรียนระดับชาติ (NT ชั้น ป.3) และการทดสอบทางการศึกษาระดับชาติขั้นพื้นฐาน (O-NET ชั้น ป.6 และ ชั้น ม.3)',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '',
+            is_pinned: true,
+            status: 'published',
+            published_at: '2026-10-08',
+            author_name: 'กลุ่มบริหารงานวิชาการ'
+          },
+          {
+            id: 'NW-2569-04',
+            academic_year: '2569',
+            category: 'procurement',
+            title: 'ประกาศผลผู้ชนะการจัดซื้อจัดจ้างโครงการอาหารกลางวันนักเรียนและวัสดุการศึกษา ประจำภาคเรียนที่ 2/2569',
+            summary: 'เผยแพร่เอกสารประกาศผลการจัดซื้อจัดจ้างตามระเบียบกระทรวงการคลัง เพื่อความโปร่งใสตามเกณฑ์การประเมิน ITA สถานศึกษา',
+            content_html: 'กลุ่มบริหารงานงบประมาณและงานพัสดุ โรงเรียนชุมชนแม่ลาศึกษา ขอประกาศผลผู้ชนะการเสนอราคาจัดซื้อวัตถุดิบประกอบอาหารกลางวันนักเรียน และวัสดุอุปกรณ์การเรียนการสอน ประจำภาคเรียนที่ 2 ปีการศึกษา 2569 ผู้สนใจสามารถตรวจสอบรายละเอียดได้จากตารางเอกสารแนบและหน้าข้อมูลความโปร่งใส ITA',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '#/ita',
+            is_pinned: false,
+            status: 'published',
+            published_at: '2026-10-03',
+            author_name: 'กลุ่มบริหารงานงบประมาณ'
+          },
+          {
+            id: 'NW-2569-05',
+            academic_year: '2569',
+            category: 'job',
+            title: 'ประกาศรับสมัครคัดเลือกบุคคลเพื่อจ้างเป็นครูอัตราจ้าง วิชาเอกภาษาอังกฤษ หรือประถมศึกษา (1 อัตรา)',
+            summary: 'เปิดรับสมัครผู้มีวุฒิปริญญาตรีทางการศึกษาและมีใบอนุญาตประกอบวิชาชีพครู เพื่อปฏิบัติการสอนระดับประถมศึกษาและมัธยมศึกษาตอนต้น',
+            content_html: 'โรงเรียนชุมชนแม่ลาศึกษา ประสงค์จะรับสมัครบุคคลเพื่อจัดจ้างเป็นลูกจ้างชั่วคราว ตำแหน่งครูผู้สอน สาขาวิชาภาษาอังกฤษ หรือการประถมศึกษา จำนวน 1 อัตรา อัตราค่าจ้างตามเกณฑ์ที่โรงเรียนกำหนด ผู้สนใจสามารถยื่นใบสมัครด้วยตนเองได้ที่ห้องธุรการโรงเรียนในวันและเวลาราชการ',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '',
+            is_pinned: false,
+            status: 'published',
+            published_at: '2026-09-28',
+            author_name: 'กลุ่มบริหารงานบุคคล'
+          },
+          {
+            id: 'NW-2568-01',
+            academic_year: '2568',
+            category: 'award',
+            title: 'รายงานสรุปผลการศึกษาต่อของนักเรียนชั้นมัธยมศึกษาปีที่ 3 รุ่นปีการศึกษา 2568 ศึกษาต่อครบ 100%',
+            summary: 'นักเรียนที่สำเร็จการศึกษาชั้น ม.3 จากโรงเรียนชุมชนแม่ลาศึกษา สามารถเข้าศึกษาต่อในระดับชั้น ม.4 และระดับ ปวช. ได้ครบทุกคน',
+            content_html: 'งานแนะแนว กลุ่มบริหารงานวิชาการ รายงานผลการติดตามนักเรียนผู้สำเร็จการศึกษาชั้นมัธยมศึกษาปีที่ 3 ประจำปีการศึกษา 2568 พบว่านักเรียนสามารถเข้าศึกษาต่อระดับมัธยมศึกษาตอนปลาย (ม.4) และอาชีวศึกษา (ปวช.) ได้ครบ 100%',
+            cover_drive_id: '',
+            cover_url: '',
+            pdf_drive_id: '',
+            pdf_url: '',
+            is_pinned: false,
+            status: 'published',
+            published_at: '2026-03-25',
+            author_name: 'งานแนะแนวการศึกษา'
+          }
+        ],
+        personnel: [
+          { id: 'PS-01', full_name: 'นายเกียรติศักดิ์ แม่ลาพัฒนา', position: 'ผู้อำนวยการโรงเรียนชุมชนแม่ลาศึกษา', department: 'คณะผู้บริหาร', level_group: 'ผู้บริหารสถานศึกษา', education: 'กศ.ม. (การบริหารการศึกษา)', email: 'director@maela.ac.th', phone_ext: '101', photo_drive_id: '', sort_order: 1, status: 'active' },
+          { id: 'PS-02', full_name: 'นางสาวกานดา รักการเรียน', position: 'รองผู้อำนวยการโรงเรียน (ฝ่ายวิชาการและแผนงาน)', department: 'คณะผู้บริหาร', level_group: 'ผู้บริหารสถานศึกษา', education: 'ค.ม. (หลักสูตรและการสอน)', email: 'academic@maela.ac.th', phone_ext: '102', photo_drive_id: '', sort_order: 2, status: 'active' },
+          { id: 'PS-03', full_name: 'นางพรทิพย์ อ่อนโยน', position: 'หัวหน้าสายชั้นปฐมวัย / ครูประจำชั้นอนุบาล 3', department: 'สายชั้นปฐมวัย (อ.2 - อ.3)', level_group: 'ปฐมวัย', education: 'ศษ.บ. (การศึกษาปฐมวัย)', email: 'kinder3@maela.ac.th', phone_ext: '201', photo_drive_id: '', sort_order: 3, status: 'active' },
+          { id: 'PS-04', full_name: 'นางสาวชลธิชา พัฒนาเด็ก', position: 'ครูประจำชั้นอนุบาล 2', department: 'สายชั้นปฐมวัย (อ.2 - อ.3)', level_group: 'ปฐมวัย', education: 'ค.บ. (การศึกษาปฐมวัย)', email: 'kinder2@maela.ac.th', phone_ext: '202', photo_drive_id: '', sort_order: 4, status: 'active' },
+          { id: 'PS-05', full_name: 'นายสมชาย เพียรศึกษา', position: 'หัวหน้าสายชั้นประถมศึกษา / ครูชำนาญการพิเศษ (คณิตศาสตร์)', department: 'สายชั้นประถมศึกษา (ป.1 - ป.6)', level_group: 'ประถมศึกษา', education: 'ค.บ. (การประถมศึกษา)', email: 'primary@maela.ac.th', phone_ext: '301', photo_drive_id: '', sort_order: 5, status: 'active' },
+          { id: 'PS-06', full_name: 'นางนงลักษณ์ อักษรศิลป์', position: 'ครูชำนาญการพิเศษ (กลุ่มสาระการเรียนรู้ภาษาไทย ป.1-ป.6)', department: 'สายชั้นประถมศึกษา (ป.1 - ป.6)', level_group: 'ประถมศึกษา', education: 'ศษ.บ. (ภาษาไทย)', email: 'thai@maela.ac.th', phone_ext: '302', photo_drive_id: '', sort_order: 6, status: 'active' },
+          { id: 'PS-07', full_name: 'ว่าที่ร้อยตรี พัชรพล วิทยาการ', position: 'หัวหน้าสายชั้นมัธยมศึกษาตอนต้น / ครูวิทยาศาสตร์และเทคโนโลยี', department: 'สายชั้นมัธยมศึกษา (ม.1 - ม.3)', level_group: 'มัธยมศึกษาตอนต้น', education: 'วท.บ. (วิทยาการคอมพิวเตอร์), ป.บัณฑิต', email: 'science@maela.ac.th', phone_ext: '401', photo_drive_id: '', sort_order: 7, status: 'active' },
+          { id: 'PS-08', full_name: 'นางสาวอารยา ภาษาสากล', position: 'ครูกลุ่มสาระการเรียนรู้ภาษาต่างประเทศ (ม.1 - ม.3)', department: 'สายชั้นมัธยมศึกษา (ม.1 - ม.3)', level_group: 'มัธยมศึกษาตอนต้น', education: 'ศศ.บ. (ภาษาอังกฤษ), ค.ม.', email: 'english@maela.ac.th', phone_ext: '402', photo_drive_id: '', sort_order: 8, status: 'active' },
+          { id: 'PS-09', full_name: 'นายธนากร งานอาชีพ', position: 'ครูกลุ่มสาระการงานอาชีพและเกษตรทฤษฎีใหม่ (ม.1 - ม.3)', department: 'สายชั้นมัธยมศึกษา (ม.1 - ม.3)', level_group: 'มัธยมศึกษาตอนต้น', education: 'วท.บ. (เกษตรศาสตร์), ป.บัณฑิต', email: 'career@maela.ac.th', phone_ext: '403', photo_drive_id: '', sort_order: 9, status: 'active' },
+          { id: 'PS-10', full_name: 'นางสาวมณีรัตน์ งานดี', position: 'เจ้าพนักงานธุรการโรงเรียน (งานทะเบียนและพัสดุ)', department: 'ฝ่ายสนับสนุนและธุรการ', level_group: 'สายสนับสนุน', education: 'บธ.บ. (การจัดการสำนักงาน)', email: 'office@maela.ac.th', phone_ext: '100', photo_drive_id: '', sort_order: 10, status: 'active' }
+        ],
+        calendar: [
+          { id: 'EV-01', academic_year: '2569', semester: '2', title: 'วันเปิดภาคเรียนที่ 2/2569 และประชุมผู้ปกครองนักเรียน (อ.2 – ม.3)', start_date: '2026-11-02', end_date: '2026-11-02', category: 'academic', target_level: 'ทุกระดับชั้น (อ.2 - ม.3)', description: 'ประชุมผู้ปกครองประจำภาคเรียนที่ 2 และรับเงินอุดหนุนค่าอุปกรณ์การเรียนตามโครงการเรียนฟรี 15 ปี' },
+          { id: 'EV-02', academic_year: '2569', semester: '2', title: 'การแข่งขันกีฬาสีภายในต้านยาเสพติด "แม่ลาเกมส์" (สีแดง - สีขาว)', start_date: '2026-12-17', end_date: '2026-12-18', category: 'activity', target_level: 'ทุกระดับชั้น (อ.2 - ม.3)', description: 'กิจกรรมการแข่งขันกรีฑา กีฬาพื้นบ้าน และขบวนพาเหรดสานสัมพันธ์ชุมชนแม่ลา' },
+          { id: 'EV-03', academic_year: '2569', semester: '2', title: 'กิจกรรมวันเด็กแห่งชาติและนิทรรศการทักษะอาชีพนักเรียนขยายโอกาส', start_date: '2027-01-08', end_date: '2027-01-08', category: 'activity', target_level: 'อ.2 - ม.3', description: 'การแสดงของนักเรียนระดับปฐมวัย และซุ้มแสดงผลงานทักษะอาชีพของนักเรียนชั้น ม.1–ม.3' },
+          { id: 'EV-04', academic_year: '2569', semester: '2', title: 'การประเมินความสามารถด้านการอ่าน (RT ชั้น ป.1) และสอบ NT (ชั้น ป.3)', start_date: '2027-02-10', end_date: '2027-02-24', category: 'exam', target_level: 'ชั้น ป.1 และ ป.3', description: 'การประเมินคุณภาพผู้เรียนระดับชาติสำหรับนักเรียนระดับประถมศึกษา' },
+          { id: 'EV-05', academic_year: '2569', semester: '2', title: 'การทดสอบทางการศึกษาระดับชาติขั้นพื้นฐาน (O-NET) ชั้น ป.6 และ ชั้น ม.3', start_date: '2027-02-13', end_date: '2027-02-21', category: 'exam', target_level: 'ชั้น ป.6 และ ม.3', description: 'การสอบ O-NET สำหรับนักเรียนชั้น ป.6 และ ม.3' }
+        ],
+        ita: [
+          { id: 'ITA-01', fiscal_year: '2569', oit_code: 'O1 - O6', category: '1. ข้อมูลพื้นฐาน', title: 'โครงสร้างการบริหาร อำนาจหน้าที่ ข้อมูลผู้บริหาร และข้อมูลการติดต่อโรงเรียนชุมชนแม่ลาศึกษา', drive_file_id: '', file_url: '#/about', updated_at: '2026-10-01', status: 'published' },
+          { id: 'ITA-02', fiscal_year: '2569', oit_code: 'O7 - O9', category: '1. ข้อมูลพื้นฐาน', title: 'ข่าวประชาสัมพันธ์ และช่องทางการถาม-ตอบ (Q&A) สำหรับผู้ปกครองและประชาชน', drive_file_id: '', file_url: '#/contact', updated_at: '2026-10-01', status: 'published' },
+          { id: 'ITA-03', fiscal_year: '2569', oit_code: 'O10 - O14', category: '2. การบริหารงานและงบประมาณ', title: 'แผนพัฒนาคุณภาพการศึกษา (อ.2–ม.3) และแผนปฏิบัติการประจำปีงบประมาณ พ.ศ. 2569', drive_file_id: '', file_url: '', updated_at: '2026-10-03', status: 'published' },
+          { id: 'ITA-04', fiscal_year: '2569', oit_code: 'O15 - O18', category: '3. การจัดซื้อจัดจ้าง', title: 'รายการจัดซื้อจัดจ้าง โครงการอาหารกลางวันนักเรียน และรายงานผลการจัดซื้อจัดจ้างประจำปี 2569', drive_file_id: '', file_url: '', updated_at: '2026-10-05', status: 'published' },
+          { id: 'ITA-05', fiscal_year: '2569', oit_code: 'O19 - O23', category: '4. การบริหารทรัพยากรบุคคล', title: 'แผนการบริหารและพัฒนาครูและบุคลากรทางการศึกษา และประมวลจริยธรรมวิชาชีพครู', drive_file_id: '', file_url: '', updated_at: '2026-10-06', status: 'published' },
+          { id: 'ITA-06', fiscal_year: '2569', oit_code: 'O28 - O33', category: '5. การส่งเสริมความโปร่งใส', title: 'แนวปฏิบัติการจัดการเรื่องร้องเรียนการทุจริตและช่องทางแจ้งเบาะแสออนไลน์', drive_file_id: '', file_url: '#/ita', updated_at: '2026-10-08', status: 'published' },
+          { id: 'ITA-07', fiscal_year: '2569', oit_code: 'O34 - O43', category: '6. การป้องกันการทุจริต (No Gift Policy)', title: 'ประกาศเจตนารมณ์นโยบายงดรับงดให้ของขวัญจากการปฏิบัติหน้าที่ (No Gift Policy) ประจำปี 2569', drive_file_id: '', file_url: '', updated_at: '2026-10-10', status: 'published' }
+        ],
+        inbox: [
+          { id: 'MSG-1001', timestamp: '2026-10-18 09:30', type: 'สมัครเรียน', sender_name: 'นายวีระชัย ใจดี (ผู้ปกครอง)', phone_or_email: '081-234-5678', student_level: 'อนุบาล 2', subject: 'แจ้งความจำนงสมัครเรียนชั้นอนุบาล 2 ปีการศึกษา 2569', message: 'ต้องการสมัครเรียนชั้นอนุบาล 2 ให้บุตรหลาน บ้านอยู่ในเขตพื้นที่บริการตำบลแม่ลาครับ', status: 'รอดำเนินการ' },
+          { id: 'MSG-1002', timestamp: '2026-10-17 14:15', type: 'ติดต่อสอบถาม', sender_name: 'นางสาวสุภาพร แม่ลา', phone_or_email: '089-876-5432', student_level: 'มัธยมศึกษาปีที่ 1', subject: 'สอบถามวิชาเลือกทักษะอาชีพ ชั้น ม.1', message: 'อยากทราบว่าชั้น ม.1 ของโรงเรียนมีสอนคอมพิวเตอร์และงานเกษตรอะไรบ้างคะ', status: 'ดำเนินการแล้ว' }
+        ]
+      };
+    }
+
+    // สถานะของแอปพลิเคชัน (Application State)
+    const state = {
+      db: getInitialSeedDatabase(),
+      gasUrl: DEFAULT_GAS_WEB_APP_URL,
+      currentRoute: 'home',
+      heroIndex: 0,
+      homeNewsTab: 'all',
+      newsFilterCat: 'all',
+      newsFilterYear: 'all',
+      newsSearch: '',
+      personnelFilter: 'all',
+      personnelSearch: '',
+      itaFilterCat: 'all',
+      itaSearch: '',
+      academicLevelTab: 'kinder',
+      selectedGradeSchedule: 'อ.2',
+      adminLoggedIn: false,
+      adminUser: { email: 'admin@maela.ac.th', name: 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', role: 'super_admin' },
+      adminTab: 'overview',
+      pendingCompressedDataUrl: ''
+    };
+
+    let heroSliderTimer = null;
+
+    // โหลดข้อมูลจาก localStorage อย่างปลอดภัย
+    function loadStateFromStorage() {
+      try {
+        const savedDb = localStorage.getItem(STORAGE_KEY_DB);
+        if (savedDb) {
+          const parsed = JSON.parse(savedDb);
+          if (parsed && parsed.config && parsed.news) {
+            state.db = parsed;
+          }
+        }
+        const savedUrl = localStorage.getItem(STORAGE_KEY_API);
+        if (savedUrl) {
+          state.gasUrl = savedUrl;
+        }
+      } catch (e) {
+        // กรณี iframe บล็อก localStorage ให้ใช้ in-memory state ตามปกติ
+      }
+    }
+
+    function saveDatabaseToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY_DB, JSON.stringify(state.db));
+      } catch (e) {}
+      syncGlobalChrome();
+    }
+
+    // ซิงก์ข้อมูลจาก Google Apps Script หากตั้งค่า URL ไว้ (Stale-While-Revalidate)
+    async function fetchFromGoogleSheetsApi(showToastOnDone) {
+      if (!state.gasUrl) return;
+      const dot = document.getElementById('apiStatusDot');
+      const label = document.getElementById('apiStatusLabel');
+      if (dot && label) {
+        dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+        label.textContent = 'กำลังซิงก์ Google Sheets...';
+      }
+      try {
+        const res = await fetch(state.gasUrl + '?action=getPublicData&t=' + Date.now());
+        const data = await res.json();
+        if (data && data.ok) {
+          if (data.config) state.db.config = Object.assign({}, state.db.config, data.config);
+          if (Array.isArray(data.banners) && data.banners.length) state.db.banners = data.banners;
+          if (Array.isArray(data.news) && data.news.length) state.db.news = data.news;
+          if (Array.isArray(data.personnel) && data.personnel.length) state.db.personnel = data.personnel;
+          if (Array.isArray(data.calendar) && data.calendar.length) state.db.calendar = data.calendar;
+          if (Array.isArray(data.ita) && data.ita.length) state.db.ita = data.ita;
+          saveDatabaseToStorage();
+          renderCurrentView();
+          if (dot && label) {
+            dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+            label.textContent = 'เชื่อมต่อ Google Sheets แล้ว';
+          }
+          if (showToastOnDone) showToast('ดึงข้อมูลล่าสุดจาก Google Sheets สำเร็จ', 'success');
+        }
+      } catch (err) {
+        if (dot && label) {
+          dot.className = 'w-2 h-2 rounded-full bg-amber-400';
+          label.textContent = 'โหมดฐานข้อมูลในเครื่อง (Offline Fallback)';
+        }
+        if (showToastOnDone) showToast('ไม่สามารถเชื่อมต่อ URL ที่ระบุได้ ระบบใช้ข้อมูลสำรองในเครื่องแทน', 'error');
+      }
+    }
+
+    // แจ้งเตือน Toast
+    function showToast(message, type) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const el = document.createElement('div');
+      const bg = type === 'error' ? 'bg-red-800 border-red-600' : 'bg-slate-900 border-red-500';
+      el.className = `pointer-events-auto ${bg} text-white border-l-4 px-4 py-3 rounded-xl shadow-xl text-xs sm:text-sm flex items-center justify-between gap-3 transition duration-300`;
+      el.innerHTML = `
+        <span class="font-medium">${escapeHtml(message)}</span>
+        <button type="button" class="text-slate-300 hover:text-white text-xs font-bold">✕</button>
+      `;
+      el.querySelector('button').addEventListener('click', function() {
+        el.remove();
+      });
+      container.appendChild(el);
+      setTimeout(function() {
+        if (el.parentNode) el.remove();
+      }, 4000);
+    }
+
+    function escapeHtml(str) {
+      return String(str === undefined || str === null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // แปลงรหัสหมวดหมู่ข่าวเป็นป้ายภาษาไทย
+    function getCategoryMeta(cat) {
+      const map = {
+        pr: { label: 'ข่าวประชาสัมพันธ์', cls: 'bg-red-50 text-red-700 border-red-200' },
+        award: { label: 'รางวัลและความภูมิใจ', cls: 'bg-amber-50 text-amber-800 border-amber-200' },
+        academic: { label: 'ประกาศวิชาการ/การสอบ', cls: 'bg-blue-50 text-blue-700 border-blue-200' },
+        procurement: { label: 'ข่าวจัดซื้อจัดจ้าง', cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
+        job: { label: 'รับสมัครงาน', cls: 'bg-purple-50 text-purple-700 border-purple-200' }
+      };
+      return map[cat] || { label: 'ข่าวทั่วไป', cls: 'bg-slate-100 text-slate-700 border-slate-200' };
+    }
+
+    // เปิด-ปิด โมดอลกลาง
+    function openGlobalModal(title, bodyHtml, footerHtml) {
+      const backdrop = document.getElementById('globalModalBackdrop');
+      const titleEl = document.getElementById('globalModalTitle');
+      const bodyEl = document.getElementById('globalModalBody');
+      const footerEl = document.getElementById('globalModalFooter');
+      if (!backdrop || !titleEl || !bodyEl || !footerEl) return;
+      titleEl.textContent = title || 'รายละเอียด';
+      bodyEl.innerHTML = bodyHtml || '';
+      if (footerHtml) {
+        footerEl.innerHTML = footerHtml;
+      } else {
+        footerEl.innerHTML = `<button id="btnCloseGlobalModalDynamic" type="button" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-medium transition">ปิดหน้าต่าง</button>`;
+        const btn = document.getElementById('btnCloseGlobalModalDynamic');
+        if (btn) btn.addEventListener('click', closeGlobalModal);
+      }
+      backdrop.classList.remove('hidden');
+    }
+
+    function closeGlobalModal() {
+      const backdrop = document.getElementById('globalModalBackdrop');
+      if (backdrop) backdrop.classList.add('hidden');
+    }
+
+    // อัปเดตข้อมูลส่วนหัวและส่วนท้ายของเว็บไซต์ตาม Site Config
+    function syncGlobalChrome() {
+      const cfg = state.db.config || {};
+      const setTxt = function(id, val) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val || '';
+      };
+      setTxt('topTickerText', cfg.ticker_text + '   •   สีประจำโรงเรียน: สีแดง - สีขาว   •   เปิดสอนระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3');
+      setTxt('headerSchoolName', cfg.school_name_th);
+      setTxt('navAcademicYearBadge', cfg.academic_year);
+      setTxt('footerSchoolName', cfg.school_name_th);
+      setTxt('footerMotto', '“' + (cfg.motto || '') + '”');
+      setTxt('footerAddress', cfg.address);
+      setTxt('footerPhone', cfg.phone);
+      setTxt('footerEmail', cfg.email);
+      setTxt('footerYear', cfg.academic_year);
+    }
+
+    // แสดง Popup ประกาศสำคัญ
+    function openAnnouncementPopup() {
+      const popups = (state.db.banners || []).filter(function(b) {
+        return b.type === 'popup' && String(b.is_active) !== 'false';
+      });
+      const item = popups[0] || {
+        title: 'เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา ' + (state.db.config.academic_year || '2569'),
+        subtitle: 'ระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 (โรงเรียนขยายโอกาสทางการศึกษา)',
+        badge: 'ประกาศสำคัญ',
+        cta_text: 'ไปที่หน้ารับสมัครนักเรียน',
+        cta_link: '#/admissions',
+        drive_image_id: ''
+      };
+      const imgSrc = resolveDriveImageUrl(item.drive_image_id || item.image_url, 'campus', item.title, 'อนุบาล 2 - มัธยมศึกษาปีที่ 3 • เรียนฟรี 15 ปี');
+      openGlobalModal(
+        item.title,
+        `<div class="space-y-4">
+          <div class="rounded-xl overflow-hidden border border-red-100 shadow-sm bg-red-950">
+            <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full max-h-72 object-cover" />
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-full">${escapeHtml(item.badge || 'ประกาศสำคัญ')}</span>
+            <span class="text-xs text-slate-500">โรงเรียนชุมชนแม่ลาศึกษา (อ.2 – ม.3)</span>
+          </div>
+          <p class="font-sarabun text-slate-700 leading-relaxed text-sm sm:text-base">${escapeHtml(item.subtitle)}</p>
+        </div>`,
+        `<div class="flex items-center justify-end gap-2 w-full">
+          <button type="button" id="btnPopupClose" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs sm:text-sm font-medium">ปิดหน้าต่าง</button>
+          <a href="${escapeHtml(item.cta_link || '#/admissions')}" id="btnPopupCta" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm font-semibold shadow">${escapeHtml(item.cta_text || 'ดูรายละเอียด')}</a>
+        </div>`
+      );
+      const bClose = document.getElementById('btnPopupClose');
+      const bCta = document.getElementById('btnPopupCta');
+      if (bClose) bClose.addEventListener('click', closeGlobalModal);
+      if (bCta) bCta.addEventListener('click', closeGlobalModal);
+    }
+
+    // แสดงรายละเอียดข่าวฉบับเต็มในโมดอล
+    function openNewsDetailModal(newsId) {
+      const item = (state.db.news || []).find(function(n) { return n.id === newsId; });
+      if (!item) return;
+      const catMeta = getCategoryMeta(item.category);
+      const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา • ปีการศึกษา ' + item.academic_year);
+      const pdfBlock = (item.pdf_drive_id || item.pdf_url)
+        ? `<div class="p-3.5 rounded-xl bg-red-50 border border-red-200 flex items-center justify-between gap-3">
+             <div class="text-xs sm:text-sm">
+               <p class="font-bold text-red-800">เอกสารแนบ (Google Drive Storage)</p>
+               <p class="text-slate-600 text-xs">คลิกเพื่อเปิดดูเอกสารแนบหรือหน้าข้อมูลที่เกี่ยวข้อง</p>
+             </div>
+             <a href="${escapeHtml(item.pdf_url || ('https://drive.google.com/file/d/' + item.pdf_drive_id + '/preview'))}" target="${(item.pdf_url || '').startsWith('#') ? '_self' : '_blank'}" class="bg-red-700 hover:bg-red-800 text-white text-xs font-semibold px-3.5 py-2 rounded-lg shrink-0">เปิดเอกสารแนบ</a>
+           </div>`
+        : '';
+
+      openGlobalModal(
+        item.title,
+        `<div class="space-y-4">
+          <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-56 sm:h-64 object-cover rounded-xl border border-slate-200" />
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="px-2.5 py-0.5 rounded-full border font-semibold ${catMeta.cls}">${catMeta.label}</span>
+            <span class="text-slate-500">วันที่เผยแพร่: ${escapeHtml(item.published_at)}</span>
+            <span class="text-slate-500">• ปีการศึกษา ${escapeHtml(item.academic_year)}</span>
+            <span class="text-slate-500">• โดย ${escapeHtml(item.author_name || 'งานประชาสัมพันธ์')}</span>
+          </div>
+          <div class="font-sarabun text-slate-800 text-sm sm:text-base leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 whitespace-pre-line">${escapeHtml(item.content_html || item.summary)}</div>
+          ${pdfBlock}
+        </div>`
+      );
+    }
+
+    /**
+     * ============================================================================
+     * ระบบจัดการ Routing และแสดงผลแต่ละหน้าย่อย
+     * ============================================================================
+     */
+    function handleHashChange() {
+      const rawHash = window.location.hash || '#/home';
+      const cleaned = rawHash.replace(/^#\/?/, '').split('?')[0] || 'home';
+      const validRoutes = ['home', 'about', 'academics', 'personnel', 'news', 'admissions', 'services', 'ita', 'contact', 'admin'];
+      state.currentRoute = validRoutes.indexOf(cleaned) !== -1 ? cleaned : 'home';
+
+      // อัปเดตไฮไลต์ปุ่มเมนู
+      document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(link) {
+        const nav = link.getAttribute('data-nav');
+        if (nav === state.currentRoute) {
+          link.classList.add('bg-red-700', 'text-white', 'font-semibold');
+          link.classList.remove('hover:bg-red-50', 'hover:text-red-700', 'bg-slate-50');
+        } else {
+          link.classList.remove('bg-red-700', 'text-white', 'font-semibold');
+          if (link.classList.contains('mobile-nav-link') && nav !== 'admin') {
+            link.classList.add('bg-slate-50');
+          }
+        }
+      });
+
+      // ปิดเมนูมือถือเมื่อเลือกหน้าแล้ว
+      const drawer = document.getElementById('mobileMenuDrawer');
+      if (drawer) drawer.classList.add('hidden');
+
+      renderCurrentView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderCurrentView() {
+      if (heroSliderTimer) {
+        clearInterval(heroSliderTimer);
+        heroSliderTimer = null;
+      }
+      const container = document.getElementById('appMainContainer');
+      if (!container) return;
+
+      switch (state.currentRoute) {
+        case 'about':
+          renderAboutView(container);
+          break;
+        case 'academics':
+          renderAcademicsView(container);
+          break;
+        case 'personnel':
+          renderPersonnelView(container);
+          break;
+        case 'news':
+          renderNewsArchiveView(container);
+          break;
+        case 'admissions':
+          renderAdmissionsView(container);
+          break;
+        case 'services':
+          renderServicesView(container);
+          break;
+        case 'ita':
+          renderItaView(container);
+          break;
+        case 'contact':
+          renderContactView(container);
+          break;
+        case 'admin':
+          renderAdminView(container);
+          break;
+        default:
+          renderHomeView(container);
+          break;
+      }
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 1: หน้าหลัก (HOME)
+     * ============================================================================
+     */
+    function renderHomeView(container) {
+      const cfg = state.db.config || {};
+      const heroes = (state.db.banners || []).filter(function(b) {
+        return b.type === 'hero' && String(b.is_active) !== 'false';
+      });
+      if (state.heroIndex >= heroes.length) state.heroIndex = 0;
+      const activeHero = heroes[state.heroIndex] || {
+        title: 'โรงเรียนชุมชนแม่ลาศึกษา',
+        subtitle: 'สถานศึกษาขยายโอกาสทางการศึกษา (อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3)',
+        badge: 'สีแดง - สีขาว',
+        cta_text: 'ดูรายละเอียดการรับสมัคร',
+        cta_link: '#/admissions'
+      };
+      const heroImg = resolveDriveImageUrl(activeHero.drive_image_id || activeHero.image_url, state.heroIndex % 2 === 0 ? 'campus' : 'kinder', activeHero.title, 'โรงเรียนชุมชนแม่ลาศึกษา • โทนสีแดง-ขาว');
+
+      const allPublishedNews = (state.db.news || []).filter(function(n) { return n.status !== 'draft'; });
+      const awardsList = allPublishedNews.filter(function(n) { return n.category === 'award'; }).slice(0, 3);
+      const filteredHomeNews = allPublishedNews.filter(function(n) {
+        if (state.homeNewsTab === 'all') return true;
+        return n.category === state.homeNewsTab;
+      }).slice(0, 6);
+
+      const upcomingEvents = (state.db.calendar || []).slice(0, 4);
+
+      container.innerHTML = `
+        <!-- 1. Hero Banner Slider (โทนสีแดง-ขาว) -->
+        <section class="relative bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white overflow-hidden red-white-pattern">
+          <div class="max-w-7xl mx-auto px-4 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-3.5 py-1 rounded-full text-xs font-semibold border border-white/25">
+                <span class="w-2 h-2 rounded-full bg-white"></span>
+                <span>${escapeHtml(activeHero.badge || 'โรงเรียนขยายโอกาสทางการศึกษา')}</span>
+              </div>
+              <h2 class="text-2xl sm:text-4xl font-bold leading-tight">${escapeHtml(activeHero.title)}</h2>
+              <p class="font-sarabun text-red-100 text-sm sm:text-base leading-relaxed max-w-2xl">${escapeHtml(activeHero.subtitle)}</p>
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="${escapeHtml(activeHero.cta_link || '#/admissions')}" class="bg-white text-red-800 hover:bg-red-50 px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg transition">
+                  ${escapeHtml(activeHero.cta_text || 'สมัครเรียนออนไลน์')}
+                </a>
+                <a href="#/academics" class="bg-red-950/50 hover:bg-red-950/80 text-white border border-white/30 px-5 py-2.5 rounded-xl font-medium text-sm transition">
+                  หลักสูตร อ.2 – ม.3
+                </a>
+              </div>
+              <!-- ปุ่มสลับสไลด์ -->
+              <div class="pt-3 flex items-center gap-2">
+                <button id="btnPrevHero" type="button" class="p-2 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="สไลด์ก่อนหน้า">◀</button>
+                <div class="flex items-center gap-1.5 px-2">
+                  ${heroes.map(function(_, idx) {
+                    return `<button type="button" data-hero-dot="${idx}" class="h-2.5 rounded-full transition ${idx === state.heroIndex ? 'w-7 bg-white' : 'w-2.5 bg-white/40 hover:bg-white/70'}" aria-label="สไลด์ที่ ${idx + 1}"></button>`;
+                  }).join('')}
+                </div>
+                <button id="btnNextHero" type="button" class="p-2 rounded-lg bg-white/10 hover:bg-white/25 text-white transition" aria-label="สไลด์ถัดไป">▶</button>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="bg-white p-2 rounded-2xl shadow-2xl border-2 border-white/40">
+                <img src="${heroImg}" alt="${escapeHtml(activeHero.title)}" class="w-full h-60 sm:h-72 object-cover rounded-xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Quick Portal Bar (ทางด่วน 6 บริการหลัก) -->
+        <section class="max-w-7xl mx-auto px-4 -mt-6 relative z-10">
+          <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <a href="#/admissions" class="flex items-center gap-3 p-3 rounded-xl bg-red-50/70 hover:bg-red-700 hover:text-white group transition border border-red-100">
+              <span class="w-10 h-10 rounded-xl bg-red-700 text-white group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">รับสมัคร</span>
+              <div class="text-xs">
+                <p class="font-bold">สมัครเรียน ${escapeHtml(cfg.academic_year)}</p>
+                <p class="text-slate-500 group-hover:text-red-100">อนุบาล 2 – ม.3</p>
+              </div>
+            </a>
+            <a href="#/academics" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
+              <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">หลักสูตร</span>
+              <div class="text-xs">
+                <p class="font-bold">3 ระดับการศึกษา</p>
+                <p class="text-slate-500 group-hover:text-red-100">ปฐมวัย•ประถม•ม.ต้น</p>
+              </div>
+            </a>
+            <a href="#/services" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
+              <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ตาราง</span>
+              <div class="text-xs">
+                <p class="font-bold">ตารางเรียน/ผลสอบ</p>
+                <p class="text-slate-500 group-hover:text-red-100">ระบบบริการผู้เรียน</p>
+              </div>
+            </a>
+            <a href="#/personnel" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
+              <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ครู</span>
+              <div class="text-xs">
+                <p class="font-bold">ทำเนียบบุคลากร</p>
+                <p class="text-slate-500 group-hover:text-red-100">ผู้บริหารและคณะครู</p>
+              </div>
+            </a>
+            <a href="#/ita" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
+              <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">ITA</span>
+              <div class="text-xs">
+                <p class="font-bold">ข้อมูลโปร่งใส OIT</p>
+                <p class="text-slate-500 group-hover:text-red-100">ดัชนี O1 – O43</p>
+              </div>
+            </a>
+            <a href="#/admin" class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-red-700 hover:text-white group transition border border-slate-200/80">
+              <span class="w-10 h-10 rounded-xl bg-red-100 text-red-800 group-hover:bg-white group-hover:text-red-700 flex items-center justify-center font-bold text-sm shrink-0">CMS</span>
+              <div class="text-xs">
+                <p class="font-bold">จัดการเว็บไซต์</p>
+                <p class="text-slate-500 group-hover:text-red-100">เชื่อม Sheets & Drive</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 3. ข้อมูลสถิติและ 3 ระดับชั้นของโรงเรียนขยายโอกาส -->
+        <section class="max-w-7xl mx-auto px-4 py-10 space-y-8">
+          <div class="bg-gradient-to-r from-red-800 to-red-700 rounded-2xl p-6 sm:p-8 text-white shadow-md grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div class="border-r border-white/20 last:border-none">
+              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_students)}</p>
+              <p class="text-xs sm:text-sm text-red-100 mt-1">นักเรียนทั้งหมด (อ.2 – ม.3)</p>
+            </div>
+            <div class="lg:border-r border-white/20">
+              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_teachers)}</p>
+              <p class="text-xs sm:text-sm text-red-100 mt-1">ข้าราชการครูและบุคลากร</p>
+            </div>
+            <div class="border-r border-white/20">
+              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_classrooms)}</p>
+              <p class="text-xs sm:text-sm text-red-100 mt-1">ห้องเรียนคุณภาพ (11 ชั้นปี)</p>
+            </div>
+            <div>
+              <p class="text-3xl sm:text-4xl font-extrabold">${escapeHtml(cfg.stat_awards)}+</p>
+              <p class="text-xs sm:text-sm text-red-100 mt-1">รางวัลผลงานวิชาการและทักษะอาชีพ</p>
+            </div>
+          </div>
+
+          <!-- การ์ด 3 ระดับการศึกษา (อนุบาล 2 ถึง ม.3) -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-red-700">โครงสร้างการจัดการศึกษา</span>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900">ระดับชั้นที่เปิดสอน: อนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 (โรงเรียนขยายโอกาส)</h3>
+              </div>
+              <a href="#/academics" class="text-xs sm:text-sm font-semibold text-red-700 hover:text-red-800">ดูรายละเอียดหลักสูตรทั้งหมด →</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- ปฐมวัย -->
+              <div class="bg-white rounded-2xl border-t-4 border-red-600 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับปฐมวัย</span>
+                    <span class="text-xs font-semibold text-slate-400">อายุ 4 – 5 ปี</span>
+                  </div>
+                  <h4 class="text-lg font-bold text-slate-900">ชั้นอนุบาลปีที่ 2 – อนุบาลปีที่ 3</h4>
+                  <p class="font-sarabun text-sm text-slate-600 leading-relaxed">มุ่งเน้นพัฒนาการทั้ง 4 ด้าน (ร่างกาย อารมณ์-จิตใจ สังคม สติปัญญา) ผ่านการจัดประสบการณ์การเรียนรู้แบบ Play-Based Learning และฝึกทักษะสมอง EF พร้อมโภชนาการอาหารกลางวันและนมโรงเรียน</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span class="text-slate-500">2 ชั้นปี (อ.2 – อ.3)</span>
+                  <a href="#/academics" class="font-semibold text-red-700 hover:underline">ดูตารางกิจกรรมปฐมวัย →</a>
+                </div>
+              </div>
+
+              <!-- ประถมศึกษา -->
+              <div class="bg-white rounded-2xl border-t-4 border-red-700 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full border border-red-200">ระดับประถมศึกษา</span>
+                    <span class="text-xs font-semibold text-slate-400">อายุ 6 – 11 ปี</span>
+                  </div>
+                  <h4 class="text-lg font-bold text-slate-900">ชั้นประถมศึกษาปีที่ 1 – 6</h4>
+                  <p class="font-sarabun text-sm text-slate-600 leading-relaxed">ปูพื้นฐานอ่านออกเขียนได้ คิดคำนวณคล่องแคล่ว ครบ 8 กลุ่มสาระการเรียนรู้ เสริมทักษะภาษาอังกฤษเพื่อการสื่อสาร วิทยาการคำนวณ และยกระดับผลสัมฤทธิ์ RT (ป.1), NT (ป.3) และ O-NET (ป.6)</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span class="text-slate-500">6 ชั้นปี (ป.1 – ป.6)</span>
+                  <a href="#/academics" class="font-semibold text-red-700 hover:underline">ดูโครงสร้างวิชาประถม →</a>
+                </div>
+              </div>
+
+              <!-- มัธยมศึกษาตอนต้น (ขยายโอกาส) -->
+              <div class="bg-white rounded-2xl border-t-4 border-red-900 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="bg-red-900 text-white text-xs font-bold px-3 py-1 rounded-full">ระดับมัธยมศึกษาตอนต้น (ขยายโอกาส)</span>
+                    <span class="text-xs font-semibold text-slate-400">อายุ 12 – 14 ปี</span>
+                  </div>
+                  <h4 class="text-lg font-bold text-slate-900">ชั้นมัธยมศึกษาปีที่ 1 – 3</h4>
+                  <p class="font-sarabun text-sm text-slate-600 leading-relaxed">ขยายโอกาสทางการศึกษาให้เยาวชนในชุมชนแม่ลา เข้มข้นด้วยวิชาการหลักควบคู่รายวิชาทักษะอาชีพ (คอมพิวเตอร์ดิจิทัล เกษตรทฤษฎีใหม่ คหกรรม และงานช่าง) พร้อมแนะแนวศึกษาต่อ ม.4 และ ปวช. 100%</p>
+                </div>
+                <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span class="text-slate-500">3 ชั้นปี (ม.1 – ม.3)</span>
+                  <a href="#/academics" class="font-semibold text-red-700 hover:underline">ดูแผนการเรียน ม.ต้น →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. ข่าวสารและประกาศ (Tabbed News) + ปฏิทินกิจกรรม -->
+        <section class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- คอลัมน์ซ้าย: ข่าวสารและประกาศ (8 คอลัมน์) -->
+          <div class="lg:col-span-8 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <span class="text-xs font-bold text-red-700 uppercase">คลังข่าวสารออนไลน์ (ดึงจาก Google Sheets)</span>
+                <h3 class="text-xl font-bold text-slate-900">ข่าวประชาสัมพันธ์และประกาศโรงเรียน</h3>
+              </div>
+              <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+                ${[
+                  { id: 'all', label: 'ทั้งหมด' },
+                  { id: 'pr', label: 'กิจกรรม' },
+                  { id: 'award', label: 'ความภูมิใจ' },
+                  { id: 'academic', label: 'วิชาการ/สอบ' },
+                  { id: 'procurement', label: 'จัดซื้อจัดจ้าง' },
+                  { id: 'job', label: 'สมัครงาน' }
+                ].map(function(t) {
+                  const active = state.homeNewsTab === t.id;
+                  return `<button type="button" data-home-news-tab="${t.id}" class="px-3 py-1.5 rounded-lg border transition ${active ? 'bg-red-700 text-white border-red-700 font-semibold' : 'bg-white text-slate-600 border-slate-200 hover:border-red-300'}">${t.label}</button>`;
+                }).join('')}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              ${filteredHomeNews.map(function(item) {
+                const cat = getCategoryMeta(item.category);
+                const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา');
+                return `
+                  <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+                    <div class="relative h-44 bg-slate-100">
+                      <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover" />
+                      <span class="absolute top-3 left-3 text-[11px] font-bold px-2.5 py-0.5 rounded-full border shadow-sm ${cat.cls}">${cat.label}</span>
+                      ${String(item.is_pinned) === 'true' ? '<span class="absolute top-3 right-3 bg-red-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ปักหมุด</span>' : ''}
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                      <div>
+                        <p class="text-[11px] text-slate-400 mb-1">${escapeHtml(item.published_at)} • ปีการศึกษา ${escapeHtml(item.academic_year)}</p>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base line-clamp-2">${escapeHtml(item.title)}</h4>
+                        <p class="font-sarabun text-xs text-slate-600 mt-1.5 line-clamp-2">${escapeHtml(item.summary)}</p>
+                      </div>
+                      <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-500">${escapeHtml(item.author_name || 'งานประชาสัมพันธ์')}</span>
+                        <button type="button" data-read-news="${escapeHtml(item.id)}" class="text-xs font-semibold text-red-700 hover:text-red-900">อ่านรายละเอียด →</button>
+                      </div>
+                    </div>
+                  </article>
+                `;
+              }).join('')}
+            </div>
+
+            <div class="text-right">
+              <a href="#/news" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-red-700 hover:text-red-900">ดูคลังข่าวและประกาศทั้งหมด →</a>
+            </div>
+          </div>
+
+          <!-- คอลัมน์ขวา: สารจากผู้อำนวยการ & ปฏิทินกิจกรรม (4 คอลัมน์) -->
+          <div class="lg:col-span-4 space-y-6">
+            <!-- การ์ดผู้บริหารสถานศึกษา -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+              <div class="flex items-center gap-3.5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow">ผอ.</div>
+                <div>
+                  <span class="text-[11px] font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">ผู้บริหารสถานศึกษา</span>
+                  <h4 class="font-bold text-slate-900 text-base mt-0.5">นายเกียรติศักดิ์ แม่ลาพัฒนา</h4>
+                  <p class="text-xs text-slate-500">ผู้อำนวยการโรงเรียนชุมชนแม่ลาศึกษา</p>
+                </div>
+              </div>
+              <blockquote class="mt-3.5 font-sarabun text-xs sm:text-sm text-slate-600 bg-red-50/60 border-l-4 border-red-700 p-3 rounded-r-xl">
+                “โรงเรียนชุมชนแม่ลาศึกษามุ่งมั่นพัฒนาผู้เรียนตั้งแต่ชั้นอนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 ให้เติบโตอย่างเต็มศักยภาพ มีความรู้คู่คุณธรรม และมีทักษะชีวิตที่เข้มแข็ง”
+              </blockquote>
+              <div class="mt-3 flex justify-between items-center text-xs">
+                <a href="#/personnel" class="text-red-700 font-semibold hover:underline">ทำเนียบบุคลากรทั้งหมด →</a>
+                <a href="#/about" class="text-slate-500 hover:text-slate-800">วิสัยทัศน์โรงเรียน</a>
+              </div>
+            </div>
+
+            <!-- ปฏิทินกิจกรรมโรงเรียน -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">ปฏิทินกิจกรรมโรงเรียน</h4>
+                <a href="#/academics" class="text-xs text-red-700 font-semibold hover:underline">ดูทั้งหมด</a>
+              </div>
+              <div class="space-y-3">
+                ${upcomingEvents.map(function(ev) {
+                  return `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-red-200 transition">
+                      <div class="flex items-center justify-between text-[11px] text-red-700 font-semibold mb-1">
+                        <span>📅 ${escapeHtml(ev.start_date)}</span>
+                        <span class="bg-red-100 text-red-800 px-2 py-0.5 rounded">${escapeHtml(ev.target_level)}</span>
+                      </div>
+                      <p class="font-bold text-slate-800 text-xs sm:text-sm">${escapeHtml(ev.title)}</p>
+                      <p class="font-sarabun text-xs text-slate-500 mt-0.5">${escapeHtml(ev.description)}</p>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- ป้ายลัดข้อมูลความโปร่งใส ITA -->
+            <div class="bg-gradient-to-br from-red-800 to-red-950 text-white rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span class="bg-white text-red-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">ITA School Online</span>
+              <h4 class="font-bold text-base">การเปิดเผยข้อมูลสาธารณะ (OIT)</h4>
+              <p class="font-sarabun text-xs text-red-100 leading-relaxed">ตรวจสอบแผนปฏิบัติการ งบประมาณ การจัดซื้อจัดจ้าง และประกาศนโยบาย No Gift Policy ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+              <a href="#/ita" class="inline-block bg-white text-red-800 hover:bg-red-50 text-xs font-bold px-4 py-2 rounded-xl shadow transition">เข้าสู่หน้าข้อมูล ITA (O1–O43) →</a>
+            </div>
+          </div>
+        </section>
+      `;
+
+      // ผูก Event สลับสไลด์และแท็บข่าว
+      const btnPrev = document.getElementById('btnPrevHero');
+      const btnNext = document.getElementById('btnNextHero');
+      if (btnPrev && heroes.length > 1) {
+        btnPrev.addEventListener('click', function() {
+          state.heroIndex = (state.heroIndex - 1 + heroes.length) % heroes.length;
+          renderHomeView(container);
+        });
+      }
+      if (btnNext && heroes.length > 1) {
+        btnNext.addEventListener('click', function() {
+          state.heroIndex = (state.heroIndex + 1) % heroes.length;
+          renderHomeView(container);
+        });
+      }
+      container.querySelectorAll('[data-hero-dot]').forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          state.heroIndex = parseInt(dot.getAttribute('data-hero-dot'), 10) || 0;
+          renderHomeView(container);
+        });
+      });
+
+      container.querySelectorAll('[data-home-news-tab]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.homeNewsTab = btn.getAttribute('data-home-news-tab');
+          renderHomeView(container);
+        });
+      });
+
+      container.querySelectorAll('[data-read-news]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          openNewsDetailModal(btn.getAttribute('data-read-news'));
+        });
+      });
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 2: หน้าเกี่ยวกับโรงเรียน (ABOUT)
+     * ============================================================================
+     */
+    function renderAboutView(container) {
+      const cfg = state.db.config || {};
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4 border-b border-red-900">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">ข้อมูลพื้นฐานสถานศึกษา (OIT O1–O6)</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">เกี่ยวกับโรงเรียนชุมชนแม่ลาศึกษา</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">${escapeHtml(cfg.school_type)} • ${escapeHtml(cfg.affiliation)}</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+          <!-- ประวัติและเอกลักษณ์ -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="text-lg font-bold text-red-800 border-l-4 border-red-700 pl-3">ประวัติและความเป็นมาของสถานศึกษา</h3>
+              <p class="font-sarabun text-sm sm:text-base text-slate-700 leading-relaxed">
+                <strong>โรงเรียนชุมชนแม่ลาศึกษา</strong> ก่อตั้งขึ้นจากความร่วมมือของประชาชนในชุมชนแม่ลาและกระทรวงศึกษาธิการ เพื่อเป็นศูนย์กลางการเรียนรู้ของบุตรหลานในท้องถิ่น ต่อมาได้รับการคัดเลือกให้เป็น <strong>โรงเรียนขยายโอกาสทางการศึกษา</strong> ที่เปิดทำการเรียนการสอนครอบคลุม 3 ระดับการศึกษา ตั้งแต่ <strong>ระดับชั้นอนุบาลปีที่ 2 ถึงระดับชั้นมัธยมศึกษาปีที่ 3</strong> รวม 11 ชั้นปี
+              </p>
+              <p class="font-sarabun text-sm sm:text-base text-slate-700 leading-relaxed">
+                ทางโรงเรียนมุ่งเน้นการลดความเหลื่อมล้ำทางการศึกษา จัดสวัสดิการเรียนฟรี 15 ปีอย่างมีคุณภาพ ควบคู่กับการพัฒนาทักษะวิชาการ ทักษะเทคโนโลยีดิจิทัล และทักษะงานอาชีพที่สอดคล้องกับบริบทของชุมชนแม่ลา เพื่อให้ผู้เรียนสามารถศึกษาต่อในระดับชั้นมัธยมศึกษาตอนปลาย (ม.4) และอาชีวศึกษา (ปวช.) ได้อย่างมั่นคง
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="p-4 rounded-xl bg-red-50 border border-red-200">
+                  <p class="text-xs font-bold text-red-800 uppercase">วิสัยทัศน์ (Vision)</p>
+                  <p class="font-sarabun text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">${escapeHtml(cfg.vision)}</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div>
+                    <p class="text-xs font-bold text-red-800">คำขวัญโรงเรียน</p>
+                    <p class="font-sarabun text-xs sm:text-sm text-slate-700">“${escapeHtml(cfg.motto)}”</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-red-800">อัตลักษณ์ / เอกลักษณ์</p>
+                    <p class="font-sarabun text-xs text-slate-700">อัตลักษณ์: ${escapeHtml(cfg.identity)}<br/>เอกลักษณ์: ${escapeHtml(cfg.uniqueness)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ความหมายสีประจำโรงเรียน แดง-ขาว -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="text-lg font-bold text-red-800 border-l-4 border-red-700 pl-3">สีประจำโรงเรียน: แดง – ขาว</h3>
+              <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                <div class="h-14 bg-red-700 flex items-center justify-center text-white font-bold text-sm">สีแดง (Crimson Red)</div>
+                <div class="h-14 bg-white flex items-center justify-center text-slate-800 font-bold text-sm border-t border-slate-200">สีขาว (Pure White)</div>
+              </div>
+              <div class="space-y-3 font-sarabun text-sm text-slate-700">
+                <p><strong class="text-red-700">• สีแดง:</strong> หมายถึง ความมุ่งมั่น พลังแห่งการเรียนรู้ ความกล้าหาญทางวิชาการ และความรักความสามัคคีของชาวแม่ลาศึกษา</p>
+                <p><strong class="text-slate-900">• สีขาว:</strong> หมายถึง ความบริสุทธิ์ยุติธรรม คุณธรรมจริยธรรม และความโปร่งใสสุจริตในการบริหารสถานศึกษา</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- โครงสร้างการบริหารงาน 4 ฝ่าย และแผนผังอาคารเรียน -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+            <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">โครงสร้างการบริหารสถานศึกษา 4 กลุ่มงาน และแผนผังอาคารเรียน</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-4 rounded-xl bg-red-50/70 border border-red-200">
+                <span class="text-xs font-bold text-red-700">กลุ่มงานที่ 1</span>
+                <h4 class="font-bold text-slate-900 mt-1">การบริหารงานวิชาการ</h4>
+                <p class="font-sarabun text-xs text-slate-600 mt-1">พัฒนาหลักสูตรสถานศึกษา อ.2–ม.3, งานวัดผลและประเมินผล (ปพ.1–9), งานนิเทศการสอน, ห้องสมุด และแนะแนวศึกษาต่อ</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-xs font-bold text-red-700">กลุ่มงานที่ 2</span>
+                <h4 class="font-bold text-slate-900 mt-1">การบริหารงานงบประมาณ</h4>
+                <p class="font-sarabun text-xs text-slate-600 mt-1">จัดทำแผนปฏิบัติการประจำปี, บริหารเงินอุดหนุนเรียนฟรี 15 ปี, งานการเงิน บัญชี และการจัดซื้อจัดจ้างตามเกณฑ์ ITA</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-xs font-bold text-red-700">กลุ่มงานที่ 3</span>
+                <h4 class="font-bold text-slate-900 mt-1">การบริหารงานบุคคล</h4>
+                <p class="font-sarabun text-xs text-slate-600 mt-1">วางแผนอัตรากำลังครูครบชั้น, พัฒนาวิชาชีพครู, เสริมสร้างขวัญกำลังใจ และวินัยจรรยาบรรณวิชาชีพ</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-xs font-bold text-red-700">กลุ่มงานที่ 4</span>
+                <h4 class="font-bold text-slate-900 mt-1">การบริหารงานทั่วไป</h4>
+                <p class="font-sarabun text-xs text-slate-600 mt-1">ระบบดูแลช่วยเหลือนักเรียน, โครงการอาหารกลางวันและนมโรงเรียน, อาคารสถานที่ปลอดภัย และความสัมพันธ์ชุมชนแม่ลา</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 3: หน้าหลักสูตรและวิชาการ 3 ระดับชั้น (ACADEMICS: อ.2 - ม.3)
+     * ============================================================================
+     */
+    function renderAcademicsView(container) {
+      const levelDetails = {
+        kinder: {
+          badge: 'ระดับปฐมวัย (Early Childhood)',
+          title: 'หลักสูตรการศึกษาปฐมวัย (ชั้นอนุบาลปีที่ 2 – อนุบาลปีที่ 3)',
+          desc: 'จัดการเรียนรู้สำหรับเด็กอายุ 4–5 ปี โดยเน้นพัฒนาการแบบองค์รวมทั้ง 4 ด้าน (ร่างกาย อารมณ์-จิตใจ สังคม และสติปัญญา) ผ่านกิจกรรมเคลื่อนไหวและจังหวะ กิจกรรมเสริมประสบการณ์ กิจกรรมศิลปะสร้างสรรค์ กิจกรรมเล่นตามมุม และกิจกรรมกลางแจ้ง',
+          highlights: [
+            'พัฒนาทักษะสมอง EF (Executive Functions) และการช่วยเหลือตนเองในชีวิตประจำวัน',
+            'เตรียมความพร้อมด้านภาษา การฟัง-พูด การเล่านิทาน และคณิตศาสตร์เบื้องต้นผ่านของจริง',
+            'บริการอาหารกลางวันและอาหารเสริม (นม) ตามมาตรฐานโภชนาการเด็กปฐมวัยทุกวัน',
+            'ประเมินพัฒนาการรายบุคคลควบคู่สมุดรายงานประจำตัวเด็กปฐมวัย'
+          ],
+          subjects: [
+            ['08:00 - 08:30 น.', 'กิจกรรมเข้าแถวเคารพธงชาติ / ตรวจสุขภาพและความสะอาดประจำวัน'],
+            ['08:30 - 09:10 น.', 'กิจกรรมเคลื่อนไหวและจังหวะ / กิจกรรมเสริมประสบการณ์'],
+            ['09:10 - 10:00 น.', 'กิจกรรมศิลปะสร้างสรรค์ และกิจกรรมเล่นตามมุมประสบการณ์'],
+            ['10:00 - 10:30 น.', 'ดื่มนมโรงเรียน และกิจกรรมกลางแจ้ง (สนามเด็กเล่นปลอดภัย)'],
+            ['11:00 - 12:00 น.', 'รับประทานอาหารกลางวันถูกหลักโภชนาการ และฝึกสุขนิสัยการแปรงฟัน'],
+            ['12:00 - 14:30 น.', 'นอนพักผ่อนกลางวัน / กิจกรรมเกมการศึกษา และเตรียมตัวกลับบ้าน']
+          ]
+        },
+        primary: {
+          badge: 'ระดับประถมศึกษา (Primary Education)',
+          title: 'หลักสูตรระดับประถมศึกษา (ชั้นประถมศึกษาปีที่ 1 – 6)',
+          desc: 'มุ่งเน้นให้ผู้เรียนอ่านออกเขียนได้ คิดคำนวณเป็น มีทักษะการคิดวิเคราะห์ และมีคุณลักษณะอันพึงประสงค์ครบทั้ง 8 กลุ่มสาระการเรียนรู้ พร้อมกิจกรรมพัฒนาผู้เรียนและโครงการยกระดับผลสัมฤทธิ์ทางการเรียนระดับชาติ',
+          highlights: [
+            'ชั้น ป.1–ป.3: เน้นอ่านคล่องเขียนคล่อง คิดเลขเร็ว และเตรียมความพร้อมสอบ RT (ป.1) และ NT (ป.3)',
+            'ชั้น ป.4–ป.6: เน้นการเรียนรู้แบบ Active Learning โครงงานวิทยาศาสตร์ วิทยาการคำนวณ (Coding) และเตรียมสอบ O-NET (ป.6)',
+            'กิจกรรมลูกเสือ-เนตรนารี ชุมนุมวิชาการ และแหล่งเรียนรู้เกษตรอินทรีย์ตามหลักปรัชญาของเศรษฐกิจพอเพียง',
+            'ระบบดูแลช่วยเหลือนักเรียนและการซ่อมเสริมการอ่าน-เขียนรายบุคคล'
+          ],
+          subjects: [
+            ['ภาษาไทย & คณิตศาสตร์', 'เน้นทักษะการอ่านจับใจความ การเขียนสื่อสาร และการแก้โจทย์ปัญหาคณิตศาสตร์ (200–240 ชม./ปี)'],
+            ['วิทยาศาสตร์และเทคโนโลยี', 'การทดลองในห้องปฏิบัติการ วิทยาการคำนวณ (Coding เบื้องต้น) และทักษะดิจิทัล'],
+            ['ภาษาต่างประเทศ (ภาษาอังกฤษ)', 'ภาษาอังกฤษเพื่อการสื่อสาร (Phonics & Daily Conversation)'],
+            ['สังคมศึกษาฯ / ประวัติศาสตร์', 'หน้าที่พลเมือง ศีลธรรม ประวัติศาสตร์ชาติไทยและประวัติศาสตร์ท้องถิ่นชุมชนแม่ลา'],
+            ['สุขศึกษาฯ / ศิลปะ / การงานอาชีพ', 'พลานามัย ดนตรี-นาฏศิลป์ และทักษะงานบ้านงานเกษตรพื้นฐาน']
+          ]
+        },
+        secondary: {
+          badge: 'ระดับมัธยมศึกษาตอนต้น • โรงเรียนขยายโอกาสทางการศึกษา',
+          title: 'หลักสูตรระดับมัธยมศึกษาตอนต้น (ชั้นมัธยมศึกษาปีที่ 1 – 3)',
+          desc: 'จัดการศึกษาระดับมัธยมศึกษาตอนต้นเพื่อขยายโอกาสทางการศึกษาให้เยาวชนในพื้นที่บริการตำบลแม่ลาและพื้นที่ใกล้เคียง โดยบูรณาการวิชาการพื้นฐานที่เข้มข้นเข้ากับรายวิชาเลือกเน้นทักษะอาชีพและเทคโนโลยี เพื่อเตรียมพร้อมทั้งสายสามัญ (ม.4) และสายอาชีพ (ปวช.)',
+          highlights: [
+            'กลุ่มวิชาการเข้มข้น: คณิตศาสตร์ วิทยาศาสตร์ ภาษาไทย และภาษาอังกฤษ เพื่อเตรียมสอบ O-NET ชั้น ม.3 และสอบเข้า ม.4',
+            'กลุ่มวิชาเลือกทักษะอาชีพ (จุดเด่นโรงเรียนขยายโอกาส): คอมพิวเตอร์กราฟิกและการสร้างเว็บ, เกษตรอัจฉริยะและแปรรูปอาหาร, งานช่างพื้นฐานและคหกรรม',
+            'กิจกรรมแนะแนวการศึกษาต่อและทัศนศึกษาสถาบันอาชีวศึกษา/โรงเรียนมัธยมปลายชั้นนำ',
+            'ช่วยลดภาระค่าใช้จ่ายในการเดินทางของผู้ปกครอง ด้วยสวัสดิการเรียนฟรี 15 ปีต่อเนื่องถึงชั้น ม.3'
+          ],
+          subjects: [
+            ['รายวิชาพื้นฐาน (8 กลุ่มสาระ)', '22 หน่วยกิต/ปี (880 ชั่วโมง) ครอบคลุมเนื้อหามาตรฐานแกนกลาง สพฐ.'],
+            ['รายวิชาเพิ่มเติมคอมพิวเตอร์และดิจิทัล', 'การจัดการข้อมูลด้วยสเปรดชีต การออกแบบสื่อดิจิทัล และการประยุกต์ใช้ AI อย่างสร้างสรรค์'],
+            ['รายวิชาเพิ่มเติมทักษะอาชีพชุมชน', 'การเพาะปลูกพืชเศรษฐกิจชุมชน การแปรรูปอาหาร และการบัญชีครัวเรือน/ผู้ประกอบการรุ่นเยาว์'],
+            ['กิจกรรมพัฒนาผู้เรียน', 'แนะแนวการศึกษาต่อ, ลูกเสือสามัญรุ่นใหญ่/เนตรนารี และกิจกรรมบำเพ็ญประโยชน์ต่อชุมชนแม่ลา']
+          ]
+        }
+      };
+
+      const cur = levelDetails[state.academicLevelTab] || levelDetails.kinder;
+
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">กลุ่มบริหารงานวิชาการ</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">หลักสูตรและการจัดการศึกษา (อนุบาล 2 – มัธยมศึกษาปีที่ 3)</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">หลักสูตรสถานศึกษาโรงเรียนชุมชนแม่ลาศึกษา ตามหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พุทธศักราช 2551 (ฉบับปรับปรุง)</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+          <!-- ปุ่มสลับ 3 ระดับชั้น -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" data-acad-tab="kinder" class="p-4 rounded-2xl border-2 text-left transition ${state.academicLevelTab === 'kinder' ? 'bg-red-700 text-white border-red-700 shadow-md' : 'bg-white text-slate-800 border-slate-200 hover:border-red-300'}">
+              <p class="text-xs font-bold opacity-80">ระดับที่ 1 • ปฐมวัย</p>
+              <p class="text-base sm:text-lg font-bold mt-0.5">ชั้นอนุบาล 2 – อนุบาล 3</p>
+            </button>
+            <button type="button" data-acad-tab="primary" class="p-4 rounded-2xl border-2 text-left transition ${state.academicLevelTab === 'primary' ? 'bg-red-700 text-white border-red-700 shadow-md' : 'bg-white text-slate-800 border-slate-200 hover:border-red-300'}">
+              <p class="text-xs font-bold opacity-80">ระดับที่ 2 • ประถมศึกษา</p>
+              <p class="text-base sm:text-lg font-bold mt-0.5">ชั้นประถมศึกษาปีที่ 1 – 6</p>
+            </button>
+            <button type="button" data-acad-tab="secondary" class="p-4 rounded-2xl border-2 text-left transition ${state.academicLevelTab === 'secondary' ? 'bg-red-700 text-white border-red-700 shadow-md' : 'bg-white text-slate-800 border-slate-200 hover:border-red-300'}">
+              <p class="text-xs font-bold opacity-80">ระดับที่ 3 • ขยายโอกาสทางการศึกษา</p>
+              <p class="text-base sm:text-lg font-bold mt-0.5">ชั้นมัธยมศึกษาปีที่ 1 – 3</p>
+            </button>
+          </div>
+
+          <!-- รายละเอียดหลักสูตรที่เลือก -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+            <div>
+              <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">${escapeHtml(cur.badge)}</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">${escapeHtml(cur.title)}</h3>
+              <p class="font-sarabun text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">${escapeHtml(cur.desc)}</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="bg-red-50/60 border border-red-100 rounded-xl p-5 space-y-3">
+                <h4 class="font-bold text-red-800 text-sm sm:text-base">จุดเน้นการพัฒนาผู้เรียน</h4>
+                <ul class="space-y-2 font-sarabun text-sm text-slate-700">
+                  ${cur.highlights.map(function(h) {
+                    return `<li class="flex items-start gap-2"><span class="text-red-700 font-bold">✓</span><span>${escapeHtml(h)}</span></li>`;
+                  }).join('')}
+                </ul>
+              </div>
+
+              <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base">โครงสร้างรายวิชา / กิจกรรมประจำวัน</h4>
+                <div class="space-y-2.5 text-xs sm:text-sm">
+                  ${cur.subjects.map(function(row) {
+                    return `
+                      <div class="p-3 bg-white rounded-lg border border-slate-200">
+                        <p class="font-bold text-red-800">${escapeHtml(row[0])}</p>
+                        <p class="font-sarabun text-slate-600 mt-0.5">${escapeHtml(row[1])}</p>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-acad-tab]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.academicLevelTab = btn.getAttribute('data-acad-tab');
+          renderAcademicsView(container);
+        });
+      });
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 4: หน้าทำเนียบบุคลากร (PERSONNEL)
+     * ============================================================================
+     */
+    function renderPersonnelView(container) {
+      const list = (state.db.personnel || []).filter(function(p) {
+        if (state.personnelFilter !== 'all' && p.level_group !== state.personnelFilter) return false;
+        if (state.personnelSearch) {
+          const q = state.personnelSearch.toLowerCase();
+          const match = String(p.full_name).toLowerCase().indexOf(q) !== -1 ||
+                        String(p.position).toLowerCase().indexOf(q) !== -1 ||
+                        String(p.department).toLowerCase().indexOf(q) !== -1;
+          if (!match) return false;
+        }
+        return true;
+      });
+
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">กลุ่มบริหารงานบุคคล</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">ทำเนียบผู้บริหาร ครู และบุคลากรทางการศึกษา</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">คณะผู้บริหารและครูผู้สอนประจำสายชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3 โรงเรียนชุมชนแม่ลาศึกษา</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+          <!-- แถบค้นหาและกรองสายชั้น -->
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+              ${[
+                { id: 'all', label: 'ทั้งหมด' },
+                { id: 'ผู้บริหารสถานศึกษา', label: 'คณะผู้บริหาร' },
+                { id: 'ปฐมวัย', label: 'สายชั้นปฐมวัย (อ.2-อ.3)' },
+                { id: 'ประถมศึกษา', label: 'สายชั้นประถม (ป.1-ป.6)' },
+                { id: 'มัธยมศึกษาตอนต้น', label: 'สายชั้นมัธยมต้น (ม.1-ม.3)' },
+                { id: 'สายสนับสนุน', label: 'ฝ่ายสนับสนุน/ธุรการ' }
+              ].map(function(tab) {
+                const active = state.personnelFilter === tab.id;
+                return `<button type="button" data-person-filter="${tab.id}" class="px-3 py-2 rounded-xl border transition ${active ? 'bg-red-700 text-white border-red-700 font-semibold' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-red-50'}">${tab.label}</button>`;
+              }).join('')}
+            </div>
+            <div class="relative min-w-[240px]">
+              <input id="inputPersonnelSearch" type="text" value="${escapeHtml(state.personnelSearch)}" placeholder="ค้นหาชื่อครู หรือตำแหน่ง..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-red-600" />
+            </div>
+          </div>
+
+          <!-- การ์ดรายชื่อบุคลากร -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${list.map(function(person) {
+              const initials = String(person.full_name || 'ครู').replace(/^(นาย|นางสาว|นาง|ว่าที่ร้อยตรี)\s*/, '').slice(0, 2);
+              const hasPhoto = person.photo_drive_id || person.photo_url;
+              const photoUrl = hasPhoto ? resolveDriveImageUrl(person.photo_drive_id || person.photo_url, 'campus', person.full_name, person.position) : '';
+              return `
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition flex items-start gap-4">
+                  ${hasPhoto
+                    ? `<img src="${photoUrl}" alt="${escapeHtml(person.full_name)}" class="w-16 h-16 rounded-2xl object-cover border-2 border-red-700 shrink-0" />`
+                    : `<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-700 to-red-900 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">${escapeHtml(initials)}</div>`
+                  }
+                  <div class="space-y-1 text-xs flex-1 min-w-0">
+                    <span class="inline-block bg-red-50 text-red-700 border border-red-200 px-2 py-0.5 rounded font-semibold text-[11px]">${escapeHtml(person.department)}</span>
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base truncate">${escapeHtml(person.full_name)}</h3>
+                    <p class="text-red-800 font-medium">${escapeHtml(person.position)}</p>
+                    <p class="font-sarabun text-slate-500">วุฒิการศึกษา: ${escapeHtml(person.education || '-')}</p>
+                    <p class="text-slate-500">อีเมล: ${escapeHtml(person.email || '-')} • ต่อ ${escapeHtml(person.phone_ext || '-')}</p>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-person-filter]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.personnelFilter = btn.getAttribute('data-person-filter');
+          renderPersonnelView(container);
+        });
+      });
+
+      const searchInput = document.getElementById('inputPersonnelSearch');
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          state.personnelSearch = e.target.value;
+          renderPersonnelView(container);
+          const refocused = document.getElementById('inputPersonnelSearch');
+          if (refocused) {
+            refocused.focus();
+            refocused.setSelectionRange(refocused.value.length, refocused.value.length);
+          }
+        });
+      }
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 5: หน้าคลังข่าวสารและประกาศทั้งหมด (NEWS ARCHIVE)
+     * ============================================================================
+     */
+    function renderNewsArchiveView(container) {
+      const list = (state.db.news || []).filter(function(item) {
+        if (item.status === 'draft') return false;
+        if (state.newsFilterCat !== 'all' && item.category !== state.newsFilterCat) return false;
+        if (state.newsFilterYear !== 'all' && String(item.academic_year) !== state.newsFilterYear) return false;
+        if (state.newsSearch) {
+          const q = state.newsSearch.toLowerCase();
+          if (String(item.title).toLowerCase().indexOf(q) === -1 && String(item.summary).toLowerCase().indexOf(q) === -1) return false;
+        }
+        return true;
+      });
+
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">งานประชาสัมพันธ์และสารสนเทศ</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">คลังข่าวสาร ประกาศวิชาการ และจัดซื้อจัดจ้าง</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">รองรับการค้นหาและกรองข้อมูลย้อนหลังตามปีการศึกษา เพื่อการใช้งานเว็บไซต์ระยะยาว</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+              ${[
+                { id: 'all', label: 'ทุกหมวดหมู่' },
+                { id: 'pr', label: 'ข่าวกิจกรรม' },
+                { id: 'award', label: 'รางวัลความภูมิใจ' },
+                { id: 'academic', label: 'ประกาศวิชาการ' },
+                { id: 'procurement', label: 'จัดซื้อจัดจ้าง' },
+                { id: 'job', label: 'รับสมัครงาน' }
+              ].map(function(c) {
+                const active = state.newsFilterCat === c.id;
+                return `<button type="button" data-news-cat="${c.id}" class="px-3 py-2 rounded-xl border transition ${active ? 'bg-red-700 text-white border-red-700 font-semibold' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-red-50'}">${c.label}</button>`;
+              }).join('')}
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <select id="selectNewsYear" class="px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white">
+                <option value="all" ${state.newsFilterYear === 'all' ? 'selected' : ''}>ทุกปีการศึกษา</option>
+                <option value="2569" ${state.newsFilterYear === '2569' ? 'selected' : ''}>ปีการศึกษา 2569</option>
+                <option value="2568" ${state.newsFilterYear === '2568' ? 'selected' : ''}>ปีการศึกษา 2568</option>
+              </select>
+              <input id="inputNewsSearch" type="text" value="${escapeHtml(state.newsSearch)}" placeholder="ค้นหาหัวข้อข่าว..." class="px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm min-w-[200px]" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${list.length === 0
+              ? `<div class="col-span-full bg-white p-8 rounded-2xl border border-slate-200 text-center text-slate-500 text-sm">ไม่พบรายการข่าวที่ตรงกับเงื่อนไขการค้นหา</div>`
+              : list.map(function(item) {
+                  const cat = getCategoryMeta(item.category);
+                  const imgSrc = resolveDriveImageUrl(item.cover_drive_id || item.cover_url, item.category === 'award' ? 'award' : 'campus', item.title, 'โรงเรียนชุมชนแม่ลาศึกษา');
+                  return `
+                    <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+                      <img src="${imgSrc}" alt="${escapeHtml(item.title)}" class="w-full h-44 object-cover" />
+                      <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                          <div class="flex items-center justify-between gap-2 text-[11px] mb-1.5">
+                            <span class="px-2 py-0.5 rounded-full border font-semibold ${cat.cls}">${cat.label}</span>
+                            <span class="text-slate-400">${escapeHtml(item.published_at)}</span>
+                          </div>
+                          <h3 class="font-bold text-slate-900 text-sm sm:text-base">${escapeHtml(item.title)}</h3>
+                          <p class="font-sarabun text-xs text-slate-600 mt-1 line-clamp-3">${escapeHtml(item.summary)}</p>
+                        </div>
+                        <button type="button" data-read-news="${escapeHtml(item.id)}" class="w-full py-2 rounded-xl bg-red-50 hover:bg-red-700 text-red-700 hover:text-white text-xs font-semibold transition">อ่านรายละเอียดข่าวฉบับเต็ม</button>
+                      </div>
+                    </article>
+                  `;
+                }).join('')}
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-news-cat]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.newsFilterCat = btn.getAttribute('data-news-cat');
+          renderNewsArchiveView(container);
+        });
+      });
+
+      const selYear = document.getElementById('selectNewsYear');
+      if (selYear) {
+        selYear.addEventListener('change', function(e) {
+          state.newsFilterYear = e.target.value;
+          renderNewsArchiveView(container);
+        });
+      }
+
+      const inpSearch = document.getElementById('inputNewsSearch');
+      if (inpSearch) {
+        inpSearch.addEventListener('input', function(e) {
+          state.newsSearch = e.target.value;
+          renderNewsArchiveView(container);
+          const refocused = document.getElementById('inputNewsSearch');
+          if (refocused) {
+            refocused.focus();
+            refocused.setSelectionRange(refocused.value.length, refocused.value.length);
+          }
+        });
+      }
+
+      container.querySelectorAll('[data-read-news]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          openNewsDetailModal(btn.getAttribute('data-read-news'));
+        });
+      });
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 6: หน้ารับสมัครนักเรียน (ADMISSIONS: อ.2, ป.1, ม.1 และย้ายเข้า)
+     * ============================================================================
+     */
+    function renderAdmissionsView(container) {
+      const cfg = state.db.config || {};
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">การรับนักเรียน ปีการศึกษา ${escapeHtml(cfg.academic_year)}</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">การรับสมัครนักเรียนใหม่ (ระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3)</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">โรงเรียนขยายโอกาสทางการศึกษา • เรียนฟรี 15 ปีอย่างมีคุณภาพ พร้อมอาหารกลางวันและนมโรงเรียน</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">ระดับชั้นที่เปิดรับสมัครและคุณสมบัติ</h3>
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-4 rounded-xl bg-red-50/70 border border-red-200">
+                  <p class="font-bold text-red-800 text-base">1. ระดับชั้นอนุบาลปีที่ 2 (อ.2)</p>
+                  <p class="font-sarabun text-slate-700 mt-1">รับเด็กที่มีอายุย่างเข้าปีที่ 4 (อายุครบ 4 ปีบริบูรณ์ภายในวันที่ 16 พฤษภาคมของปีการศึกษาที่เปิดรับ) ที่อาศัยอยู่ในเขตพื้นที่บริการตำบลแม่ลาและพื้นที่ใกล้เคียง</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <p class="font-bold text-slate-900 text-base">2. ระดับชั้นประถมศึกษาปีที่ 1 (ป.1)</p>
+                  <p class="font-sarabun text-slate-700 mt-1">รับเด็กที่มีอายุย่างเข้าปีที่ 7 หรือสำเร็จการศึกษาระดับชั้นอนุบาลปีที่ 3 เข้าศึกษาต่อในระดับประถมศึกษาโดยไม่เสียค่าธรรมเนียมการศึกษา</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <p class="font-bold text-slate-900 text-base">3. ระดับชั้นมัธยมศึกษาปีที่ 1 (ม.1 - ขยายโอกาสทางการศึกษา)</p>
+                  <p class="font-sarabun text-slate-700 mt-1">รับผู้สำเร็จการศึกษาชั้นประถมศึกษาปีที่ 6 (ป.6) ทั้งจากโรงเรียนชุมชนแม่ลาศึกษาและโรงเรียนประถมศึกษาใกล้เคียง เข้าเรียนต่อระดับมัธยมศึกษาตอนต้นพร้อมฝึกทักษะอาชีพ</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3">
+              <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">หลักฐานที่ใช้ในการสมัครเรียน</h3>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-sarabun text-sm text-slate-700">
+                <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">• สำเนาสูติบัตรของนักเรียน (1 ฉบับ)</li>
+                <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">• สำเนาทะเบียนบ้านของนักเรียน บิดา และมารดา</li>
+                <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">• รูปถ่ายหน้าตรงชุดนักเรียน ขนาด 1.5 นิ้ว (2 รูป)</li>
+                <li class="p-3 rounded-xl bg-slate-50 border border-slate-200">• ระเบียนแสดงผลการเรียน (ปพ.1) สำหรับผู้สมัคร ป.1 และ ม.1</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ฟอร์มแจ้งความจำนงสมัครเรียนออนไลน์ (บันทึกลง Google Sheets) -->
+          <div class="lg:col-span-5">
+            <form id="formAdmissionApply" class="bg-white rounded-2xl border-2 border-red-700 p-6 shadow-md space-y-4">
+              <div class="border-b border-slate-100 pb-3">
+                <span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-0.5 rounded-full">ระบบรับสมัครล่วงหน้า</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1">แบบฟอร์มแจ้งความจำนงสมัครเรียนออนไลน์</h3>
+                <p class="font-sarabun text-xs text-slate-500">ข้อมูลจะถูกส่งไปยังฐานข้อมูล Google Sheets ของห้องธุรการโรงเรียนทันที</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อ-นามสกุล ผู้ปกครอง / นักเรียน *</label>
+                <input id="admName" type="text" required placeholder="เช่น นายสมศักดิ์ แม่ลา (ผู้ปกครอง ด.ช.ก้องภพ)" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ระดับชั้นที่ต้องการสมัคร *</label>
+                  <select id="admLevel" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white">
+                    <option value="อนุบาล 2">ชั้นอนุบาล 2 (อ.2)</option>
+                    <option value="อนุบาล 3">ชั้นอนุบาล 3 (อ.3)</option>
+                    <option value="ประถมศึกษาปีที่ 1">ชั้นประถมศึกษาปีที่ 1 (ป.1)</option>
+                    <option value="ประถมศึกษา ป.2-ป.6 (ย้ายเข้า)">ชั้น ป.2 – ป.6 (ย้ายเข้า)</option>
+                    <option value="มัธยมศึกษาปีที่ 1">ชั้นมัธยมศึกษาปีที่ 1 (ม.1)</option>
+                    <option value="มัธยมศึกษา ม.2-ม.3 (ย้ายเข้า)">ชั้น ม.2 – ม.3 (ย้ายเข้า)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">เบอร์โทรศัพท์ติดต่อ *</label>
+                  <input id="admPhone" type="tel" required placeholder="08X-XXX-XXXX" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รายละเอียดเพิ่มเติม / ที่อยู่หมู่บ้าน</label>
+                <textarea id="admNote" rows="3" placeholder="ระบุหมู่บ้าน/ตำบล หรือข้อมูลที่ต้องการให้ครูธุรการติดต่อกลับ..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">ส่งข้อมูลแจ้งความจำนงสมัครเรียน</button>
+            </form>
+          </div>
+        </div>
+      `;
+
+      const form = document.getElementById('formAdmissionApply');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          submitMessageToInbox({
+            type: 'สมัครเรียน',
+            sender_name: document.getElementById('admName').value,
+            phone_or_email: document.getElementById('admPhone').value,
+            student_level: document.getElementById('admLevel').value,
+            subject: 'แจ้งความจำนงสมัครเรียนระดับชั้น ' + document.getElementById('admLevel').value,
+            message: document.getElementById('admNote').value || 'แจ้งความจำนงสมัครเรียนผ่านเว็บไซต์'
+          });
+          form.reset();
+        });
+      }
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 7: หน้าบริการออนไลน์และตารางเรียน (SERVICES)
+     * ============================================================================
+     */
+    function renderServicesView(container) {
+      const grades = ['อ.2', 'อ.3', 'ป.1', 'ป.2', 'ป.3', 'ป.4', 'ป.5', 'ป.6', 'ม.1', 'ม.2', 'ม.3'];
+      const isKinder = state.selectedGradeSchedule.startsWith('อ.');
+      const isSecondary = state.selectedGradeSchedule.startsWith('ม.');
+
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">E-Services สำหรับนักเรียน ผู้ปกครอง และครู</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">ระบบบริการออนไลน์และตารางเรียน (อ.2 – ม.3)</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">ศูนย์รวมระบบสารสนเทศและเอกสารดาวน์โหลดจาก Google Drive ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+          <!-- ระบบตรวจสอบตารางเรียนรายชั้น อ.2 - ม.3 -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">ตารางเรียนและกิจกรรมประจำชั้นเรียน (${escapeHtml(state.selectedGradeSchedule)})</h3>
+                <p class="font-sarabun text-xs text-slate-500 mt-0.5">คลิกเลือกระดับชั้นเพื่อดูโครงสร้างตารางเรียนประจำสัปดาห์</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                ${grades.map(function(g) {
+                  const active = state.selectedGradeSchedule === g;
+                  return `<button type="button" data-grade-btn="${g}" class="px-3 py-1.5 rounded-lg text-xs font-bold border transition ${active ? 'bg-red-700 text-white border-red-700' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-red-50'}">${g}</button>`;
+                }).join('')}
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs sm:text-sm border-collapse">
+                <thead>
+                  <tr class="bg-red-800 text-white">
+                    <th class="p-3 text-left rounded-tl-xl">วัน / คาบเวลา</th>
+                    <th class="p-3 text-left">08:30 - 09:30</th>
+                    <th class="p-3 text-left">09:30 - 10:30</th>
+                    <th class="p-3 text-left">10:30 - 11:30</th>
+                    <th class="p-3 text-left">11:30 - 12:30</th>
+                    <th class="p-3 text-left">12:30 - 14:30</th>
+                    <th class="p-3 text-left rounded-tr-xl">14:30 - 15:30</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 font-sarabun">
+                  ${isKinder ? `
+                    <tr class="bg-white"><td class="p-3 font-bold text-red-800">จันทร์ – ศุกร์ (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">กิจกรรมเคลื่อนไหวและจังหวะ / เสริมประสบการณ์</td><td class="p-3">ศิลปะสร้างสรรค์ & เล่นตามมุม EF</td><td class="p-3">ดื่มนมโรงเรียน & กิจกรรมกลางแจ้ง</td><td class="p-3 font-semibold text-emerald-700">อาหารกลางวันโภชนาการปฐมวัย</td><td class="p-3">นอนพักผ่อนกลางวัน</td><td class="p-3">เกมการศึกษา & เตรียมตัวกลับบ้าน</td></tr>
+                  ` : isSecondary ? `
+                    <tr class="bg-white"><td class="p-3 font-bold text-red-800">วันจันทร์ (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">คณิตศาสตร์พื้นฐาน</td><td class="p-3">วิทยาศาสตร์และเทคโนโลยี</td><td class="p-3">ภาษาไทย</td><td class="p-3 font-semibold text-emerald-700">พักกลางวัน</td><td class="p-3">ภาษาอังกฤษเพื่อการสื่อสาร</td><td class="p-3">คอมพิวเตอร์ดิจิทัล (วิชาเลือกอาชีพ)</td></tr>
+                    <tr class="bg-slate-50"><td class="p-3 font-bold text-red-800">วันอังคาร (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">วิทยาศาสตร์ (ปฏิบัติการ)</td><td class="p-3">สังคมศึกษาฯ</td><td class="p-3">คณิตศาสตร์เพิ่มเติม</td><td class="p-3 font-semibold text-emerald-700">พักกลางวัน</td><td class="p-3">การงานอาชีพ (เกษตรอัจฉริยะ/คหกรรม)</td><td class="p-3">สุขศึกษาและพลศึกษา</td></tr>
+                    <tr class="bg-white"><td class="p-3 font-bold text-red-800">วันพุธ (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">ภาษาอังกฤษ</td><td class="p-3">ภาษาไทย</td><td class="p-3">ประวัติศาสตร์</td><td class="p-3 font-semibold text-emerald-700">พักกลางวัน</td><td class="p-3">แนะแนวศึกษาต่อ ม.4 / ปวช.</td><td class="p-3">กิจกรรมลูกเสือ-เนตรนารี / ยุวกาชาด</td></tr>
+                  ` : `
+                    <tr class="bg-white"><td class="p-3 font-bold text-red-800">วันจันทร์ (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">ภาษาไทย</td><td class="p-3">คณิตศาสตร์</td><td class="p-3">วิทยาศาสตร์และเทคโนโลยี</td><td class="p-3 font-semibold text-emerald-700">อาหารกลางวัน & ดื่มนม</td><td class="p-3">ภาษาอังกฤษ</td><td class="p-3">ซ่อมเสริมอ่านคล่องเขียนคล่อง</td></tr>
+                    <tr class="bg-slate-50"><td class="p-3 font-bold text-red-800">วันอังคาร (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">คณิตศาสตร์</td><td class="p-3">ภาษาไทย</td><td class="p-3">สังคมศึกษาและประวัติศาสตร์</td><td class="p-3 font-semibold text-emerald-700">อาหารกลางวัน & ดื่มนม</td><td class="p-3">วิทยาการคำนวณ (Coding)</td><td class="p-3">ศิลปะและดนตรี</td></tr>
+                    <tr class="bg-white"><td class="p-3 font-bold text-red-800">วันพุธ (${escapeHtml(state.selectedGradeSchedule)})</td><td class="p-3">วิทยาศาสตร์</td><td class="p-3">ภาษาอังกฤษ</td><td class="p-3">การงานอาชีพและเศรษฐกิจพอเพียง</td><td class="p-3 font-semibold text-emerald-700">อาหารกลางวัน & ดื่มนม</td><td class="p-3">ลูกเสือ-เนตรนารี</td><td class="p-3">ชุมนุมส่งเสริมศักยภาพ</td></tr>
+                  `}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- แบบฟอร์มดาวน์โหลดสำหรับผู้ปกครองและครู -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
+              <span class="text-xs font-bold text-red-700">งานทะเบียนวัดผล</span>
+              <h4 class="font-bold text-slate-900">คำร้องขอเอกสารทางการศึกษา (ปพ.1 / ปพ.7)</h4>
+              <p class="font-sarabun text-xs text-slate-600">แบบฟอร์มขอใบรับรองผลการเรียนและระเบียนแสดงผลการเรียนสำหรับนักเรียนชั้น ป.1 – ม.3</p>
+              <a href="#/contact" class="inline-block text-xs font-semibold text-red-700 hover:underline pt-1">ยื่นคำร้องออนไลน์ที่ห้องธุรการ →</a>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
+              <span class="text-xs font-bold text-red-700">ฝ่ายกิจการนักเรียน</span>
+              <h4 class="font-bold text-slate-900">แบบฟอร์มใบลาป่วย / ลากิจของนักเรียน</h4>
+              <p class="font-sarabun text-xs text-slate-600">ช่องทางแจ้งลาเรียนสำหรับผู้ปกครองนักเรียนระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3</p>
+              <a href="#/contact" class="inline-block text-xs font-semibold text-red-700 hover:underline pt-1">ส่งแจ้งลาเรียนถึงครูประจำชั้น →</a>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
+              <span class="text-xs font-bold text-red-700">โครงการอาหารกลางวัน</span>
+              <h4 class="font-bold text-slate-900">รายการอาหารกลางวันตามระบบ Thai School Lunch</h4>
+              <p class="font-sarabun text-xs text-slate-600">ตรวจสอบเมนูอาหารกลางวันและคุณค่าทางโภชนาการรายสัปดาห์ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+              <a href="#/ita" class="inline-block text-xs font-semibold text-red-700 hover:underline pt-1">ดูรายงานโครงการอาหารกลางวัน →</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-grade-btn]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.selectedGradeSchedule = btn.getAttribute('data-grade-btn');
+          renderServicesView(container);
+        });
+      });
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 8: หน้าข้อมูลความโปร่งใส ITA / OIT (O1 - O43)
+     * ============================================================================
+     */
+    function renderItaView(container) {
+      const list = (state.db.ita || []).filter(function(item) {
+        if (state.itaFilterCat !== 'all' && item.category !== state.itaFilterCat) return false;
+        if (state.itaSearch) {
+          const q = state.itaSearch.toLowerCase();
+          if (String(item.title).toLowerCase().indexOf(q) === -1 && String(item.oit_code).toLowerCase().indexOf(q) === -1) return false;
+        }
+        return true;
+      });
+
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">Integrity and Transparency Assessment (ITA)</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">การเปิดเผยข้อมูลสาธารณะ (OIT O1–O43) โรงเรียนชุมชนแม่ลาศึกษา</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">ตามเกณฑ์การประเมินคุณธรรมและความโปร่งใสในการดำเนินงานของสถานศึกษา สังกัด สพฐ.</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+          <!-- แถบค้นหาเอกสาร OIT -->
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5 text-xs font-medium">
+              ${[
+                { id: 'all', label: 'ทั้งหมด (O1–O43)' },
+                { id: '1. ข้อมูลพื้นฐาน', label: '1. ข้อมูลพื้นฐาน' },
+                { id: '2. การบริหารงานและงบประมาณ', label: '2. แผนงาน/งบประมาณ' },
+                { id: '3. การจัดซื้อจัดจ้าง', label: '3. จัดซื้อจัดจ้าง' },
+                { id: '4. การบริหารทรัพยากรบุคคล', label: '4. ทรัพยากรบุคคล' },
+                { id: '6. การป้องกันการทุจริต (No Gift Policy)', label: '6. No Gift Policy' }
+              ].map(function(c) {
+                const active = state.itaFilterCat === c.id;
+                return `<button type="button" data-ita-cat="${c.id}" class="px-3 py-2 rounded-xl border transition ${active ? 'bg-red-700 text-white border-red-700 font-semibold' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-red-50'}">${c.label}</button>`;
+              }).join('')}
+            </div>
+            <input id="inputItaSearch" type="text" value="${escapeHtml(state.itaSearch)}" placeholder="ค้นหารหัส O1-O43 หรือชื่อเอกสาร..." class="px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm min-w-[240px]" />
+          </div>
+
+          <!-- ตารางรายการเอกสาร OIT -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs sm:text-sm">
+                <thead>
+                  <tr class="bg-red-800 text-white text-left">
+                    <th class="p-3.5">รหัสตัวชี้วัด</th>
+                    <th class="p-3.5">หมวดหมู่ข้อมูล</th>
+                    <th class="p-3.5">รายการเอกสารสาธารณะ (OIT)</th>
+                    <th class="p-3.5">ปีงบประมาณ</th>
+                    <th class="p-3.5 text-right">การเข้าถึงไฟล์ (Google Drive)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  ${list.map(function(row) {
+                    const link = row.file_url || (row.drive_file_id ? ('https://drive.google.com/file/d/' + row.drive_file_id + '/preview') : '');
+                    return `
+                      <tr class="hover:bg-red-50/40 transition">
+                        <td class="p-3.5 font-bold text-red-800 whitespace-nowrap">${escapeHtml(row.oit_code)}</td>
+                        <td class="p-3.5 text-slate-600">${escapeHtml(row.category)}</td>
+                        <td class="p-3.5 font-medium text-slate-900">${escapeHtml(row.title)}</td>
+                        <td class="p-3.5 text-slate-500">${escapeHtml(row.fiscal_year)}</td>
+                        <td class="p-3.5 text-right whitespace-nowrap">
+                          ${link
+                            ? `<a href="${escapeHtml(link)}" target="${link.startsWith('#') ? '_self' : '_blank'}" class="inline-block bg-red-700 hover:bg-red-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg">เปิดดูข้อมูล</a>`
+                            : `<button type="button" data-ita-preview="${escapeHtml(row.id)}" class="bg-red-50 hover:bg-red-100 text-red-800 border border-red-200 text-xs font-semibold px-3 py-1.5 rounded-lg">ดูสรุปเอกสาร</button>`
+                          }
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ (O28 - O33) -->
+          <div class="bg-white rounded-2xl border-2 border-red-700 p-6 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-0.5 rounded-full">ตัวชี้วัด O28 – O33</span>
+              <h3 class="text-lg font-bold text-slate-900">ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ</h3>
+              <p class="font-sarabun text-xs sm:text-sm text-slate-600 leading-relaxed">ข้อมูลของผู้แจ้งเบาะแสจะถูกเก็บรักษาเป็นความลับสูงสุด และส่งตรงไปยังแท็บ <code>Complaints_Inbox</code> เฉพาะผู้บริหารสถานศึกษาเท่านั้น</p>
+            </div>
+            <form id="formItaComplaint" class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input id="itaSender" type="text" required placeholder="ชื่อผู้แจ้ง (หรือระบุ 'ไม่ประสงค์ออกนาม')" class="px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+              <input id="itaContact" type="text" required placeholder="เบอร์โทรศัพท์ หรือ อีเมลติดต่อกลับ" class="px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+              <input id="itaTopic" type="text" required placeholder="หัวข้อเรื่องร้องเรียน / ข้อเสนอแนะด้านความโปร่งใส" class="sm:col-span-2 px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+              <textarea id="itaDetail" rows="2" required placeholder="ระบุรายละเอียดข้อเท็จจริง..." class="sm:col-span-2 px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+              <button type="submit" class="sm:col-span-2 bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">ส่งเรื่องร้องเรียน / แจ้งเบาะแสออนไลน์</button>
+            </form>
+          </div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-ita-cat]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.itaFilterCat = btn.getAttribute('data-ita-cat');
+          renderItaView(container);
+        });
+      });
+
+      const inp = document.getElementById('inputItaSearch');
+      if (inp) {
+        inp.addEventListener('input', function(e) {
+          state.itaSearch = e.target.value;
+          renderItaView(container);
+          const refocused = document.getElementById('inputItaSearch');
+          if (refocused) {
+            refocused.focus();
+            refocused.setSelectionRange(refocused.value.length, refocused.value.length);
+          }
+        });
+      }
+
+      container.querySelectorAll('[data-ita-preview]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const item = (state.db.ita || []).find(function(x) { return x.id === btn.getAttribute('data-ita-preview'); });
+          if (!item) return;
+          openGlobalModal(
+            item.oit_code + ' : ' + item.title,
+            `<div class="space-y-3 font-sarabun">
+              <p class="text-xs font-sans font-bold text-red-700">หมวดหมู่: ${escapeHtml(item.category)} • ปีงบประมาณ ${escapeHtml(item.fiscal_year)}</p>
+              <p class="text-sm text-slate-700">เอกสารรายการนี้เผยแพร่ตามเกณฑ์การประเมินคุณธรรมและความโปร่งใสในการดำเนินงานของสถานศึกษาออนไลน์ (ITA School Online) ของโรงเรียนชุมชนแม่ลาศึกษา</p>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600">
+                ผู้ดูแลระบบสามารถแนบรหัสไฟล์ PDF จาก Google Drive (<code>drive_file_id</code>) ได้ในหน้า <strong>#/admin &gt; จัดการเอกสาร ITA</strong> เพื่อให้ผู้ตรวจประเมินเปิดดูไฟล์ PDF ฉบับจริงได้ทันที
+              </div>
+            </div>`
+          );
+        });
+      });
+
+      const form = document.getElementById('formItaComplaint');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          submitMessageToInbox({
+            type: 'ร้องเรียน ITA',
+            sender_name: document.getElementById('itaSender').value,
+            phone_or_email: document.getElementById('itaContact').value,
+            student_level: '-',
+            subject: document.getElementById('itaTopic').value,
+            message: document.getElementById('itaDetail').value
+          });
+          form.reset();
+        });
+      }
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 9: หน้าติดต่อเรา (CONTACT US)
+     * ============================================================================
+     */
+    function renderContactView(container) {
+      const cfg = state.db.config || {};
+      container.innerHTML = `
+        <div class="bg-red-800 text-white py-8 px-4">
+          <div class="max-w-7xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-red-200 font-semibold">ช่องทางการติดต่อสื่อสาร</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1">ติดต่อโรงเรียนชุมชนแม่ลาศึกษา</h2>
+            <p class="font-sarabun text-sm text-red-100 mt-1">สอบถามข้อมูลการรับสมัครเรียน งานทะเบียนวัดผล และติดต่อครูประจำชั้น อ.2 – ม.3</p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-6 space-y-5">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">ข้อมูลสถานที่ตั้งและเบอร์ติดต่อภายใน</h3>
+              <div class="space-y-2 text-xs sm:text-sm font-sarabun text-slate-700">
+                <p><strong>ที่ตั้ง:</strong> ${escapeHtml(cfg.address)}</p>
+                <p><strong>โทรศัพท์กลาง:</strong> ${escapeHtml(cfg.phone)}</p>
+                <p><strong>อีเมลสารบรรณ:</strong> ${escapeHtml(cfg.email)}</p>
+              </div>
+              <div class="overflow-x-auto pt-2">
+                <table class="w-full text-xs border-collapse">
+                  <thead>
+                    <tr class="bg-red-50 text-red-800 border-b border-red-200 text-left">
+                      <th class="p-2.5">ฝ่ายงาน / สายชั้น</th>
+                      <th class="p-2.5">หมายเลขภายใน</th>
+                      <th class="p-2.5">เวลาทำการ</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200">
+                    <tr><td class="p-2.5 font-medium">ห้องธุรการและงานทะเบียนวัดผล</td><td class="p-2.5">ต่อ 100</td><td class="p-2.5">07:30 – 16:30 น.</td></tr>
+                    <tr><td class="p-2.5 font-medium">ห้องผู้อำนวยการโรงเรียน</td><td class="p-2.5">ต่อ 101</td><td class="p-2.5">08:00 – 16:30 น.</td></tr>
+                    <tr><td class="p-2.5 font-medium">อาคารปฐมวัย (อนุบาล 2 – อนุบาล 3)</td><td class="p-2.5">ต่อ 201</td><td class="p-2.5">07:30 – 15:30 น.</td></tr>
+                    <tr><td class="p-2.5 font-medium">สายชั้นประถมศึกษา (ป.1 – ป.6)</td><td class="p-2.5">ต่อ 301</td><td class="p-2.5">07:30 – 16:00 น.</td></tr>
+                    <tr><td class="p-2.5 font-medium">สายชั้นมัธยมศึกษาตอนต้น (ม.1 – ม.3)</td><td class="p-2.5">ต่อ 401</td><td class="p-2.5">07:30 – 16:30 น.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <form id="formGeneralContact" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="text-lg font-bold text-slate-900 border-l-4 border-red-700 pl-3">ส่งข้อความติดต่อสอบถาม / Q&A</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อ-นามสกุล *</label>
+                  <input id="cntName" type="text" required placeholder="ระบุชื่อผู้ติดต่อ" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">เบอร์โทร หรือ อีเมล *</label>
+                  <input id="cntPhone" type="text" required placeholder="08X-XXX-XXXX" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">เรื่องที่ต้องการติดต่อ *</label>
+                <input id="cntSubject" type="text" required placeholder="เช่น สอบถามการขอใบรับรองผลการเรียน ปพ.7" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รายละเอียดข้อความ *</label>
+                <textarea id="cntMessage" rows="4" required placeholder="พิมพ์ข้อความของท่าน..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">ส่งข้อความถึงโรงเรียน</button>
+            </form>
+          </div>
+        </div>
+      `;
+
+      const form = document.getElementById('formGeneralContact');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          submitMessageToInbox({
+            type: 'ติดต่อสอบถาม',
+            sender_name: document.getElementById('cntName').value,
+            phone_or_email: document.getElementById('cntPhone').value,
+            student_level: '-',
+            subject: document.getElementById('cntSubject').value,
+            message: document.getElementById('cntMessage').value
+          });
+          form.reset();
+        });
+      }
+    }
+
+    // บันทึกข้อความจากฟอร์มสาธารณะลง Inbox (และส่งไป Google Sheets หากเชื่อม API แล้ว)
+    async function submitMessageToInbox(payload) {
+      const record = {
+        id: 'MSG-' + Date.now(),
+        timestamp: new Date().toISOString().slice(0, 16).replace('T', ' '),
+        type: payload.type || 'ทั่วไป',
+        sender_name: payload.sender_name || '',
+        phone_or_email: payload.phone_or_email || '',
+        student_level: payload.student_level || '-',
+        subject: payload.subject || '',
+        message: payload.message || '',
+        status: 'รอดำเนินการ'
+      };
+      state.db.inbox.unshift(record);
+      saveDatabaseToStorage();
+
+      if (state.gasUrl) {
+        try {
+          await fetch(state.gasUrl, {
+            method: 'POST',
+            body: JSON.stringify(Object.assign({ action: 'submitPublicForm' }, record))
+          });
+        } catch (e) {}
+      }
+      showToast('ส่งข้อมูลเรียบร้อยแล้ว เจ้าหน้าที่สามารถตรวจสอบได้ในหน้า Admin', 'success');
+    }
+
+    /**
+     * ============================================================================
+     * VIEW 10: ระบบผู้ดูแลเว็บไซต์ (ADMIN CMS สำหรับเพิ่ม-ลบ-แก้ไขข้อมูล)
+     * ============================================================================
+     */
+    function renderAdminView(container) {
+      if (!state.adminLoggedIn) {
+        container.innerHTML = `
+          <div class="max-w-md mx-auto px-4 py-12">
+            <div class="bg-white rounded-2xl border-2 border-red-700 shadow-xl overflow-hidden">
+              <div class="bg-gradient-to-r from-red-800 to-red-700 text-white p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-white text-red-800 font-extrabold flex items-center justify-center mx-auto mb-2 shadow">CMS</div>
+                <h2 class="text-xl font-bold">ระบบผู้ดูแลเว็บไซต์ (Admin)</h2>
+                <p class="text-xs text-red-100 mt-0.5">โรงเรียนชุมชนแม่ลาศึกษา • เชื่อมต่อ Google Sheets & Drive</p>
+              </div>
+              <form id="formAdminLogin" class="p-6 space-y-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">อีเมลผู้ดูแลระบบ</label>
+                  <input id="adminEmailInput" type="email" value="admin@maela.ac.th" required class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสผ่าน (ตั้งค่าในแท็บ Admin_Users)</label>
+                  <input id="adminPassInput" type="password" value="maela2569" required class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+                </div>
+                <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-sm shadow transition">เข้าสู่ระบบผู้ดูแลเว็บไซต์</button>
+                <div class="p-3 rounded-xl bg-red-50 border border-red-100 text-xs text-slate-600">
+                  <p class="font-bold text-red-800">ข้อมูลสำหรับทดสอบระบบทันที:</p>
+                  <p>อีเมล: <code>admin@maela.ac.th</code> | รหัสผ่าน: <code>maela2569</code></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        `;
+        const f = document.getElementById('formAdminLogin');
+        if (f) {
+          f.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const em = document.getElementById('adminEmailInput').value.trim();
+            const pw = document.getElementById('adminPassInput').value.trim();
+            if ((em === 'admin@maela.ac.th' && pw === 'maela2569') || (em === 'pr@maela.ac.th' && pw === 'pr2569')) {
+              state.adminLoggedIn = true;
+              showToast('เข้าสู่ระบบผู้ดูแลเว็บไซต์เรียบร้อยแล้ว', 'success');
+              renderAdminView(container);
+            } else {
+              showToast('อีเมลหรือรหัสผ่านไม่ถูกต้อง (ค่าเริ่มต้น: admin@maela.ac.th / maela2569)', 'error');
+            }
+          });
+        }
+        return;
+      }
+
+      // เมื่อเข้าสู่ระบบ Admin แล้ว
+      container.innerHTML = `
+        <div class="bg-slate-900 text-white py-6 px-4 border-b-4 border-red-700">
+          <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold text-red-400 uppercase">แผงควบคุมระบบหลังบ้าน (Google Sheets + Drive CMS)</span>
+              <h2 class="text-xl sm:text-2xl font-bold">จัดการข้อมูลเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา</h2>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button id="btnAdminSyncCloud" type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow transition">
+                ☁️ ซิงก์ขึ้น Google Sheets
+              </button>
+              <button id="btnAdminExportJson" type="button" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium px-3 py-2 rounded-xl transition">
+                ดาวน์โหลด Backup (.json)
+              </button>
+              <button id="btnAdminLogout" type="button" class="bg-red-800 hover:bg-red-700 text-white text-xs font-semibold px-3 py-2 rounded-xl transition">
+                ออกจากระบบ
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+          <!-- แท็บเมนูย่อยของหน้า Admin -->
+          <div class="flex flex-wrap gap-1.5 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm text-xs sm:text-sm font-medium">
+            ${[
+              { id: 'overview', label: '1. ตั้งค่าระบบ & เชื่อม API' },
+              { id: 'news', label: '2. จัดการข่าวสาร (' + state.db.news.length + ')' },
+              { id: 'banners', label: '3. แบนเนอร์ & Popup (' + state.db.banners.length + ')' },
+              { id: 'personnel', label: '4. ทำเนียบบุคลากร (' + state.db.personnel.length + ')' },
+              { id: 'ita', label: '5. เอกสาร ITA O1–O43 (' + state.db.ita.length + ')' },
+              { id: 'calendar', label: '6. ปฏิทินกิจกรรม (' + state.db.calendar.length + ')' },
+              { id: 'inbox', label: '7. กล่องข้อความ/ใบสมัคร (' + state.db.inbox.length + ')' }
+            ].map(function(t) {
+              const active = state.adminTab === t.id;
+              return `<button type="button" data-admin-tab="${t.id}" class="px-3.5 py-2 rounded-xl transition ${active ? 'bg-red-700 text-white font-bold shadow-sm' : 'text-slate-600 hover:bg-red-50 hover:text-red-700'}">${t.label}</button>`;
+            }).join('')}
+          </div>
+
+          <!-- พื้นที่เนื้อหาของแท็บ Admin -->
+          <div id="adminSubViewContainer"></div>
+        </div>
+      `;
+
+      container.querySelectorAll('[data-admin-tab]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.adminTab = btn.getAttribute('data-admin-tab');
+          renderAdminView(container);
+        });
+      });
+
+      document.getElementById('btnAdminLogout').addEventListener('click', function() {
+        state.adminLoggedIn = false;
+        showToast('ออกจากระบบผู้ดูแลแล้ว', 'success');
+        renderAdminView(container);
+      });
+
+      document.getElementById('btnAdminExportJson').addEventListener('click', function() {
+        const blob = new Blob([JSON.stringify(state.db, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'maela_school_database_backup.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('ดาวน์โหลดไฟล์สำรองฐานข้อมูล (.json) เรียบร้อยแล้ว', 'success');
+      });
+
+      document.getElementById('btnAdminSyncCloud').addEventListener('click', async function() {
+        if (!state.gasUrl) {
+          showToast('กรุณาวาง Google Apps Script Web App URL ในแท็บที่ 1 ก่อนซิงก์ขึ้นคลาวด์ (ข้อมูลถูกบันทึกในเครื่องแล้ว)', 'error');
+          state.adminTab = 'overview';
+          renderAdminView(container);
+          return;
+        }
+        try {
+          showToast('กำลังส่งข้อมูลไปยัง Google Sheets...', 'success');
+          const res = await fetch(state.gasUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+              action: 'syncDatabase',
+              email: 'admin@maela.ac.th',
+              password: document.getElementById('adminCloudPassword') ? document.getElementById('adminCloudPassword').value : 'maela2569',
+              config: state.db.config,
+              banners: state.db.banners,
+              news: state.db.news,
+              personnel: state.db.personnel,
+              calendar: state.db.calendar,
+              ita: state.db.ita,
+              inbox: state.db.inbox
+            })
+          });
+          const data = await res.json();
+          if (data && data.ok) {
+            showToast(data.message || 'ซิงก์ข้อมูลขึ้น Google Sheets สำเร็จ', 'success');
+          } else {
+            showToast((data && data.error) || 'เกิดข้อผิดพลาดในการซิงก์ข้อมูล', 'error');
+          }
+        } catch (err) {
+          showToast('ไม่สามารถเชื่อมต่อ Google Apps Script URL ได้ กรุณาตรวจสอบสิทธิ์ Deploy (Anyone)', 'error');
+        }
+      });
+
+      const subContainer = document.getElementById('adminSubViewContainer');
+      renderAdminSubTab(subContainer);
+    }
+
+    function renderAdminSubTab(sub) {
+      const cfg = state.db.config || {};
+      if (state.adminTab === 'overview') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- ตั้งค่าการเชื่อมต่อ Google Sheets & Google Drive -->
+            <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">การเชื่อมต่อ Google Sheets & Drive API</h3>
+                <span class="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-full">Apps Script</span>
+              </div>
+              <p class="font-sarabun text-xs text-slate-600 leading-relaxed">
+                นำโค้ดจากไฟล์ <code>Code.gs</code> ไปวางใน Google Sheets ของโรงเรียน แล้วกด Deploy เป็น Web App จากนั้นวาง URL ที่ลงท้ายด้วย <code>/exec</code> ด้านล่างนี้
+              </p>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Google Apps Script Web App URL</label>
+                <input id="inputGasUrl" type="url" value="${escapeHtml(state.gasUrl)}" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสผ่านยืนยันสิทธิ์กับ Apps Script</label>
+                <input id="adminCloudPassword" type="password" value="maela2569" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button id="btnSaveGasUrl" type="button" class="bg-red-700 hover:bg-red-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition">บันทึก URL & ดึงข้อมูลจาก Sheet</button>
+                <button id="btnResetDemoData" type="button" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3.5 py-2.5 rounded-xl transition">รีเซ็ตข้อมูลตั้งต้น</button>
+              </div>
+            </div>
+
+            <!-- ตั้งค่าข้อมูลพื้นฐานของโรงเรียน -->
+            <form id="formAdminSiteConfig" class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">แก้ไขข้อมูลพื้นฐานและสถิติหน้าแรก (แท็บ Site_Config)</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อโรงเรียน</label>
+                  <input id="cfgNameTh" type="text" value="${escapeHtml(cfg.school_name_th)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ปีการศึกษาปัจจุบัน (ใช้กรองข่าวหน้าแรก)</label>
+                  <input id="cfgAcadYear" type="text" value="${escapeHtml(cfg.academic_year)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ข้อความแถบประกาศวิ่งด้านบนสุด (Ticker)</label>
+                  <input id="cfgTicker" type="text" value="${escapeHtml(cfg.ticker_text)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">คำขวัญโรงเรียน</label>
+                  <input id="cfgMotto" type="text" value="${escapeHtml(cfg.motto)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">จำนวนนักเรียน (อ.2 – ม.3)</label>
+                  <input id="cfgStudents" type="text" value="${escapeHtml(cfg.stat_students)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">จำนวนครูและบุคลากร</label>
+                  <input id="cfgTeachers" type="text" value="${escapeHtml(cfg.stat_teachers)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">เบอร์โทรศัพท์โรงเรียน</label>
+                  <input id="cfgPhone" type="text" value="${escapeHtml(cfg.phone)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">อีเมลโรงเรียน</label>
+                  <input id="cfgEmail" type="text" value="${escapeHtml(cfg.email)}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+              </div>
+              <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow transition">บันทึกการตั้งค่าหน้าเว็บ</button>
+            </form>
+          </div>
+        `;
+
+        document.getElementById('btnSaveGasUrl').addEventListener('click', function() {
+          state.gasUrl = document.getElementById('inputGasUrl').value.trim();
+          try { localStorage.setItem(STORAGE_KEY_API, state.gasUrl); } catch (e) {}
+          if (state.gasUrl) {
+            fetchFromGoogleSheetsApi(true);
+          } else {
+            showToast('บันทึกโหมดทำงานในเครื่อง (Local Mode) เรียบร้อยแล้ว', 'success');
+          }
+        });
+
+        document.getElementById('btnResetDemoData').addEventListener('click', function() {
+          state.db = getInitialSeedDatabase();
+          saveDatabaseToStorage();
+          renderAdminView(document.getElementById('appMainContainer'));
+          showToast('รีเซ็ตข้อมูลกลับเป็นค่าเริ่มต้นของโรงเรียนชุมชนแม่ลาศึกษาเรียบร้อยแล้ว', 'success');
+        });
+
+        document.getElementById('formAdminSiteConfig').addEventListener('submit', function(e) {
+          e.preventDefault();
+          state.db.config.school_name_th = document.getElementById('cfgNameTh').value;
+          state.db.config.academic_year = document.getElementById('cfgAcadYear').value;
+          state.db.config.ticker_text = document.getElementById('cfgTicker').value;
+          state.db.config.motto = document.getElementById('cfgMotto').value;
+          state.db.config.stat_students = document.getElementById('cfgStudents').value;
+          state.db.config.stat_teachers = document.getElementById('cfgTeachers').value;
+          state.db.config.phone = document.getElementById('cfgPhone').value;
+          state.db.config.email = document.getElementById('cfgEmail').value;
+          saveDatabaseToStorage();
+          showToast('บันทึกข้อมูลพื้นฐานและอัปเดตหน้าเว็บทันที', 'success');
+        });
+      }
+
+      // แท็บ 2: จัดการข่าวสารและประกาศ + ย่อรูปอัตโนมัติ (News CRUD + WebP Image Compressor)
+      else if (state.adminTab === 'news') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <form id="formAdminNews" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3.5">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่ม / แก้ไขข่าวประชาสัมพันธ์</h3>
+              <input id="newsEditId" type="hidden" value="" />
+              <div class="grid grid-cols-2 gap-2.5 text-xs">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-1">หมวดหมู่ข่าว</label>
+                  <select id="newsCat" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white">
+                    <option value="pr">ข่าวประชาสัมพันธ์</option>
+                    <option value="award">รางวัลความภูมิใจ</option>
+                    <option value="academic">ประกาศวิชาการ/สอบ</option>
+                    <option value="procurement">ข่าวจัดซื้อจัดจ้าง</option>
+                    <option value="job">รับสมัครงาน</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-1">ปีการศึกษา</label>
+                  <input id="newsYear" type="text" value="${escapeHtml(cfg.academic_year || '2569')}" class="w-full px-3 py-2 rounded-xl border border-slate-300" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">พาดหัวข่าว *</label>
+                <input id="newsTitle" type="text" required placeholder="ระบุหัวข้อข่าวหรือประกาศ..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">คำโปรยย่อ (แสดงในการ์ดหน้าแรก) *</label>
+                <textarea id="newsSummary" rows="2" required placeholder="สรุปใจความสำคัญ 1-2 บรรทัด..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm"></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">เนื้อหาข่าวฉบับเต็ม</label>
+                <textarea id="newsContent" rows="3" placeholder="รายละเอียดเนื้อหาข่าวทั้งหมด..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm"></textarea>
+              </div>
+              <div class="p-3 rounded-xl bg-red-50/70 border border-red-200 space-y-2">
+                <label class="block text-xs font-bold text-red-800">รูปภาพปกข่าว (ย่อไฟล์เป็น .webp อัตโนมัติ หรือใส่รหัสไฟล์ Google Drive)</label>
+                <input id="newsFileInput" type="file" accept="image/*" class="block w-full text-xs text-slate-600" />
+                <p id="compressInfoText" class="text-[11px] text-emerald-700 font-medium hidden"></p>
+                <input id="newsDriveId" type="text" placeholder="หรือวาง Google Drive File ID / ลิงก์รูปภาพ" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ไฟล์แนบ PDF (Google Drive URL ถ้ามี)</label>
+                <input id="newsPdfUrl" type="text" placeholder="https://drive.google.com/file/d/.../view" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 text-xs" />
+              </div>
+              <div class="flex items-center gap-2 text-xs">
+                <input id="newsPinned" type="checkbox" class="rounded text-red-700" checked />
+                <label for="newsPinned" class="font-medium text-slate-700">ปักหมุดแสดงหน้าแรก</label>
+              </div>
+              <div class="flex gap-2">
+                <button type="submit" class="flex-1 bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">บันทึกข่าวสาร</button>
+                <button id="btnCancelNewsEdit" type="button" class="px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs">ล้างฟอร์ม</button>
+              </div>
+            </form>
+
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">รายการข่าวทั้งหมดในฐานข้อมูล (${state.db.news.length} รายการ)</h3>
+              <div class="space-y-2.5 max-h-[540px] overflow-y-auto pr-1">
+                ${state.db.news.map(function(n) {
+                  const cat = getCategoryMeta(n.category);
+                  return `
+                    <div class="p-3.5 rounded-xl border border-slate-200 hover:border-red-200 flex items-start justify-between gap-3 bg-slate-50/50">
+                      <div class="space-y-1 text-xs min-w-0">
+                        <div class="flex items-center gap-2">
+                          <span class="px-2 py-0.5 rounded-full border font-semibold text-[10px] ${cat.cls}">${cat.label}</span>
+                          <span class="text-slate-400">${escapeHtml(n.published_at)} • ปี ${escapeHtml(n.academic_year)}</span>
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm truncate">${escapeHtml(n.title)}</p>
+                        <p class="font-sarabun text-slate-500 truncate">${escapeHtml(n.summary)}</p>
+                      </div>
+                      <div class="flex items-center gap-1.5 shrink-0">
+                        <button type="button" data-edit-news="${escapeHtml(n.id)}" class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-red-50 text-slate-700 text-xs font-medium">แก้ไข</button>
+                        <button type="button" data-del-news="${escapeHtml(n.id)}" class="px-2.5 py-1.5 rounded-lg bg-red-50 border border-red-200 hover:bg-red-700 hover:text-white text-red-700 text-xs font-medium">ลบ</button>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        // ระบบย่อรูปด้วย HTML5 Canvas ก่อนบันทึกหรือส่งขึ้น Google Drive
+        const fileInp = document.getElementById('newsFileInput');
+        if (fileInp) {
+          fileInp.addEventListener('change', function(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const origKb = Math.round(file.size / 1024);
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+              const img = new Image();
+              img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const maxW = 960;
+                const scale = img.width > maxW ? (maxW / img.width) : 1;
+                canvas.width = Math.round(img.width * scale);
+                canvas.height = Math.round(img.height * scale);
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                const compressedUrl = canvas.toDataURL('image/webp', 0.78);
+                state.pendingCompressedDataUrl = compressedUrl;
+                const newKb = Math.round((compressedUrl.length * 3) / 4 / 1024);
+                const info = document.getElementById('compressInfoText');
+                if (info) {
+                  info.textContent = `✓ ย่อรูปเป็น WebP สำเร็จ: จาก ${origKb} KB เหลือเพียง ~${newKb} KB (พร้อมบันทึก)`;
+                  info.classList.remove('hidden');
+                }
+              };
+              img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+
+        document.getElementById('formAdminNews').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const editId = document.getElementById('newsEditId').value;
+          const driveInput = document.getElementById('newsDriveId').value.trim();
+          const coverUrl = state.pendingCompressedDataUrl || driveInput;
+
+          const record = {
+            id: editId || ('NW-' + Date.now()),
+            academic_year: document.getElementById('newsYear').value.trim() || '2569',
+            category: document.getElementById('newsCat').value,
+            title: document.getElementById('newsTitle').value.trim(),
+            summary: document.getElementById('newsSummary').value.trim(),
+            content_html: document.getElementById('newsContent').value.trim() || document.getElementById('newsSummary').value.trim(),
+            cover_drive_id: driveInput,
+            cover_url: coverUrl,
+            pdf_drive_id: '',
+            pdf_url: document.getElementById('newsPdfUrl').value.trim(),
+            is_pinned: document.getElementById('newsPinned').checked,
+            status: 'published',
+            published_at: new Date().toISOString().slice(0, 10),
+            author_name: 'ผู้ดูแลระบบ'
+          };
+
+          if (editId) {
+            const idx = state.db.news.findIndex(function(x) { return x.id === editId; });
+            if (idx !== -1) state.db.news[idx] = record;
+          } else {
+            state.db.news.unshift(record);
+          }
+          state.pendingCompressedDataUrl = '';
+          saveDatabaseToStorage();
+          showToast('บันทึกข้อมูลข่าวสารเรียบร้อยแล้ว', 'success');
+          renderAdminView(document.getElementById('appMainContainer'));
+        });
+
+        document.getElementById('btnCancelNewsEdit').addEventListener('click', function() {
+          state.pendingCompressedDataUrl = '';
+          renderAdminSubTab(sub);
+        });
+
+        sub.querySelectorAll('[data-edit-news]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const item = state.db.news.find(function(x) { return x.id === btn.getAttribute('data-edit-news'); });
+            if (!item) return;
+            document.getElementById('newsEditId').value = item.id;
+            document.getElementById('newsCat').value = item.category;
+            document.getElementById('newsYear').value = item.academic_year;
+            document.getElementById('newsTitle').value = item.title;
+            document.getElementById('newsSummary').value = item.summary;
+            document.getElementById('newsContent').value = item.content_html;
+            document.getElementById('newsDriveId').value = item.cover_drive_id || '';
+            document.getElementById('newsPdfUrl').value = item.pdf_url || '';
+            document.getElementById('newsPinned').checked = String(item.is_pinned) === 'true';
+            showToast('ดึงข้อมูลข่าวขึ้นมาแก้ไขในฟอร์มด้านซ้ายแล้ว', 'success');
+          });
+        });
+
+        sub.querySelectorAll('[data-del-news]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-news');
+            state.db.news = state.db.news.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            showToast('ลบรายการข่าวเรียบร้อยแล้ว', 'success');
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+
+      // แท็บ 3: จัดการแบนเนอร์ & Popup
+      else if (state.adminTab === 'banners') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <form id="formAdminBanner" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่มแบนเนอร์สไลด์ / Popup ประกาศ</h3>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ประเภท</label>
+                <select id="bnType" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white">
+                  <option value="hero">Hero Banner (สไลด์หน้าแรก)</option>
+                  <option value="popup">Popup ประกาศสำคัญ</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">หัวข้อหลัก *</label>
+                <input id="bnTitle" type="text" required placeholder="เช่น เปิดรับสมัครนักเรียน ปีการศึกษา 2569" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">คำอธิบายย่อย *</label>
+                <textarea id="bnSubtitle" rows="2" required placeholder="รายละเอียด..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm"></textarea>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ข้อความปุ่มกด</label>
+                  <input id="bnCtaText" type="text" value="ดูรายละเอียด" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ปุ่มกด</label>
+                  <input id="bnCtaLink" type="text" value="#/admissions" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพ Google Drive (ถ้ามี)</label>
+                <input id="bnDriveId" type="text" placeholder="ปล่อยว่างเพื่อใช้ภาพกราฟิกโรงเรียนอัตโนมัติ" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">เพิ่มแบนเนอร์</button>
+            </form>
+
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">รายการแบนเนอร์และ Popup ปัจจุบัน</h3>
+              <div class="space-y-2.5">
+                ${state.db.banners.map(function(b) {
+                  return `
+                    <div class="p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-3 bg-slate-50/60">
+                      <div class="text-xs space-y-0.5">
+                        <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold uppercase">${escapeHtml(b.type)}</span>
+                        <p class="font-bold text-slate-900 text-sm mt-1">${escapeHtml(b.title)}</p>
+                        <p class="font-sarabun text-slate-500">${escapeHtml(b.subtitle)}</p>
+                      </div>
+                      <button type="button" data-del-banner="${escapeHtml(b.id)}" class="px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-700 text-red-700 hover:text-white border border-red-200 text-xs font-semibold shrink-0">ลบ</button>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('formAdminBanner').addEventListener('submit', function(e) {
+          e.preventDefault();
+          state.db.banners.push({
+            id: 'BN-' + Date.now(),
+            type: document.getElementById('bnType').value,
+            title: document.getElementById('bnTitle').value.trim(),
+            subtitle: document.getElementById('bnSubtitle').value.trim(),
+            badge: 'ประกาศโรงเรียน',
+            cta_text: document.getElementById('bnCtaText').value.trim(),
+            cta_link: document.getElementById('bnCtaLink').value.trim(),
+            drive_image_id: document.getElementById('bnDriveId').value.trim(),
+            image_url: '',
+            sort_order: state.db.banners.length + 1,
+            is_active: true
+          });
+          saveDatabaseToStorage();
+          showToast('เพิ่มแบนเนอร์เรียบร้อยแล้ว', 'success');
+          renderAdminView(document.getElementById('appMainContainer'));
+        });
+
+        sub.querySelectorAll('[data-del-banner]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-banner');
+            state.db.banners = state.db.banners.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            showToast('ลบแบนเนอร์เรียบร้อยแล้ว', 'success');
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+
+      // แท็บ 4: จัดการทำเนียบบุคลากร
+      else if (state.adminTab === 'personnel') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <form id="formAdminPerson" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่มรายชื่อครูและบุคลากร</h3>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อ-นามสกุล *</label>
+                <input id="psName" type="text" required placeholder="เช่น นางสาวกมลวรรณ ใจดี" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ตำแหน่ง / กลุ่มสาระ *</label>
+                <input id="psPos" type="text" required placeholder="เช่น ครูชำนาญการ (คณิตศาสตร์ ม.1-ม.3)" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">สายงาน / ระดับชั้น</label>
+                <select id="psGroup" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white">
+                  <option value="ผู้บริหารสถานศึกษา">ผู้บริหารสถานศึกษา</option>
+                  <option value="ปฐมวัย">สายชั้นปฐมวัย (อ.2 - อ.3)</option>
+                  <option value="ประถมศึกษา">สายชั้นประถมศึกษา (ป.1 - ป.6)</option>
+                  <option value="มัธยมศึกษาตอนต้น">สายชั้นมัธยมศึกษาตอนต้น (ม.1 - ม.3)</option>
+                  <option value="สายสนับสนุน">ฝ่ายสนับสนุนและธุรการ</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">วุฒิการศึกษา</label>
+                  <input id="psEdu" type="text" placeholder="เช่น ค.บ., ศษ.ม." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">อีเมลติดต่อ</label>
+                  <input id="psEmail" type="email" placeholder="teacher@maela.ac.th" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพถ่ายครูบน Google Drive (ถ้ามี)</label>
+                <input id="psPhotoId" type="text" placeholder="ระบุ Google Drive File ID" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">บันทึกข้อมูลบุคลากร</button>
+            </form>
+
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">รายชื่อบุคลากรทั้งหมด (${state.db.personnel.length} ท่าน)</h3>
+              <div class="space-y-2 max-h-[500px] overflow-y-auto pr-1">
+                ${state.db.personnel.map(function(p) {
+                  return `
+                    <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between gap-3 bg-slate-50/50 text-xs">
+                      <div>
+                        <span class="text-[11px] font-bold text-red-700">${escapeHtml(p.level_group)}</span>
+                        <p class="font-bold text-slate-900 text-sm">${escapeHtml(p.full_name)}</p>
+                        <p class="text-slate-500">${escapeHtml(p.position)} • ${escapeHtml(p.education)}</p>
+                      </div>
+                      <button type="button" data-del-person="${escapeHtml(p.id)}" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-700 text-red-700 hover:text-white border border-red-200 font-semibold shrink-0">ลบ</button>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('formAdminPerson').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const grp = document.getElementById('psGroup').value;
+          state.db.personnel.push({
+            id: 'PS-' + Date.now(),
+            full_name: document.getElementById('psName').value.trim(),
+            position: document.getElementById('psPos').value.trim(),
+            department: grp,
+            level_group: grp,
+            education: document.getElementById('psEdu').value.trim() || '-',
+            email: document.getElementById('psEmail').value.trim() || '-',
+            phone_ext: '100',
+            photo_drive_id: document.getElementById('psPhotoId').value.trim(),
+            sort_order: state.db.personnel.length + 1,
+            status: 'active'
+          });
+          saveDatabaseToStorage();
+          showToast('เพิ่มข้อมูลบุคลากรเรียบร้อยแล้ว', 'success');
+          renderAdminView(document.getElementById('appMainContainer'));
+        });
+
+        sub.querySelectorAll('[data-del-person]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-person');
+            state.db.personnel = state.db.personnel.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            showToast('ลบรายชื่อบุคลากรเรียบร้อยแล้ว', 'success');
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+
+      // แท็บ 5: จัดการเอกสาร ITA (O1 - O43)
+      else if (state.adminTab === 'ita') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <form id="formAdminIta" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่มรายการเอกสาร ITA (O1–O43)</h3>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสตัวชี้วัด (OIT) *</label>
+                  <input id="itaCode" type="text" required placeholder="เช่น O15 หรือ O34" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ปีงบประมาณ *</label>
+                  <input id="itaYear" type="text" value="2569" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">หมวดหมู่</label>
+                <select id="itaCategory" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
+                  <option value="1. ข้อมูลพื้นฐาน">1. ข้อมูลพื้นฐาน</option>
+                  <option value="2. การบริหารงานและงบประมาณ">2. การบริหารงานและงบประมาณ</option>
+                  <option value="3. การจัดซื้อจัดจ้าง">3. การจัดซื้อจัดจ้าง</option>
+                  <option value="4. การบริหารทรัพยากรบุคคล">4. การบริหารทรัพยากรบุคคล</option>
+                  <option value="5. การส่งเสริมความโปร่งใส">5. การส่งเสริมความโปร่งใส</option>
+                  <option value="6. การป้องกันการทุจริต (No Gift Policy)">6. การป้องกันการทุจริต (No Gift Policy)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อเอกสารสาธารณะ *</label>
+                <input id="itaTitle" type="text" required placeholder="ระบุชื่อรายงานหรือประกาศ..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ไฟล์ PDF บน Google Drive</label>
+                <input id="itaUrl" type="text" placeholder="https://drive.google.com/file/d/.../view" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">เพิ่มเอกสาร ITA</button>
+            </form>
+
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">รายการเอกสาร ITA ทั้งหมด</h3>
+              <div class="space-y-2 max-h-[500px] overflow-y-auto pr-1">
+                ${state.db.ita.map(function(row) {
+                  return `
+                    <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between gap-3 bg-slate-50/50 text-xs">
+                      <div>
+                        <span class="font-bold text-red-700">${escapeHtml(row.oit_code)} • ${escapeHtml(row.category)}</span>
+                        <p class="font-bold text-slate-900 text-sm mt-0.5">${escapeHtml(row.title)}</p>
+                      </div>
+                      <button type="button" data-del-ita="${escapeHtml(row.id)}" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-700 text-red-700 hover:text-white border border-red-200 font-semibold shrink-0">ลบ</button>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('formAdminIta').addEventListener('submit', function(e) {
+          e.preventDefault();
+          state.db.ita.push({
+            id: 'ITA-' + Date.now(),
+            fiscal_year: document.getElementById('itaYear').value.trim(),
+            oit_code: document.getElementById('itaCode').value.trim(),
+            category: document.getElementById('itaCategory').value,
+            title: document.getElementById('itaTitle').value.trim(),
+            drive_file_id: '',
+            file_url: document.getElementById('itaUrl').value.trim(),
+            updated_at: new Date().toISOString().slice(0, 10),
+            status: 'published'
+          });
+          saveDatabaseToStorage();
+          showToast('เพิ่มเอกสาร ITA เรียบร้อยแล้ว', 'success');
+          renderAdminView(document.getElementById('appMainContainer'));
+        });
+
+        sub.querySelectorAll('[data-del-ita]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-ita');
+            state.db.ita = state.db.ita.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            showToast('ลบเอกสาร ITA เรียบร้อยแล้ว', 'success');
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+
+      // แท็บ 6: จัดการปฏิทินกิจกรรม
+      else if (state.adminTab === 'calendar') {
+        sub.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <form id="formAdminCal" class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">เพิ่มกำหนดการปฏิทินโรงเรียน</h3>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">ชื่อกิจกรรม / กำหนดการสอบ *</label>
+                <input id="evTitle" type="text" required placeholder="เช่น สอบปลายภาคเรียนที่ 2/2569" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">วันที่จัดกิจกรรม *</label>
+                  <input id="evDate" type="date" required value="2026-11-15" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">ระดับชั้นเป้าหมาย</label>
+                  <input id="evTarget" type="text" value="ทุกระดับชั้น (อ.2 - ม.3)" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">รายละเอียด</label>
+                <textarea id="evDesc" rows="2" placeholder="รายละเอียดเพิ่มเติม..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">เพิ่มลงปฏิทิน</button>
+            </form>
+
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">กำหนดการในปฏิทินทั้งหมด</h3>
+              <div class="space-y-2">
+                ${state.db.calendar.map(function(ev) {
+                  return `
+                    <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between gap-3 bg-slate-50/50 text-xs">
+                      <div>
+                        <span class="font-bold text-red-700">📅 ${escapeHtml(ev.start_date)} • ${escapeHtml(ev.target_level)}</span>
+                        <p class="font-bold text-slate-900 text-sm">${escapeHtml(ev.title)}</p>
+                        <p class="font-sarabun text-slate-500">${escapeHtml(ev.description)}</p>
+                      </div>
+                      <button type="button" data-del-ev="${escapeHtml(ev.id)}" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-700 text-red-700 hover:text-white border border-red-200 font-semibold shrink-0">ลบ</button>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('formAdminCal').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const dt = document.getElementById('evDate').value;
+          state.db.calendar.push({
+            id: 'EV-' + Date.now(),
+            academic_year: cfg.academic_year || '2569',
+            semester: '2',
+            title: document.getElementById('evTitle').value.trim(),
+            start_date: dt,
+            end_date: dt,
+            category: 'activity',
+            target_level: document.getElementById('evTarget').value.trim(),
+            description: document.getElementById('evDesc').value.trim()
+          });
+          saveDatabaseToStorage();
+          showToast('เพิ่มกำหนดการปฏิทินเรียบร้อยแล้ว', 'success');
+          renderAdminView(document.getElementById('appMainContainer'));
+        });
+
+        sub.querySelectorAll('[data-del-ev]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-ev');
+            state.db.calendar = state.db.calendar.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            showToast('ลบกำหนดการเรียบร้อยแล้ว', 'success');
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+
+      // แท็บ 7: กล่องข้อความ ใบสมัครเรียน และเรื่องร้องเรียน ITA (Complaints_Inbox)
+      else if (state.adminTab === 'inbox') {
+        sub.innerHTML = `
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">รายการแจ้งความจำนงสมัครเรียน ติดต่อสอบถาม และร้องเรียน ITA</h3>
+              <span class="text-xs text-slate-500">ทั้งหมด ${state.db.inbox.length} รายการ</span>
+            </div>
+            <div class="space-y-3">
+              ${state.db.inbox.map(function(msg) {
+                const isDone = msg.status === 'ดำเนินการแล้ว';
+                return `
+                  <div class="p-4 rounded-xl border ${isDone ? 'border-slate-200 bg-slate-50' : 'border-red-200 bg-red-50/40'} flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+                    <div class="space-y-1">
+                      <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2 py-0.5 rounded font-bold ${isDone ? 'bg-emerald-100 text-emerald-800' : 'bg-red-700 text-white'}">${escapeHtml(msg.status)}</span>
+                        <span class="font-bold text-red-800">[${escapeHtml(msg.type)}]</span>
+                        <span class="text-slate-500">${escapeHtml(msg.timestamp)}</span>
+                        ${msg.student_level && msg.student_level !== '-' ? `<span class="bg-white border border-slate-200 px-2 py-0.5 rounded">ระดับชั้น: ${escapeHtml(msg.student_level)}</span>` : ''}
+                      </div>
+                      <p class="font-bold text-slate-900 text-sm">${escapeHtml(msg.subject)}</p>
+                      <p class="font-sarabun text-slate-700">${escapeHtml(msg.message)}</p>
+                      <p class="text-slate-500">ผู้ส่ง: <strong>${escapeHtml(msg.sender_name)}</strong> • ติดต่อ: <strong>${escapeHtml(msg.phone_or_email)}</strong></p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                      <button type="button" data-toggle-inbox="${escapeHtml(msg.id)}" class="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-emerald-50 text-slate-700 font-semibold">
+                        ${isDone ? 'เปลี่ยนเป็นรอดำเนินการ' : '✓ ทำเครื่องหมายว่าดำเนินการแล้ว'}
+                      </button>
+                      <button type="button" data-del-inbox="${escapeHtml(msg.id)}" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-700 text-red-700 hover:text-white border border-red-200 font-semibold">ลบ</button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+
+        sub.querySelectorAll('[data-toggle-inbox]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const item = state.db.inbox.find(function(x) { return x.id === btn.getAttribute('data-toggle-inbox'); });
+            if (item) {
+              item.status = item.status === 'ดำเนินการแล้ว' ? 'รอดำเนินการ' : 'ดำเนินการแล้ว';
+              saveDatabaseToStorage();
+              renderAdminView(document.getElementById('appMainContainer'));
+            }
+          });
+        });
+
+        sub.querySelectorAll('[data-del-inbox]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const id = btn.getAttribute('data-del-inbox');
+            state.db.inbox = state.db.inbox.filter(function(x) { return x.id !== id; });
+            saveDatabaseToStorage();
+            renderAdminView(document.getElementById('appMainContainer'));
+          });
+        });
+      }
+    }
+
+    /**
+     * ============================================================================
+     * เริ่มต้นการทำงานของระบบเมื่อโหลดหน้าเว็บเสร็จสมบูรณ์
+     * ============================================================================
+     */
+    window.addEventListener('DOMContentLoaded', function() {
+      loadStateFromStorage();
+      syncGlobalChrome();
+
+      // ปุ่มเปิดเมนูมือถือ
+      const btnMobile = document.getElementById('btnMobileMenu');
+      const drawer = document.getElementById('mobileMenuDrawer');
+      if (btnMobile && drawer) {
+        btnMobile.addEventListener('click', function() {
+          drawer.classList.toggle('hidden');
+        });
+      }
+
+      // ปุ่มปิดโมดอลกลาง
+      const btnClose1 = document.getElementById('btnCloseGlobalModal');
+      const btnClose2 = document.getElementById('btnCloseGlobalModalBottom');
+      const backdrop = document.getElementById('globalModalBackdrop');
+      if (btnClose1) btnClose1.addEventListener('click', closeGlobalModal);
+      if (btnClose2) btnClose2.addEventListener('click', closeGlobalModal);
+      if (backdrop) {
+        backdrop.addEventListener('click', function(e) {
+          if (e.target === backdrop) closeGlobalModal();
+        });
+      }
+
+      // ปุ่มเปิดดูโปสเตอร์ประกาศสำคัญ
+      const btnPopup = document.getElementById('btnOpenPopup');
+      if (btnPopup) {
+        btnPopup.addEventListener('click', openAnnouncementPopup);
+      }
+
+      // ปุ่มนโยบาย PDPA
+      const pdpaBanner = document.getElementById('pdpaBanner');
+      const btnAcceptPdpa = document.getElementById('btnAcceptPdpa');
+      const btnOpenPdpaModal = document.getElementById('btnOpenPdpaModal');
+      try {
+        if (!localStorage.getItem(STORAGE_KEY_PDPA) && pdpaBanner) {
+          pdpaBanner.classList.remove('hidden');
+        }
+      } catch (e) {}
+      if (btnAcceptPdpa && pdpaBanner) {
+        btnAcceptPdpa.addEventListener('click', function() {
+          pdpaBanner.classList.add('hidden');
+          try { localStorage.setItem(STORAGE_KEY_PDPA, '1'); } catch (e) {}
+          showToast('บันทึกการยอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล (PDPA) แล้ว', 'success');
+        });
+      }
+      if (btnOpenPdpaModal) {
+        btnOpenPdpaModal.addEventListener('click', function() {
+          openGlobalModal(
+            'นโยบายคุ้มครองข้อมูลส่วนบุคคล (PDPA) โรงเรียนชุมชนแม่ลาศึกษา',
+            `<div class="space-y-3 font-sarabun text-sm text-slate-700 leading-relaxed">
+              <p><strong>1. การเก็บรวบรวมข้อมูลส่วนบุคคล:</strong> โรงเรียนชุมชนแม่ลาศึกษาจัดเก็บเฉพาะข้อมูลที่จำเป็นต่อการบริหารจัดการศึกษา การรับสมัครนักเรียน (ระดับชั้นอนุบาล 2 ถึง มัธยมศึกษาปีที่ 3) และการติดต่อราชการเท่านั้น</p>
+              <p><strong>2. การเผยแพร่ภาพกิจกรรม:</strong> ภาพถ่ายการแข่งขันทักษะวิชาการและกิจกรรมโรงเรียนที่เผยแพร่บนเว็บไซต์นี้ มีวัตถุประสงค์เพื่อการประชาสัมพันธ์สถานศึกษาโดยไม่แสวงหากำไร หากผู้ปกครองหรือนักเรียนประสงค์ให้ปรับปรุงหรือนำภาพออก สามารถแจ้งผ่านหน้าติดต่อโรงเรียนได้ทันที</p>
+              <p><strong>3. ความปลอดภัยของฐานข้อมูล:</strong> ข้อมูลคำร้องและเรื่องร้องเรียนถูกจัดเก็บในแท็บเฉพาะผู้บริหารบน Google Sheets ที่ไม่เปิดเผยผ่าน Public API</p>
+            </div>`
+          );
+        });
+      }
+
+      // เริ่มต้นระบบ Hash Routing
+      window.addEventListener('hashchange', handleHashChange);
+      handleHashChange();
+
+      // หากมีการตั้งค่า Google Apps Script URL ไว้ ให้ซิงก์ข้อมูลเบื้องหลังทันที
+      if (state.gasUrl) {
+        fetchFromGoogleSheetsApi(false);
+      }
+    });
+  </script>
+</body>
+</html>
