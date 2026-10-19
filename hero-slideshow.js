@@ -132,7 +132,8 @@ function readHeroImageFile(file) {
 
 function mountHeroAdminSlots(container) {
   const slides = getHeroSlides(true).slice(0, 5);
-  container.innerHTML = `<div class="mb-4"><h3 class="font-bold text-slate-900 text-lg">ภาพสไลด์หน้าแรก 5 ภาพ</h3><p class="text-xs text-slate-600 mt-1">เลื่อนอัตโนมัติทุก 3 วินาที • เปลี่ยนภาพและข้อความแยกแต่ละสไลด์ได้ • แนะนำภาพแนวนอน</p><p class="text-xs text-slate-500 mt-1">${state.gasUrl ? 'เมื่อเลือกไฟล์ ระบบจะอัปโหลดไปคลังภาพ Google Drive หลังบันทึกให้กดซิงก์ขึ้น Google Sheets เพื่อเผยแพร่ทุกอุปกรณ์' : 'ขณะนี้บันทึกในเครื่องนี้ หากต้องการเผยแพร่ทุกอุปกรณ์ ให้เชื่อมต่อ API และใช้ภาพจากคลัง Google Drive ก่อนกดซิงก์'}</p></div>
+  const driveUrl = (state.db && state.db.config && state.db.config.drive_root_folder_url) || 'https://drive.google.com/drive/folders/1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc?usp=sharing';
+  container.innerHTML = `<div class="mb-4"><h3 class="font-bold text-slate-900 text-lg">ภาพสไลด์หน้าแรก 5 ภาพ</h3><p class="text-xs text-slate-600 mt-1">เลื่อนอัตโนมัติทุก 3 วินาที • เปลี่ยนภาพและข้อความแยกแต่ละสไลด์ได้ • แนะนำภาพแนวนอน</p><p class="text-xs text-slate-500 mt-1 flex items-center justify-between flex-wrap gap-1"><span>${state.gasUrl ? 'เมื่อเลือกไฟล์ ระบบจะอัปโหลดไปคลังภาพ Google Drive หลังบันทึกให้กดซิงก์ขึ้น Google Sheets เพื่อเผยแพร่ทุกอุปกรณ์' : 'ขณะนี้บันทึกในเครื่องนี้ หากต้องการเผยแพร่ทุกอุปกรณ์ ให้เชื่อมต่อ API และใช้ภาพจากคลัง Google Drive ก่อนกดซิงก์'}</span><a href="${driveUrl}" target="_blank" rel="noopener noreferrer" class="text-red-700 font-semibold hover:underline">📁 เปิด Google Drive คลังโรงเรียน ↗</a></p></div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">${slides.map(function(slide, index) {
       return `<form data-hero-editor="${index}" class="bg-white border border-red-100 rounded-2xl p-4 shadow-sm space-y-3 min-w-0">
         <h4 class="font-bold text-red-800 text-sm">${index + 1}. ${escapeHtml(slide.slotLabel)}</h4>

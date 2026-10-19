@@ -20,7 +20,11 @@
 
 const CACHE_TTL_SECONDS = 900; // แคชข้อมูล JSON นาน 15 นาที (900 วินาที)
 const CACHE_KEY_MAIN = 'MAELA_CMS_PUBLIC_DATA_V1';
-const STORAGE_ROOT_FOLDER_NAME = 'Maela_School_Website_Storage';
+const STORAGE_ROOT_FOLDER_ID = '1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc'; // Google Drive Root Folder ID
+const STORAGE_ROOT_FOLDER_URL = 'https://drive.google.com/drive/folders/1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc?usp=sharing';
+const STORAGE_ROOT_FOLDER_NAME = 'เว็บโรงเรียนชุมชมแม่ลาศึกษา';
+const DATABASE_SPREADSHEET_ID = '1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4'; // Google Sheets ID
+const DATABASE_SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4/edit?gid=0#gid=0';
 
 const SHEET_NAMES = {
   CONFIG: 'Site_Config',
@@ -38,7 +42,7 @@ const SHEET_NAMES = {
  * กด Run ครั้งแรกเพียงครั้งเดียว
  */
 function setupDatabaseAndDrive() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet_();
 
   // สร้างโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive
   const folderMap = ensureDriveFolders_();
@@ -49,7 +53,7 @@ function setupDatabaseAndDrive() {
   ]);
   if (configSheet.getLastRow() === 1) {
     const now = new Date().toISOString();
-    configSheet.getRange(2, 1, 18, 5).setValues([
+    const configRows = [
       ['school_name_th', 'โรงเรียนชุมชนแม่ลาศึกษา', 'Chumchon Maela Suksa School', 'ชื่อโรงเรียน', now],
       ['school_type', 'โรงเรียนขยายโอกาสทางการศึกษา (อนุบาล 2 - มัธยมศึกษาปีที่ 3)', 'Opportunity Expansion School (K2 - Grade 9)', 'ประเภทสถานศึกษา', now],
       ['affiliation', 'สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ.) กระทรวงศึกษาธิการ', 'OBEC, Ministry of Education', 'สังกัด', now],
@@ -65,10 +69,13 @@ function setupDatabaseAndDrive() {
       ['email', 'saraban@maela.ac.th', 'saraban@maela.ac.th', 'อีเมลโรงเรียน', now],
       ['address', 'โรงเรียนชุมชนแม่ลาศึกษา หมู่ที่ 1 ตำบลแม่ลา (พื้นที่บริการชุมชนแม่ลา)', 'Chumchon Maela Suksa School', 'ที่อยู่โรงเรียน', now],
       ['facebook_url', 'https://www.facebook.com/', 'https://www.facebook.com/', 'ลิงก์เพจ Facebook ประชาสัมพันธ์', now],
+      ['database_sheet_url', DATABASE_SPREADSHEET_URL, DATABASE_SPREADSHEET_URL, 'ลิงก์ Google Sheets ฐานข้อมูล', now],
       ['drive_root_folder_id', folderMap.rootId, folderMap.rootId, 'รหัสโฟลเดอร์หลัก Google Drive', now],
+      ['drive_root_folder_url', STORAGE_ROOT_FOLDER_URL, STORAGE_ROOT_FOLDER_URL, 'ลิงก์โฟลเดอร์หลัก Google Drive', now],
       ['drive_news_folder_id', folderMap.newsId, folderMap.newsId, 'รหัสโฟลเดอร์เก็บรูปข่าว', now],
       ['drive_ita_folder_id', folderMap.itaId, folderMap.itaId, 'รหัสโฟลเดอร์เก็บไฟล์ PDF/ITA', now]
-    ]);
+    ];
+    configSheet.getRange(2, 1, configRows.length, 5).setValues(configRows);
   }
 
   // 1.2 แท็บ Banners_Popups
@@ -179,6 +186,21 @@ function doGet(e) {
       return jsonResponse_({ ok: true, school: 'โรงเรียนชุมชนแม่ลาศึกษา', timestamp: new Date().toISOString() });
     }
 
+    if (action === 'checkDrive') {
+      const folderMap = ensureDriveFolders_();
+      let rootFolder = null;
+      try {
+        rootFolder = DriveApp.getFolderById(folderMap.rootId);
+      } catch (err) {}
+      return jsonResponse_({
+        ok: true,
+        rootId: folderMap.rootId,
+        rootName: rootFolder ? rootFolder.getName() : STORAGE_ROOT_FOLDER_NAME,
+        rootUrl: STORAGE_ROOT_FOLDER_URL,
+        folders: folderMap
+      });
+    }
+
     const cache = CacheService.getScriptCache();
     if (!forceRefresh) {
       const cached = cache.get(CACHE_KEY_MAIN);
@@ -187,7 +209,7 @@ function doGet(e) {
       }
     }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet_();
     const payload = {
       ok: true,
       updatedAt: new Date().toISOString(),
@@ -218,7 +240,7 @@ function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents || '{}');
     const action = body.action || '';
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet_();
 
     // 3.1 ส่งฟอร์มติดต่อสอบถาม / แจ้งความจำนงสมัครเรียน / ร้องเรียน ITA (ไม่ต้องใช้รหัสผ่าน Admin)
     if (action === 'submitPublicForm') {
@@ -317,16 +339,41 @@ function verifyAdmin_(ss, email, password) {
 }
 
 /**
- * Helper: สร้างโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive
+ * Helper: ดึง Spreadsheet ไม่ว่าจะรันแบบ Container-bound หรือ Standalone
+ */
+function getSpreadsheet_() {
+  let ss = SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss && DATABASE_SPREADSHEET_ID) {
+    try {
+      ss = SpreadsheetApp.openById(DATABASE_SPREADSHEET_ID);
+    } catch (e) {
+      Logger.log('ไม่สามารถเปิด Spreadsheet ด้วย ID: ' + e.message);
+    }
+  }
+  return ss;
+}
+
+/**
+ * Helper: สร้างหรือเปิดโฟลเดอร์หลักและโฟลเดอร์ย่อยใน Google Drive
  */
 function ensureDriveFolders_() {
   let rootFolder;
-  const roots = DriveApp.getFoldersByName(STORAGE_ROOT_FOLDER_NAME);
-  if (roots.hasNext()) {
-    rootFolder = roots.next();
-  } else {
-    rootFolder = DriveApp.createFolder(STORAGE_ROOT_FOLDER_NAME);
-    rootFolder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  if (STORAGE_ROOT_FOLDER_ID && STORAGE_ROOT_FOLDER_ID.trim() !== '') {
+    try {
+      rootFolder = DriveApp.getFolderById(STORAGE_ROOT_FOLDER_ID.trim());
+    } catch (err) {
+      Logger.log('ไม่สามารถเปิดโฟลเดอร์ด้วย ID ได้: ' + err.message);
+    }
+  }
+
+  if (!rootFolder) {
+    const roots = DriveApp.getFoldersByName(STORAGE_ROOT_FOLDER_NAME);
+    if (roots.hasNext()) {
+      rootFolder = roots.next();
+    } else {
+      rootFolder = DriveApp.createFolder(STORAGE_ROOT_FOLDER_NAME);
+      rootFolder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    }
   }
 
   const getSub = function(name) {
@@ -339,6 +386,7 @@ function ensureDriveFolders_() {
 
   return {
     rootId: rootFolder.getId(),
+    rootUrl: STORAGE_ROOT_FOLDER_URL,
     bannerId: getSub('01_Banners'),
     newsId: getSub('02_News_Images'),
     personnelId: getSub('03_Personnel_Photos'),

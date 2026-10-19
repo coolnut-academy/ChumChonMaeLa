@@ -16,14 +16,14 @@
 
 ## ขั้นตอนที่ 1: ตั้งค่าฐานข้อมูล Google Sheets และคลังไฟล์ Google Drive (ใช้เวลาประมาณ 3 นาที)
 
-1. เข้าไปที่ [Google Sheets](https://sheets.google.com) ด้วยบัญชี Google ของโรงเรียน แล้วสร้างสเปรดชีตว่างขึ้นมาใหม่ ตั้งชื่อว่า **`Database_เว็บโรงเรียนชุมชนแม่ลาศึกษา`**
+1. เข้าไปที่ Google Sheets ฐานข้อมูลของโรงเรียน: [เปิด Google Sheets ฐานข้อมูลโรงเรียนชุมชนแม่ลาศึกษา](https://docs.google.com/spreadsheets/d/1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4/edit?gid=0#gid=0)
 2. ที่แถบเมนูด้านบน คลิกที่ **ส่วนขยาย (Extensions) > Apps Script**
 3. ลบโค้ด `function myFunction() {}` เดิมออกทั้งหมด แล้วคัดลอกโค้ดทั้งหมดจากไฟล์ **`Code.gs`** ไปวางแทนที่ จากนั้นกดไอคอนแผ่นดิสก์ (**บันทึก / Save**)
 4. ที่แถบเครื่องมือด้านบนของหน้า Apps Script ให้เลือกฟังก์ชัน **`setupDatabaseAndDrive`** จากเมนูแบบเลื่อนลง แล้วกดปุ่ม **เรียกใช้ (Run)**
 5. ระบบจะขอสิทธิ์การเข้าถึง Google Sheets และ Google Drive ของโรงเรียน ให้กด **Review permissions > เลือกบัญชีโรงเรียน > Advanced > Go to project (unsafe) > Allow**
 6. เมื่อรันเสร็จสิ้น สคริปต์จะดำเนินการให้อัตโนมัติ ดังนี้:
    - สร้างตารางใน Google Sheets ครบ **8 แท็บ** (`Site_Config`, `Banners_Popups`, `News_Posts`, `Personnel`, `Calendar_Events`, `ITA_Documents`, `Complaints_Inbox`, `Admin_Users`) พร้อมข้อมูลตั้งต้นของโรงเรียนชุมชนแม่ลาศึกษา
-   - สร้างโฟลเดอร์หลักใน Google Drive ชื่อ **`Maela_School_Website_Storage`** พร้อมโฟลเดอร์ย่อย 5 โฟลเดอร์ (`01_Banners`, `02_News_Images`, `03_Personnel_Photos`, `04_PDF_Attachments`, `05_ITA_Documents`) และตั้งค่าสิทธิ์การเข้าถึงไฟล์สาธารณะให้อัตโนมัติ
+   - เชื่อมต่อโฟลเดอร์ Google Drive คลังโรงเรียนโดยตรงตามลิงก์ที่กำหนด: [เปิดโฟลเดอร์ Google Drive คลังโรงเรียน](https://drive.google.com/drive/folders/1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc?usp=sharing) (รหัสโฟลเดอร์: `1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc`) และสร้าง/ตรวจสอบโฟลเดอร์ย่อย 5 โฟลเดอร์ (`01_Banners`, `02_News_Images`, `03_Personnel_Photos`, `04_PDF_Attachments`, `05_ITA_Documents`) พร้อมตั้งค่าสิทธิ์การเข้าถึงไฟล์สาธารณะให้อัตโนมัติ
 
 ---
 
@@ -35,7 +35,7 @@
    - **คำอธิบาย (Description):** `API เว็บไซต์โรงเรียนชุมชนแม่ลาศึกษา v1`
    - **ดำเนินการในฐานะ (Execute as):** `ฉัน (Me)`
    - **ผู้ที่มีสิทธิ์เข้าถึง (Who has access):** `ทุกคน (Anyone)` *(สำคัญมาก เพื่อให้หน้าเว็บดึงข่าวสารไปแสดงให้ผู้ปกครองเห็นได้โดยไม่ต้องล็อกอิน)*
-4. กดปุ่ม **ทำให้ใช้งานได้ (Deploy)** แล้วคัดลอก **URL ของเว็บแอป (Web App URL)** ที่ลงท้ายด้วย `/exec` เก็บไว้
+4. กดปุ่ม **ทำให้ใช้งานได้ (Deploy)** แล้วคัดลอก **URL ของเว็บแอป (Web App URL)** ที่ลงท้ายด้วย `/exec` เก็บไว้ (ปัจจุบันระบบเชื่อมต่อ URL: `https://script.google.com/macros/s/AKfycbwHiT3_AYUEqyUevcCcRfG87AT9y_VWdwbrZJFVS2eyX6frtoi_3ucaFqeZc5eJ6UEZ/exec`)
 
 ---
 

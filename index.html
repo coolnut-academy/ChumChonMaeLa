@@ -370,8 +370,10 @@
      * ระบบบริหารจัดการเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา (Single-Page Application)
      * รองรับทั้งการทำงานแบบ Local Storage (ทดสอบ/ออฟไลน์) และ Google Apps Script API
      * ============================================================================
-     */
-    const DEFAULT_GAS_WEB_APP_URL = ''; // วาง URL ของ Google Apps Script (/exec) ที่นี่เมื่อ Deploy จริง
+    const DEFAULT_GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwHiT3_AYUEqyUevcCcRfG87AT9y_VWdwbrZJFVS2eyX6frtoi_3ucaFqeZc5eJ6UEZ/exec'; // URL ของ Google Apps Script (/exec)
+    const DEFAULT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4/edit?gid=0#gid=0'; // ลิงก์ฐานข้อมูล Google Sheets
+    const DEFAULT_DRIVE_FOLDER_ID = '1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc'; // รหัสโฟลเดอร์ Google Drive คลังโรงเรียน
+    const DEFAULT_DRIVE_FOLDER_URL = 'https://drive.google.com/drive/folders/1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc?usp=sharing'; // ลิงก์โฟลเดอร์ Google Drive
     const STORAGE_KEY_DB = 'MAELA_SCHOOL_CMS_DB_V1';
     const STORAGE_KEY_API = 'MAELA_SCHOOL_GAS_URL_V1';
     const STORAGE_KEY_PDPA = 'MAELA_SCHOOL_PDPA_ACCEPTED';
@@ -398,7 +400,11 @@
           facebook_url: 'https://www.facebook.com/',
           vision: 'ภายในปีการศึกษา 2570 โรงเรียนชุมชนแม่ลาศึกษาเป็นสถานศึกษาขยายโอกาสทางการศึกษาคุณภาพชั้นนำ พัฒนาผู้เรียนระดับอนุบาล 2 ถึงมัธยมศึกษาปีที่ 3 ให้มีทักษะวิชาการ ทักษะอาชีพ ทักษะดิจิทัล และคุณธรรมจริยธรรม ตามหลักปรัชญาของเศรษฐกิจพอเพียง',
           identity: 'ยิ้มง่าย ไหว้สวย จิตอาสา พัฒนาทักษะอาชีพ',
-          uniqueness: 'โรงเรียนวิถีชุมชน พื้นที่ปลอดภัย แหล่งเรียนรู้เศรษฐกิจพอเพียงและเทคโนโลยี'
+          uniqueness: 'โรงเรียนวิถีชุมชน พื้นที่ปลอดภัย แหล่งเรียนรู้เศรษฐกิจพอเพียงและเทคโนโลยี',
+          database_sheet_url: DEFAULT_SHEET_URL,
+          gas_web_app_url: DEFAULT_GAS_WEB_APP_URL,
+          drive_root_folder_id: DEFAULT_DRIVE_FOLDER_ID,
+          drive_root_folder_url: DEFAULT_DRIVE_FOLDER_URL
         },
         banners: [
           ...getDefaultHeroBanners(),
@@ -586,8 +592,10 @@
           }
         }
         const savedUrl = localStorage.getItem(STORAGE_KEY_API);
-        if (savedUrl) {
-          state.gasUrl = savedUrl;
+        if (savedUrl && savedUrl.trim()) {
+          state.gasUrl = savedUrl.trim();
+        } else {
+          state.gasUrl = DEFAULT_GAS_WEB_APP_URL;
         }
       } catch (e) {
         // กรณี iframe บล็อก localStorage ให้ใช้ in-memory state ตามปกติ
@@ -2171,14 +2179,33 @@
             <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
               <div class="flex items-center justify-between">
                 <h3 class="font-bold text-slate-900 text-base border-l-4 border-red-700 pl-2.5">การเชื่อมต่อ Google Sheets & Drive API</h3>
-                <span class="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-full">Apps Script</span>
+                <span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> เชื่อมต่อ API แล้ว
+                </span>
               </div>
               <p class="font-sarabun text-xs text-slate-600 leading-relaxed">
-                นำโค้ดจากไฟล์ <code>Code.gs</code> ไปวางใน Google Sheets ของโรงเรียน แล้วกด Deploy เป็น Web App จากนั้นวาง URL ที่ลงท้ายด้วย <code>/exec</code> ด้านล่างนี้
+                ระบบเว็บไซต์เชื่อมต่อกับฐานข้อมูล Google Sheets และคลังไฟล์ Google Drive เรียบร้อยแล้ว
               </p>
+
+              <!-- ลิงก์ฐานข้อมูล Google Sheets -->
+              <div class="bg-slate-50 rounded-xl p-3 border border-slate-200 text-xs space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-600 font-medium flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z"/></svg>
+                    Google Sheets ฐานข้อมูล:
+                  </span>
+                  <a href="${escapeHtml(state.db.config.database_sheet_url || DEFAULT_SHEET_URL)}" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:text-emerald-800 font-bold underline inline-flex items-center gap-0.5">
+                    เปิด Sheet ฐานข้อมูล ↗
+                  </a>
+                </div>
+                <div class="text-[11px] text-slate-500 truncate">
+                  Sheet ID: <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 font-mono text-slate-700">1xq7ZoNo3pTSqdyFMfz75Lpzfy4fpqjJOEEUNXtI45B4</code>
+                </div>
+              </div>
+
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">Google Apps Script Web App URL</label>
-                <input id="inputGasUrl" type="url" value="${escapeHtml(state.gasUrl)}" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+                <input id="inputGasUrl" type="url" value="${escapeHtml(state.gasUrl || DEFAULT_GAS_WEB_APP_URL)}" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-mono text-slate-700" />
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสผ่านยืนยันสิทธิ์กับ Apps Script</label>
@@ -2187,6 +2214,51 @@
               <div class="flex flex-wrap gap-2">
                 <button id="btnSaveGasUrl" type="button" class="bg-red-700 hover:bg-red-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition">บันทึก URL & ดึงข้อมูลจาก Sheet</button>
                 <button id="btnResetDemoData" type="button" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3.5 py-2.5 rounded-xl transition">รีเซ็ตข้อมูลตั้งต้น</button>
+              </div>
+
+              <!-- คำแนะนำตั้งค่าตารางครั้งแรก -->
+              <div class="p-3 bg-amber-50/80 border border-amber-200 rounded-xl text-xs text-amber-900 space-y-1">
+                <p class="font-bold flex items-center gap-1 text-amber-800">
+                  <span>⚡</span> การติดตั้งครั้งแรกใน Apps Script:
+                </p>
+                <p class="text-[11px] text-amber-800/90 leading-relaxed">
+                  ในหน้า Apps Script ให้เลือกฟังก์ชัน <strong><code>setupDatabaseAndDrive</code></strong> จากเมนูด้านบน แล้วกดปุ่ม <strong>เรียกใช้ (Run)</strong> 1 ครั้ง เพื่อให้ระบบสร้างตาราง 8 แท็บ และอนุมัติสิทธิ์ DriveApp จากนั้นกด "บันทึก URL & ดึงข้อมูลจาก Sheet" ครับ
+                </p>
+              </div>
+
+              <!-- ข้อมูลคลังไฟล์ Google Drive Storage -->
+              <div class="pt-4 border-t border-slate-200/80 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>
+                    </span>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-xs">คลังไฟล์ Google Drive</h4>
+                      <p class="text-[11px] text-slate-500">เก็บภาพและไฟล์ PDF ของโรงเรียน</p>
+                    </div>
+                  </div>
+                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> เชื่อมต่อแล้ว
+                  </span>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-3 border border-slate-200 text-xs space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 font-medium">ชื่อโฟลเดอร์:</span>
+                    <span class="font-bold text-slate-800 truncate">เว็บโรงเรียนชุมชมแม่ลาศึกษา</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 font-medium">Folder ID:</span>
+                    <code class="text-[10px] sm:text-[11px] bg-white px-1.5 py-0.5 rounded border border-slate-200 font-mono text-slate-700">1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc</code>
+                  </div>
+                </div>
+                <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-3 rounded-xl transition shadow-sm text-xs">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  เปิดคลัง Google Drive โรงเรียน ↗
+                </a>
+                <div class="text-[11px] text-slate-500 bg-amber-50/70 border border-amber-200 rounded-xl p-2.5">
+                  💡 <strong>โฟลเดอร์ย่อยในคลัง:</strong> ระบบจะจัดเก็บไฟล์แยก 5 โฟลเดอร์อัตโนมัติ (<code>01_Banners</code>, <code>02_News_Images</code>, <code>03_Personnel_Photos</code>, <code>04_PDF_Attachments</code>, <code>05_ITA_Documents</code>)
+                </div>
               </div>
             </div>
 
@@ -2302,14 +2374,20 @@
                 <textarea id="newsContent" rows="3" placeholder="รายละเอียดเนื้อหาข่าวทั้งหมด..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm"></textarea>
               </div>
               <div class="p-3 rounded-xl bg-red-50/70 border border-red-200 space-y-2">
-                <label class="block text-xs font-bold text-red-800">รูปภาพปกข่าว (ย่อไฟล์เป็น .webp อัตโนมัติ หรือใส่รหัสไฟล์ Google Drive)</label>
+                <div class="flex items-center justify-between">
+                  <label class="block text-xs font-bold text-red-800">รูปภาพปกข่าว (ย่อไฟล์เป็น .webp อัตโนมัติ หรือใส่รหัสไฟล์ Google Drive)</label>
+                  <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-red-700 hover:underline font-semibold shrink-0">📁 คลัง Drive</a>
+                </div>
                 <input id="newsFileInput" type="file" accept="image/*" class="block w-full text-xs text-slate-600" />
                 <p id="compressInfoText" class="text-[11px] text-emerald-700 font-medium hidden"></p>
                 <input id="newsDriveId" type="text" placeholder="หรือวาง Google Drive File ID / ลิงก์รูปภาพ" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white" />
                 <div id="newsImagePreview"></div>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ไฟล์แนบ PDF (Google Drive URL ถ้ามี)</label>
+                <div class="flex items-center justify-between mb-1">
+                  <label class="block text-xs font-semibold text-slate-700">ลิงก์ไฟล์แนบ PDF (Google Drive URL ถ้ามี)</label>
+                  <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-red-700 hover:underline font-semibold shrink-0">📁 คลัง Drive</a>
+                </div>
                 <input id="newsPdfUrl" type="text" placeholder="https://drive.google.com/file/d/.../view" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 text-xs" />
               </div>
               <div class="flex items-center gap-2 text-xs">
@@ -2508,7 +2586,10 @@
                 </div>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพ Google Drive (ถ้ามี)</label>
+                <div class="flex items-center justify-between mb-1">
+                  <label class="block text-xs font-semibold text-slate-700">รหัสไฟล์ภาพ Google Drive (ถ้ามี)</label>
+                  <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-red-700 hover:underline font-semibold shrink-0">📁 คลัง Drive</a>
+                </div>
                 <input id="bnDriveId" type="text" placeholder="ปล่อยว่างเพื่อใช้ภาพประกอบ AI" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
                 <div id="bannerImagePreview"></div>
               </div>
@@ -2609,7 +2690,10 @@
                 </div>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">รหัสไฟล์ภาพถ่ายครูบน Google Drive (ถ้ามี)</label>
+                <div class="flex items-center justify-between mb-1">
+                  <label class="block text-xs font-semibold text-slate-700">รหัสไฟล์ภาพถ่ายครูบน Google Drive (ถ้ามี)</label>
+                  <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-red-700 hover:underline font-semibold shrink-0">📁 คลัง Drive</a>
+                </div>
                 <input id="psPhotoId" type="text" placeholder="ระบุ Google Drive File ID" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
                 <div id="personImagePreview"></div>
               </div>
@@ -2705,7 +2789,10 @@
                 <input id="itaTitle" type="text" required placeholder="ระบุชื่อรายงานหรือประกาศ..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">ลิงก์ไฟล์ PDF บน Google Drive</label>
+                <div class="flex items-center justify-between mb-1">
+                  <label class="block text-xs font-semibold text-slate-700">ลิงก์ไฟล์ PDF บน Google Drive</label>
+                  <a href="${escapeHtml(state.db.config.drive_root_folder_url || DEFAULT_DRIVE_FOLDER_URL)}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-red-700 hover:underline font-semibold shrink-0">📁 คลัง Drive</a>
+                </div>
                 <input id="itaUrl" type="text" placeholder="https://drive.google.com/file/d/.../view" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
               </div>
               <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow transition">เพิ่มเอกสาร ITA</button>
