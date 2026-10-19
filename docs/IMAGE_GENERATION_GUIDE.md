@@ -47,6 +47,8 @@ String ว่าง/ช่องว่าง/null/undefined ถือว่า�
 
 รูปที่อัปโหลดสำเร็จไม่มีป้าย AI และไม่มี placeholder srcset มาทับ ส่วนภาพสำรองมี responsive srcset 480w/1200w, sizes, width/height, alt อธิบายว่าเป็นภาพวาด/สมมติ, decoding async และ lazy loading ยกเว้น Hero และภาพที่เพิ่งเปิดใน Popup/Detail/Preview เป็น eager; Hero มี fetchpriority high
 
+Hero ใช้ภาพ campus เต็มพื้นหลัง พร้อมชั้นสีแดงโปร่งเพื่อให้อ่านข้อความชัด แทนลายตารางและกรอบภาพด้านข้างเดิม ภาพที่อัปโหลดในแต่ละสไลด์ยังมีลำดับความสำคัญก่อนภาพ campus และบนมือถือเลือกไฟล์ใหญ่พอสำหรับการครอปภาพแนวตั้ง
+
 News ยังคง FileReader, Canvas compression เป็น WebP กว้างไม่เกิน 960px, เพิ่ม/แก้/ลบ record และ storage/sync เดิมไว้ การแก้ข้อความโดยไม่เปลี่ยนภาพคง cover เดิม และเลือกไฟล์ใหม่แล้วจะล้าง Drive ID เก่าเพื่อให้ภาพใหม่แสดงก่อน Preview ไม่เขียน placeholder ลง record สามารถล้างช่องรูปในฟอร์มแก้ข่าวเพื่อกลับไปใช้ภาพสำรอง
 
 Banner และ Personnel ยังคงรับ Drive ID/URL และเพิ่ม/ลบรายการตามระบบเดิม ไม่มีการเปลี่ยน schema หรือเพิ่ม workflow upload ไป Drive ใหม่ Backend `Code.gs` รวม `uploadDriveFile`, permissions และ Database Schema ไม่ได้แก้ไข

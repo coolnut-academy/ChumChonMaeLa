@@ -79,8 +79,8 @@
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 481.328125,
-          "renderedHeight": 288
+          "renderedWidth": 1440,
+          "renderedHeight": 520
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -210,16 +210,16 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
-          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
           "loading": "eager",
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 481.328125,
-          "renderedHeight": 288
+          "renderedWidth": 1440,
+          "renderedHeight": 520
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -349,16 +349,16 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
-          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
           "loading": "eager",
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 481.328125,
-          "renderedHeight": 288
+          "renderedWidth": 1440,
+          "renderedHeight": 520
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -1378,7 +1378,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "/school/public/images/placeholders/academic-term-planning.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1578,7 +1578,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus-thumb.webp",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1586,8 +1586,8 @@
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 323,
-          "renderedHeight": 240
+          "renderedWidth": 375,
+          "renderedHeight": 524.25
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -1717,16 +1717,16 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
-          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
           "loading": "eager",
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 323,
-          "renderedHeight": 240
+          "renderedWidth": 375,
+          "renderedHeight": 524.25
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -1856,16 +1856,16 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
-          "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
           "loading": "eager",
           "hasDimensions": true,
           "hasLocalSrc": true,
           "hasCaption": true,
-          "renderedWidth": 323,
-          "renderedHeight": 240
+          "renderedWidth": 375,
+          "renderedHeight": 524.25
         },
         {
           "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
@@ -2007,7 +2007,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus-thumb.webp",
+          "src": "/school/public/images/placeholders/community-school-campus.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",

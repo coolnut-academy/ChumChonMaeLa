@@ -7,7 +7,7 @@
 - เว็บไซต์เป็น static hash-routed SPA ใน `index.html`; API และ Google Drive upload อยู่ใน `Code.gs` ไม่มี Next.js, `next/image`, package manifest หรือ build pipeline เดิม
 - สำรวจ routes ทั้ง 10: `#/home`, `#/about`, `#/academics`, `#/personnel`, `#/news`, `#/admissions`, `#/services`, `#/ita`, `#/contact`, `#/admin` รวม news detail / announcement modals และแท็บ CMS
 - ของเดิม: Hero 2 สไลด์, Popup, news covers ใช้ SVG data URL ที่สร้างด้วยโค้ด; personnel ใช้อักษรย่อเมื่อไม่มีภาพ ไม่มีไฟล์ภาพจริงใน repository ตอนเริ่มงาน
-- CSS gradient, ลายจุดใน Hero, สีประจำโรงเรียน และ SVG icons เป็นองค์ประกอบ design system ไม่ใช่ช่องภาพถ่าย จึงคงไว้ ไม่ใช้แทนภาพ AI
+- สีประจำโรงเรียนและ SVG icons คงเดิม ส่วน Hero ปรับตามที่ผู้ใช้เลือกเป็นภาพวาดโรงเรียนเต็มพื้นหลัง ลบลายตารางเดิม และใช้สีแดงโปร่งรองข้อความ
 - ตรวจพบ ImageGen Skill และ built-in `image_gen.imagegen` และทดลองเรียกสร้างภาพ campus สำเร็จ ใช้ built-in mode เท่านั้น
 
 ## ทิศทางภาพ
@@ -20,8 +20,8 @@
 
 | Key / ชื่อไฟล์หลัก | ประเภท | เนื้อหา | ตำแหน่ง |
 | --- | --- | --- | --- |
-| campus / `community-school-campus.webp` | Hero / illustration | อาคารเรียนสมมติ หลังคาแดง สวนและลานโรงเรียน | Home สไลด์ต้อนรับ, About, ข่าว PR ทั่วไปที่ไม่มีภาพ |
-| kinder / `kindergarten-play-learning.webp` | Hero / Card / Banner | เด็กปฐมวัยสมมติกับกิจกรรมบล็อกและศิลปะ | Home สไลด์หลักสูตร, การ์ดอนุบาล, Academics ปฐมวัย, ข่าวกิจกรรมอนุบาล |
+| campus / `community-school-campus.webp` | Hero background / illustration | อาคารเรียนสมมติ หลังคาแดง สวนและลานโรงเรียน | Home พื้นหลังเต็มพื้นที่ทุกสไลด์เมื่อยังไม่มีภาพอัปโหลด, About, ข่าว PR ทั่วไปที่ไม่มีภาพ |
+| kinder / `kindergarten-play-learning.webp` | Card / Banner | เด็กปฐมวัยสมมติกับกิจกรรมบล็อกและศิลปะ | Home การ์ดอนุบาล, Academics ปฐมวัย, ข่าวกิจกรรมอนุบาล |
 | primary / `primary-reading-discovery.webp` | Card / Banner | เด็กประถมอ่านหนังสือและเรียนรู้การคำนวณร่วมกัน | Home การ์ดประถม, Academics ประถม |
 | secondary / `secondary-science-careers.webp` | Card / Banner | เด็กมัธยมทำโครงงานวิทยาศาสตร์ เทคโนโลยีและเกษตร | Home การ์ดมัธยม, Academics มัธยม |
 | admissions / `school-admissions-welcome.webp` | Popup / Banner | ครูต้อนรับผู้ปกครองและเด็กสมมติ | Popup รับสมัคร, Admissions |
