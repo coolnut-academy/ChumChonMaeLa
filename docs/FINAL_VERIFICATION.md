@@ -2,9 +2,17 @@
 
 ตรวจวันที่ 19 ตุลาคม 2026 — โรงเรียนชุมชนแม่ลาศึกษา
 
+## โลโก้ล่าสุด
+
+ใช้ตราจาก `public/LogoSchool.png` โดยเก็บต้นฉบับเดิม ส่งออกโลโก้โปร่งใสขนาด 40/48/64px พร้อมไฟล์ 2x ที่ 80/96/128px และ favicon/ไอคอนมือถือ รวม 12 ไฟล์ ใน `public/images/branding/` ส่วนหัวทุกหน้าแสดง 48px (มือถือ 40px), ท้ายเว็บ 40px, หน้าเข้าสู่ระบบ Admin 64px ไม่มีกรอบ เงา หรือพื้นหลังเพิ่ม เลิกใช้ไฟล์โลโก้ 500×500 พร้อมแก้ width/height ใน HTML ให้ตรงขนาดใช้งาน ลดไฟล์ส่วนหัวจาก 466,849 เหลือ 6,611 bytes (1x) รายละเอียด [SCHOOL_LOGO_GUIDE.md](SCHOOL_LOGO_GUIDE.md)
+
+ตรวจขนาดโลโก้ล่าสุด **PASS — 62 checks / 12 views** ที่ 320, 768 และ 1440px ทั้ง DPR 1 และ 2: PNG ทุกไฟล์ขนาดตรง manifest และมีมุมโปร่งใส โลโก้ส่วนหัว/ท้ายเว็บ/Admin แสดงขนาดตามตำแหน่ง เลือกไฟล์ 1x/2x ได้ถูกต้องผ่านเส้นทาง `/school/` มี alt รักษาสัดส่วน ไม่มี CSS ตกแต่งภาพ, page overflow หรือ JavaScript error ตรวจ SHA-256 ยืนยันว่าต้นฉบับไม่เปลี่ยน หลักฐาน [logo-verification-results.json](logo-verification-results.json) และ `.verification/logo-*.png`
+
+ตรวจ responsive หลังเปลี่ยนโลโก้ซ้ำ: **PASS — 332 checks / 122 views / 7 viewport sizes** ครบ 10 routes และ Admin 7 tabs ใช้ Chrome viewport emulation รวม iPad แนวตั้ง ไม่ใช่ Safari บนอุปกรณ์จริง
+
 ผล `npm run verify:images`: **PASS — 92 checks / 72 route-and-view inspections** บน Desktop และ Mobile ไม่มี uncaught browser error, missing local resources หรือ horizontal overflow ในหน้าที่ตรวจ
 
-ตัวอย่างธีมขาวไข่มุก–แดงสตรอว์เบอร์รีล่าสุด: [Desktop](theme-preview-desktop.webp) / [Mobile](theme-preview-mobile.webp)
+ตัวอย่างล่าสุด: [Desktop](theme-preview-desktop.webp) / [Mobile](theme-preview-mobile.webp) / [iPad แนวตั้ง](theme-preview-ipad.webp)
 
 ## ผลงานที่ส่งมอบ
 
@@ -55,8 +63,8 @@
 - ภาพทุกไฟล์ decode ได้และมีขนาดตามที่กำหนด Browser โหลดได้ทั้ง main และ thumbnail ผ่าน responsive srcset
 - ภาพมี width/height, alt ตามเนื้อหา, object-fit: cover และขนาดแสดงผลไม่เป็นศูนย์ ทุกภาพ AI มีป้ายแยกใน UI; avatar ไม่มีใบหน้าและมีคำอธิบายว่าไม่ใช่บุคคลจริง
 - Hero ใช้ eager / fetchpriority high, ภาพที่เปิดใน Popup/Detail/Preview เป็น eager และรูปเนื้อหาทั่วไป lazy
-- Hero ปรับเป็นภาพวาดโรงเรียนเต็มพื้นที่พร้อมชั้นขาวไข่มุกและข้อความแดงเข้ม ลบลายตารางและกรอบภาพด้านข้างเดิม ตรวจการครอป ป้าย AI และลำดับชั้นข้อความทั้ง Desktop/Mobile แล้ว
-- ปรับล่าสุดให้ชั้นขาวฟุ้งสิ้นสุดที่ 30% ของภาพ และตรวจซ้ำเฉพาะ Hero ทั้ง 5 สไลด์บน Desktop 1440px / Mobile 375px รวม 10 สถานะ ไม่พบ overflow หรือ JavaScript error
+- Hero แสดงภาพล้วน ไม่มีป้าย หัวข้อ คำอธิบาย CTA หรือสีฟุ้งทับภาพ ปุ่มควบคุมกับคำกำกับ AI อยู่ใต้ภาพ เมนูลัดไม่ซ้อนบนภาพ
+- รูปสูงไม่เกิน 420px บน Desktop และเป็นสัดส่วน 3:2 บนมือถือ ตรวจทุกสไลด์ทุกขนาดจอว่าปุ่มควบคุม คำกำกับ และเมนูลัดอยู่ใต้ภาพทั้งหมด
 - ภาพอัปโหลดมาก่อนภาพสำรองทั้ง Hero, Popup, Personnel และ News และชื่อผู้บริหารหน้า Home อ้างอิง record เดียวกับภาพ
 - ทดสอบข่าวที่มีเฉพาะ cover_url: แก้หัวข้อแล้วภาพเดิมยังอยู่; ทดสอบ Drive ID เดิมแล้วเลือกไฟล์ใหม่: Preview แสดงไฟล์ใหม่และการบันทึกล้าง Drive ID เก่า
 - ล้างค่าภาพแล้วกลับไปแสดงภาพตามหมวด, ลบข่าวยังลบได้, ภาพ upload ที่โหลดผิดพลาดกลับไปภาพ AI พร้อมป้ายกำกับและไม่วนโหลดซ้ำ
@@ -74,11 +82,20 @@
 - จำลอง API upload ปฏิเสธ: record เดิมไม่เปลี่ยน; ลองใหม่สำเร็จ: บันทึก File ID ที่ API ส่งกลับ
 - ทดสอบข้อมูลเก่า 2 แบนเนอร์: เติมให้ครบ 5 ตำแหน่งโดยคง ID, ข้อความ และภาพจริงเดิม ไม่เขียน metadata/UI placeholder ลง Sheet
 
+## Responsive มือถือและ iPad แนวตั้ง
+
+ผล `npm run verify:responsive`: **PASS — 332 checks / 122 views / 7 viewport sizes** ที่ความกว้าง 320, 375, 390, 768, 820, 1024 และ 1440px ครอบคลุม 10 routes และ Admin 7 tabs ไม่พบ page overflow หรือ JavaScript error ปุ่มเมนูแต่ละปุ่มเป็นบรรทัดเดียว ไม่ตัดคำ และขึ้นแถวใหม่ทั้งปุ่มได้
+
+มือถือใช้เมนูพับพร้อม aria-expanded; แท็บเล็ต/desktop แสดงปุ่มนำทางแบบ flex wrap เมนูลัดจัด 2/3/6 คอลัมน์ตามพื้นที่ input บนมือถือใช้ 16px และตารางที่กว้างยังเลื่อนภายในได้ การตรวจใช้ Chrome + touch/viewport emulation ไม่ใช่การรันบนอุปกรณ์ Safari จริง
+
+รายละเอียด: [RESPONSIVE_VERIFICATION.md](RESPONSIVE_VERIFICATION.md) / [ผล JSON](responsive-results.json)
+
 ## วิธีตรวจซ้ำและหลักฐาน
 
 ```sh
 npm ci
 npm run verify:images
+npm run verify:responsive
 ```
 
 ใช้ Chrome ที่ติดตั้งไว้ หรือ `npx playwright install chromium` หากไม่มี browser; สามารถกำหนด `CHROME_PATH` ได้ Script อยู่ที่ `scripts/verify-images.cjs` หลักฐาน screenshots และผล JSON จากการรันอยู่ใน `.verification/` และสรุปผลที่เก็บกับ repository อยู่ใน [verification-results.json](verification-results.json)
@@ -89,4 +106,4 @@ npm run verify:images
 
 การทดสอบใช้ localStorage ใน browser context แยกและจำลองทั้ง Drive image response และ upload API แบบสำเร็จ/ปฏิเสธ เพื่อทดสอบ frontend ยังไม่ได้ทดสอบสิทธิ์ไฟล์ Google Drive หรือซิงก์ Google Sheets จริง เพราะโปรเจกต์ไม่ได้ตั้งค่า Web App URL และไม่มีการ deploy งานนี้
 
-นำ `index.html`, `image-placeholders.js`, `hero-slideshow.js` และ `public/images/placeholders/` ขึ้น hosting พร้อมกันตามคู่มือที่ปรับแล้ว ไม่ต้องนำ node_modules หรือ `.verification/` ขึ้นเว็บไซต์
+นำ `index.html`, `site.webmanifest`, `image-placeholders.js`, `hero-slideshow.js` และ `public/images/` ทั้งโฟลเดอร์ขึ้น hosting พร้อมกันตามคู่มือที่ปรับแล้ว ไม่ต้องนำ node_modules หรือ `.verification/` ขึ้นเว็บไซต์

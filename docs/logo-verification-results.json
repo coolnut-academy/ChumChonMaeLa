@@ -1,0 +1,573 @@
+{
+  "checks": [
+    "Original source SHA-256 unchanged",
+    "500px logo removed from UI and exported assets",
+    "school-logo-40.png dimensions and transparent corners",
+    "school-logo-48.png dimensions and transparent corners",
+    "school-logo-64.png dimensions and transparent corners",
+    "school-logo-80.png dimensions and transparent corners",
+    "school-logo-96.png dimensions and transparent corners",
+    "school-logo-128.png dimensions and transparent corners",
+    "favicon-16x16.png dimensions and transparent corners",
+    "favicon-32x32.png dimensions and transparent corners",
+    "apple-touch-icon.png dimensions and transparent corners",
+    "android-chrome-192x192.png dimensions and transparent corners",
+    "android-chrome-512x512.png dimensions and transparent corners",
+    "320 @1 home correct logo count",
+    "320 @1 home correct display sizes and 1x/2x local assets",
+    "320 @1 home transparent with no decoration",
+    "320 @1 home no overflow",
+    "320 @1 admin correct logo count",
+    "320 @1 admin correct display sizes and 1x/2x local assets",
+    "320 @1 admin transparent with no decoration",
+    "320 @1 admin no overflow",
+    "320 @2 home correct logo count",
+    "320 @2 home correct display sizes and 1x/2x local assets",
+    "320 @2 home transparent with no decoration",
+    "320 @2 home no overflow",
+    "320 @2 admin correct logo count",
+    "320 @2 admin correct display sizes and 1x/2x local assets",
+    "320 @2 admin transparent with no decoration",
+    "320 @2 admin no overflow",
+    "768 @1 home correct logo count",
+    "768 @1 home correct display sizes and 1x/2x local assets",
+    "768 @1 home transparent with no decoration",
+    "768 @1 home no overflow",
+    "768 @1 admin correct logo count",
+    "768 @1 admin correct display sizes and 1x/2x local assets",
+    "768 @1 admin transparent with no decoration",
+    "768 @1 admin no overflow",
+    "768 @2 home correct logo count",
+    "768 @2 home correct display sizes and 1x/2x local assets",
+    "768 @2 home transparent with no decoration",
+    "768 @2 home no overflow",
+    "768 @2 admin correct logo count",
+    "768 @2 admin correct display sizes and 1x/2x local assets",
+    "768 @2 admin transparent with no decoration",
+    "768 @2 admin no overflow",
+    "1440 @1 home correct logo count",
+    "1440 @1 home correct display sizes and 1x/2x local assets",
+    "1440 @1 home transparent with no decoration",
+    "1440 @1 home no overflow",
+    "1440 @1 admin correct logo count",
+    "1440 @1 admin correct display sizes and 1x/2x local assets",
+    "1440 @1 admin transparent with no decoration",
+    "1440 @1 admin no overflow",
+    "1440 @2 home correct logo count",
+    "1440 @2 home correct display sizes and 1x/2x local assets",
+    "1440 @2 home transparent with no decoration",
+    "1440 @2 home no overflow",
+    "1440 @2 admin correct logo count",
+    "1440 @2 admin correct display sizes and 1x/2x local assets",
+    "1440 @2 admin transparent with no decoration",
+    "1440 @2 admin no overflow",
+    "No uncaught browser errors"
+  ],
+  "views": [
+    {
+      "width": 320,
+      "dpr": 1,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "dpr": 1,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-64.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "dpr": 2,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "dpr": 2,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-128.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "dpr": 1,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "dpr": 1,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-64.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "dpr": 2,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "dpr": 2,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-128.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "dpr": 1,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "dpr": 1,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-48.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-64.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-40.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "dpr": 2,
+      "route": "home",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "dpr": 2,
+      "route": "admin",
+      "logos": [
+        {
+          "role": "header",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-96.png",
+          "width": 48,
+          "height": 48,
+          "intrinsicWidth": "48",
+          "intrinsicHeight": "48",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "admin",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-128.png",
+          "width": 64,
+          "height": 64,
+          "intrinsicWidth": "64",
+          "intrinsicHeight": "64",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        },
+        {
+          "role": "footer",
+          "src": "http://127.0.0.1:49280/school/public/images/branding/school-logo-80.png",
+          "width": 40,
+          "height": 40,
+          "intrinsicWidth": "40",
+          "intrinsicHeight": "40",
+          "shadow": "none",
+          "bg": "rgba(0, 0, 0, 0)",
+          "margin": "0px",
+          "padding": "0px",
+          "fit": "contain",
+          "alt": "ตราโรงเรียนชุมชนแม่ลาศึกษา"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,7 +1,4 @@
 {
-  "verifiedOn": "2026-10-19",
-  "command": "npm run verify:images",
-  "status": "passed",
   "checks": [
     "All inline and external JavaScript parses",
     "29 actual WebP image files exist",
@@ -103,7 +100,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-school-entrance.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-school-entrance.webp",
           "alt": "ภาพวาดป้ายและทางเข้าโรงเรียนสมมติ ไม่ใช่ป้ายโรงเรียนจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -112,10 +109,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -127,7 +124,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -139,7 +136,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -151,7 +148,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -163,7 +160,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -175,7 +172,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -187,7 +184,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -199,7 +196,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -211,7 +208,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -223,7 +220,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -242,7 +239,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-primary-building.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-primary-building.webp",
           "alt": "ภาพวาดอาคารประถมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -251,10 +248,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -266,7 +263,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -278,7 +275,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -290,7 +287,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -302,7 +299,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -314,7 +311,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -326,7 +323,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -338,7 +335,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -350,7 +347,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -362,7 +359,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -381,7 +378,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-secondary-building.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-secondary-building.webp",
           "alt": "ภาพวาดอาคารมัธยมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -390,10 +387,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -405,7 +402,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -417,7 +414,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -429,7 +426,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -441,7 +438,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -453,7 +450,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -465,7 +462,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -477,7 +474,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -489,7 +486,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -501,7 +498,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -520,7 +517,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-flagpole-assembly.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-flagpole-assembly.webp",
           "alt": "ภาพวาดกิจกรรมหน้าเสาธงของนักเรียนสมมติ ไม่ใช่ภาพเหตุการณ์จริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -529,10 +526,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -544,7 +541,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -556,7 +553,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -568,7 +565,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -580,7 +577,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -592,7 +589,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -604,7 +601,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -616,7 +613,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -628,7 +625,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -640,7 +637,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -659,7 +656,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -668,10 +665,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -683,7 +680,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -695,7 +692,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -707,7 +704,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -719,7 +716,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -731,7 +728,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -743,7 +740,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -755,7 +752,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -767,7 +764,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -779,7 +776,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -798,7 +795,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -807,10 +804,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 1440,
-          "renderedHeight": 560
+          "renderedHeight": 420
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -822,7 +819,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -834,7 +831,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -846,7 +843,7 @@
           "renderedHeight": 234.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -858,7 +855,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -870,7 +867,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -882,7 +879,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -894,7 +891,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -906,7 +903,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -918,7 +915,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -930,7 +927,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/school-admissions-welcome.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-admissions-welcome.webp",
           "alt": "ภาพวาดครูต้อนรับผู้ปกครองและเด็กสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -949,7 +946,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -968,7 +965,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -987,7 +984,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1006,7 +1003,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1025,7 +1022,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1037,7 +1034,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1049,7 +1046,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1061,7 +1058,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1073,7 +1070,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1085,7 +1082,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1097,7 +1094,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1109,7 +1106,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1121,7 +1118,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1133,7 +1130,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1152,7 +1149,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1164,7 +1161,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1176,7 +1173,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1188,7 +1185,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1200,7 +1197,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1212,7 +1209,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1231,7 +1228,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1243,7 +1240,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1255,7 +1252,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1267,7 +1264,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1279,7 +1276,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1291,7 +1288,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1303,7 +1300,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1322,7 +1319,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1334,7 +1331,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1346,7 +1343,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1358,7 +1355,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1370,7 +1367,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1382,7 +1379,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1394,7 +1391,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1413,7 +1410,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1425,7 +1422,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1437,7 +1434,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1449,7 +1446,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1461,7 +1458,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1473,7 +1470,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1485,7 +1482,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1504,7 +1501,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1516,7 +1513,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1528,7 +1525,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1540,7 +1537,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1552,7 +1549,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1564,7 +1561,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1576,7 +1573,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1595,7 +1592,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1607,7 +1604,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1619,7 +1616,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1631,7 +1628,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1643,7 +1640,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1655,7 +1652,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1667,7 +1664,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1686,7 +1683,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1698,7 +1695,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1710,7 +1707,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1722,7 +1719,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1734,7 +1731,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1746,7 +1743,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1758,7 +1755,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1777,7 +1774,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1796,7 +1793,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1808,7 +1805,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1827,7 +1824,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-term-planning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1846,7 +1843,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1865,7 +1862,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/teacher-preparation.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1884,7 +1881,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1903,7 +1900,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/school-admissions-welcome.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-admissions-welcome.webp",
           "alt": "ภาพวาดครูต้อนรับผู้ปกครองและเด็กสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1952,7 +1949,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1971,7 +1968,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-school-entrance-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-school-entrance-thumb.webp",
           "alt": "ภาพวาดป้ายและทางเข้าโรงเรียนสมมติ ไม่ใช่ป้ายโรงเรียนจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1983,7 +1980,7 @@
           "renderedHeight": 245.765625
         },
         {
-          "src": "/school/public/images/placeholders/hero-primary-building-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-primary-building-thumb.webp",
           "alt": "ภาพวาดอาคารประถมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -1995,7 +1992,7 @@
           "renderedHeight": 245.78125
         },
         {
-          "src": "/school/public/images/placeholders/hero-secondary-building-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-secondary-building-thumb.webp",
           "alt": "ภาพวาดอาคารมัธยมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2007,7 +2004,7 @@
           "renderedHeight": 245.765625
         },
         {
-          "src": "/school/public/images/placeholders/hero-flagpole-assembly-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-flagpole-assembly-thumb.webp",
           "alt": "ภาพวาดกิจกรรมหน้าเสาธงของนักเรียนสมมติ ไม่ใช่ภาพเหตุการณ์จริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2019,7 +2016,7 @@
           "renderedHeight": 245.765625
         },
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2031,7 +2028,7 @@
           "renderedHeight": 245.78125
         },
         {
-          "src": "/school/public/images/placeholders/community-school-campus.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2050,7 +2047,7 @@
       "scrollWidth": 1440,
       "images": [
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2087,7 +2084,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-school-entrance.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-school-entrance-thumb.webp",
           "alt": "ภาพวาดป้ายและทางเข้าโรงเรียนสมมติ ไม่ใช่ป้ายโรงเรียนจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2096,10 +2093,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2111,7 +2108,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2123,7 +2120,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2135,7 +2132,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2147,7 +2144,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2159,7 +2156,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2171,7 +2168,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2183,7 +2180,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2195,7 +2192,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2207,7 +2204,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2226,7 +2223,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-primary-building.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-primary-building-thumb.webp",
           "alt": "ภาพวาดอาคารประถมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2235,10 +2232,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2250,7 +2247,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2262,7 +2259,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2274,7 +2271,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2286,7 +2283,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2298,7 +2295,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2310,7 +2307,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2322,7 +2319,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2334,7 +2331,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2346,7 +2343,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2365,7 +2362,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-secondary-building.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-secondary-building-thumb.webp",
           "alt": "ภาพวาดอาคารมัธยมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2374,10 +2371,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2389,7 +2386,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2401,7 +2398,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2413,7 +2410,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2425,7 +2422,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2437,7 +2434,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2449,7 +2446,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2461,7 +2458,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2473,7 +2470,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2485,7 +2482,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2504,7 +2501,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-flagpole-assembly.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-flagpole-assembly-thumb.webp",
           "alt": "ภาพวาดกิจกรรมหน้าเสาธงของนักเรียนสมมติ ไม่ใช่ภาพเหตุการณ์จริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2513,10 +2510,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2528,7 +2525,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2540,7 +2537,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2552,7 +2549,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2564,7 +2561,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2576,7 +2573,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2588,7 +2585,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2600,7 +2597,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2612,7 +2609,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2624,7 +2621,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2643,7 +2640,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2652,10 +2649,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2667,7 +2664,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2679,7 +2676,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2691,7 +2688,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2703,7 +2700,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2715,7 +2712,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2727,7 +2724,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2739,7 +2736,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2751,7 +2748,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2763,7 +2760,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2782,7 +2779,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2791,10 +2788,10 @@
           "hasLocalSrc": true,
           "hasCaption": true,
           "renderedWidth": 375,
-          "renderedHeight": 640
+          "renderedHeight": 250
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2806,7 +2803,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2818,7 +2815,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2830,7 +2827,7 @@
           "renderedHeight": 196.65625
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2842,7 +2839,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2854,7 +2851,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2866,7 +2863,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2878,7 +2875,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2890,7 +2887,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2902,7 +2899,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2914,7 +2911,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/school-admissions-welcome-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-admissions-welcome-thumb.webp",
           "alt": "ภาพวาดครูต้อนรับผู้ปกครองและเด็กสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2933,7 +2930,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus-thumb.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2952,7 +2949,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2971,7 +2968,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/primary-reading-discovery-thumb.webp",
           "alt": "ภาพวาดเด็กประถมสมมติอ่านหนังสือและฝึกคำนวณร่วมกัน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -2990,7 +2987,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/secondary-science-careers-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/secondary-science-careers-thumb.webp",
           "alt": "ภาพวาดนักเรียนมัธยมสมมติทำโครงงานวิทยาศาสตร์และเกษตร (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3009,7 +3006,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3021,7 +3018,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3033,7 +3030,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3045,7 +3042,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3057,7 +3054,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3069,7 +3066,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3081,7 +3078,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3093,7 +3090,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3105,7 +3102,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3117,7 +3114,7 @@
           "renderedHeight": 64
         },
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3136,7 +3133,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3148,7 +3145,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3160,7 +3157,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3172,7 +3169,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3184,7 +3181,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3196,7 +3193,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3215,7 +3212,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3227,7 +3224,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3239,7 +3236,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3251,7 +3248,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3263,7 +3260,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3275,7 +3272,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3287,7 +3284,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3306,7 +3303,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3318,7 +3315,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3330,7 +3327,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3342,7 +3339,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3354,7 +3351,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3366,7 +3363,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3378,7 +3375,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3397,7 +3394,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3409,7 +3406,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3421,7 +3418,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3433,7 +3430,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3445,7 +3442,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3457,7 +3454,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3469,7 +3466,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3488,7 +3485,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3500,7 +3497,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3512,7 +3509,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3524,7 +3521,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3536,7 +3533,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3548,7 +3545,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3560,7 +3557,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3579,7 +3576,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3591,7 +3588,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3603,7 +3600,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3615,7 +3612,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3627,7 +3624,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3639,7 +3636,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3651,7 +3648,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3670,7 +3667,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3682,7 +3679,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3694,7 +3691,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3706,7 +3703,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3718,7 +3715,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3730,7 +3727,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3742,7 +3739,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3761,7 +3758,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/kindergarten-play-learning-thumb.webp",
           "alt": "ภาพวาดเด็กปฐมวัยสมมติเรียนรู้ผ่านบล็อกและศิลปะ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3780,7 +3777,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3792,7 +3789,7 @@
           "renderedHeight": 176
         },
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3811,7 +3808,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-term-planning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-term-planning-thumb.webp",
           "alt": "ภาพวาดสมุดวางแผนและอุปกรณ์การเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3830,7 +3827,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-lunch-supplies-thumb.webp",
           "alt": "ภาพวาดวัตถุดิบอาหารกลางวันและแฟ้มจัดซื้อเชิงสัญลักษณ์ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3849,7 +3846,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/teacher-preparation-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/teacher-preparation-thumb.webp",
           "alt": "ภาพวาดโต๊ะเตรียมการสอนและหนังสือสำหรับครู (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3868,7 +3865,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/academic-achievement-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/academic-achievement-thumb.webp",
           "alt": "ภาพวาดถ้วยรางวัล หนังสือ และต้นอ่อน สื่อถึงความสำเร็จทางการศึกษา (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3887,7 +3884,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/school-admissions-welcome-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/school-admissions-welcome-thumb.webp",
           "alt": "ภาพวาดครูต้อนรับผู้ปกครองและเด็กสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3936,7 +3933,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/community-school-campus-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus-thumb.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3955,7 +3952,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/hero-school-entrance-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-school-entrance-thumb.webp",
           "alt": "ภาพวาดป้ายและทางเข้าโรงเรียนสมมติ ไม่ใช่ป้ายโรงเรียนจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3967,7 +3964,7 @@
           "renderedHeight": 206
         },
         {
-          "src": "/school/public/images/placeholders/hero-primary-building-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-primary-building-thumb.webp",
           "alt": "ภาพวาดอาคารประถมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3979,7 +3976,7 @@
           "renderedHeight": 206
         },
         {
-          "src": "/school/public/images/placeholders/hero-secondary-building-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-secondary-building-thumb.webp",
           "alt": "ภาพวาดอาคารมัธยมศึกษาสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -3991,7 +3988,7 @@
           "renderedHeight": 206
         },
         {
-          "src": "/school/public/images/placeholders/hero-flagpole-assembly-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-flagpole-assembly-thumb.webp",
           "alt": "ภาพวาดกิจกรรมหน้าเสาธงของนักเรียนสมมติ ไม่ใช่ภาพเหตุการณ์จริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -4003,7 +4000,7 @@
           "renderedHeight": 206
         },
         {
-          "src": "/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/hero-classroom-learning-thumb.webp",
           "alt": "ภาพวาดครูและเด็กสมมติเรียนรู้ร่วมกันในห้องเรียน (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -4015,7 +4012,7 @@
           "renderedHeight": 206
         },
         {
-          "src": "/school/public/images/placeholders/community-school-campus-thumb.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/community-school-campus-thumb.webp",
           "alt": "ภาพวาดอาคารเรียนและสวนของโรงเรียนชุมชนสมมติ (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",
@@ -4034,7 +4031,7 @@
       "scrollWidth": 375,
       "images": [
         {
-          "src": "/school/public/images/placeholders/staff-neutral-avatar.webp",
+          "src": "http://127.0.0.1:57463/school/public/images/placeholders/staff-neutral-avatar.webp",
           "alt": "ภาพแทนบุคลากรแบบไม่มีใบหน้า ไม่ใช่ภาพบุคคลจริง (สร้างด้วย AI)",
           "loaded": true,
           "fit": "cover",

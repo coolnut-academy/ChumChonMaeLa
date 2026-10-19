@@ -96,10 +96,10 @@ function renderSchoolImage(value, type, title, options) {
     : '';
   return '<figure class="school-image ' + escapeHtml(opts.wrapperClass || '') + '">'
     + '<img data-school-image data-fallback-src="' + escapeHtml(fallbackUrl) + '" data-fallback-alt="' + escapeHtml(fallbackAlt) + '" src="' + escapeHtml(src) + '"' + srcset
-    + ' alt="' + escapeHtml(alt) + '" width="' + (avatar ? 256 : 1200) + '" height="' + (avatar ? 256 : 800) + '"'
+    + ' alt="' + escapeHtml(alt) + '"' + (opts.externalCaptionId ? ' aria-describedby="' + escapeHtml(opts.externalCaptionId) + '" data-external-caption="' + escapeHtml(opts.externalCaptionId) + '"' : '') + ' width="' + (avatar ? 256 : 1200) + '" height="' + (avatar ? 256 : 800) + '"'
     + ' loading="' + (opts.eager ? 'eager' : 'lazy') + '"' + (opts.priority ? ' fetchpriority="high"' : '') + ' decoding="async" class="' + escapeHtml(opts.imageClass || 'w-full aspect-[3/2] object-cover rounded-xl') + '" />'
-    + '<figcaption class="school-image-label"' + (isPlaceholder ? '' : ' hidden') + ' title="' + AI_IMAGE_NOTICE + '">'
-    + (avatar ? '<span aria-hidden="true">AI</span><span class="sr-only">' + AI_IMAGE_NOTICE + '</span>' : AI_IMAGE_NOTICE) + '</figcaption></figure>';
+    + (opts.externalCaptionId ? '' : '<figcaption class="school-image-label"' + (isPlaceholder ? '' : ' hidden') + ' title="' + AI_IMAGE_NOTICE + '">'
+    + (avatar ? '<span aria-hidden="true">AI</span><span class="sr-only">' + AI_IMAGE_NOTICE + '</span>' : AI_IMAGE_NOTICE) + '</figcaption>') + '</figure>';
 }
 
 // A failed uploaded image falls back visually, without changing its stored URL.
@@ -114,4 +114,7 @@ document.addEventListener('error', function(event) {
   img.src = img.dataset.fallbackSrc;
   const label = img.parentElement.querySelector('figcaption');
   if (label) label.hidden = false;
+  const external = document.getElementById(img.dataset.externalCaption);
+  const slide = img.closest('[data-hero-slide]');
+  if (external && (!slide || slide.classList.contains('is-active'))) { external.hidden = false; external.textContent = AI_IMAGE_NOTICE; }
 }, true);

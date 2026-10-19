@@ -33,35 +33,31 @@ function renderHomeHero() {
   const slides = getHeroSlides();
   if (!slides.length) return '';
   state.heroIndex = ((state.heroIndex % slides.length) + slides.length) % slides.length;
-  const button = 'p-2 rounded-lg bg-white/95 hover:bg-red-100 text-red-700 border border-red-100 transition';
-  return `<section id="homeHero" class="school-hero relative bg-pearl-50 text-red-900 overflow-hidden" role="region" aria-roledescription="carousel" aria-label="ภาพบรรยากาศโรงเรียน">
-    ${slides.map(function(slide, index) {
-      const active = index === state.heroIndex;
-      return `<div class="hero-slide ${active ? 'is-active' : ''}" data-hero-slide="${index}" role="group" aria-roledescription="slide" aria-label="${index + 1} จาก ${slides.length}: ${escapeHtml(slide.slotLabel)}" aria-hidden="${!active}" ${active ? '' : 'inert'}>
-        ${renderSchoolImage(getRecordImage(slide, 'drive_image_id', 'image_url'), slide.imageType, slide.slotLabel, { eager: active, priority: active, wrapperClass: 'hero-art', imageClass: 'hero-art-image', sizes: '(max-width: 767px) 960px, 100vw' })}
-        <div class="hero-shade" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 h-full pt-10 pb-36 flex items-center">
-          <div class="max-w-2xl space-y-4">
-            <span class="inline-flex items-center gap-2 bg-red-100/90 px-3.5 py-1 rounded-full text-xs font-semibold border border-red-200">${escapeHtml(slide.badge || slide.slotLabel)}</span>
-            <h2 class="text-2xl sm:text-4xl font-bold leading-tight">${escapeHtml(slide.title)}</h2>
-            <p class="font-sarabun text-slate-700 text-sm sm:text-base leading-relaxed">${escapeHtml(slide.subtitle)}</p>
-            <div class="pt-2 flex flex-wrap items-center gap-3">
-              <a href="${escapeHtml(slide.cta_link || '#/about')}" class="bg-red-700 hover:bg-red-800 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-sm transition">${escapeHtml(slide.cta_text || 'ดูรายละเอียด')}</a>
-              <a href="#/admissions" class="bg-white/95 hover:bg-red-50 text-red-800 border border-red-200 px-5 py-2.5 rounded-xl font-medium text-sm transition">สมัครเรียนออนไลน์</a>
-            </div>
-          </div>
-        </div>
-      </div>`;
-    }).join('')}
-    <div class="absolute inset-x-0 bottom-20 z-20">
-      <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center gap-2">
+  const active = slides[state.heroIndex];
+  const isPlaceholder = !getRecordImage(active, 'drive_image_id', 'image_url');
+  const button = 'hero-control-button';
+  return `<section id="homeHero" class="school-hero bg-white" role="region" aria-roledescription="carousel" aria-label="ภาพบรรยากาศโรงเรียน">
+    <h2 class="sr-only">ภาพบรรยากาศโรงเรียน</h2>
+    <div class="hero-viewport">
+      ${slides.map(function(slide, index) {
+        const active = index === state.heroIndex;
+        return `<div class="hero-slide ${active ? 'is-active' : ''}" data-hero-slide="${index}" role="group" aria-roledescription="slide" aria-label="${index + 1} จาก ${slides.length}: ${escapeHtml(slide.slotLabel)}" aria-hidden="${!active}" ${active ? '' : 'inert'}>
+          ${renderSchoolImage(getRecordImage(slide, 'drive_image_id', 'image_url'), slide.imageType, slide.slotLabel, { eager: active, priority: active, wrapperClass: 'hero-art', imageClass: 'hero-art-image', sizes: '100vw', externalCaptionId: 'heroImageNotice' })}
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="hero-controls max-w-7xl mx-auto px-4">
+      <div class="hero-navigation">
         <button id="btnPrevHero" type="button" class="${button}" aria-label="สไลด์ก่อนหน้า">◀</button>
-        <div class="flex items-center gap-1.5 px-1">${slides.map((_, i) => `<button type="button" data-hero-dot="${i}" class="hero-dot ${i === state.heroIndex ? 'is-active' : ''}" aria-label="ดูสไลด์ที่ ${i + 1}" aria-current="${i === state.heroIndex ? 'true' : 'false'}"></button>`).join('')}</div>
+        <div class="flex items-center">${slides.map((_, i) => `<button type="button" data-hero-dot="${i}" class="hero-dot ${i === state.heroIndex ? 'is-active' : ''}" aria-label="ดูสไลด์ที่ ${i + 1}" aria-current="${i === state.heroIndex ? 'true' : 'false'}"></button>`).join('')}</div>
         <button id="btnNextHero" type="button" class="${button}" aria-label="สไลด์ถัดไป">▶</button>
+      </div>
+      <div class="hero-play-controls">
         <button id="btnPauseHero" type="button" class="${button} text-xs font-semibold" aria-pressed="${Boolean(state.heroPaused)}">${state.heroPaused ? 'เล่นสไลด์' : 'หยุดสไลด์'}</button>
-        <span id="heroSlideCounter" class="text-xs font-semibold text-red-800 bg-white/95 rounded-full px-2.5 py-1">${state.heroIndex + 1} / ${slides.length}</span>
+        <span id="heroSlideCounter" class="text-xs font-semibold text-red-800">${state.heroIndex + 1} / ${slides.length}</span>
       </div>
     </div>
+    <p id="heroImageNotice" class="max-w-7xl mx-auto px-4 pb-3 text-[11px] text-slate-500" ${isPlaceholder ? '' : 'hidden'}>${isPlaceholder ? AI_IMAGE_NOTICE : ''}</p>
   </section>`;
 }
 
@@ -87,6 +83,11 @@ function mountHomeHero() {
     });
     dots.forEach((dot, i) => { dot.classList.toggle('is-active', i === state.heroIndex); dot.setAttribute('aria-current', String(i === state.heroIndex)); });
     root.querySelector('#heroSlideCounter').textContent = (state.heroIndex + 1) + ' / ' + slides.length;
+    const currentImage = slides[state.heroIndex].querySelector('img');
+    const notice = root.querySelector('#heroImageNotice');
+    const placeholder = currentImage.getAttribute('src').startsWith('./public/images/placeholders/') || currentImage.dataset.fallbackAttempted;
+    notice.hidden = !placeholder;
+    notice.textContent = placeholder ? AI_IMAGE_NOTICE : '';
   }
   function play() {
     stop();

@@ -1,5 +1,7 @@
 # Image Generation Guide
 
+โลโก้โรงเรียนแยกจากภาพประกอบ AI: ส่งออกจาก `public/LogoSchool.png` ที่ผู้ใช้จัดเตรียม เก็บพื้นหลังโปร่งใสและรายละเอียดเดิม ใช้ `npm run assets:logo` เพื่อทำชุดโลโก้ขนาดตามการใช้งานจริง 40/48/64px พร้อมไฟล์ 2x และไอคอนทุกขนาด ดู [SCHOOL_LOGO_GUIDE.md](SCHOOL_LOGO_GUIDE.md)
+
 ## เครื่องมือและผลงาน
 
 ใช้ ImageGen Skill ที่ `C:/Users/Admin/.codex/skills/.system/imagegen/SKILL.md` และ built-in `image_gen.imagegen` จริงทั้งหมด 15 ครั้ง (หนึ่ง prompt ต่อภาพ) วันที่ 19 ตุลาคม 2026 ไม่ใช้ CLI/API fallback, ภาพ stock, SVG หรือ gradient เป็นภาพ AI แทน
@@ -48,7 +50,7 @@ String ว่าง/ช่องว่าง/null/undefined ถือว่า�
 
 รูปที่อัปโหลดสำเร็จไม่มีป้าย AI และไม่มี placeholder srcset มาทับ ส่วนภาพสำรองมี responsive srcset 480w/1200w, sizes, width/height, alt อธิบายว่าเป็นภาพวาด/สมมติ, decoding async และ lazy loading ยกเว้น Hero และภาพที่เพิ่งเปิดใน Popup/Detail/Preview เป็น eager; Hero มี fetchpriority high
 
-Hero ใช้ภาพเฉพาะ 5 หัวข้อเต็มพื้นหลัง สลับทุก 3 วินาที พร้อมชั้นสีขาวไข่มุกโปร่งและข้อความแดงเข้ม ภาพที่อัปโหลดในแต่ละสไลด์มีลำดับความสำคัญก่อนภาพ AI ตามหัวข้อนั้น บนมือถือเลือกไฟล์ใหญ่พอสำหรับการครอปภาพแนวตั้ง ดู [คู่มือสไลด์และ Admin](HERO_SLIDESHOW_GUIDE.md)
+Hero แสดงเฉพาะภาพ 5 หัวข้อ สลับทุก 3 วินาที ไม่มีข้อความ ปุ่ม หรือชั้นสีฟุ้งทับภาพ ปุ่มควบคุมและคำกำกับ AI อยู่ใต้ภาพ ภาพที่อัปโหลดในแต่ละสไลด์มีลำดับความสำคัญก่อนภาพ AI ตามหัวข้อนั้น บนมือถือแสดงภาพสัดส่วน 3:2 ดู [คู่มือสไลด์และ Admin](HERO_SLIDESHOW_GUIDE.md)
 
 ธีม UI ปรับตามคำขอผู้ใช้ให้เหมาะกับเด็กเล็ก: `schoolRed` ใน `index.html` เป็น palette กลางที่ใช้ร่วมกันทั้ง Tailwind `red` และ `maela` สีหลัก `#C83B56`, พื้นชมพู `#FFF2F4` / `#FFE4E9`, พื้นขาวไข่มุก `#F8FAFD` / `#F1F5FB` ใช้กับทุก route รวม modal, footer และ CMS โดยคงภาพต้นฉบับและ prompt ที่ใช้สร้างภาพไว้ตามเดิม
 
@@ -60,7 +62,7 @@ About, curriculum cards/detail และ Admissions ไม่มีฟิลด�
 
 ## Deploy และตรวจสอบซ้ำ
 
-Repository นี้เป็น static SPA ไม่มี Next.js และไม่มี build step ให้ส่ง `index.html`, `image-placeholders.js`, `hero-slideshow.js` และ `public/images/placeholders/` ขึ้น GitHub Pages พร้อมกัน ใช้ relative URL จึงรองรับ repository subdirectory และการเปิด HTML โดยตรง ไม่ควรอัปโหลดเพียง index.html ตามคู่มือรุ่นเก่า
+Repository นี้เป็น static SPA ไม่มี Next.js และไม่มี build step ให้ส่ง `index.html`, `site.webmanifest`, `image-placeholders.js`, `hero-slideshow.js` และ `public/images/` ทั้งโฟลเดอร์ขึ้น GitHub Pages พร้อมกัน ใช้ relative URL จึงรองรับ repository subdirectory และการเปิด HTML โดยตรง ไม่ควรอัปโหลดเพียง index.html ตามคู่มือรุ่นเก่า
 
 เครื่องมือตรวจสอบเป็น dev dependencies เท่านั้น เว็บไซต์ที่ deploy ไม่โหลด Node.js, Playwright หรือ Sharp:
 

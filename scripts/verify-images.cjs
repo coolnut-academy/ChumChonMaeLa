@@ -84,7 +84,7 @@ const server = http.createServer((req, res) => {
             fit: getComputedStyle(img).objectFit, loading: img.loading,
             hasDimensions: img.hasAttribute('width') && img.hasAttribute('height'),
             hasLocalSrc: img.getAttribute('src').startsWith('./public/images/placeholders/'),
-            hasCaption: !img.parentElement.querySelector('figcaption').hidden,
+            hasCaption: !(img.parentElement.querySelector('figcaption') || document.getElementById(img.dataset.externalCaption) || { hidden: true }).hidden,
             renderedWidth: img.getBoundingClientRect().width,
             renderedHeight: img.getBoundingClientRect().height
           }))

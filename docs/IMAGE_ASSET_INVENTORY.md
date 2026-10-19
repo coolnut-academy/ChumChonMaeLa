@@ -1,5 +1,9 @@
 # Image Asset Inventory
 
+## โลโก้ที่ผู้ใช้จัดเตรียม
+
+ใช้ `public/LogoSchool.png` เป็นแหล่งเดียวสำหรับส่วนหัวทุกหน้า ท้ายเว็บ หน้าเข้าสู่ระบบ Admin และ favicon ส่งออกโลโก้โปร่งใส 40/48/64px พร้อมไฟล์ 2x ที่ 80/96/128px สำหรับ `srcset` ใน `public/images/branding/` ส่วนหัวแสดง 48px (มือถือ 40px), ท้ายเว็บ 40px, Admin 64px พร้อม ICO (16/32/48), PNG favicon (16/32), Apple (180) และ Android (192/512) รวม 12 ไฟล์ เป็นการย่อจากตราต้นฉบับ ไม่ใช่ภาพ AI; ไม่มีกรอบ เงา หรือพื้นหลังเพิ่ม ดู [SCHOOL_LOGO_GUIDE.md](SCHOOL_LOGO_GUIDE.md)
+
 วันที่สำรวจ: 19 ตุลาคม 2026
 
 ## โครงสร้างและขอบเขต
@@ -7,7 +11,7 @@
 - เว็บไซต์เป็น static hash-routed SPA ใน `index.html`; API และ Google Drive upload อยู่ใน `Code.gs` ไม่มี Next.js, `next/image`, package manifest หรือ build pipeline เดิม
 - สำรวจ routes ทั้ง 10: `#/home`, `#/about`, `#/academics`, `#/personnel`, `#/news`, `#/admissions`, `#/services`, `#/ita`, `#/contact`, `#/admin` รวม news detail / announcement modals และแท็บ CMS
 - ของเดิม: Hero 2 สไลด์, Popup, news covers ใช้ SVG data URL ที่สร้างด้วยโค้ด; personnel ใช้อักษรย่อเมื่อไม่มีภาพ ไม่มีไฟล์ภาพจริงใน repository ตอนเริ่มงาน
-- SVG icons คงเดิม ส่วน UI ปรับตามคำขอผู้ใช้เป็นแดงสตรอว์เบอร์รี–คอรัลกับชมพูอ่อนและขาวไข่มุก Hero ใช้ภาพวาดโรงเรียนเต็มพื้นหลัง ลบลายตารางเดิม และใช้ชั้นสีขาวไข่มุกโทนเย็นรองข้อความ
+- SVG icons คงเดิม ส่วน UI ปรับตามคำขอผู้ใช้เป็นแดงสตรอว์เบอร์รี–คอรัลกับชมพูอ่อนและขาวไข่มุก Hero แสดงภาพล้วน 5 ภาพ ไม่มีข้อความหรือชั้นสีฟุ้งทับภาพ ปุ่มควบคุมและคำกำกับ AI อยู่ใต้ภาพ
 - ตรวจพบ ImageGen Skill และ built-in `image_gen.imagegen` และทดลองเรียกสร้างภาพ campus สำเร็จ ใช้ built-in mode เท่านั้น
 
 ## ทิศทางภาพ

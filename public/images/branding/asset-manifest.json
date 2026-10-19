@@ -1,0 +1,80 @@
+{
+  "source": "public/LogoSchool.png",
+  "sourceSha256": "8c4ed9ebd890f7615b11eae9b3e4ef0a9accf6f9eacd5f7863d16ad0b7e8d2f6",
+  "sourceSize": {
+    "width": 1024,
+    "height": 1024
+  },
+  "crop": {
+    "left": 32,
+    "top": 24,
+    "width": 952,
+    "height": 959
+  },
+  "processing": "Crop fully transparent outer pixels, preserve aspect ratio, resize directly from original, transparent PNG. No added effects or frame; original emblem artwork retained.",
+  "files": [
+    {
+      "file": "school-logo-40.png",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "file": "school-logo-48.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "file": "school-logo-64.png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "file": "school-logo-80.png",
+      "width": 80,
+      "height": 80
+    },
+    {
+      "file": "school-logo-96.png",
+      "width": 96,
+      "height": 96
+    },
+    {
+      "file": "school-logo-128.png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "file": "favicon-16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "favicon-32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "width": 180,
+      "height": 180
+    },
+    {
+      "file": "android-chrome-192x192.png",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "android-chrome-512x512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "favicon.ico",
+      "sizes": [
+        16,
+        32,
+        48
+      ]
+    }
+  ]
+}
