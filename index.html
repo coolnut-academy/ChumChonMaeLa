@@ -68,37 +68,42 @@
     .school-image img { display: block; max-width: 100%; }
     .school-image-label { position: absolute; right: 6px; bottom: 6px; left: 6px; width: fit-content; max-width: calc(100% - 12px); border-radius: 6px; padding: 3px 6px; background: rgba(255,255,255,.95); color: #475569; font-size: 10px; line-height: 1.5; }
     .school-image-label[hidden] { display: none; }
-    .utility-inner { max-width: 1280px; margin: auto; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
-    .utility-ticker { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; min-width: 0; overflow: hidden; }
-    .utility-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-    .utility-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 8px 12px; border: 1px solid #FFCAD5; border-radius: 10px; background: #fff; color: #AD304B; font-size: 12px; font-weight: 500; white-space: nowrap; }
+    .utility-inner { max-width: 1280px; margin: auto; padding: 10px 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 16px; }
+    .utility-ticker { display: flex; align-items: center; gap: 10px; flex: 0 1 580px; min-width: 0; overflow: hidden; font-size: 13.2px; }
+    .utility-ticker .text-xs { font-size: inherit; }
+    .utility-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+    .utility-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px 12px; border: 1px solid #FFCAD5; border-radius: 10px; background: #fff; color: #AD304B; font-size: 13.2px; font-weight: 500; white-space: nowrap; }
     .utility-button:hover { background: #FFF2F4; border-color: #F88199; }
-    .api-status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 0; font-size: 11px; white-space: nowrap; }
-    .header-top-row { max-width: 1280px; margin: auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .school-brand { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+    .api-status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 0; font-size: 12.1px; white-space: nowrap; }
+    .header-top-row { max-width: 1280px; margin: auto; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 24px; }
+    .school-brand { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 100%; flex: 0 1 auto; }
+    .school-brand-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+    #headerSchoolName { font-size: 22px; }
+    .school-subtitle { font-size: 13.2px; text-align: center; }
+    .school-level-badge { font-size: 12.1px; }
+    #navAcademicYearBadge { font-size: 13.2px; }
     .school-logo { display: block; width: 48px; height: 48px; flex-shrink: 0; object-fit: contain; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; filter: none; }
     .school-logo-footer { width: 40px; height: 40px; }
     .school-logo-admin { width: 64px; height: 64px; }
     .header-actions { display: flex; align-items: center; flex: none; gap: 8px; }
-    .header-apply, .header-menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 1px solid #C83B56; border-radius: 12px; background: #C83B56; color: #fff; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .header-apply, .header-menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 1px solid #C83B56; border-radius: 12px; background: #C83B56; color: #fff; font-size: 14.3px; font-weight: 600; white-space: nowrap; }
     .header-apply:hover { background: #AD304B; }
     .header-menu-toggle { display: none; width: 44px; padding: 10px; background: white; color: #AD304B; border-color: #FFCAD5; }
-    .site-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 1280px; margin: auto; padding: 12px 16px 14px; border-top: 1px solid #F1F5F9; }
-    .header-nav-button, .quick-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 14px; border: 1px solid #E2E8F0; border-radius: 12px; background: #fff; color: #475569; font-size: 13px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
-    .header-nav-button:hover, .quick-link:hover { background: #FFF2F4; border-color: #FFCAD5; color: #AD304B; }
-    .header-nav-button[aria-current="page"], .quick-link-primary { background: #C83B56; color: #fff; border-color: #C83B56; box-shadow: 0 3px 8px rgba(200, 59, 86, .15); }
-    .quick-link-primary:hover { background: #AD304B; color: white; }
-    .header-nav-button:focus-visible, .utility-button:focus-visible, .hero-control-button:focus-visible, .hero-dot:focus-visible, .quick-link:focus-visible { outline: 3px solid #F88199; outline-offset: 3px; }
-    .mobile-navigation { display: flex; flex-wrap: wrap; gap: 8px; }
+    .site-navigation { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; max-width: 1280px; margin: auto; padding: 12px 16px 14px; border-top: 1px solid #F1F5F9; }
+    .header-nav-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 1px solid #E2E8F0; border-radius: 12px; background: #fff; color: #475569; font-size: 14.3px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+    .header-nav-button:hover { background: #FFF2F4; border-color: #FFCAD5; color: #AD304B; }
+    .header-nav-button[aria-current="page"] { background: #C83B56; color: #fff; border-color: #C83B56; box-shadow: 0 3px 8px rgba(200, 59, 86, .15); }
+    .header-nav-button:focus-visible, .utility-button:focus-visible, .header-apply:focus-visible, .header-menu-toggle:focus-visible, .school-brand:focus-visible, .hero-control-button:focus-visible, .hero-dot:focus-visible { outline: 3px solid #F88199; outline-offset: 3px; }
+    .mobile-navigation { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
     .mobile-drawer { max-height: min(55vh, 360px); overflow-y: auto; }
-    .quick-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .quick-link { min-width: 0; min-height: 112px; flex-direction: column; gap: 10px; padding: 16px 10px; border-color: #FFCAD5; border-radius: 18px; color: #AD304B; font-weight: 600; box-shadow: 0 4px 12px rgba(142, 41, 68, .04); transition: background-color .2s, border-color .2s, box-shadow .2s; }
-    .quick-link:hover { border-color: #F88199; box-shadow: 0 6px 18px rgba(142, 41, 68, .1); }
-    .quick-link-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 13px; color: #C83B56; background: #FFF2F4; }
-    .quick-link-icon svg { width: 24px; height: 24px; }
-    .quick-link-primary, .quick-link-primary:hover { color: white; }
-    .quick-link-primary .quick-link-icon { background: rgba(255,255,255,.18); color: white; }
-    .home-welcome { padding-top: 30px; padding-bottom: 36px; }
+    .button-icon { width: 20px; height: 20px; flex-shrink: 0; transition: transform .2s ease; }
+    .utility-button, .header-nav-button, .header-apply, .header-menu-toggle { transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .utility-button:active, .header-nav-button:active, .header-apply:active, .header-menu-toggle:active { transform: scale(.98); }
+    .header-menu-toggle[aria-expanded="true"] .button-icon { transform: rotate(90deg); }
+    @media (hover: hover) and (pointer: fine) {
+      .utility-button:hover, .header-nav-button:hover, .header-apply:hover, .header-menu-toggle:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(200, 59, 86, .12); }
+      .utility-button:hover .button-icon, .header-nav-button:hover .button-icon, .header-apply:hover .button-icon { transform: rotate(-7deg) scale(1.08); }
+    }
     .home-section-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
     .home-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; color: #AD304B; font-size: 12px; font-weight: 600; }
     .home-eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #EB5B79; flex-shrink: 0; }
@@ -182,15 +187,14 @@
     #appMainContainer { min-width: 0; }
     #appMainContainer input, #appMainContainer select, #appMainContainer textarea { min-width: 0; max-width: 100%; }
     #appMainContainer p, footer p { overflow-wrap: anywhere; }
-    @media (min-width: 640px) { .mobile-drawer { display: none; } .quick-links { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (min-width: 1100px) { .quick-links { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+    @media (min-width: 640px) { .mobile-drawer { display: none; } }
     @media (max-width: 639px) {
       .utility-inner { gap: 8px; padding-block: 8px; }
       .utility-ticker { flex-basis: 100%; }
       .api-status { display: none; }
-      .utility-button { min-height: 36px; }
-      .quick-link { font-size: 12px; }
       .header-top-row { padding-block: 12px; }
+      .school-brand { flex-basis: 100%; }
+      #headerSchoolName { font-size: 15.4px; text-align: center; }
       .school-brand { gap: 10px; }
       .school-brand .school-logo { width: 40px; height: 40px; }
       .header-apply { padding-inline: 12px; }
@@ -201,7 +205,12 @@
       #appMainContainer input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), #appMainContainer select, #appMainContainer textarea { font-size: 16px; }
       #appMainContainer button[type="submit"] { min-height: 44px; }
     }
-    @media (prefers-reduced-motion: reduce) { .hero-slide, .hero-dot::before { transition: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide, .hero-dot::before { transition: none; }
+      .animate-ticker { animation: none; }
+      .utility-button, .header-nav-button, .header-apply, .header-menu-toggle, .button-icon { transition: none; }
+      .utility-button:hover, .header-nav-button:hover, .header-apply:hover, .header-menu-toggle:hover, .utility-button:active, .header-nav-button:active, .header-apply:active, .header-menu-toggle:active, .button-icon, .utility-button:hover .button-icon, .header-nav-button:hover .button-icon, .header-apply:hover .button-icon, .header-menu-toggle[aria-expanded="true"] .button-icon { transform: none; }
+    }
   </style>
 </head>
 <body class="bg-pearl-50 text-slate-800 min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
@@ -215,8 +224,8 @@
       </div>
       <div class="utility-actions">
         <span id="apiStatusBadge" class="api-status text-slate-600"><span id="apiStatusDot" class="w-2 h-2 rounded-full bg-emerald-400"></span><span id="apiStatusLabel">พร้อมใช้งาน</span></span>
-        <button id="btnOpenPopup" type="button" class="utility-button">ประกาศสำคัญ</button>
-        <a href="#/admin" class="utility-button">ผู้ดูแลระบบ</a>
+        <button id="btnOpenPopup" type="button" class="utility-button" data-icon="announcement">ประกาศสำคัญ</button>
+        <a href="#/admin" class="utility-button" data-icon="admin">ผู้ดูแลระบบ</a>
       </div>
     </div>
   </div>
@@ -225,16 +234,16 @@
       <a href="#/home" class="school-brand">
         <img class="school-logo" src="./public/images/branding/school-logo-48.png" srcset="./public/images/branding/school-logo-96.png 2x" width="48" height="48" alt="ตราโรงเรียนชุมชนแม่ลาศึกษา" decoding="async" />
         <div class="min-w-0">
-          <div class="flex items-center gap-2">
+          <div class="school-brand-heading">
             <h1 id="headerSchoolName" class="text-sm sm:text-xl font-bold text-red-800 leading-tight">โรงเรียนชุมชนแม่ลาศึกษา</h1>
-            <span class="hidden md:inline-block bg-red-50 text-red-700 border border-red-200 text-[11px] font-semibold px-2 py-0.5 rounded-full">อ.2 – ม.3</span>
+            <span class="school-level-badge hidden md:inline-block bg-red-50 text-red-700 border border-red-200 font-semibold px-2 py-0.5 rounded-full">อ.2 – ม.3</span>
           </div>
-          <p class="hidden sm:block text-xs text-slate-500">Chumchon Maela Suksa School • โรงเรียนขยายโอกาสทางการศึกษา</p>
+          <p class="school-subtitle hidden sm:block text-slate-500">Chumchon Maela Suksa School • โรงเรียนขยายโอกาสทางการศึกษา</p>
         </div>
       </a>
       <div class="header-actions">
-        <a href="#/admissions" class="header-apply">สมัครเรียน <span id="navAcademicYearBadge" class="hidden sm:inline-block bg-white text-red-800 text-xs px-1.5 py-0.5 rounded-md">2569</span></a>
-        <button id="btnMobileMenu" type="button" class="header-menu-toggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mobileMenuDrawer"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <a href="#/admissions" class="header-apply" data-icon="admissions">สมัครเรียน <span id="navAcademicYearBadge" class="hidden sm:inline-block bg-white text-red-800 px-1.5 py-0.5 rounded-md">2569</span></a>
+        <button id="btnMobileMenu" type="button" class="header-menu-toggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mobileMenuDrawer"><svg class="button-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       </div>
     </div>
     <nav class="site-navigation" aria-label="เมนูหลัก">
@@ -871,33 +880,9 @@
 
       const upcomingEvents = (state.db.calendar || []).slice(0, 4);
       const director = (state.db.personnel || []).find(function(p) { return p.status !== 'inactive' && /ผู้อำนวยการ/.test(p.position || '') && !/รอง/.test(p.position || ''); });
-      const quickLinks = [
-        { href: 'admissions', label: 'สมัครเรียน ' + (cfg.academic_year || ''), primary: true, icon: '<path d="M12 3v18M3 12h18"/><path d="m5 5 2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>' },
-        { href: 'academics', label: 'หลักสูตร อ.2–ม.3', icon: '<path d="M12 6v15M12 6C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 2Z"/>' },
-        { href: 'services', label: 'ตารางเรียน', icon: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1m-8 3h1"/>' },
-        { href: 'personnel', label: 'ทำเนียบบุคลากร', icon: '<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m2-16a3 3 0 0 1 0 6m2 10v-2a6 6 0 0 0-2-4"/>' },
-        { href: 'ita', label: 'ข้อมูล ITA', icon: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>' },
-        { href: 'admin', label: 'ผู้ดูแลระบบ', icon: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>' }
-      ];
 
       container.innerHTML = `
         ${renderHomeHero()}
-
-        <section class="home-welcome max-w-7xl mx-auto px-4" aria-labelledby="homeWelcomeTitle">
-          <div class="home-section-heading">
-            <div>
-              <span class="home-eyebrow">ยินดีต้อนรับสู่ชุมชนแม่ลาศึกษา</span>
-              <h2 id="homeWelcomeTitle" class="home-title">ทุกวันเรียนรู้ <span class="home-title-accent">ทุกก้าวเติบโต</span></h2>
-              <p class="home-section-description">พื้นที่แห่งการเรียนรู้และรอยยิ้ม ตั้งแต่อนุบาล 2 ถึงมัธยมศึกษาปีที่ 3</p>
-            </div>
-            <a href="#/about" class="home-section-link">รู้จักโรงเรียนของเรา <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="quick-links">
-            ${quickLinks.map(function(link) {
-              return `<a href="#/${link.href}" class="quick-link ${link.primary ? 'quick-link-primary' : ''}"><span class="quick-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${link.icon}</svg></span><span>${escapeHtml(link.label)}</span></a>`;
-            }).join('')}
-          </div>
-        </section>
 
         <!-- 3. ข้อมูลสถิติและ 3 ระดับชั้นของโรงเรียนขยายโอกาส -->
         <section class="home-learning" aria-labelledby="homeLearningTitle">
@@ -2915,7 +2900,29 @@
      * เริ่มต้นการทำงานของระบบเมื่อโหลดหน้าเว็บเสร็จสมบูรณ์
      * ============================================================================
      */
+    function decorateHeaderButtons() {
+      const paths = {
+        home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>',
+        about: '<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6M9 9h.01M15 9h.01"/>',
+        academics: '<path d="M12 6v15M12 6C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 2Z"/>',
+        personnel: '<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m2-16a3 3 0 0 1 0 6m2 10v-2a6 6 0 0 0-2-4"/>',
+        news: '<rect x="3" y="4" width="18" height="17" rx="3"/><path d="M7 8h10M7 12h4m-4 4h4m4-4h2m-2 4h2"/>',
+        services: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M14 17.5h7m-3.5-3.5v7"/>',
+        ita: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>',
+        contact: '<path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z"/><path d="M7 11h.01M12 11h.01M17 11h.01"/>',
+        admissions: '<path d="m3 9 9-5 9 5-9 5-9-5Zm4 3v6c3 3 7 3 10 0v-6m4-3v7"/>',
+        admin: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>',
+        announcement: '<path d="m3 10 16-6v16L3 14v-4Zm4 5 2 6h4l-2-5m11-7v6"/>'
+      };
+      document.querySelectorAll('header [data-nav], .utility-button[data-icon], .header-apply[data-icon]').forEach(function(button) {
+        const icon = paths[button.dataset.nav || button.dataset.icon];
+        if (!icon || button.querySelector('.button-icon')) return;
+        button.insertAdjacentHTML('afterbegin', `<svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${icon}</svg>`);
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', function() {
+      decorateHeaderButtons();
       loadStateFromStorage();
       syncGlobalChrome();
 
