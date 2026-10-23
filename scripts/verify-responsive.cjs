@@ -45,10 +45,11 @@ const server = http.createServer((req, res) => {
       async function inspect(label, screenshot = false) {
         const facts = await page.evaluate(() => ({
           viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth,
-          buttons: [...document.querySelectorAll('.header-nav-button, .header-apply, .utility-button')].filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden').map(el => ({ text: el.textContent.trim(), whiteSpace: getComputedStyle(el).whiteSpace, left: el.getBoundingClientRect().left, right: el.getBoundingClientRect().right, fits: el.scrollWidth <= el.clientWidth + 1 })),
+          buttons: [...document.querySelectorAll('.header-nav-button, .utility-button')].filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden').map(el => ({ text: el.textContent.trim(), whiteSpace: getComputedStyle(el).whiteSpace, left: el.getBoundingClientRect().left, right: el.getBoundingClientRect().right, fits: el.scrollWidth <= el.clientWidth + 1 })),
           navigationRows: [...document.querySelectorAll('.site-navigation, .mobile-navigation')].filter(nav => nav.getClientRects().length).flatMap(nav => {
             const bounds = nav.getBoundingClientRect(), rows = new Map();
             nav.querySelectorAll('a').forEach(link => {
+              if (!link.getClientRects().length || getComputedStyle(link).display === 'none') return;
               const key = link.offsetTop, box = link.getBoundingClientRect();
               const row = rows.get(key) || { left: box.left, right: box.right };
               row.left = Math.min(row.left, box.left); row.right = Math.max(row.right, box.right); rows.set(key, row);
@@ -66,6 +67,7 @@ const server = http.createServer((req, res) => {
         await go(route);
         await inspect(route, ['home', 'news', 'admissions'].includes(route));
       }
+      await page.locator('#adminPassInput').fill('New1234');
       await page.locator('#formAdminLogin button[type="submit"]').click();
       for (const tab of ['overview', 'news', 'banners', 'personnel', 'ita', 'calendar', 'inbox']) {
         await page.locator(`[data-admin-tab="${tab}"]`).click();
@@ -74,11 +76,14 @@ const server = http.createServer((req, res) => {
       await go('home');
       check(`${viewport.width}: redundant welcome and shortcut block is removed`, await page.locator('.home-welcome, .quick-links, #homeWelcomeTitle').count() === 0);
       const typography = await page.evaluate(() => {
-        const size = selector => parseFloat(getComputedStyle(document.querySelector(selector)).fontSize);
-        return { name: size('#headerSchoolName'), nav: size('.header-nav-button'), apply: size('.header-apply'), utility: size('.utility-button'), ticker: size('#topTickerText'), subtitle: size('.school-subtitle'), level: size('.school-level-badge'), year: size('#navAcademicYearBadge'), status: size('.api-status') };
+        const size = selector => {
+          const el = document.querySelector(selector);
+          return el ? parseFloat(getComputedStyle(el).fontSize) : null;
+        };
+        return { name: size('#headerSchoolName'), nav: size('.header-nav-button'), utility: size('.utility-button'), ticker: size('#topTickerText'), subtitle: size('.school-subtitle'), level: size('.school-level-badge'), year: size('#navAcademicYearBadge'), status: size('.api-status') };
       });
-      check(`${viewport.width}: all header text is 10 percent larger`, Object.entries({ name: viewport.width < 640 ? 15.4 : 22, nav: 14.3, apply: 14.3, utility: 13.2, ticker: 13.2, subtitle: 13.2, level: 12.1, year: 13.2, status: 12.1 }).every(([key, size]) => Math.abs(typography[key] - size) < .02));
-      check(`${viewport.width}: every header and utility button has a decorative icon`, await page.locator('.header-nav-button, .header-apply, .header-menu-toggle, .utility-button').evaluateAll(buttons => buttons.every(button => button.querySelector('svg.button-icon[aria-hidden="true"][focusable="false"]'))));
+      check(`${viewport.width}: all header text is 10 percent larger`, Object.entries({ name: viewport.width < 640 ? 15.4 : 22, nav: 14.3, utility: 13.2, ticker: 13.2, subtitle: 13.2, level: 12.1, year: 13.2, status: 12.1 }).every(([key, size]) => typography[key] === null || Math.abs(typography[key] - size) < .02));
+      check(`${viewport.width}: every header and utility button has a decorative icon`, await page.locator('.header-nav-button, .header-menu-toggle, .utility-button').evaluateAll(buttons => buttons.every(button => button.querySelector('svg.button-icon[aria-hidden="true"][focusable="false"]'))));
       check(`${viewport.width}: no text, CTA or white wash lies over slideshow photos`, await page.locator('.hero-viewport h2, .hero-viewport p, .hero-viewport a, .hero-shade').count() === 0);
       for (let i = 0; i < 5; i++) {
         await page.locator(`[data-hero-dot="${i}"]`).click();

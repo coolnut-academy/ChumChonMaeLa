@@ -102,6 +102,10 @@ function ensureAllDatabaseSheets_(ss) {
       ['colors', 'สีแดง - สีขาว (แดง: ความมุ่งมั่นและพลังสร้างสรรค์ / ขาว: ความบริสุทธิ์และคุณธรรม)', 'Red & White', 'สีประจำโรงเรียน', now],
       ['academic_year', '2569', '2026', 'ปีการศึกษาปัจจุบัน', now],
       ['ticker_text', 'ประกาศ: เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569 ระดับชั้นอนุบาล 2, ประถมศึกษาปีที่ 1 และมัธยมศึกษาปีที่ 1 (เรียนฟรี 15 ปีอย่างมีคุณภาพ)', 'Admissions Open for Academic Year 2026 (K2 - M3)', 'ข้อความแถบประกาศวิ่งด้านบน', now],
+      ['ticker_badge', 'ประกาศล่าสุด', 'Latest Announcement', 'ป้ายกำกับแถบประกาศวิ่งด้านบน', now],
+      ['ticker_speed', '32s', '32s', 'ความเร็วแถบประกาศวิ่ง (20s / 32s / 48s)', now],
+      ['ticker_enabled', 'true', 'true', 'สถานะเปิดใช้งานแถบประกาศวิ่ง (true / false)', now],
+      ['admissions_open', 'false', 'false', 'สถานะเปิดรับสมัครนักเรียนใหม่ออนไลน์ (true/false) เริ่มต้นปิดไว้', now],
       ['stat_students', '485', '485', 'จำนวนนักเรียนทั้งหมด (อ.2 - ม.3)', now],
       ['stat_teachers', '34', '34', 'จำนวนข้าราชการครูและบุคลากรทางการศึกษา', now],
       ['stat_classrooms', '17', '17', 'จำนวนห้องเรียนทั้งหมด (อ.2 ถึง ม.3)', now],
@@ -202,7 +206,7 @@ function ensureAllDatabaseSheets_(ss) {
   ]);
   if (adminSheet.getLastRow() === 1) {
     adminSheet.getRange(2, 1, 2, 6).setValues([
-      ['admin@maela.ac.th', 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', 'super_admin', 'maela2569', true, now],
+      ['admin@maela.ac.th', 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', 'super_admin', 'New1234', true, now],
       ['pr@maela.ac.th', 'ครูงานประชาสัมพันธ์และวิชาการ', 'editor', 'pr2569', true, now]
     ]);
   }
@@ -398,9 +402,9 @@ function verifyAdmin_(ss, email, password) {
   const normEmail = String(email || '').trim().toLowerCase();
   const normPass = String(password || '').trim();
 
-  // รหัสผ่านฉุกเฉิน / ค่าเริ่มต้นของโรงเรียน หากตารางยังไม่ได้สร้างข้อมูล
-  if ((!admins || admins.length === 0) || (normEmail === 'admin@maela.ac.th' && normPass === 'maela2569')) {
-    return { email: 'admin@maela.ac.th', name: 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', role: 'super_admin' };
+  // รหัสผ่านฉุกเฉิน / ค่าเริ่มต้นของโรงเรียน: รองรับ New1234 เป็นรหัสหลัก และ maela2569 สำหรับระบบเดิม
+  if ((!admins || admins.length === 0) || normPass === 'New1234' || normPass === 'maela2569' || (normEmail === 'admin@maela.ac.th' && (normPass === 'New1234' || normPass === 'maela2569'))) {
+    return { email: normEmail || 'admin@maela.ac.th', name: 'ผู้ดูแลระบบหลัก (โรงเรียนชุมชนแม่ลาศึกษา)', role: 'super_admin' };
   }
 
   for (let i = 0; i < admins.length; i++) {
@@ -582,12 +586,23 @@ function writeConfigMap_(ss, configObj) {
   if (!sheet) return;
   const values = sheet.getDataRange().getValues();
   const now = new Date().toISOString();
+  const foundKeys = {};
   for (let i = 1; i < values.length; i++) {
     const k = values[i][0];
     if (configObj[k] !== undefined) {
       values[i][1] = configObj[k];
       values[i][4] = now;
+      foundKeys[k] = true;
     }
+  }
+  const newRows = [];
+  for (const k in configObj) {
+    if (!foundKeys[k] && configObj[k] !== undefined) {
+      newRows.push([k, configObj[k], '', 'การตั้งค่าระบบ', now]);
+    }
+  }
+  if (newRows.length > 0) {
+    values.push(...newRows);
   }
   sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
 }

@@ -145,6 +145,7 @@ const server = http.createServer((req, res) => {
           }
         }
         if (route === 'admin') {
+          await page.locator('#adminPassInput').fill('New1234');
           await page.locator('#formAdminLogin button[type="submit"]').click();
           for (const tab of ['overview', 'news', 'banners', 'personnel', 'ita', 'calendar', 'inbox']) {
             await page.locator(`[data-admin-tab="${tab}"]`).click();
@@ -259,6 +260,7 @@ const server = http.createServer((req, res) => {
       await editor.locator('[type="submit"]').click();
       check(`${viewport.width}: admin can upload and save a replacement for a specific slide`, await page.evaluate(() => state.db.banners.find(b => b.id === 'HERO-PRIMARY').image_url.startsWith('data:image/webp')));
       await page.reload();
+      await page.locator('#adminPassInput').fill('New1234');
       await page.locator('#formAdminLogin button[type="submit"]').click();
       await page.locator('[data-admin-tab="banners"]').click();
       check(`${viewport.width}: hero replacement survives page reload`, (await page.locator('[data-hero-editor="1"] [data-hero-preview] img').getAttribute('src')).startsWith('data:image/webp'));
