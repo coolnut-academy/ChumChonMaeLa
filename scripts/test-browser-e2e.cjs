@@ -170,6 +170,61 @@ const server = http.createServer((req, res) => {
     await mobilePage.screenshot({ path: path.join(out, 'screenshot-mobile-menu.png') });
     console.log('✓ Captured screenshot-mobile-menu.png');
 
+    // 7. ทดสอบหน้าทำเนียบบุคลากร (Personnel Cards & Modal Details)
+    await page.goto(origin + '/#/personnel');
+    await page.waitForTimeout(500);
+
+    // ตรวจสอบว่าการ์ดบุคลากรแสดงผลเป็น Card พร้อมรูปภาพขนาดใหญ่
+    const personnelCards = page.locator('#appMainContainer [data-person-card]');
+    const cardCount = await personnelCards.count();
+    assert(cardCount >= 10, 'Must have at least 10 personnel cards rendered');
+    console.log(`✓ Found ${cardCount} personnel cards`);
+
+    // ตรวจสอบขนาดภาพถ่ายในการ์ดแรก (ต้องใหญ่กว่า 150px ทั้งความกว้างและความสูง)
+    const firstCard = personnelCards.first();
+    const firstImg = firstCard.locator('img[data-school-image]');
+    assert(await firstImg.isVisible(), 'Personnel card image must be visible');
+    const imgBox = await firstImg.boundingBox();
+    console.log('First personnel image bounding box:', imgBox);
+    assert(imgBox.width > 150, 'Personnel image width must be significantly larger than 64px');
+    assert(imgBox.height > 180, 'Personnel image height must be significantly larger than 64px');
+
+    await page.screenshot({ path: path.join(out, 'screenshot-personnel-grid.png') });
+    console.log('✓ Captured screenshot-personnel-grid.png');
+
+    // คลิกที่การ์ดเพื่อเปิดดูข้อมูลและภาพเต็มใน Modal
+    await firstCard.click();
+    await page.waitForTimeout(400);
+
+    const modalBackdrop = page.locator('#globalModalBackdrop');
+    assert(await modalBackdrop.isVisible(), 'Personnel detail modal must open on card click');
+
+    const modalTitle = await page.locator('#globalModalTitle').innerText();
+    assert(modalTitle.includes('เกียรติศักดิ์'), 'Modal title must display personnel name');
+
+    const modalImg = modalBackdrop.locator('img[data-school-image]');
+    assert(await modalImg.isVisible(), 'Modal must display large personnel photo');
+    const modalImgBox = await modalImg.boundingBox();
+    console.log('Modal personnel image bounding box:', modalImgBox);
+    assert(modalImgBox.width > 200, 'Modal personnel image must be large');
+
+    // ตรวจสอบข้อมูลใน Modal
+    const modalBodyText = await modalBackdrop.innerText();
+    assert(modalBodyText.includes('ผู้อำนวยการโรงเรียนชุมชนแม่ลาศึกษา'), 'Modal must display position');
+    assert(modalBodyText.includes('คณะผู้บริหาร'), 'Modal must display department');
+    assert(modalBodyText.includes('กศ.ม. (การบริหารการศึกษา)'), 'Modal must display education');
+    assert(modalBodyText.includes('director@maela.ac.th'), 'Modal must display email');
+    assert(modalBodyText.includes('101'), 'Modal must display phone extension');
+
+    await page.screenshot({ path: path.join(out, 'screenshot-personnel-modal.png') });
+    console.log('✓ Captured screenshot-personnel-modal.png');
+
+    // ปิดโมดอล
+    await page.locator('#btnClosePersonnelModal').click();
+    await page.waitForTimeout(300);
+    assert(await modalBackdrop.isHidden(), 'Modal must close when close button is clicked');
+    console.log('✓ Personnel modal closes cleanly');
+
     console.log('\n🎉 ALL E2E BROWSER TESTS PASSED 100%!');
   } finally {
     await browser.close();
