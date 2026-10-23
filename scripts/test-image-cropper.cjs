@@ -156,6 +156,7 @@ const server = http.createServer((req, res) => {
 
     // 6. ทดสอบ Crop ในฟอร์มแบนเนอร์ (Banners/Popup)
     await page.locator('[data-admin-tab="banners"]').click();
+    await page.waitForSelector('#formAdminBanner');
     const bnFileInput = page.locator('#bnFileInput');
     await bnFileInput.setInputFiles(testImage);
     await page.waitForSelector('#imageCropperModal', { state: 'visible' });
