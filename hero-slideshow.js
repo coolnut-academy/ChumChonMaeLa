@@ -108,9 +108,30 @@ function mountHomeHero() {
   play();
 }
 
-function readHeroImageFile(file) {
+function readHeroImageFile(file, options) {
   return new Promise(function(resolve, reject) {
     if (!file.type.startsWith('image/')) { reject(new Error('กรุณาเลือกไฟล์ภาพ')); return; }
+    const opts = options || {};
+    if (typeof window !== 'undefined' && typeof window.openImageCropper === 'function') {
+      window.openImageCropper({
+        file: file,
+        aspectRatio: 16 / 9,
+        aspectPreset: '16:9',
+        title: opts.title || 'ภาพสไลด์หน้าแรก (Hero)',
+        targetWidth: 1600,
+        quality: 0.82,
+        onInitialCrop: function(quickUrl) {
+          if (typeof opts.onInitial === 'function') opts.onInitial(quickUrl);
+        },
+        onConfirm: function(dataUrl) {
+          resolve(dataUrl);
+        },
+        onCancel: function() {
+          if (typeof opts.onCancel === 'function') opts.onCancel();
+        }
+      }).then(resolve).catch(reject);
+      return;
+    }
     const reader = new FileReader();
     reader.onerror = () => reject(new Error('อ่านไฟล์ภาพไม่ได้'));
     reader.onload = function() {
@@ -133,47 +154,89 @@ function readHeroImageFile(file) {
 function mountHeroAdminSlots(container) {
   const slides = getHeroSlides(true).slice(0, 5);
   const driveUrl = (state.db && state.db.config && state.db.config.drive_root_folder_url) || 'https://drive.google.com/drive/folders/1SKRLFjJ1HmoVufV8zxNJdtWPBNI6BSfc?usp=sharing';
-  container.innerHTML = `<div class="mb-4"><h3 class="font-bold text-slate-900 text-lg">ภาพสไลด์หน้าแรก 5 ภาพ</h3><p class="text-xs text-slate-600 mt-1">เลื่อนอัตโนมัติทุก 3 วินาที • เปลี่ยนภาพและข้อความแยกแต่ละสไลด์ได้ • แนะนำภาพแนวนอน</p><p class="text-xs text-slate-500 mt-1 flex items-center justify-between flex-wrap gap-1"><span>${state.gasUrl ? 'เมื่อเลือกไฟล์ ระบบจะอัปโหลดไปคลังภาพ Google Drive หลังบันทึกให้กดซิงก์ขึ้น Google Sheets เพื่อเผยแพร่ทุกอุปกรณ์' : 'ขณะนี้บันทึกในเครื่องนี้ หากต้องการเผยแพร่ทุกอุปกรณ์ ให้เชื่อมต่อ API และใช้ภาพจากคลัง Google Drive ก่อนกดซิงก์'}</span><a href="${driveUrl}" target="_blank" rel="noopener noreferrer" class="text-red-700 font-semibold hover:underline">📁 เปิด Google Drive คลังโรงเรียน ↗</a></p></div>
+  container.innerHTML = `<div class="mb-4"><h3 class="font-bold text-slate-900 text-lg">ภาพสไลด์หน้าแรก 5 ภาพ</h3><p class="text-xs text-slate-600 mt-1">เลื่อนอัตโนมัติทุก 3 วินาที • เปลี่ยนภาพและข้อความแยกแต่ละสไลด์ได้ • มีระบบ Crop กำหนดส่วนที่จะแสดงผลบนเว็บ ไม่ให้ภาพเพี้ยนหรือหัวขาด</p><p class="text-xs text-slate-500 mt-1 flex items-center justify-between flex-wrap gap-1"><span>${state.gasUrl ? 'เมื่อเลือกไฟล์ ระบบจะอัปโหลดไปคลังภาพ Google Drive หลังบันทึกให้กดซิงก์ขึ้น Google Sheets เพื่อเผยแพร่ทุกอุปกรณ์' : 'ขณะนี้บันทึกในเครื่องนี้ หากต้องการเผยแพร่ทุกอุปกรณ์ ให้เชื่อมต่อ API และใช้ภาพจากคลัง Google Drive ก่อนกดซิงก์'}</span><a href="${driveUrl}" target="_blank" rel="noopener noreferrer" class="text-red-700 font-semibold hover:underline">📁 เปิด Google Drive คลังโรงเรียน ↗</a></p></div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">${slides.map(function(slide, index) {
       return `<form data-hero-editor="${index}" class="bg-white border border-red-100 rounded-2xl p-4 shadow-sm space-y-3 min-w-0">
         <h4 class="font-bold text-red-800 text-sm">${index + 1}. ${escapeHtml(slide.slotLabel)}</h4>
         <div data-hero-preview></div>
-        <label class="block text-xs font-medium text-slate-700">เลือกภาพใหม่<input data-hero-file type="file" accept="image/jpeg,image/png,image/webp" class="block mt-1 w-full text-xs" /></label>
+        <div class="flex items-center justify-between gap-2">
+          <label class="block text-xs font-medium text-slate-700 flex-1">เลือกภาพใหม่ (เปิดระบบ Crop ทันที)<input data-hero-file type="file" accept="image/jpeg,image/png,image/webp" class="block mt-1 w-full text-xs text-slate-600" /></label>
+          <button data-hero-recrop type="button" class="hidden mt-4 px-2 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-[11px] font-semibold shrink-0" title="ปรับแต่งการครอบตัดภาพนี้ใหม่">✂️ ครอปใหม่</button>
+        </div>
         <label class="block text-xs font-medium text-slate-700">หรือ Google Drive File ID / URL<input data-hero-url type="text" class="block mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-xs" /></label>
         <label class="block text-xs font-medium text-slate-700">หัวข้อ<input data-hero-title type="text" required value="${escapeHtml(slide.title)}" class="block mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-xs" /></label>
         <label class="block text-xs font-medium text-slate-700">คำอธิบาย<textarea data-hero-subtitle rows="2" class="block mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-xs">${escapeHtml(slide.subtitle)}</textarea></label>
-        <div class="flex flex-wrap gap-2"><button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-3 py-2 rounded-lg text-xs font-semibold">บันทึกสไลด์นี้</button><button data-hero-reset type="button" class="bg-red-50 text-red-800 border border-red-200 px-3 py-2 rounded-lg text-xs">ใช้ภาพ AI</button></div>
+        <div class="flex flex-wrap gap-2"><button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-3 py-2 rounded-lg text-xs font-semibold shadow-sm">บันทึกสไลด์นี้</button><button data-hero-reset type="button" class="bg-red-50 text-red-800 border border-red-200 px-3 py-2 rounded-lg text-xs">ใช้ภาพ AI</button></div>
         <p data-hero-message class="text-xs text-slate-600" role="status"></p>
       </form>`;
     }).join('')}</div>`;
   container.querySelectorAll('[data-hero-editor]').forEach(function(form, index) {
     const slide = slides[index];
     const file = form.querySelector('[data-hero-file]');
+    const btnRecrop = form.querySelector('[data-hero-recrop]');
     const url = form.querySelector('[data-hero-url]');
     const message = form.querySelector('[data-hero-message]');
     let pending;
     let version = 0;
     let processing = false;
+    let lastSelectedFile = null;
     url.value = getRecordImage(slide, 'drive_image_id', 'image_url') || '';
     function preview() {
       form.querySelector('[data-hero-preview]').innerHTML = renderSchoolImage(pending ?? nonEmptyImage(url.value), slide.imageType, slide.slotLabel, { eager: true, imageClass: 'w-full aspect-[3/2] object-cover rounded-xl', sizes: '(max-width: 767px) 100vw, 400px' });
+      if (btnRecrop) {
+        btnRecrop.classList.toggle('hidden', !(pending || lastSelectedFile));
+      }
     }
     file.addEventListener('change', async function() {
       const chosen = file.files[0];
       if (!chosen) return;
+      lastSelectedFile = chosen;
       const request = ++version;
       processing = true;
       try {
-        const image = await readHeroImageFile(chosen);
+        const image = await readHeroImageFile(chosen, {
+          title: slide.slotLabel,
+          onInitial: function(quickUrl) {
+            if (!form.isConnected || request !== version) return;
+            pending = quickUrl;
+            preview();
+          },
+          onCancel: function() {
+            if (request === version) {
+              processing = false;
+              if (!pending) file.value = '';
+            }
+          }
+        });
         if (!form.isConnected || request !== version) return;
         pending = image;
-        message.textContent = 'ภาพใหม่พร้อมแล้ว กดบันทึกสไลด์นี้เพื่อเปลี่ยนภาพ';
+        message.textContent = '✓ ครอปและย่อรูปเป็น WebP สำเร็จ กดบันทึกสไลด์นี้เพื่อเปลี่ยนภาพ';
         preview();
       } catch (error) { if (request === version) message.textContent = error.message; }
       finally { if (request === version) processing = false; }
     });
-    url.addEventListener('input', function() { version++; processing = false; pending = undefined; file.value = ''; message.textContent = ''; preview(); });
-    form.querySelector('[data-hero-reset]').addEventListener('click', function() { version++; processing = false; pending = undefined; file.value = ''; url.value = ''; message.textContent = 'กดบันทึกสไลด์นี้เพื่อกลับไปใช้ภาพ AI'; preview(); });
+    if (btnRecrop) {
+      btnRecrop.addEventListener('click', function() {
+        if (!lastSelectedFile && !pending) return;
+        if (typeof window.openImageCropper === 'function') {
+          window.openImageCropper({
+            file: lastSelectedFile,
+            imageSrc: pending,
+            aspectRatio: 16 / 9,
+            aspectPreset: '16:9',
+            title: slide.slotLabel,
+            targetWidth: 1600,
+            onConfirm: function(dataUrl) {
+              pending = dataUrl;
+              message.textContent = '✓ อัปเดตการครอบตัดเรียบร้อย พร้อมบันทึกสไลด์นี้';
+              preview();
+            }
+          });
+        }
+      });
+    }
+    url.addEventListener('input', function() { version++; processing = false; pending = undefined; lastSelectedFile = null; file.value = ''; message.textContent = ''; preview(); });
+    form.querySelector('[data-hero-reset]').addEventListener('click', function() { version++; processing = false; pending = undefined; lastSelectedFile = null; file.value = ''; url.value = ''; message.textContent = 'กดบันทึกสไลด์นี้เพื่อกลับไปใช้ภาพ AI'; preview(); });
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
       if (processing) { message.textContent = 'กำลังเตรียมภาพ กรุณารอสักครู่'; return; }

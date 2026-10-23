@@ -3,7 +3,8 @@
   "private": true,
   "description": "Optional local verification tools; the site remains a static HTML SPA.",
   "scripts": {
-    "test": "node scripts/test-admin-ticker.cjs && node scripts/test-browser-e2e.cjs",
+    "test": "node scripts/test-admin-ticker.cjs && node scripts/test-browser-e2e.cjs && node scripts/test-image-cropper.cjs",
+    "test:cropper": "node scripts/test-image-cropper.cjs",
     "assets:logo": "node scripts/export-school-logo.cjs",
     "verify:images": "node scripts/verify-images.cjs",
     "verify:responsive": "node scripts/verify-responsive.cjs"

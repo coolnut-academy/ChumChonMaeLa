@@ -15,6 +15,7 @@ const check = (name, actual) => { assert(actual, name); report.checks.push(name)
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 for (const match of html.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
 new vm.Script(fs.readFileSync(path.join(root, 'image-placeholders.js'), 'utf8'));
+new vm.Script(fs.readFileSync(path.join(root, 'image-cropper.js'), 'utf8'));
 new vm.Script(fs.readFileSync(path.join(root, 'hero-slideshow.js'), 'utf8'));
 new vm.Script(fs.readFileSync(path.join(root, 'Code.gs'), 'utf8'));
 check('All inline and external JavaScript parses', true);
@@ -182,6 +183,10 @@ const server = http.createServer((req, res) => {
       await page.waitForFunction(() => state.pendingCompressedDataUrl.startsWith('data:image/webp'));
       check(`${viewport.width}: newly selected file previews before saving`, (await page.locator('#newsImagePreview img').getAttribute('src')).startsWith('data:image/webp'));
       check(`${viewport.width}: upload preview has no AI placeholder label`, await page.locator('#newsImagePreview figcaption').isHidden());
+      if (await page.locator('#imageCropperModal').isVisible()) {
+        await page.locator('#btnCropperConfirm').click();
+        await page.waitForSelector('#imageCropperModal', { state: 'hidden' });
+      }
       await page.locator('#formAdminNews button[type="submit"]').click();
       check(`${viewport.width}: new upload wins over previous Drive ID`, await page.evaluate(() => { const item = state.db.news.find(n => n.id === 'IMAGE-TEST'); return item.cover_drive_id === '' && item.cover_url.startsWith('data:image/webp'); }));
 
@@ -257,6 +262,10 @@ const server = http.createServer((req, res) => {
       editor = page.locator('[data-hero-editor="1"]');
       await editor.locator('[data-hero-file]').setInputFiles(path.join(root, 'public/images/placeholders/secondary-science-careers.webp'));
       await page.waitForFunction(() => document.querySelector('[data-hero-editor="1"] [data-hero-preview] img').getAttribute('src').startsWith('data:image/webp'));
+      if (await page.locator('#imageCropperModal').isVisible()) {
+        await page.locator('#btnCropperConfirm').click();
+        await page.waitForSelector('#imageCropperModal', { state: 'hidden' });
+      }
       await editor.locator('[type="submit"]').click();
       check(`${viewport.width}: admin can upload and save a replacement for a specific slide`, await page.evaluate(() => state.db.banners.find(b => b.id === 'HERO-PRIMARY').image_url.startsWith('data:image/webp')));
       await page.reload();
@@ -285,6 +294,10 @@ const server = http.createServer((req, res) => {
       editor = page.locator('[data-hero-editor="4"]');
       await editor.locator('[data-hero-file]').setInputFiles(path.join(root, 'public/images/placeholders/primary-reading-discovery.webp'));
       await page.waitForFunction(() => document.querySelector('[data-hero-editor="4"] [data-hero-preview] img').getAttribute('src').startsWith('data:image/webp'));
+      if (await page.locator('#imageCropperModal').isVisible()) {
+        await page.locator('#btnCropperConfirm').click();
+        await page.waitForSelector('#imageCropperModal', { state: 'hidden' });
+      }
       const originalCover = await page.evaluate(() => JSON.stringify(state.db.banners.find(b => b.id === 'HERO-CLASSROOM')));
       await editor.locator('[type="submit"]').click();
       await page.waitForFunction(() => document.querySelector('[data-hero-editor="4"] [data-hero-message]').textContent.includes('Simulated'));
