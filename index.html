@@ -993,6 +993,118 @@
             .header-menu-toggle[aria-expanded="true"] .button-icon {
                 transform: none;
             }
+
+            .cozy-dev-badge,
+            .cozy-dev-flower,
+            .cozy-dev-flower-left,
+            .cozy-dev-flower-right {
+                animation: none;
+                transition: none;
+            }
+
+            .cozy-dev-badge:hover {
+                transform: none;
+            }
+
+            .cozy-dev-badge:hover .cozy-dev-flower-left,
+            .cozy-dev-badge:hover .cozy-dev-flower-right {
+                transform: none;
+            }
+        }
+
+        /* Cozy Purple Developer Badge */
+        .cozy-dev-badge-wrapper {
+            margin-top: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-inline: 0.5rem;
+        }
+
+        .cozy-dev-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1.15rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 50%, #FDF4FF 100%);
+            border: 1.5px solid #D8B4FE;
+            box-shadow: 0 2px 10px rgba(168, 85, 247, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            color: #581C87;
+            font-size: 0.8125rem;
+            line-height: 1.35;
+            font-family: 'Prompt', 'Sarabun', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            max-width: 100%;
+        }
+
+        .cozy-dev-badge:hover {
+            transform: translateY(-2px);
+            border-color: #C084FC;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5EEFF 50%, #FAF0FF 100%);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.22), inset 0 1px 2px rgba(255, 255, 255, 1);
+        }
+
+        .cozy-dev-flower {
+            display: inline-block;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .cozy-dev-flower-left {
+            animation: cozyFlowerWiggle 4s ease-in-out infinite;
+        }
+
+        .cozy-dev-flower-right {
+            animation: cozyFlowerWiggle 4s ease-in-out infinite 2s;
+        }
+
+        .cozy-dev-badge:hover .cozy-dev-flower-left {
+            transform: rotate(-18deg) scale(1.2);
+            animation-play-state: paused;
+        }
+
+        .cozy-dev-badge:hover .cozy-dev-flower-right {
+            transform: rotate(18deg) scale(1.2);
+            animation-play-state: paused;
+        }
+
+        @keyframes cozyFlowerWiggle {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            25% {
+                transform: rotate(-6deg) scale(1.08);
+            }
+            75% {
+                transform: rotate(6deg) scale(1.08);
+            }
+        }
+
+        .cozy-dev-label {
+            color: #7E22CE;
+            font-weight: 400;
+        }
+
+        .cozy-dev-name {
+            color: #4C1D95;
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }
+
+        @media (max-width: 639px) {
+            .cozy-dev-badge {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.85rem;
+                gap: 0.375rem;
+            }
+
+            .cozy-dev-flower {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -1142,9 +1254,19 @@
                 </div>
             </div>
         </div>
-        <div class="bg-red-100/60 py-4 text-center text-xs text-slate-600 px-4">
+        <div class="bg-red-100/60 pt-4 pb-16 sm:pb-4 text-center text-xs text-slate-600 px-4">
             <p>© <span id="footerYear">2569</span> โรงเรียนชุมชนแม่ลาศึกษา (Chumchon Maela Suksa School) •
                 ขับเคลื่อนด้วยสถาปัตยกรรม GitHub Pages + Google Sheets Database + Google Drive Storage</p>
+            <div class="cozy-dev-badge-wrapper">
+                <div class="cozy-dev-badge" title="ผู้พัฒนาเว็บไซต์ โรงเรียนชุมชนแม่ลาศึกษา">
+                    <span class="cozy-dev-flower cozy-dev-flower-left" aria-hidden="true">🌸</span>
+                    <span class="cozy-dev-text">
+                        <span class="cozy-dev-label">พัฒนาโดย:</span>
+                        <strong class="cozy-dev-name">นางสาวศุทธินี ถาวร</strong>
+                    </span>
+                    <span class="cozy-dev-flower cozy-dev-flower-right" aria-hidden="true">🌷</span>
+                </div>
+            </div>
         </div>
     </footer>
 
