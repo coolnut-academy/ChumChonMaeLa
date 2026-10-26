@@ -1270,20 +1270,6 @@
         </div>
     </footer>
 
-    <!-- แถบแจ้งเตือนคุกกี้และ PDPA (PDPA Consent Banner) -->
-    <div id="pdpaBanner"
-        class="hidden fixed bottom-4 inset-x-4 max-w-4xl mx-auto z-40 bg-white border-2 border-red-700 rounded-2xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="text-xs sm:text-sm text-slate-700">
-            <p class="font-bold text-red-800 mb-0.5">การคุ้มครองข้อมูลส่วนบุคคล (PDPA) โรงเรียนชุมชนแม่ลาศึกษา</p>
-            <p class="font-sarabun">เว็บไซต์นี้ใช้คุกกี้ที่จำเป็นต่อการทำงานของระบบ
-                และเผยแพร่ภาพกิจกรรมเพื่อการศึกษาโดยคำนึงถึงสิทธิส่วนบุคคลของนักเรียนและบุคลากรตาม พ.ร.บ.
-                คุ้มครองข้อมูลส่วนบุคคล</p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
-            <button id="btnAcceptPdpa" type="button"
-                class="bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow transition">รับทราบและยินยอม</button>
-        </div>
-    </div>
 
     <!-- โมดอลกลางสำหรับอ่านข่าว / ดูโปสเตอร์ประกาศ / ดูเอกสาร PDF / ยืนยันการลบ -->
     <div id="globalModalBackdrop"
@@ -4541,22 +4527,8 @@
                 btnPopup.addEventListener('click', openAnnouncementPopup);
             }
 
-            // ปุ่มนโยบาย PDPA
-            const pdpaBanner = document.getElementById('pdpaBanner');
-            const btnAcceptPdpa = document.getElementById('btnAcceptPdpa');
+            // ปุ่มนโยบาย PDPA (เปิดดูผ่านเมนูด้านล่าง)
             const btnOpenPdpaModal = document.getElementById('btnOpenPdpaModal');
-            try {
-                if (!localStorage.getItem(STORAGE_KEY_PDPA) && pdpaBanner) {
-                    pdpaBanner.classList.remove('hidden');
-                }
-            } catch (e) { }
-            if (btnAcceptPdpa && pdpaBanner) {
-                btnAcceptPdpa.addEventListener('click', function () {
-                    pdpaBanner.classList.add('hidden');
-                    try { localStorage.setItem(STORAGE_KEY_PDPA, '1'); } catch (e) { }
-                    showToast('บันทึกการยอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล (PDPA) แล้ว', 'success');
-                });
-            }
             if (btnOpenPdpaModal) {
                 btnOpenPdpaModal.addEventListener('click', function () {
                     openGlobalModal(
