@@ -257,14 +257,18 @@ function mountHeroAdminSlots(container) {
         const record = { ...base, id: slide.id, type: 'hero', title: form.querySelector('[data-hero-title]').value.trim(), subtitle: form.querySelector('[data-hero-subtitle]').value.trim(), ...imageFields };
         const position = state.db.banners.findIndex(b => b.id === slide.id);
         if (position === -1) state.db.banners.push(record); else state.db.banners[position] = record;
-        saveDatabaseToStorage();
+        if (typeof window.autoSyncDatabaseToCloud === 'function') {
+          await window.autoSyncDatabaseToCloud('บันทึกสไลด์และซิงก์ขึ้น Google Sheets สำเร็จ');
+        } else {
+          saveDatabaseToStorage();
+        }
         Object.assign(slide, record);
         pending = undefined;
         file.value = '';
         url.value = getRecordImage(record, 'drive_image_id', 'image_url') || '';
         preview();
-        message.textContent = state.gasUrl ? 'บันทึกแล้ว กดซิงก์ขึ้น Google Sheets เพื่อเผยแพร่ทุกอุปกรณ์' : 'บันทึกสไลด์แล้ว เปิดหน้าแรกเพื่อดูภาพใหม่';
-        showToast('บันทึกสไลด์ที่ ' + (index + 1) + ' แล้ว', 'success');
+        message.textContent = state.gasUrl ? 'บันทึกภาพขึ้น Google Drive และซิงก์ Google Sheets เรียบร้อยแล้ว' : 'บันทึกสไลด์แล้ว เปิดหน้าแรกเพื่อดูภาพใหม่';
+        showToast('บันทึกสไลด์ที่ ' + (index + 1) + ' เรียบร้อยแล้ว', 'success');
       } catch (error) { message.textContent = error.message; showToast(error.message, 'error'); }
       finally { submit.disabled = false; }
     });
